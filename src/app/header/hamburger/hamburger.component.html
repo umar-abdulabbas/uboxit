@@ -1,0 +1,15 @@
+ 
+    <div class="button_container" id="toggle" (click)="onClick()" [ngClass]="{'active': wasClicked}">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+    </div>
+    <div class="overlay" id="overlay" [ngClass]="{'open': wasClicked}">
+      <nav class="overlay-menu">
+          <ul>
+              <li *ngFor="let header of headers">
+                <a href="{{header.menuLink}}" title="{{header.menuTitle}}">{{header.menuItem | uppercase}}</a>
+              </li>
+          </ul>
+      </nav>
+    </div>

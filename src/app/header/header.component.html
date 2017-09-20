@@ -1,0 +1,23 @@
+<header>
+      <div class="uboxitDesktop">
+            <div class="uboxitHeaderContainer">
+                  <div class="uboxitLeft"><img src="assets/images/logo.png" width="80px"/></div>
+                  <div class="uboxitRight">
+                      <span class="uboxitHeaderDesktopMenu">
+                      <ul>
+                          <li *ngFor="let header of headers">
+                            <a href="{{header.menuLink}}" title="{{header.menuTitle}}">{{header.menuItem | uppercase}}</a>
+                          </li>
+                      </ul>
+                    </span> <!--// .uboxitHeaderDesktopMenu -->
+                    <span class="uboxitHeaderMobileMenu">
+                        <app-hamburger></app-hamburger>
+                    </span>
+                  </div> 
+                  <div class="uboxitClear"></div>
+            </div>
+      </div>
+      <div class="uboxitMobile">
+         
+      </div>
+</header>

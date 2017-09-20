@@ -2,10 +2,13 @@
 /* Major Colors are noted Header - #ff675c and Gray - f7f7f7 */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
 html, body{ height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif;}
     .uboxitWrapper{ height: 100%; display: flex; flex-direction: column; }
     .uboxitContainer, .uboxitHeaderContainer{  flex: 1; overflow: auto; margin: 0 auto;}
-    .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c; box-shadow: 0 2px 5px 0 rgba(224, 213, 193, 0.8)}
+    .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c; box-shadow: 0 2px 5px 0 rgba(224, 213, 193, 0.8); z-index: 90}
     .uboxitFooter{height:50px; background: #f7f7f7; }
     .uboxitClear{ clear: both}
     .uboxitLeft{ float: left; display: inline; }
@@ -19,6 +22,7 @@ html, body{ height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif;}
         .uboxitContainer, .uboxitHeaderContainer{width: 100%;}
         .uboxitHeaderDesktopMenu { display: none; }
         .uboxitHeaderMobileMenu  { display: block; }
+       
     }
     @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
         .uboxitContainer, .uboxitHeaderContainer{width: 100%;}

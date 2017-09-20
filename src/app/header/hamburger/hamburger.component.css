@@ -52,7 +52,7 @@
     height: 27px;
     width: 35px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 101;
     transition: opacity .25s ease;
   }
   .button_container:hover {
@@ -99,11 +99,13 @@
     visibility: hidden;
     transition: opacity .35s, visibility .35s, height .35s;
     overflow: hidden;
+    
   }
   .overlay.open {
     opacity: .9;
     visibility: visible;
     height: 100%;
+    z-index: 100;
   }
   .overlay.open li {
     animation: fadeInRight .5s ease forwards;

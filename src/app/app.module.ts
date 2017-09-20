@@ -12,6 +12,7 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
     FooterComponent,
     HamburgerComponent,
     BannerComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$uboxit-theme-primary: mat-palette($mat-red, 500);
+$uboxit-theme-accent: mat-palette($mat-blue);
+$uboxit-theme-warn: mat-palette($mat-red);
+
+$uboxit-theme: mat-light-theme(
+     $uboxit-theme-primary,
+     $uboxit-theme-accent,
+     $uboxit-theme-warn
+);
+
+@include angular-material-theme($uboxit-theme);

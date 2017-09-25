@@ -8,7 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 //Material Componets Added 
 
-import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule } from '@angular/material';
+import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule } from '@angular/material';
+import { BarMenuComponent } from './bar-menu/bar-menu.component';
 
 
 
@@ -19,7 +20,8 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
     HeaderComponent,
     FooterComponent,
     HamburgerComponent,
-    BannerComponent
+    BannerComponent,
+    BarMenuComponent
     
   ],
   imports: [
@@ -31,7 +33,8 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
     MdCheckboxModule,
     MdToolbarModule,
     MdSidenavModule,
-    MdTabsModule
+    MdTabsModule,
+    MdGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

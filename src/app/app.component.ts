@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, HostListener, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public headerFixed:boolean = false;
+  public uboxitMenu:boolean = false;
+  @Input()
+  backgroundColor
+  constructor(){
+
+  }
+  ngOnInit() {
+    this.backgroundColor = "blue"
+  }
+
+  @HostListener("window:scroll",['$event']) 
+    onWindowScroll($event){
+      let headerScroll = window.scrollY;
+      if (headerScroll > 40 ){
+        this.headerFixed = true;
+      }
+      else if(this.headerFixed && headerScroll < 5 ){
+        this.headerFixed = false;
+      }
+      if(headerScroll > 270 ){
+        this.uboxitMenu = true;
+      }
+      else if(this.headerFixed && headerScroll < 200 ){
+        this.uboxitMenu = false;
+      }
+  }
+
 }

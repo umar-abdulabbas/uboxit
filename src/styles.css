@@ -5,10 +5,13 @@
 
 
 
-html, body{ height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif;}
-    .uboxitWrapper{ height: 100%; display: flex; flex-direction: column; }
-    .uboxitContainer, .uboxitHeaderContainer{  flex: 1; overflow: auto; margin: 0 auto;}
-    .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c; box-shadow: 0 2px 5px 0 rgba(224, 213, 193, 0.8); z-index: 90}
+html, body{   margin: 0; font-family: 'Open Sans', sans-serif;}
+    .uboxitWrapper{  display: flex; flex-direction: column; min-height: 1000px }
+    .uboxitContainer, .uboxitHeaderContainer{  flex: 1; overflow: auto; margin: 0 auto; height: 1900px}
+    .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c;  width: 100%; position: fixed; top:0px; left: 0px; z-index: 90;}
+    .headerFixed{  box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.14), 
+        0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084); }
+    .uboxitMenu{ position: fixed; top:70px; z-index: 110; height: 50px;}
     .uboxitFooter{height:50px; background: #f7f7f7; }
     .uboxitClear{ clear: both}
     .uboxitLeft{ float: left; display: inline; }
@@ -49,3 +52,22 @@ html, body{ height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif;}
         .uboxitHeaderDesktopMenu { display: block; }
         .uboxitHeaderMobileMenu  { display: none; }
     }
+
+    .mat-tab-header-pagination-before .mat-tab-header-pagination-chevron, .mat-tab-header-rtl .mat-tab-header-pagination-after .mat-tab-header-pagination-chevron{
+        border-color: #ff675c !important;
+    }
+    .mat-tab-header-pagination-chevron{
+        border-color: #ff675c !important;
+    }
+    .mat-tab-nav-bar, .mat-tab-header{
+        border-bottom: none!important;
+    }
+    .mat-tab-label, .mat-tab-link{
+        color:rgba(0,0,0,1) !important;
+        font-family: 'Open Sans', sans-serif !important;
+    }
+
+    .md-grid-tile {
+        background: lightblue;
+      }
+      

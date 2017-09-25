@@ -11,7 +11,8 @@ html, body{   margin: 0; font-family: 'Open Sans', sans-serif;}
     .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c;  width: 100%; position: fixed; top:0px; left: 0px; z-index: 90;}
     .headerFixed{  box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.14), 
         0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084); }
-    .uboxitMenu{ position: fixed; top:70px; z-index: 110; height: 50px;}
+    .uboxitMenu{ position: fixed; top:70px; z-index: 110; height: 50px; width:1170px; background-color: #f7f7f7;
+    }
     .uboxitFooter{height:50px; background: #f7f7f7; }
     .uboxitClear{ clear: both}
     .uboxitLeft{ float: left; display: inline; }

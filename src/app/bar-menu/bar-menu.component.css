@@ -1,0 +1,38 @@
+
+.uboxitMenuContainer{
+  height: 48px; 
+}
+.uboxitMenuLeft{
+    width:5%;  float: left; font-size: 35px; text-align: center; color:#ff675c;
+}
+.uboxitMenuCenter{
+    xwidth:90%;  float: left;
+}
+.uboxitMenuRight{
+     width:5%;  float: right;font-size: 35px; text-align: center; color:#ff675c;
+}
+.mat-tab-link:active{
+    border-bottom: 3px solid #ff675c;
+}
+.active{
+    border-bottom: 3px solid #ff675c;
+}
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
+    
+}
+@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+   
+}
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+   
+}
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
+    
+    
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+    
+}
+@media (min-width:1281px) { /* hi-res laptops and desktops */
+    
+}

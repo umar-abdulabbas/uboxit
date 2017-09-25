@@ -1,6 +1,19 @@
 import { Component, Inject, HostListener, Input, OnInit } from '@angular/core';
-
-
+export class Offers{
+    id:string;
+    image:string;
+    title:string;
+    foodtype:string;
+    rate:number;
+}
+const OFFERS: Offers[] =[
+  { id:"1", image:"../../assets/images/indian-food-platter.jpg", title:"South Indian", foodtype:"Indian", rate:400},
+  { id:"1", image:"../../assets/images/indian-food-platter.jpg", title:"South Indian", foodtype:"Indian", rate:400},
+  { id:"1", image:"../../assets/images/indian-food-platter.jpg", title:"South Indian", foodtype:"Indian", rate:400},
+  { id:"1", image:"../../assets/images/indian-food-platter.jpg", title:"South Indian", foodtype:"Indian", rate:400},
+  { id:"1", image:"../../assets/images/indian-food-platter.jpg", title:"South Indian", foodtype:"Indian", rate:400},
+  { id:"1", image:"../../assets/images/indian-food-platter.jpg", title:"South Indian", foodtype:"Indian", rate:400},
+]
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +22,7 @@ import { Component, Inject, HostListener, Input, OnInit } from '@angular/core';
 export class AppComponent {
   public headerFixed:boolean = false;
   public uboxitMenu:boolean = false;
+  offers =OFFERS;
   @Input()
   backgroundColor
   constructor(){

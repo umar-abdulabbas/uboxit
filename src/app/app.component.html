@@ -6,43 +6,30 @@
     </div> <!-- // .ubboxitHeader-->
     <app-banner></app-banner>
     <div class="uboxitContainer">
-        <div [class.uboxitMenu]="uboxitMenu" style="background-color:#ccc;">
-               <!-- <md-tab-group disableRipple dynamicHeight="false" [backgroundColor]>
-                        <md-tab label="South Indian">
-                        <div>
-                            <md-grid-list cols="1" rowHeight="1:1">
-                                <md-grid-tile>1</md-grid-tile>
-                                <md-grid-tile>2</md-grid-tile>
-                                <md-grid-tile>3</md-grid-tile>
-                                <md-grid-tile>4</md-grid-tile>
-                                <md-grid-tile>1</md-grid-tile>
-                                <md-grid-tile>2</md-grid-tile>
-                                <md-grid-tile>3</md-grid-tile>
-                                <md-grid-tile>4</md-grid-tile>
-                              </md-grid-list>
-                        </div>
-
-                        </md-tab>
-                        <md-tab label="North Indian">North Indian</md-tab>
-                        <md-tab label="Make your own">Make your own</md-tab>
-                        <md-tab label="Soups and Salads" color>Soups and Salads</md-tab>
-                        <md-tab label="Quick Bites">Quick Bites</md-tab>
-                        <md-tab label="Make your own">Make your own</md-tab>
-                        <md-tab label="Desserts">Desserts</md-tab>
-                        <md-tab label="Pizza">Pizza</md-tab>
-                </md-tab-group> -->
-                 <nav md-tab-nav-bar >
-                    <a md-tab-link>Hia</a>
-                    <a md-tab-link>Hia</a>
-                    <a md-tab-link>Hia</a>
-                    <a md-tab-link>Hia</a>
-                    <a md-tab-link>Hia</a>
-                    <a md-tab-link>Hia</a>
-                    <a md-tab-link>Hia</a>
-                   
-                  </nav>
-        </div>  
-    </div> 
+        <div [class.uboxitMenu]="uboxitMenu">
+              
+                  <app-bar-menu></app-bar-menu>
+        </div> 
+         <md-grid-list cols="3" rowHeight="1:1">
+                <md-grid-tile *ngFor="let offer of offers">
+                    <md-card class="example-card">
+                       
+                    <img md-card-image src="{{offer.image}}" alt="Photo of a Shiba Inu">
+                     <md-card-content>
+                    <h4>{{offer.title}}</h4>
+                    </md-card-content>
+                <md-card-actions>
+                     <button md-button color="primary">Primary</button>
+                    <button md-button>SHARE</button>
+                </md-card-actions>
+</md-card>
+                </md-grid-tile>
+                
+        </md-grid-list>
+    </div>
+    <div>
+       
+    </div>
   <div class="uboxitFooter">2</div> <!-- //.uboxitFooter -->
 
 </div> <!-- //. uboxitWrapper End -->

@@ -1,0 +1,14 @@
+md-grid-tile {
+  xbackground: lightblue;
+  
+}
+
+.example-card {
+  width: 300px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.example-header-image {
+  
+  background-size: cover;
+}

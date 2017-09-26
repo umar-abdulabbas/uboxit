@@ -52,7 +52,7 @@
     }
   },
   "defaults": {
-    "styleExt": "scss",
+    "styleExt": "",
     "component": {
     }
   }

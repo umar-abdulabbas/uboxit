@@ -1,38 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="uboxitWrapper">
-    
-    <div class="ubboxitHeader" [class.headerFixed]="headerFixed">
-        <app-header></app-header>  
-    </div> <!-- // .ubboxitHeader-->
-    <app-banner></app-banner>
-    <div class="uboxitContainer">
-        <div [class.uboxitMenu]="uboxitMenu">
-              
-                  <app-bar-menu></app-bar-menu>
-        </div> 
-         <md-grid-list cols="3" rowHeight="1:1">
-                <md-grid-tile *ngFor="let offer of offers">
-                    <md-card class="example-card">
-                       
-                    <img md-card-image src="{{offer.image}}" alt="Photo of a Shiba Inu">
-                     <md-card-content>
-                    <h4>{{offer.title}}</h4>
-                    </md-card-content>
-                <md-card-actions>
-                     <button md-button color="primary">Primary</button>
-                    <button md-button>SHARE</button>
-                </md-card-actions>
-</md-card>
-                </md-grid-tile>
+<div class="uboxitwrapper">
+        <div class="uboxitheader">
+            <app-header></app-header>
+        </div><!--//.uboxitheader -->
+        <div class="uboxitcontent">
+            <div xstyle="height:1000px;">
                 
-        </md-grid-list>
-    </div>
-    <div>
-       
-    </div>
-  <div class="uboxitFooter">2</div> <!-- //.uboxitFooter -->
+            </div>
+        </div> <!--//.uboxitcontent -->
+        <div class="uboxitfooter">Footer
 
-</div> <!-- //. uboxitWrapper End -->
+        </div> <!--//.uboxitfooter -->
+</div> <!-- //.uboxitwrapper -->
 
 
-  
+

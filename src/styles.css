@@ -8,8 +8,13 @@ html, body {  height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif; }
     display: flex;
     flex-direction: column;
   }
-  .uboxitheader, .uboxitfooter {
+  .uboxitheader {
     background: #ff675c;
+  }
+  .uboxitfooter {
+     background: #f7f7f7;
+     height: 70px;
+     border-top:1px solid #ccc;
   }
   .uboxitcontent {
     flex: 1;
@@ -17,7 +22,27 @@ html, body {  height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif; }
     background: #ededed;
   }
 
-
+.bg-primary {
+    background: #ff675c;
+    box-shadow:0px 0px 1px 1px rgba(255, 103, 92, 0.14);
+}
+.btn{
+     background: #ff675c;
+    box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.14);
+    border:0;
+    color: #fff;
+   
+}
+.btn.btn-action{
+ padding: 0.3rem;
+ height: auto; width: auto;
+}
+.btn:focus, .btn:hover{
+    background: none;
+    border-color: #ff675c;
+    text-decoration: none;
+     box-shadow:0px 0px 1px 1px rgba(255, 255, 2555, 1);
+}
 xhtml,xbody{   margin: 0; font-family: 'Open Sans', sans-serif; height: 100%;}
     .uboxitWrapper{  display: flex; flex-direction: column; height: 100%;}
     .uboxitContainer{  flex: 1; overflow: auto; margin: 0 auto;}

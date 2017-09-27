@@ -1,9 +1,12 @@
- 
-    <div class="button_container" id="toggle" (click)="onClick()" [ngClass]="{'active': wasClicked}">
+    <button class="btn btn-action uboxitMenuDoc button_container" id="toggle" (click)="onClick()" [ngClass]="{'active': wasClicked}">
+        <i class="material-icons">{{mnuName}}</i>
+       
+    </button>
+    <!--<div class="button_container" id="toggle" (click)="onClick()" [ngClass]="{'active': wasClicked}">
             <span class="top"></span>
             <span class="middle"></span>
             <span class="bottom"></span>
-    </div>
+    </div>-->
     <div class="overlay" id="overlay" [ngClass]="{'open': wasClicked}">
       <nav class="overlay-menu">
           <ul>

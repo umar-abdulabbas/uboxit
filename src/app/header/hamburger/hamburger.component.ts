@@ -9,12 +9,19 @@ import { HeaderService } from '../header.service';
 export class HamburgerComponent implements OnInit {
   wasClicked:boolean = false;
   headers: Header[];
+  mnuName="menu";
   constructor( private headerservice:HeaderService) { }
 
   ngOnInit() {
   }
   onClick() {
-        this.wasClicked= !this.wasClicked;
+        this.wasClicked = !this.wasClicked;
+        if(this.wasClicked){
+          this.mnuName = "close";
+        }
+        else{
+          this.mnuName = "menu";
+        }
         this.getHeaders();
         
     }

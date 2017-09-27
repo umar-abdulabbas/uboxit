@@ -13,7 +13,7 @@ html, body {  height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif; }
   }
   .uboxitfooter {
      background: #f7f7f7;
-     height: 70px;
+     height: 50px;
      border-top:1px solid #ccc;
   }
   .uboxitcontent {
@@ -24,7 +24,7 @@ html, body {  height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif; }
 
 .bg-primary {
     background: #ff675c;
-    box-shadow:0px 0px 1px 1px rgba(255, 103, 92, 0.14);
+    box-shadow:0px 0px 1px 1px rgba(255, 255, 255, 0.9);
 }
 .btn{
      background: #ff675c;
@@ -49,11 +49,12 @@ xhtml,xbody{   margin: 0; font-family: 'Open Sans', sans-serif; height: 100%;}
     .ubboxitHeader, .uboxitFooter { background: #ff675c;}
 
     .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c;  width: 100%; position: fixed; top:0px; left: 0px; z-index: 90;}
-    .headerFixed{  box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.14), 
-        0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084); }
+    .headerFixed{  
+         box-shadow:0 2px 5px 0 rgba(0,0,0,.3);
+         }
     .uboxitMenu{ position: fixed; top:70px; z-index: 110; height: 50px; width:1170px; background-color: #f7f7f7;
     }
-    .uboxitFooter{height:50px; background: #f7f7f7; }
+    .uboxitFooter{height:30px; background: #f7f7f7; }
     .uboxitClear{ clear: both}
     .uboxitRight{float:right; display: inline;}
     

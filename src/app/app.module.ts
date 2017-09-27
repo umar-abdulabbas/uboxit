@@ -10,6 +10,7 @@ import { BannerComponent } from './banner/banner.component';
 
 import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule } from '@angular/material';
 import { BarMenuComponent } from './bar-menu/bar-menu.component';
+import { OffersComponent } from './offers/offers.component';
 
 
 
@@ -21,7 +22,8 @@ import { BarMenuComponent } from './bar-menu/bar-menu.component';
     FooterComponent,
     HamburgerComponent,
     BannerComponent,
-    BarMenuComponent
+    BarMenuComponent,
+    OffersComponent
     
   ],
   imports: [

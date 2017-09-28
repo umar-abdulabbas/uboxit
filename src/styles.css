@@ -2,113 +2,60 @@
 /* Major Colors are noted Header - #ff675c and Gray - f7f7f7 */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body {  height: 100%;  margin: 0; font-family: 'Open Sans', sans-serif; }
-  .uboxitwrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; background: #ededed}
+   .uboxitLoading { position:fixed; left:50%; top:48%; background:#000; color:#000; }
+   .uboxitwrapper { display: block; position: relative; }
+   .uboxitHeader { position: fixed;  width: 100%; background: #ff675c ; height: 60px; z-index: 500 }
+        .headerFixed{box-shadow:0 2px 5px 0 rgba(0,0,0,.3);height: 60px;}
+        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:60px;}
+    .uboxitClear{ clear:both;}
+  /*spectre override*/
+  body::-webkit-scrollbar{
+      width: 6px;
+      height: 6px;
   }
-  .uboxitheader {
-    background: #ff675c;
+  body::-webkit-scrollbar-thumb{
+      background: #ccc;
+     
+      outline: 1px solid #333
   }
-  .uboxitfooter {
-     background: #f7f7f7;
-     height: 50px;
-     border-top:1px solid #ccc;
+  body::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3)
   }
-  .uboxitcontent {
-    flex: 1;
-    overflow: auto;
-    background: #ededed;
-  }
-
-.bg-primary {
-    background: #ff675c;
-    box-shadow:0px 0px 1px 1px rgba(255, 255, 255, 0.9);
-}
-.btn{
-     background: #ff675c;
-    box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.14);
-    border:0;
-    color: #fff;
-   
-}
-.btn.btn-action{
- padding: 0.3rem;
- height: auto; width: auto;
-}
-.btn:focus, .btn:hover{
-    background: none;
-    border-color: #ff675c;
-    text-decoration: none;
-     box-shadow:0px 0px 1px 1px rgba(255, 255, 2555, 1);
-}
-xhtml,xbody{   margin: 0; font-family: 'Open Sans', sans-serif; height: 100%;}
-    .uboxitWrapper{  display: flex; flex-direction: column; height: 100%;}
-    .uboxitContainer{  flex: 1; overflow: auto; margin: 0 auto;}
-    .ubboxitHeader, .uboxitFooter { background: #ff675c;}
-
-    .ubboxitHeader { padding-top:20px; height:50px; background: #ff675c;  width: 100%; position: fixed; top:0px; left: 0px; z-index: 90;}
-    .headerFixed{  
-         box-shadow:0 2px 5px 0 rgba(0,0,0,.3);
-         }
-    .uboxitMenu{ position: fixed; top:70px; z-index: 110; height: 50px; width:1170px; background-color: #f7f7f7;
-    }
-    .uboxitFooter{height:30px; background: #f7f7f7; }
-    .uboxitClear{ clear: both}
-    .uboxitRight{float:right; display: inline;}
+  .loading::after{
     
-    /*Header Style*/
-    .uboxitHeaderDesktopMenu { display: block; }
-    .uboxitHeaderMobileMenu  { display: none; }
+    animation: loading .5s infinite linear;
+    border: .1rem solid #ff675c;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: .8rem;
+    left: 50%;
+    margin-left: -.4rem;
+    margin-top: -.4rem;
+    position: absolute;
+    top: 50%;
+    width: .8rem;
+    z-index: 1;
+  }
 
-    @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
-        .uboxitContainer, .uboxitHeaderContainer{width: 100%;}
-        .uboxitHeaderDesktopMenu { display: none; }
-        .uboxitHeaderMobileMenu  { display: block; }
-       
-    }
-    @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
-        .uboxitContainer, .uboxitHeaderContainer{width: 100%;}
-        .uboxitHeaderDesktopMenu { display: none; }
-        .uboxitHeaderMobileMenu  { display: block; }
-    }
-    @media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-        .uboxitContainer, .uboxitHeaderContainer{width: 600px;}
-        .uboxitHeaderDesktopMenu { display: block; }
-        .uboxitHeaderMobileMenu  { display: none; }
-    }
-    @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
-        .uboxitContainer, .uboxitHeaderContainer{width: 750px;}
-        .uboxitHeaderDesktopMenu { display: block; }
-        .uboxitHeaderMobileMenu  { display: none; }
-    }
-    @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
-        .uboxitContainer, .uboxitHeaderContainer{width: 970px;}
-        .uboxitHeaderDesktopMenu { display: block; }
-        .uboxitHeaderMobileMenu  { display: none; }
-    }
-    @media (min-width:1281px) { /* hi-res laptops and desktops */
-        .uboxitContainer, .uboxitHeaderContainer{width: 1170px;}
-        .uboxitHeaderDesktopMenu { display: block; }
-        .uboxitHeaderMobileMenu  { display: none; }
-    }
+  .btn:focus{
+    box-shadow:none;
+  }
+  .btn.btn-link{
+      color:#fff;
+  }
 
-    .mat-tab-header-pagination-before .mat-tab-header-pagination-chevron, .mat-tab-header-rtl .mat-tab-header-pagination-after .mat-tab-header-pagination-chevron{
-        border-color: #ff675c !important;
-    }
-    .mat-tab-header-pagination-chevron{
-        border-color: #ff675c !important;
-    }
-    .mat-tab-nav-bar, .mat-tab-header{
-        border-bottom: none!important;
-    }
-    .mat-tab-label, .mat-tab-link{
-        color:rgba(0,0,0,1) !important;
-        font-family: 'Open Sans', sans-serif !important;
-    }
+  .badge:not([data-badge])::after, .badge[data-badge]::after{
+      color:#ff675c;
+      background: #fff;
+  }
+  .btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover{
+      color:#fff;
+     
+  }
+  /*spectre override*/
 
-    .md-grid-tile {
-        background: lightblue;
-      }
-      
+  /*Animation override*/

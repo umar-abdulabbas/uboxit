@@ -17,10 +17,10 @@ export class AppComponent {
    
   }
 
-  @HostListener("window:scroll",['$event']) 
+  @HostListener("window:scroll",['$events']) 
     onWindowScroll($event){
       let headerScroll = window.scrollY;
-      if (headerScroll > 40 ){
+      if (headerScroll > 50 ){
         this.headerFixed = true;
       }
       else if(this.headerFixed && headerScroll < 5 ){
@@ -28,6 +28,7 @@ export class AppComponent {
       }
       if(headerScroll > 270 ){
         this.uboxitMenu = true;
+        this.headerFixed = false;
       }
       else if(this.headerFixed && headerScroll < 200 ){
         this.uboxitMenu = false;

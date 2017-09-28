@@ -1,42 +1,7 @@
-.uboxitbanner{
-    transform:translate3d(0px, 0px, 0px); 
-    min-height:300px;
-    height:auto; 
-    background-image:url("../../assets/images/banner.jpg"); 
-    background-size:cover;
-    background-position-y:-171px;
-    background-repeat:no-repeat;
+.carousel-container{
+   height:300px;
 }
 
-.uboxitBanTxt{
-    font-size: 54px; text-align: center;  line-height: 300px; color: #fff ; text-shadow: 2px 2px 4px #000000;;
-}
-
-@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
-    .uboxitbanner{min-height:200px;  background-position-y:0;}
-    .uboxitBanTxt{
-        font-size: 14px; padding-top:50px;line-height: 200px;   color: #fff; text-shadow: 2px 2px 4px #000000;;
-    }
-    body{background: #000;}
-}
-@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
-    .uboxitbanner{min-height:300px;  background-position-y:-100px;}
-}
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    .uboxitbanner{min-height:300px;  background-position-y:-100px;}
-}
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .uboxitbanner{min-height:300px;  background-position-y:-100px;}
-    
-}
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
-    .uboxitbanner{min-height:300px;  background-position-y:-100px;}
-}
-@media (min-width:1281px) { /* hi-res laptops and desktops */
-    .uboxitBanTxt{
-        font-size: 54px; text-align: center;  line-height: 300px; color: #fff ; text-shadow: 2px 2px 4px #000000;;
-    }
-}
 .animated {
     animation-duration: 1s;
     animation-fill-mode: both;
@@ -56,4 +21,8 @@
   .fadeIn {
     animation-name: fadeIn;
   }
-  
+  @media only screen and (max-width: 480px) {
+    .carousel-container{
+        height:200px;
+     }
+}

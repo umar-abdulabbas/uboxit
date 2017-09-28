@@ -6,3 +6,22 @@
         
         margin-left:0.5rem;
 }
+.uboxitLogo{
+    position: relative;
+    top: 10px;
+}
+.uboxitLogo.desktop{
+    display: block;
+}
+.uboxitLogo.mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .uboxitLogo.desktop{
+        display: none;
+    }
+    .uboxitLogo.mobile{
+        display: block;
+    }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
 
@@ -10,6 +10,7 @@ import { HeaderService } from './header.service';
 })
 export class HeaderComponent implements OnInit {
   headers: Header[];
+  public headerFixed:boolean = false;
   constructor( private headerservice:HeaderService) { }
 
   ngOnInit() {
@@ -19,4 +20,7 @@ export class HeaderComponent implements OnInit {
   getHeaders():void{
     this.headerservice.getHeaders().then(headers => this.headers = headers)
   }
+
+
+
 }

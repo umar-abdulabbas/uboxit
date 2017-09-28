@@ -5,9 +5,18 @@
 	margin: 0px;
 }
 .card{
-	width: 300px;
+	width: 310px;
 	height: 400px;
 }
+.line::before{
+	position:absolute;
+	right:calc(100% + 25px);
+}
+.line::after{
+	    position: absolute;
+    left: calc(100% + 25px);
+}
+
 /*  COLUMN SETUP  */
 .col {
 	display: block;
@@ -33,7 +42,7 @@
 	width: 49.2%;
 }
 .span_1_of_4 {
-	width: 23.8%;
+	width: 25%;
 }
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */

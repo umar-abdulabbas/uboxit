@@ -37,3 +37,55 @@
     
 }
 
+
+.menudes {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  xmargin: 40px auto;
+  background: #FFF;
+  font-size:0;
+}
+.menudes a {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  width: 20%; /* 100% divided of number of elements */
+  box-sizing: border-box;
+  border-right: 2px solid #e8e8e8;
+  padding: 10px 5px;
+  color: #333;
+  text-decoration: none;
+  text-align:center;
+  font-size: 14px;
+}
+.menudes a:nth-child(5){
+    border-right:0px;
+}
+.marca {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -30%; /* at least width of .menudes a */
+  width: 20%;
+  height: 40px;
+  box-sizing: border-box;
+  background: #ff675c;
+  opacity:.5;
+  transition: 0.5s ease-in-out;
+}
+.menudes a:nth-child(1):hover ~ .marca {
+  left: 0%; 
+}
+.menudes a:nth-child(2):hover ~ .marca {
+  left: 20%; /* 1/4 total width */
+}
+.menudes a:nth-child(3):hover ~ .marca {
+  left: 40%; /* 2/4 total width */
+}
+.menudes a:nth-child(4):hover ~ .marca {
+  left: 60%; /* 3/4 total width */
+}
+.menudes a:nth-child(5):hover ~ .marca {
+  left: 80%; /* 3/4 total width */
+}

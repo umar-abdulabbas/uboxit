@@ -6,8 +6,8 @@
 }
 .card{
 	
-	xheight: 430px;
-	margin-right: 1%;
+	
+	xmargin-right: calc(100% + 1%);
 }
 .card-footer{
 	border-top:1px solid #f7f7f7;
@@ -49,11 +49,127 @@
 	width: 49.2%;
 }
 .span_1_of_4 {
-	width: 33.33%;
+	width: 32%;
+		flex-wrap: wrap;
+	justify-content: space-between
 }
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
 	.col {  margin: 1% 0 1% 0%; }
 	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; }
+	.equalHMV { width:100% !important; margin: 1%; }
+
+
+}
+
+
+
+.paddingBlock {
+  padding: 20px 0;
+}
+
+.eqWrap {
+  display: flex;
+}
+
+.eq {
+  padding: 10px;
+}
+
+
+
+.equalHW {
+  flex: 1;
+}
+
+.equalHMWrap {
+  justify-content: space-between;
+}
+
+.equalHM {
+  width: 32%;
+}
+
+.equalHMRWrap {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.equalHMR {
+  width: 32%;
+  margin-bottom: 2%;
+}
+
+.equalHMVWrap {
+  flex-wrap: wrap;
+}
+
+.equalHMV {
+  width: 32%;
+  margin: 1%;
+}
+
+.equalHMV:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+.equalHMV:nth-of-type(3n+1) {
+  margin-left: 0;
+}
+
+
+
+
+
+.menudes {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  xmargin: 40px auto;
+  background: #FFF;
+  font-size:0;
+}
+.menudes a {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  width: 20%; /* 100% divided of number of elements */
+  box-sizing: border-box;
+  border-right: 2px solid #e8e8e8;
+  padding: 10px 5px;
+  color: #333;
+  text-decoration: none;
+  text-align:center;
+  font-size: 14px;
+}
+.menudes a:nth-child(5){
+    border-right:0px;
+}
+.marca {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -30%; /* at least width of .menudes a */
+  width: 20%;
+  height: 40px;
+  box-sizing: border-box;
+  background: #ff675c;
+  opacity:.5;
+  transition: 0.5s ease-in-out;
+}
+.menudes a:nth-child(1):hover ~ .marca {
+  left: 0%; 
+}
+.menudes a:nth-child(2):hover ~ .marca {
+  left: 20%; /* 1/4 total width */
+}
+.menudes a:nth-child(3):hover ~ .marca {
+  left: 40%; /* 2/4 total width */
+}
+.menudes a:nth-child(4):hover ~ .marca {
+  left: 60%; /* 3/4 total width */
+}
+.menudes a:nth-child(5):hover ~ .marca {
+  left: 80%; /* 3/4 total width */
 }

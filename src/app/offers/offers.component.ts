@@ -37,9 +37,9 @@ export class OffersComponent implements OnInit {
     this.selectedOffer = offer;
   }
   close():void{
-      //this.active = false;
+      this.active = false;
   }
   open():void{
-     // this.active = true;
+    console.log("ujar");
   }
 }

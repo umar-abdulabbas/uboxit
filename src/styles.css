@@ -7,7 +7,7 @@ html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; ba
    .uboxitwrapper { display: block; position: relative; }
    .uboxitHeader { position: fixed;  width: 100%; background: #ff675c ; height: 60px; z-index: 500 }
         .headerFixed{ box-shadow:0 2px 5px 0 rgba(0,0,0,.3);height: 60px;}
-        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:60px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3); }
+        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:60px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);z-index: 600 }
     .uboxitClear{ clear:both;}
   /*spectre override*/
   body::-webkit-scrollbar{

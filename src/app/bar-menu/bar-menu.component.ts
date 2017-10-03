@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-bar-menu',
@@ -12,18 +12,6 @@ export class BarMenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  @HostListener("window:scroll",['$event']) 
-  onWindowScroll($event){
-    console.log($event);
-    let headerScroll = window.scrollY;
-    if (headerScroll > 120 ){
-      this.barFixed = true;
-     
-    }
-    else if(this.barFixed && headerScroll < 5 ){
-      this.barFixed = false;
-    }
-   
-}
+
 
 }

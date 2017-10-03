@@ -25,7 +25,7 @@ html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; ba
   .loading::after{
     
     animation: loading .5s infinite linear;
-    border: .1rem solid #ff675c;
+    border: .1rem solid #FF655A;
     border-radius: 50%;
     border-right-color: transparent;
     border-top-color: transparent;
@@ -49,12 +49,20 @@ html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; ba
   }
 
   .badge:not([data-badge])::after, .badge[data-badge]::after{
-      color:#ff675c;
+      color:#FF655A;
       background: #fff;
   }
   .btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover{
       color:#fff;
      
+  }
+  .btn.btn-primary{
+    background:#FF655A;
+    border-color:#FF655A;
+  }
+  .btn.btn-primary:focus, .btn.btn-primary:hover{
+    background:#FFAC8B;
+    border-color:#FFAC8B;
   }
   /*spectre override*/
 

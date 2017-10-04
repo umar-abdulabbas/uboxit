@@ -62,7 +62,16 @@
 }
 
 }
-
+.uboxitSelect{
+  width: 100%;
+  xborder: .1rem solid #FF655A;
+  xbackground: #FF655A;
+  height: 29px;
+  text-align: center;
+  border-radius: 0px;
+  background:#FFF url("../../assets/images/ic_keyboard_arrow_down_black_24dp_1x.png") no-repeat 96% 0;
+   border:0px;
+}
 .menudes {
   position: relative;
   overflow: hidden;

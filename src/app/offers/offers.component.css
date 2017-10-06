@@ -9,6 +9,9 @@
 	
 	xmargin-right: calc(100% + 1%);
 }
+.modal.active .modal-container, .modal:target .modal-container{
+  max-width:500px;
+}
 .card-footer{
 	border-top:1px solid #f7f7f7;
 }

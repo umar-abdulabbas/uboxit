@@ -31,6 +31,14 @@ export class OffersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let body = document.getElementsByTagName('body')[0];
+    
+     if(this.active){
+        body.classList.add("body-overflow");
+     }
+     else{
+      body.classList.remove("body-overflow");
+     }
   }
   onSelect(offer:Offer):void{
     console.log(offer);

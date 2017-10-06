@@ -1,4 +1,4 @@
-<div class="container grid-xl"> 
+<div class="container grid-lg"> 
   <div class="column">
     
    <div class="text-center " style="padding-top:30px; padding-bottom:10px;">
@@ -10,7 +10,7 @@
       <div class="equalHMVWrap eqWrap">
             <div class="equalHMV eq" *ngFor="let offer of offers;" >
              <div class="card" (click)="onSelect(offer); active = true" >
-                  <div class="card-image"><img src="{{offer.image}}" class="img-responsive" height="200px" [class.selected]="offer === selectedOffer"></div>
+                  <div class="card-image"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header">
                           <div class="float-left ">
                           <div class="card-title h5">{{offer.title}}</div>
@@ -30,14 +30,14 @@
          <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
             <div class="modal-overlay"></div>
             <div class="modal-container">
-                <div><img src="{{selectedOffer.image}}" class="img-responsive" height="200px"></div>
-                <div class="modal-header">
+                <div><img src="{{selectedOffer.image}}" class="img-responsive" ></div>
+                <div class="modal-header" style="background:#fff; margin-top:-100px;">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
                 <div class="modal-title h5">{{selectedOffer.title}}</div>
-                 <div class="text-justify">Corn, Oats, Wheat, Almonds, Sunflower Seeds, Blueberries, Raisins, Goji berries</div>
-                 <div><span class="chip">{{selectedOffer.types}}</span></div>
+                  <div class="text-justify">Corn, Oats, Wheat, Almonds, Sunflower Seeds, Blueberries, Raisins, Goji berries</div>
+                   <div><span class="chip">{{selectedOffer.types}}</span></div>
                 </div>
-                <div class="modal-body" style="height:100px; overflow:scroll">
+                <div class="modal-body" >
                   <div class="content">
                  <div>
                       <ul class="tab tab-block">

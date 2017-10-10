@@ -34,10 +34,10 @@ export class OffersComponent implements OnInit {
     let body = document.getElementsByTagName('body')[0];
     
      if(this.active){
-        body.classList.add("body-overflow");
+        //body.classList.add("body-overflow");
      }
      else{
-      body.classList.remove("body-overflow");
+        //body.classList.remove("body-overflow");
      }
   }
   onSelect(offer:Offer):void{

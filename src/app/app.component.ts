@@ -26,9 +26,9 @@ export class AppComponent {
       else if(this.headerFixed && headerScroll < 5 ){
         this.headerFixed = false;
       }
-      if(headerScroll > 270 ){
+      if(headerScroll > 330 ){
         this.uboxitMenu = true;
-        this.headerFixed = false;
+        //this.headerFixed = false;
       }
       else if(this.headerFixed && headerScroll < 200 ){
         this.uboxitMenu = false;

@@ -1,42 +1,41 @@
-<!-- <header>
-      <div class="uboxitDesktop">
-            <div class="uboxitHeaderContainer">
-                  <div class="uboxitLeft"><img src="assets/images/logo.png" width="80px"/></div>
-                  <div class="uboxitRight">
-                      <span class="uboxitHeaderDesktopMenu">
-                      <ul>
-                          <li *ngFor="let header of headers">
-                            <a href="{{header.menuLink}}" title="{{header.menuTitle}}">{{header.menuItem | uppercase}}</a>
-                          </li>
-                      </ul>
-                    </span> 
-                    <span class="uboxitHeaderMobileMenu">
-                        <app-hamburger></app-hamburger>
-                    </span>
-                  </div> 
-                  <div class="uboxitClear"></div>
-            </div>
-      </div>
-      <div class="uboxitMobile">
-         
-      </div>
-</header> -->
-<div class="uboxitAppSpace"></div>
+
+
 <div class="container grid-lg"> 
-<div class="column col-12"> 
-      <div class="navbar">
-        <div class="navbar-section">
-            <app-hamburger></app-hamburger>
-            <span class="uboxitLogo mobile"><img src="assets/images/Uboxitlogo.png" width="80px"/> </span>
+ <header class="navbar">
+ <section class="navbar-section">
+        <app-hamburger></app-hamburger>
+  </section>
+  <section class="navbar-center">
+     <span class="uboxitLogo"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
+  </section>
+  <section class="navbar-section">
+    <button class="btn btn-link" (click)="openLoginWindow($event);"><i class="material-icons">lock_open</i></button>
+    <button class="btn btn-link badge" data-badge="8"><i class="material-icons" >shopping_basket</i></button>
+  </section>
+</header>
+   
+</div>
+<div class="modal" [ngClass]="{'headerActive':headerActive}">
+  <div class="modal-overlay"></div>
+  <div class="modal-container">
+    <div class="modal-header">
+      <button class="btn btn-clear float-right" (click)="closeLoginWindow();"></button>
+      <div class="modal-title h5">Modal title</div>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+        <button class="btn btn-primary">primary button</button>  
+        <div class="form-group">
+                 <input class="form-input" type="text" id="input-example-1" placeholder="Name">
         </div>
-        <div class="navbar-center">
-            <span class="uboxitLogo desktop"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
-        </div>
-        <div class="navbar-section">
-           <button class="btn btn-link uboxitMenuDoc"><i class="material-icons">lock_open</i></button>
-           <button class="btn btn-link uboxitMenuDoc"><i class="material-icons">filter_list</i></button>
-           <button class="btn btn-link badge uboxitMenuDoc" data-badge="8"><i class="material-icons" >shopping_basket</i></button>
+        <div class="form-group">
+                 <input class="form-input" type="text" id="input-example-1" placeholder="Passport">
         </div>
       </div>
     </div>
+    <div class="modal-footer">
+      ...
+    </div>
+  </div>
 </div>
+

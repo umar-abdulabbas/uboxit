@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
 
@@ -10,8 +10,10 @@ import { HeaderService } from './header.service';
 })
 export class HeaderComponent implements OnInit {
   headers: Header[];
+  headerActive:boolean = false;
   public headerFixed:boolean = false;
   constructor( private headerservice:HeaderService) { }
+  
 
   ngOnInit() {
     this.getHeaders();
@@ -21,6 +23,12 @@ export class HeaderComponent implements OnInit {
     this.headerservice.getHeaders().then(headers => this.headers = headers)
   }
 
-
+  openLoginWindow(event:object):void{
+    this.headerActive = true;
+   
+  }
+  closeLoginWindow():void{
+    this.headerActive = false;
+  }
 
 }

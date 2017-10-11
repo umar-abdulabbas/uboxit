@@ -1,54 +1,18 @@
-<!--
-<div class="uboxitwrapper">
-        <div class="uboxitHeader" [ngClass]="{'headerFixed':headerFixed}">
-         <app-header></app-header>
-         <div class="uboxitClear"></div>
-        </div><!-- uboxitHeader --
-        <div class="uboxitClear"></div>
-       <div class="uboxitContainer" style="height:1900px;">
-            <div class="uboxitBanner" >
-              <app-banner></app-banner>
-            </div><!-- uboxitBanner --
 
-            <div class="uboxitBarMenu" [ngClass]="{'uboxitMenu':uboxitMenu}">
-               <app-bar-menu></app-bar-menu>
-            </div><!-- uboxitBarMenu--
-
-            <div class="uboxitOffer">
-                
-                <app-offers></app-offers>
-            </div><!-- //uboxitOffer --
-        </div><!-- uboxitContainer --
-       <div class="uboxitFooter"></div><!-- uboxitFooter 
-</div>  //.uboxitwrapper 
--->
-<section class="heroBanner">
-    <header>
-        <div class="container grid-lg headerBg">
-        <div class="columns">
-            <div class="float-left"><img src="assets/images/Uboxitlogo.png"/></div>
-            <div class="float-right"></div>
-            <div class="clearfix"></div>
-        </div>
-        </div>
-        
-    </header>
-    <!-- Caption Start -->
-    <section class="caption">
-            <h1 class="animated fadeInDown">Make your own box</h1>
-            <h3 class="animated zoomIn">authentic recipes chef hand made</h3>
+<section class="uboxitwrapper">
+    <section class="uboxitTopHeader" [ngClass]="{'headerFixed':headerFixed}">
+            <app-header></app-header>
     </section>
-    <!-- Caption End -->
-    <!-- Menu Start -->
     <section>
-            
-                
+           <app-banner></app-banner>
     </section>
-    <!-- Menu End  -->
-</section>
-<section>
-    
-</section>
-
-
-
+    <section class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}">
+            <app-bar-menu></app-bar-menu>
+    </section>
+    <section class="uboxitContainer">
+            <app-offers></app-offers>
+    </section>
+    <section class="uboxitFooter">
+        <app-footer></app-footer>
+    </section>
+</section> <!-- //.uboxitwrapper -->

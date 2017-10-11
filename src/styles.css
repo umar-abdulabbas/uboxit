@@ -3,17 +3,23 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; background: #ededed}
-   .uboxitLoading { position:fixed; left:50%; top:48%; background:#000; color:#000; }
+body::-webkit-scrollbar{  width: 6px; height: 6px; }
+.uboxitLoading { position:fixed; left:50%; top:48%; background:#000; color:#000; }
+
    .uboxitwrapper { display: block; position: relative; }
-   .uboxitHeader { position: fixed;  width: 100%; background: #ff675c ; height: 60px; z-index: 500 }
-        .headerFixed{ box-shadow:0 2px 5px 0 rgba(0,0,0,.3);height: 60px;}
-        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:60px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);z-index: 600 }
+   .uboxitHero{ border-bottom: 1px solid #ff675c ;}
+   .uboxitTopHeader{ position: fixed;  z-index: 500 ; top:0px; height: 50px; width:100%;  background:rgba(255,101,90, 0.6); border-bottom:1px solid #ff675c }
+   .headerFixed{ background:#FF655A!important; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);}
+        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:50px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);z-index: 600 }
     .uboxitClear{ clear:both;}
+   .uboxitMenuBar{
+     background: #FFF;
+   }
+   .uboxitFooter{
+     border-top:1px solid #FF655A
+   }
   /*spectre override*/
-  body::-webkit-scrollbar{
-      width: 6px;
-      height: 6px;
-  }
+ 
   .body-overflow{
       overflow: hidden !important;
   }
@@ -67,103 +73,11 @@ html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; ba
     background:#FFAC8B;
     border-color:#FFAC8B;
   }
+
+  .form-input:focus {
+    border-color: #FF655A;
+    box-shadow: 0 0 0 0.1rem rgba(255,101,90,.2);
+}
   /*spectre override*/
 
-  /*Animation override*/
-
-  /* New Style */
-  .heroBanner{  width: 100%;
-    height: 500px;
-    position: relative;
-    background: url(/assets/images/heroBanner.jpeg) no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
-  }
-  .heroBanner .caption{
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    margin-top: -105px;
-    z-index: 10;
-  }
-  .caption{
-    font-family: 'Satisfy', cursive;
-    color:#fff;
-  }
-  .caption h1{
-    font-weight:normal;
-    font-size: 80px;
-    margin-bottom: 10px;
-    
-  }
-  .caption h3{
-    font-weight:lighter;
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-  .headerBg{
-    background-color:#ff675c;
-    opacity: 0.6;
-  }
-  /*==========  Mobile First Method  ==========*/
-
-    /* Custom, iPhone Retina */ 
-    @media only screen and (min-width : 320px) {
-
-    }
-
-    /* Extra Small Devices, Phones */ 
-    @media only screen and (min-width : 480px) {
-           
-    }
-
-    /* Small Devices, Tablets */
-    @media only screen and (min-width : 768px) {
-
-    }
-
-    /* Medium Devices, Desktops */
-    @media only screen and (min-width : 992px) {
-
-    }
-
-    /* Large Devices, Wide Screens */
-    @media only screen and (min-width : 1200px) {
-       
-    }
-
-
-
-    /*==========  Non-Mobile First Method  ==========*/
-
-    /* Large Devices, Wide Screens */
-    @media only screen and (max-width : 1200px) {
-
-    }
-
-    /* Medium Devices, Desktops */
-    @media only screen and (max-width : 992px) {
-
-    }
-
-    /* Small Devices, Tablets */
-    @media only screen and (max-width : 768px) {
-
-    }
-
-    /* Extra Small Devices, Phones */ 
-    @media only screen and (max-width : 480px) {
-             .heroBanner{  height: 300px;}
-             .caption h1{  font-size: 30px; }
-             .heroBanner .caption{ top: 50%; margin-top: -15px;  }
-             .caption h3{ font-size: 20px; }
-    } 
-
-    /* Custom, iPhone Retina */ 
-    @media only screen and (max-width : 320px) {
-
-    }
-
-/*==========  Animation ==========*/
-   
+  

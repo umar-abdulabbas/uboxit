@@ -9,7 +9,7 @@
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
             <div class="equalHMV eq" *ngFor="let offer of offers;" >
-             <div class="card" (click)="onSelect(offer); active = true" >
+             <div class="card animated fadeInDown" (click)="onSelect(offer); active = true" >
                   <div class="card-image"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header">
                           <div class="float-left ">

@@ -1,22 +1,11 @@
-
-.uboxitMenuDoc{
-        
-        margin-left:0.5rem;
+.loginLayout{
+    width: 300px
 }
 .badge.btn::after{
     top:8px;
     right: 4px;
 }
-.uboxitLogo{
-    position: relative;
-    top: 10px;
-}
-.uboxitLogo.desktop{
-    display: block;
-}
-.uboxitLogo.mobile{
-    display: none;
-}
+
 .badge[data-badge]::after {
     font-size: 0.5rem;
     height: 16px;
@@ -31,11 +20,3 @@
          opacity: 1;
         z-index: 400;
     }
-@media only screen and (max-width: 480px) {
-    .uboxitLogo.desktop{
-        display: none;
-    }
-    .uboxitLogo.mobile{
-        display: block;
-    }
-}

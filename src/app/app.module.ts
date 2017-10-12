@@ -6,11 +6,17 @@ import { HeaderComponent } from './header/header.component';
 import { HamburgerComponent } from './header/hamburger/hamburger.component';
 import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
+import { BarMenuComponent } from './bar-menu/bar-menu.component';
+import { OffersComponent } from './offers/offers.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { CONST_ROUTING } from './app-routing';
 //Material Componets Added 
 
 import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule } from '@angular/material';
-import { BarMenuComponent } from './bar-menu/bar-menu.component';
-import { OffersComponent } from './offers/offers.component';
+
 
 
 
@@ -23,13 +29,16 @@ import { OffersComponent } from './offers/offers.component';
     HamburgerComponent,
     BannerComponent,
     BarMenuComponent,
-    OffersComponent
-    
+    OffersComponent,
+    AboutComponent,
+    HomeComponent,
+    ContactComponent,
+    ShoppingcartComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-
+    CONST_ROUTING,
     //Material Import
     MdButtonModule,
     MdCheckboxModule,

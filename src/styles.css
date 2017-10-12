@@ -20,7 +20,7 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; }
    }
   /*spectre override*/
  
-  .body-overflow{
+  .body-overflow {
       overflow: hidden !important;
   }
   body::-webkit-scrollbar-thumb{

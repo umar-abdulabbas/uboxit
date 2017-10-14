@@ -12,14 +12,14 @@ export class HeaderComponent implements OnInit {
   headers: Header[];
   headerActive:boolean = false;
   public headerFixed:boolean = false;
-  public body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+  public body;
   constructor( private headerservice:HeaderService, private _eref:ElementRef) { }
   
 
   ngOnInit() {
     this.getHeaders();
-    let body = document.getElementsByTagName('body')[0];
-    console.log("email");
+    this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+    
      
   }
 

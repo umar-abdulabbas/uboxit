@@ -4,6 +4,12 @@
 	padding: 0px;
 	margin: 0px;
 }
+.offerTitle{
+  padding-top:10px; 
+}
+.offerTitle h2{
+    font-size: 40px;
+}
 .card{
 	
 	
@@ -62,14 +68,18 @@
 	.col {  margin: 1% 0 1% 0%; }
 	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; }
 	.equalHMV { width:100% !important; margin: 1%; }
-
-
+  .offerTitle h2{
+    font-size: 15px; font-weight: bold;
+}
+   .offerTitle p{
+    font-size: 10px; font-weight: bold;
+}
 }
 
 
 
 .paddingBlock {
-  padding: 20px 0;
+  xpadding: 20px 0;
 }
 
 .eqWrap {

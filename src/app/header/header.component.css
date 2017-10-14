@@ -5,7 +5,28 @@
     top:8px;
     right: 4px;
 }
-
+.uboxitSignIn{
+    width:270px;
+}
+.uboxit-google, .uboxit-google:hover, .uboxit-google:focus{
+    background: #d34836 url('../../assets/images/google-plus.png') no-repeat;
+    width:270px;
+    height: 35px;
+    background-size: 28px 28px;
+    background-position: 20px;
+    margin-bottom: 20px;
+   
+}
+.uboxit-facebook, .uboxit-facebook:hover, .uboxit-facebook:focus{
+    background: #3B5998 url('../../assets/images/facebook.png') no-repeat;
+    width:270px;
+    height: 35px;
+    background-size: 28px 28px;
+    background-position: 20px;
+    margin-bottom: 20px;
+    border-color:#3B5998;
+   
+}
 .badge[data-badge]::after {
     font-size: 0.5rem;
     height: 16px;
@@ -21,5 +42,35 @@
         z-index: 400;
     }
 .uboxitLogo img{
-    xmargin-top: 10px;
+    position: relative;
+    top:10px;
+}
+input{
+    width: 270px;
+    font-size: 12px !important; 
+    border-color: #e7e9ed;
+}
+.bar{
+    width:270px;
+}
+.group label{
+font-size: 12px !important; 
+}
+input:focus ~ label, input:valid ~ label{
+    top:-10px;
+}
+.group{
+    margin-bottom: 20px;
+}
+.bar:before, .bar:after{
+    background: #FF655A;
+}
+.modal-container .modal-body{
+   max-height: none;
+}
+.regUserIn{
+    display: none;
+}
+.nonRegUser{
+     display: none;
 }

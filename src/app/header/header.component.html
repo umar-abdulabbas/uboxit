@@ -15,6 +15,7 @@
 </header>
    
 </div>
+
 <div class="modal" [ngClass]="{'active':headerActive}">
   <div class="modal-overlay"></div>
   <div class="modal-container loginLayout">
@@ -23,24 +24,48 @@
       <div class="modal-title h5">Login</div>
     </div>
     <div class="modal-body">
-      <div class="content">
-          <div><button class="btn btn-primary">primary button</button></div>
-          <div><button class="btn btn-primary">primary button</button></div>
+        <div class="content">
+        <!-- Login Area -->
+        <div class="LoginLayout">
          
-          <div class="divider text-center" data-content="OR"></div>   
-        <div class="form-group">
-                 <input class="form-input" type="text" id="input-example-1" placeholder="Name">
-        </div>
-        <div class="form-group">
-                 <input class="form-input" type="text" id="input-example-1" placeholder="Passport">
-        </div>
-        <div><button class="btn btn-primary">primary button</button></div>
-        <div>Forget Password?</div>
+          <div class="socialmedia">
+          <div><button class="btn btn-primary uboxit-google">Log in With Google</button></div>
+          <div><button class="btn btn-primary uboxit-facebook">Log in With Facebook</button></div>
+          <div class="divider text-center" data-content="OR"></div>
+          </div> <!-- //.socialmedia -->
+        <div [ngClass]="{'regUserIn': isActiveRegUser }">
+          <form>
+           <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>Name</label></div>
+           <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
+          </form>
+        </div> <!--//.regUserIn -->
+        <div [ngClass]="{'nonRegUser': isActiveNonRegUser}">
+            <form>
+            <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>First Name</label></div>
+            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Last Name</label></div>
+            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Mobile Number</label></div>
+            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
+            <div class="group removebottom"> <input type="password" required><span class="highlight"></span><span class="bar"></span><label>Password</label></div>
+            </form>
+        </div> <!-- //.nonRegUser-->
+
+        <div><button class="btn btn-primary uboxitSignIn">Sign In</button></div>
+
+        <div class="float-right mt-1"><a class="text-primary" href="#">Forget Password?</a></div>
+        <div class="clearfix"></div>
         <div class="divider text-center"></div>  
-        <div>Don't have an account? Sign up</div>
+        <div>Don't have an account? <a class="text-primary" href="#">Sign up</a></div>
+        </div> <!--// .LoginLayout End -->
+
+        <!-- Login Area End -->
       </div>
     </div>
    
   </div>
 </div>
 
+
+<!-- Forget Password Start -->
+
+
+<!-- Forget Password End -->

@@ -12,7 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
-import { CONST_ROUTING } from './app-routing';
+import { AppRoutingModule } from './app-routing.module';
 //Material Componets Added 
 
 import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule } from '@angular/material';
@@ -38,7 +38,7 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CONST_ROUTING,
+    AppRoutingModule,
     //Material Import
     MdButtonModule,
     MdCheckboxModule,

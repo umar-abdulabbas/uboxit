@@ -27,27 +27,35 @@ const OFFERS:Offer[] = [
 export class OffersComponent implements OnInit {
   offers = OFFERS;
   active:boolean = true;
+  public body;
+  details:boolean = false;
+  ingredients:boolean = true;
+  
   selectedOffer: Offer; 
   constructor() { }
-
+ 
   ngOnInit() {
-    let body = document.getElementsByTagName('body')[0];
+     this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
     
-     if(this.active){
-        //body.classList.add("body-overflow");
-     }
-     else{
-        //body.classList.remove("body-overflow");
-     }
   }
   onSelect(offer:Offer):void{
     console.log(offer);
     this.selectedOffer = offer;
+    this.body.classList.add("body-overflow");
   }
   close():void{
       this.active = false;
+      this.body.classList.remove("body-overflow");
   }
-  open():void{
-    console.log("ujar");
+  opendetails():void{
+      
+    this.ingredients = true;
+    this.details = false;
+    
+  }
+  openingredients():void{
+    this.details = true;
+    this.ingredients = false;
+   
   }
 }

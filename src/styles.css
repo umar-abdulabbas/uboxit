@@ -8,20 +8,29 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; }
 
    .uboxitwrapper { display: block; position: relative; }
    .uboxitHero{ border-bottom: 1px solid #ff675c ;}
-   .uboxitTopHeader{ position: fixed;  z-index: 500 ; top:0px; height: 50px; width:100%;  background:rgba(255,101,90, 0.6); border-bottom:1px solid #ff675c }
+   .uboxitTopHeader{ position: fixed;  z-index: 300 ; top:0px; height: 50px; width:100%;  background:rgba(255,101,90, 0.6); border-bottom:1px solid #ff675c }
    .headerFixed{ background:#FF655A!important; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);}
-        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:50px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);z-index: 600 }
-    .uboxitClear{ clear:both;}
+        .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:50px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);z-index: 310 }
+   .uboxitClear{ clear:both;}
    .uboxitMenuBar{
-     background: #FFF;
+     background: #f7f7f7;
    }
    .uboxitFooter{
-     border-top:1px solid #FF655A
+      border-top:1px solid #f7f7f7;
+      background: #fff;
+   }
+   .btn.btn-link.uboxitLink, .btn.btn-link.uboxitLink:hover, .btn.btn-link.uboxitLink:active{
+     color:#5755d9;
+   }
+   .modal-container .modal-header{
+     padding-bottom: 0px;
    }
   /*spectre override*/
  
   .body-overflow {
-      overflow: hidden !important;
+      overflow-x: hidden !important;
+      position: fixed;
+      width: 100%;
   }
   body::-webkit-scrollbar-thumb{
       background: #ccc;
@@ -177,4 +186,68 @@ input:focus ~ .highlight {
 @keyframes inputHighlighter {
 	from { background:#5264AE; }
   to 	{ width:0; background:transparent; }
+}
+
+
+
+.paddingBlock {
+  xpadding: 20px 0;
+}
+
+.eqWrap {
+  display: flex;
+}
+
+.eq {
+  padding: 10px;
+}
+
+
+
+.equalHW {
+  flex: 1;
+}
+
+.equalHMWrap {
+  justify-content: space-between;
+}
+
+.equalHM {
+  width: 32%;
+}
+
+.equalHMRWrap {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.equalHMR {
+  width: 32%;
+  margin-bottom: 2%;
+}
+
+.equalHMVWrap {
+  flex-wrap: wrap;
+}
+
+.equalHMV {
+  width: 32%;
+  margin: 1%;
+}
+
+.equalHMV:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+.equalHMV:nth-of-type(3n+1) {
+  margin-left: 0;
+}
+
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; }
+	.equalHMV { width:100% !important; margin: 1%; }
+ 
 }

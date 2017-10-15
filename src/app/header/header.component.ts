@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
-
+import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,14 +13,19 @@ export class HeaderComponent implements OnInit {
   headerActive:boolean = false;
   public headerFixed:boolean = false;
   public body;
-  constructor( private headerservice:HeaderService, private _eref:ElementRef) { }
+  isActiveNonRegUser:boolean = true;
+  isActiveRegUser:boolean = false;
+  notFromHome:boolean = false;
+  forgetPwd:boolean = true;
+  LoginLayoutModel:boolean = false;
+  loginTitle = "Login"
+  constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router) { }
   
 
   ngOnInit() {
     this.getHeaders();
-    this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+    this.body = document.getElementById('uboxitwrapper'); //top stop the scroll window
     
-     
   }
 
   getHeaders():void{
@@ -32,10 +37,34 @@ export class HeaderComponent implements OnInit {
     this.body.classList.add("body-overflow");
       
   }
-
+ 
   closeLoginWindow():void{
     this.headerActive = false;
     this.body.classList.remove("body-overflow");
+    this.loginTitle = "Login";
+    this.LoginLayoutModel = false;
+    this.forgetPwd = true;
+    this.isActiveRegUser = false;
+    this.isActiveNonRegUser = true;
   }
-
+  openShoppingCart():void{
+    
+    this.router.navigate(['/shoppingcart']);
+  }
+  goToHomePage():void{
+    
+    this.router.navigate(['/home']);
+  }
+  openSignUp():void{
+    this.isActiveNonRegUser = false;
+    this.isActiveRegUser = true;
+    this.loginTitle = "Register Form";
+  }
+ openForget():void{
+    this.isActiveNonRegUser = true;
+    this.isActiveRegUser = true;
+    this.forgetPwd = false;
+    this.LoginLayoutModel = true;
+    this.loginTitle = "Forgot your password?";
+ }
 }

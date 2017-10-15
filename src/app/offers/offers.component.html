@@ -31,34 +31,49 @@
             <div class="modal-overlay"></div>
             <div class="modal-container">
                 <div><img src="{{selectedOffer.image}}" class="img-responsive" ></div>
-                <div class="modal-header" style="background:#fff; margin-top:-100px;">
+                <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
                 <div class="modal-title h5">{{selectedOffer.title}}</div>
-                  <div class="text-justify">Corn, Oats, Wheat, Almonds, Sunflower Seeds, Blueberries, Raisins, Goji berries</div>
-                   <div><span class="chip">{{selectedOffer.types}}</span></div>
+                      <div>
+                            <div class="float-left"><span class="chip">{{selectedOffer.types}}</span></div> 
+                            <div class="float-right"><i class="material-icons">favorite_border</i></div>
+                            <div class="clearfix"></div>
+                      </div>
+                      <div class="divider"></div>
+                      <div>
+                            <div class="float-left text-bold">&euro; 11</div> 
+                            <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
+                            <div class="clearfix"></div>
+                      </div>
                 </div>
+                <div class="divider"></div>
                 <div class="modal-body" >
-                  <div class="content">
+                  <div class="content" >
                  <div>
                       <ul class="tab tab-block">
-                      <li class="tab-item active">
-                        <a href="#">Details</a>
-                      </li>
                       <li class="tab-item">
-                        <a href="#">ingredients</a>
+                        <a class="btn btn-link uboxitLink" (click)="opendetails();">Details</a>
+                      </li>
+                      <li class="tab-item" >
+                        <a class="btn btn-link uboxitLink" (click)="openingredients();">Ingredients</a>
                       </li>
                       </ul>
                   </div>
-                  <div class="text-justify">
-                    Here's an incredibly nutritious mix that you can munch on without any regrets. This Signature pack comes with a mix of corn, wheat flakes, oats, crunchy almonds, sunflower seeds, blueberries, raisins and exotic goji berries, in the right ratio to complement a good breakfast. It's a no-fuss muesli mix that's full of fiber, protein and healthy fats! Enjoy with hot or cold milk anytime hunger strikes!
-                  </div>
+                    <div >
+                      <div class="text-justify" [ngClass]="{'details':details}">
+                      Here's an incredibly nutritious mix that you can munch on without any regrets. This Signature pack comes with a mix of corn, wheat flakes, oats, crunchy almonds, sunflower seeds, blueberries, raisins and exotic goji berries, in the right ratio to complement a good breakfast.
+                      </div>
+                      <div class="text-justify" [ngClass]="{'ingredients':ingredients}">
+                      Tomato, Onion, Paneer, Sandwich Bread, Cheese slice
+                      </div>
+                    </div>
                   
-            <!-- content here -->
+                 <!-- content here -->
+                </div>
             </div>
-            </div>
-            <div class="modal-footer">
-          ...
-        </div>
+           <div class="modal-footer">
+    
+    </div>
       </div>
     </div> 
       <!-- // Model Window -->

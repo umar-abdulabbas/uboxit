@@ -8,8 +8,13 @@
 .uboxitSignIn{
     width:270px;
 }
+.notFromHome{
+    background:rgba(255,101,90, 1);
+    height: 50px;
+}
+
 .uboxit-google, .uboxit-google:hover, .uboxit-google:focus{
-    background: #d34836 url('assets/images/google-plus.png') no-repeat;
+    background: #d34836 url('../../assets/images/google-plus.png') no-repeat;
     width:270px;
     height: 35px;
     background-size: 28px 28px;
@@ -18,7 +23,7 @@
    
 }
 .uboxit-facebook, .uboxit-facebook:hover, .uboxit-facebook:focus{
-    background: #3B5998 url('assets/images/facebook.png') no-repeat;
+    background: #3B5998 url('../../assets/images/facebook.png') no-repeat;
     width:270px;
     height: 35px;
     background-size: 28px 28px;
@@ -73,4 +78,10 @@ input:focus ~ label, input:valid ~ label{
 }
 .nonRegUser{
      display: none;
+}
+.forgetPwd{
+    display: none;
+}
+.LoginLayoutModel{
+    display: none;
 }

@@ -65,7 +65,7 @@
 .uboxitSelect{
   width: 100%;
   xborder: .1rem solid #FF655A;
-  xbackground: #FF655A;
+  background: #f7f7f7;
   height: 40px;
   text-align: center;
   border-radius: 0px;

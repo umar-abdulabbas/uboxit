@@ -18,7 +18,7 @@ import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 //Material Componets Added 
 
 import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule } from '@angular/material';
-
+import { NgxCarouselModule } from 'ngx-carousel';
 
 
 
@@ -48,6 +48,7 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
     BrowserAnimationsModule,
     AppRoutingModule,
     //Material Import
+    NgxCarouselModule,
     MdButtonModule,
     MdCheckboxModule,
     MdToolbarModule,

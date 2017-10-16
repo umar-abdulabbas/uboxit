@@ -1,3 +1,41 @@
 .shoppingLayout{
 padding-top: 60px;
 }
+
+.shoppingLogin{
+    background:#FFF; border-radius:5px;
+    padding: 10px;
+}
+.shoppingCart{
+    background:#FFF; border-radius:5px; 
+}
+.shoppingLogin h6, .shoppingCart h6{
+    padding: 20px 5px;
+    text-align: center;
+}
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-expansion-panel-header{
+    border-bottom: 1px solid #ccc;
+}
+.uboxitDelivery, .uboxitOrderedItems{
+    padding: 10px;
+}
+
+
+@media only screen and (max-width: 480px) {
+	.col-4{
+        width:100%;
+    }
+    .col-8{
+        width:100%;
+    }
+}

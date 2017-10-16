@@ -1,23 +1,99 @@
 <section class="shoppingLayout">
   <div class="container grid-lg">
   <div class="columns">
-      <div class="column col-xs-6">
-        <!--Customer Information -->
-        <h6>Customer Information</h6>
-        <div style="border: 1px solid #ccc; height:300px">
-
-        </div>
-        <!--Customer Information -->
-      </div>
-      <div class="column col-xs-6">
+    
+      <div class="column col-4">
         <!-- Shopping Cart -->
-         <h6>Order Summary</h6>
-          <div style="border: 1px solid #ccc; height:300px">
-
+         <div class="shoppingCart">
+              <h6>Order Summary</h6>
+              <!-- Delivery Container -->
+              <div class="uboxitDelivery">
+                <app-deliver-time></app-deliver-time>
+              </div>
+              <!-- Delivery Container -->
+              <div class="uboxitOrderedItems">
+                <app-ordered-items></app-ordered-items>
+              </div>
         </div>
         <!-- Shopping Carf -->
       </div>
-     
+      <div class="column col-8">
+          <!--Customer Information -->
+         
+          <div class="shoppingLogin">
+              <h6>Customer Information</h6>
+            <md-accordion class="example-headers-align">
+              <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+                <md-expansion-panel-header>
+                    <md-panel-title>
+                    
+                      Log In or Sign Up
+                    </md-panel-title>
+                    <md-panel-description>
+                     &nbsp;
+                      <md-icon><i class="material-icons">keyboard_arrow_down</i></md-icon>
+                    </md-panel-description>
+                  </md-expansion-panel-header>
+            
+                <md-form-field>
+                 
+                </md-form-field>
+            
+                <md-form-field>
+                 
+                </md-form-field>
+            
+                <md-action-row>
+                  <button md-button color="primary" (click)="nextStep()">Next</button>
+                </md-action-row>
+              </md-expansion-panel>
+            
+              <md-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+                <md-expansion-panel-header>
+                  <md-panel-title>
+                    Delivery to
+                  </md-panel-title>
+                  <md-panel-description>
+                    &nbsp;
+                    <md-icon><i class="material-icons">keyboard_arrow_down</i></md-icon>
+                  </md-panel-description>
+                </md-expansion-panel-header>
+            
+                <md-form-field>
+                  <input mdInput placeholder="Country">
+                </md-form-field>
+            
+                <md-action-row>
+                  <button md-button color="warn" (click)="prevStep()">Previous</button>
+                  <button md-button color="primary" (click)="nextStep()">Next</button>
+                </md-action-row>
+              </md-expansion-panel>
+            
+              <md-expansion-panel [expanded]="step === 2" (opened)="setStep(1)" hideToggle="true">
+                  <md-expansion-panel-header>
+                    <md-panel-title>
+                     Payment Method
+                    </md-panel-title>
+                    <md-panel-description>
+                      &nbsp;
+                      <md-icon><i class="material-icons">keyboard_arrow_down</i></md-icon>
+                    </md-panel-description>
+                  </md-expansion-panel-header>
+              
+                  <md-form-field>
+                    <input mdInput placeholder="Country">
+                  </md-form-field>
+              
+                  <md-action-row>
+                    <button md-button color="warn" (click)="prevStep()">Previous</button>
+                    <button md-button color="primary" (click)="nextStep()">Next</button>
+                  </md-action-row>
+                </md-expansion-panel>
+            </md-accordion>
+            
+          </div>
+          <!--Customer Information -->
+        </div>
   </div>
 </div>
 <div class="mt-2"></div>

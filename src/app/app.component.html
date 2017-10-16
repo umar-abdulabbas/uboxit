@@ -1,11 +1,12 @@
-<section class="uboxitwrapper" id="uboxitwrapper">
-    <section class="uboxitTopHeader" [ngClass]="{'headerFixed':headerFixed}">
+<section class="uboxitwrapper">
+    <section id="uboxitTopHeader" class="uboxitTopHeader" [ngClass]="{'headerFixed':headerFixed}">
             <app-header></app-header>
     </section>
+    <section class="uboxitRouter">
     <router-outlet>
                 
    </router-outlet>
-   
+    </section>
     <section class="uboxitFooter">
         <app-footer></app-footer>
     </section>

@@ -10,14 +10,19 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; }
    .uboxitHero{ border-bottom: 1px solid #ff675c ;}
    .uboxitTopHeader{ position: fixed;  z-index: 300 ; top:0px; height: 50px; width:100%;  background:rgba(255,101,90, 0.6); border-bottom:1px solid #ff675c }
    .headerFixed{ background:#FF655A!important; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);}
+   .headerFixedShoppingCard { background:#FF655A!important; }
         .uboxitMenu{ position: fixed; background: #fff; width: 100%; top:50px; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);z-index: 310 }
    .uboxitClear{ clear:both;}
    .uboxitMenuBar{
      background: #f7f7f7;
    }
+   
    .uboxitFooter{
       border-top:1px solid #f7f7f7;
       background: #fff;
+   }
+   .uboxitRouter{
+     min-height: 600px;
    }
    .btn.btn-link.uboxitLink, .btn.btn-link.uboxitLink:hover, .btn.btn-link.uboxitLink:active{
      color:#5755d9;
@@ -86,6 +91,10 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; }
   .form-input:focus {
     border-color: #FF655A;
     box-shadow: 0 0 0 0.1rem rgba(255,101,90,.2);
+}
+.tab .tab-item a.active, .tab .tab-item.active a{
+  border-bottom-color:#FF655A;
+  color:#FF655A;
 }
   /*spectre override*/
 

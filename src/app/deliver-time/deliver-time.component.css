@@ -1,0 +1,21 @@
+.deliverLayout{
+    
+}
+.panel{
+    padding:10px;
+    box-shadow:0px 0px 10px 0px #ccc;
+}
+
+.deliverNow{
+    display: none;
+    padding: 10px;
+    text-align: center;
+}
+.deliverLater{
+    display: none;
+    padding: 10px;
+    text-align: center;
+}
+.nonactiveDeliver{
+    display: block;
+}

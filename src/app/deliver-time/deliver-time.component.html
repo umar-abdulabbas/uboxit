@@ -1,0 +1,37 @@
+<div class="deliverLayout">
+<div class="panel">
+    
+     <div class="panel-nav">
+       <!-- navigation components: tabs, breadcrumbs or pagination -->
+       <ul class="tab tab-block">
+           <li class="tab-item">
+             <a  [class.active]="!active" (click)="openDeliverNow();">Deliver Now</a>
+           </li>
+           <li class="tab-item">
+             <a class="" [class.active]="active" (click)="openDeliverLater();">Deliver Later</a>
+           </li>
+           
+         </ul>
+         <div class="deliverNow" [ngClass]="{'nonactiveDeliver animated zoomIn':isActiveDeliverNow}">
+             Your order will be delivered within<br/>
+             45 minutes
+         </div>
+         <div class="deliverLater" [ngClass]="{'nonactiveDeliver animated zoomIn':isActiveDeliverLater}">
+             <div class="column col-xs-12">
+                 <div class="dropdown">
+                   <div class="btn-group">
+                     <a class="btn btn-primary">6.30 PM to 7 PM</a>
+                     <a class="btn btn-primary dropdown-toggle" tabindex="0"><i class="icon icon-caret"></i></a>
+                     <ul class="menu">
+                       <li class="menu-item"><a href="">6 PM to 6.30 PM</a></li>
+                       <li class="menu-item"><a href="">6.30 PM to 7 PM</a></li>
+                       <li class="menu-item"><a href="">7 PM to 7.30 PM</a></li>
+                     </ul>
+                   </div>
+                 </div>
+               </div>
+         </div>
+     </div>
+ 
+   </div>
+  </div>

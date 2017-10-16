@@ -1,0 +1,56 @@
+<div class="orderedItemsLayout">
+    <div class="panel">
+       
+        <div class="xpanel-body">
+          <!-- contents -->
+          <div *ngFor="let order of ordered">
+          <div class="tile">
+              <div class="tile-icon">
+                <div class="example-tile-icon"><img src="{{order.image}}" width="100px"></div>
+              </div>
+              <div class="tile-content">
+                <p class="tile-title">Fruit Cake</p>
+                <input mdInput type="number" min="1" placeholder="1" class="countInput">
+                <div class="float-right priceTag">&euro; 12</div>
+                
+              </div>
+              
+              <div class="tile-action">
+                  <button class="btn btn-clear float-right" (click)="closeLoginWindow();"></button>
+              </div>
+              
+            </div>
+            <div class="divider"></div>
+          </div> <!-- //Ordered Items Ends Here -->
+
+          <div>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <td>Items</td>
+                      <td>&euro;30</td>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="">
+                      <td>Vat</td>
+                      <td> &euro;4</td>
+                     
+                    </tr>
+                    <tr class="">
+                        <th>Grand Total</th>
+                        <th> &euro;34</th>
+                       
+                      </tr>
+                  </tbody>
+                </table>
+
+          </div>
+          <div class="panel-footer">
+              <!-- buttons or inputs -->
+            </div>
+        </div>
+      
+      </div>
+</div>

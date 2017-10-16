@@ -13,9 +13,14 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
+import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 //Material Componets Added 
 
-import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule } from '@angular/material';
+import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule } from '@angular/material';
+
+
+
 
 
 
@@ -33,7 +38,10 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    ShoppingcartComponent
+    ShoppingcartComponent,
+    DeliverTimeComponent,
+    OrderedItemsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,9 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
     MdSidenavModule,
     MdTabsModule,
     MdGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

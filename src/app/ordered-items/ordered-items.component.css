@@ -1,0 +1,20 @@
+.panel{
+    padding:10px;
+    
+    box-shadow:0px 0px 10px 0px #ccc;
+}
+.countInput{
+    border: 1px solid #ccc;
+    width:40px;
+    font-size: 12px;
+    border-radius: 5px;
+    display: inline;
+    padding: 5px;
+
+}
+.priceTag{
+    position: relative;
+    font-size: 14px;
+    right: -25px;
+    font-weight: 600;
+}

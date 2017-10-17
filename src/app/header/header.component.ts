@@ -42,10 +42,8 @@ export class HeaderComponent implements OnInit {
     this.headerActive = false;
     this.body.classList.remove("body-overflow");
     this.loginTitle = "Login";
-    this.LoginLayoutModel = false;
-    this.forgetPwd = true;
-    this.isActiveRegUser = false;
-    this.isActiveNonRegUser = true;
+   
+   
   }
   openShoppingCart():void{
     

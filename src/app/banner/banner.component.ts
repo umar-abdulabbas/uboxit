@@ -1,12 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
+export class banner{
+  id:string;
+  imageurl:string;
+  caption:string;
+  
+}
+const BANNERS:banner[] = [
+  {id:"1", imageurl:"assets/images/heroBanner.jpeg", caption:"Order delicious food online!"},
+  {id:"2", imageurl:"assets/images/banner2.jpg", caption:"Make your own box!"},
+  {id:"3", imageurl:"assets/images/banner3.jpg", caption:"Authentic Food"},
+  {id:"4", imageurl:"assets/images/heroBanner.jpg", caption:"Lets ring in the festivities "},
+  
+];
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
- public carouselOne: NgxCarousel;
+  banners = BANNERS;
+  public carouselOne: NgxCarousel;
   constructor() { }
 
   ngOnInit() {
@@ -38,6 +52,7 @@ export class BannerComponent implements OnInit {
             padding: 5px;
             margin: 0 3px;
             transition: .4s ease all;
+            cursor:pointer;
           }
           .ngxcarouselPoint li.active {
               background: #ff675c;

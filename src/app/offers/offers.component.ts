@@ -28,9 +28,10 @@ export class OffersComponent implements OnInit {
   offers = OFFERS;
   active:boolean = true;
   public body;
-  details:boolean = false;
-  ingredients:boolean = true;
-  
+
+  activeyes:boolean = true;
+  isActivedetails:boolean = true;
+  isActiveingredients:boolean = false;
   selectedOffer: Offer; 
   constructor() { }
  
@@ -48,14 +49,16 @@ export class OffersComponent implements OnInit {
       this.body.classList.remove("body-overflow");
   }
   opendetails():void{
-      
-    this.ingredients = true;
-    this.details = false;
+    this.activeyes = true;
+    this.isActivedetails = true;
+    this.isActiveingredients = false;
+    
     
   }
   openingredients():void{
-    this.details = true;
-    this.ingredients = false;
-   
+    
+    this.activeyes = false;
+    this.isActivedetails = false;
+    this.isActiveingredients = true;
   }
 }

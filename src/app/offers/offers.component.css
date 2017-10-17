@@ -132,10 +132,19 @@
 }
 .details{
   display: none;
+  padding: 10px;
 }
 .ingredients{
   display: none;
+  padding: 10px;
 }
 .text-bold{
   font-size: 20px;
+}
+.nonactive{
+  display: block;
+}
+.detailContainer{
+  height: 120px;
+  overflow: auto;
 }

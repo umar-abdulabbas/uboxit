@@ -1,23 +1,12 @@
 <div>
 <ngx-carousel [inputs]="carouselOne" (carouselLoad)="myfunc($event)">
-          <ngx-item NgxCarouselItem class="carousel-container">
-            <div class="bannerCaption">Order delicious food online!</div>
-            <img  src="assets/images/banner2.jpg" class="img-responsive rounded" alt="macOS Yosemite Wallpaper">
+          <ngx-item NgxCarouselItem class="carousel-container" *ngFor="let banner of banners">
+            <div class="bannerCaption">{{banner.caption}}</div>
+            <img  src="{{banner.imageurl}}" class="img-responsive rounded" alt="macOS Yosemite Wallpaper">
           </ngx-item>
-          <ngx-item NgxCarouselItem class="carousel-container">
-             <div class="bannerCaption">Make your own box!</div>
-            <img  src="assets/images/banner2.jpg" class="img-responsive rounded" alt="macOS Yosemite Wallpaper">
-          </ngx-item>
-           <ngx-item NgxCarouselItem class="carousel-container"> 
-            <div class="bannerCaption">Authentic Food</div>
-             <img  src="assets/images/banner4.jpg" class="img-responsive rounded" alt="macOS Yosemite Wallpaper">
-          </ngx-item>
-            <ngx-item NgxCarouselItem class="carousel-container">
-            <div class="bannerCaption">Yammy</div>
-            <img src="assets/images/banner4.jpg" class="img-responsive rounded" alt="macOS Yosemite Wallpaper">
-          </ngx-item>
-           <span NgxCarouselPrev class='leftRs'><i class="material-icons">keyboard_arrow_left</i></span>
-          <span NgxCarouselNext class='rightRs'><i class="material-icons">keyboard_arrow_right</i></span>
+         
+           <span NgxCarouselPrev class='leftRs c-hand'><i class="material-icons arrowFont">keyboard_arrow_left</i></span>
+          <span NgxCarouselNext class='rightRs c-hand'><i class="material-icons arrowFont">keyboard_arrow_right</i></span>
 </ngx-carousel>
             </div>
 <!-- Learn From Here ..// https://www.npmjs.com/package/ngx-carousel -->

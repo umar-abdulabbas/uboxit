@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
-
+import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
 
 const routes: Routes = [
     
@@ -14,6 +14,7 @@ const routes: Routes = [
     {path:'about', component:AboutComponent},
     {path:'shoppingcart',component:ShoppingcartComponent},
     {path:'contact',component:ContactComponent},
+    {path:'makeyourcombo',component:MakeyourcomboComponent},
  
 ];
 

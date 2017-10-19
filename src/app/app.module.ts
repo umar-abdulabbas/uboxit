@@ -18,7 +18,7 @@ import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
 //Material Componets Added 
 
-import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule } from '@angular/material';
+import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule, MatStepperModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
 
 
@@ -50,6 +50,7 @@ import { NgxCarouselModule } from 'ngx-carousel';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+   
     //Material Import
     NgxCarouselModule,
     MdButtonModule,
@@ -60,6 +61,7 @@ import { NgxCarouselModule } from 'ngx-carousel';
     MdGridListModule,
     MatCardModule,
     MatExpansionModule,
+    MatStepperModule
    
   ],
   providers: [],

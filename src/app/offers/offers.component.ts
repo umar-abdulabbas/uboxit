@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 export class Offer{
   id:string;
   image:string;
@@ -33,6 +34,8 @@ export class OffersComponent implements OnInit {
   isActivedetails:boolean = true;
   isActiveingredients:boolean = false;
   selectedOffer: Offer; 
+
+  animation:boolean = false;
   constructor() { }
  
   ngOnInit() {
@@ -61,4 +64,31 @@ export class OffersComponent implements OnInit {
     this.isActivedetails = false;
     this.isActiveingredients = true;
   }
+  goTo(location: string): void {
+    console.log(location);
+    window.location.hash = location;
+    //document.getElementById('location'); 
+    //this.headerColor.classList.add("headerFixedShoppingCard");
+    let x = document.getElementById(location); 
+    let width = window.getComputedStyle(x, null).getPropertyValue('top');
+    this.animation = true;
+   // document.getElementById(location).style.transform = "rotate(7deg)";
+  //  document.querySelector(location).scrollIntoView({ 
+  //   behavior: 'smooth' 
+  // });
+
+     var xx = getOffset( document.getElementById(location) ).top; 
+    console.log(xx);
+    function getOffset( el ) {
+      var _x = 0;
+      var _y = 0;
+      while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+          _x += el.offsetLeft - el.scrollLeft;
+          _y += el.offsetTop - el.scrollTop;
+          el = el.offsetParent;
+      }
+      return { top: _y, left: _x };
+  }
+  } 
+ 
 }

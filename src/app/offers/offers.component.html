@@ -5,7 +5,7 @@
          <h2><span class="line">"South Indian"</span></h2>
          <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
    </div>
-
+   <a (click)="goTo('destination')">Go TO DIV</a>
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
             <div class="equalHMV eq" *ngFor="let offer of offers;" >
@@ -85,15 +85,15 @@
   <!-- Second Item -->
 
   
-  <div class="text-center offerTitle">
+  <div class="text-center offerTitle" id='destination' style="display:inline-block">
       <h2><span class="line">"North Indian"</span></h2>
       <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
 </div>
 
-<div class="paddingBlock">
-   <div class="equalHMVWrap eqWrap">
+<div class="paddingBlock" >
+   <div class="equalHMVWrap eqWrap" >
          <div class="equalHMV eq" *ngFor="let offer of offers;" >
-          <div class="card animated fadeInDown" (click)="onSelect(offer); active = true" >
+          <div class="card" [ngClass]="{'animated fadeInDown':animation}" (click)="onSelect(offer); active = true" >
                <div class="card-image"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                <div class="card-header">
                        <div class="float-left ">

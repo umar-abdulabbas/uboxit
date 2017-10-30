@@ -1,125 +1,44 @@
-
 .uboxitMenuContainer{
-  height: 48px; 
+    border-left:1px solid #ccc; border-right:1px solid #ccc; padding:0;
 }
-.uboxitMenuLeft{
-    width:5%;  float: left; font-size: 35px; text-align: center; color:#ff675c;
+.uboxitMenuColumn{
+    padding: 0;
 }
-.uboxitMenuCenter{
-    xwidth:90%;  float: left;
+.uboxitMenuFirst{
+    border-right:1px solid #ccc;  padding:0px 20px; width:45%; line-height:40px; text-align:center; 
 }
-.uboxitMenuRight{
-     width:5%;  float: right;font-size: 35px; text-align: center; color:#ff675c;
+.uboxitMenuSecond{
+    padding:0px 20px;  width:45%; line-height:40px; text-align:center; border-right:1px solid #ccc; 
 }
-.mat-tab-link:active{
-    border-bottom: 3px solid #ff675c;
+.uboxitMenuFilter{
+    padding:0px 20px;  width:10%;
 }
-.active{
-    border-bottom: 3px solid #ff675c;
-}
-@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
-     .uboxitMenuMobile{
-    display: block;
-}
-.uboxitMenuDesktop{
-    display: none;
-}
-}
-@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
-   .uboxitMenuMobile{
-    display: block;
-}
-.uboxitMenuDesktop{
-    display: none;
-}
-}
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-   
-}
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
-        .uboxitMenuMobile{
-    display: none;
-}
-.uboxitMenuDesktop{
-    display: block;
-}
+.uboxitMenuFilterIcon{
+    text-align: center;
+    position: relative;
+    top: 6px;
     
 }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
-        .uboxitMenuMobile{
-    display: none;
+.uboxitMenuFilterIcon a{
+    color:#000;
 }
-.uboxitMenuDesktop{
-    display: block;
-}
-}
-@media (min-width:1281px) { /* hi-res laptops and desktops */
-    .uboxitMenuMobile{
-    display: none;
-}
-.uboxitMenuDesktop{
-    display: block;
+.uboxitMenuActive{
+    background: #fff;
+    color: #ff675c;
 }
 
-}
-.uboxitSelect{
-  width: 100%;
-  xborder: .1rem solid #FF655A;
-  background: #f7f7f7;
-  height: 40px;
-  text-align: center;
-  border-radius: 0px;
-  xbackground:#FFF url("../../assets/images/ic_keyboard_arrow_down_black_24dp_1x.png") no-repeat 96% 0;
-   border:0px;
-}
-.menudes {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  xmargin: 40px auto;
-  background: #FFF;
-  font-size:0;
-}
-.menudes a {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  width: 20%; /* 100% divided of number of elements */
-  box-sizing: border-box;
-  border-right: 2px solid #e8e8e8;
-  padding: 10px 5px;
-  color: #333;
-  text-decoration: none;
-  text-align:center;
-  font-size: 14px;
-}
-.menudes a:nth-child(5){
-    border-right:0px;
-}
-.marca {
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  left: -30%; /* at least width of .menudes a */
-  width: 20%;
-  height: 40px;
-  box-sizing: border-box;
-  background: #ff675c;
-  opacity:.5;
-  transition: 0.5s ease-in-out;
-}
-.menudes a:nth-child(1):hover ~ .marca {
-  left: 0%; 
-}
-.menudes a:nth-child(2):hover ~ .marca {
-  left: 20%; /* 1/4 total width */
-}
-.menudes a:nth-child(3):hover ~ .marca {
-  left: 40%; /* 2/4 total width */
-}
-.menudes a:nth-child(4):hover ~ .marca {
-  left: 60%; /* 3/4 total width */
-}
-.menudes a:nth-child(5):hover ~ .marca {
-  left: 80%; /* 3/4 total width */
+@media only screen and (max-width: 480px) {
+    .uboxitMenuContainer{
+        border:0px;
+    }
+    .uboxitMenuSecond{
+        width: 40%;
+    }
+    .uboxitMenuFirst{
+        width: 40%;
+    }
+    .uboxitMenuFilter{ 
+        width: 20%;
+    }   
+ 
 }

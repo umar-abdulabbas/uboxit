@@ -2,10 +2,10 @@
   <div class="column">
     
    <div class="text-center offerTitle">
-         <h2><span class="line">"South Indian"</span></h2>
+         <div>"South Indian"</div>
          <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
    </div>
-   <a (click)="goTo('destination')">Go TO DIV</a>
+   
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
             <div class="equalHMV eq" *ngFor="let offer of offers;" >
@@ -84,87 +84,8 @@
 
   <!-- Second Item -->
 
-  
-  <div class="text-center offerTitle" id='destination' style="display:inline-block">
-      <h2><span class="line">"North Indian"</span></h2>
-      <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
-</div>
 
-<div class="paddingBlock" >
-   <div class="equalHMVWrap eqWrap" >
-         <div class="equalHMV eq" *ngFor="let offer of offers;" >
-          <div class="card" [ngClass]="{'animated fadeInDown':animation}" (click)="onSelect(offer); active = true" >
-               <div class="card-image"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
-               <div class="card-header">
-                       <div class="float-left ">
-                       <div class="card-title h5">{{offer.title}}</div>
-                       <div class="card-subtitle text-gray"> </div>
-                       </div>
-                       <div class="float-right text-bold">&euro; 11</div>
-               </div>
-               <div class="card-body"><span class="chip">{{offer.types}}</span></div>
-               <div class="card-footer">
-               <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
-                 <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
-               </div> 
-         </div> <!-- // Card -->
 
-         </div> <!-- Repeater End --> 
-             <!-- Model Window Start -->
-      <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
-         <div class="modal-overlay"></div>
-         <div class="modal-container">
-             <div><img src="{{selectedOffer.image}}" class="img-responsive" ></div>
-             <div class="modal-header">
-             <button class="btn btn-clear float-right" (click)="close();"></button>
-             <div class="modal-title h5">{{selectedOffer.title}}</div>
-                   <div>
-                         <div class="float-left"><span class="chip">{{selectedOffer.types}}</span></div> 
-                         <div class="float-right"><i class="material-icons">favorite_border</i></div>
-                         <div class="clearfix"></div>
-                   </div>
-                   <div class="divider"></div>
-                   <div>
-                         <div class="float-left text-bold">&euro; 11</div> 
-                         <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
-                         <div class="clearfix"></div>
-                   </div>
-             </div>
-             <div class="divider"></div>
-             <div class="modal-body" >
-               <div class="content" >
-              <div>
-                   <ul class="tab tab-block">
-                   <li class="tab-item">
-                      <a [ngClass]="{'active':activeyes}" (click)="opendetails();">Details</a>
-                   </li>
-                   <li class="tab-item" >
-                     <a  [ngClass]="{'active': !activeyes}" (click)="openingredients();">Ingredients</a>
-                   </li>
-                   </ul>
-               </div>
-                 <div class="detailContainer">
-                   <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}">
-                   Here's an incredibly nutritious mix that you can munch on without any regrets. This Signature pack comes with a mix of corn, wheat flakes, oats, crunchy almonds, sunflower seeds, blueberries, raisins and exotic goji berries, in the right ratio to complement a good breakfast.
-                   </div>
-                   <div class="text-justify ingredients" [ngClass]="{'nonactive animated zoomIn':isActiveingredients}">
-                   Tomato, Onion, Paneer, Sandwich Bread, Cheese slice
-                   </div>
-                 </div>
-               
-              <!-- content here -->
-             </div>
-         </div>
-        <div class="modal-footer">
- 
- </div>
-   </div>
- </div> 
-   <!-- // Model Window -->
-     <!-- Model Window End -->
-
-   </div> <!-- // equalHMVWrap eqWrap -->
-</div> <!--//paddingBlock-->
 
 
 

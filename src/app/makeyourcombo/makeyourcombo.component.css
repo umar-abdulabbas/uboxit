@@ -1,0 +1,36 @@
+.uboxitBox{
+    height: 100px;
+    border-radius: 10px;
+    background: #d9d9d9;
+}
+.ubboxitBoxAfter::after {
+    content: "+";
+    position: relative;
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    float: right;
+    font-size: 1.2rem;
+    background: #FFF;
+    line-height:25px;
+    margin: auto;
+    top: 22%;
+    padding: 10px;
+    color:#FF655A;
+    right: -30px;
+    text-align: center;
+    font-weight: bold;
+
+}
+.uboxitBoxTitle{
+    text-align: center;
+    line-height: 80px;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+.uboxitBoxactive{
+    background: #FF655A;
+}
+.uboxiplus{
+    position: fixed;
+}

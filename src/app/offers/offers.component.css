@@ -1,4 +1,5 @@
 /*  SECTIONS  */
+
 .section {
 	clear: both;
 	padding: 0px;
@@ -7,8 +8,9 @@
 .offerTitle{
   padding-top:10px; 
 }
-.offerTitle h2{
-    font-size: 40px;
+.offerTitle div{
+  font-size: 1.4rem;
+  color: #acb3c2;
 }
 .card{
 	

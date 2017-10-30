@@ -1,4 +1,4 @@
-import { Component, Inject, HostListener, Input, OnInit }  from '@angular/core';
+import { Component, Inject, HostListener, Output, OnInit, EventEmitter }  from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +7,13 @@ import { Component, Inject, HostListener, Input, OnInit }  from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public uboxitMenu:boolean = false;
+  
   constructor() { }
 
   ngOnInit() {
+      
   }
+  
   @HostListener("window:scroll",['$events']) 
   onWindowScroll($event){
     let headerScroll = window.scrollY;

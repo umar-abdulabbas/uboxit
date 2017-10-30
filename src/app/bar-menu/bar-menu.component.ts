@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-bar-menu',
@@ -7,11 +7,19 @@ import { Component, OnInit} from '@angular/core';
 })
 export class BarMenuComponent implements OnInit {
   public barFixed:boolean = false;
+   @Output() showBanner:EventEmitter<boolean> = new EventEmitter<boolean>();
+   @Output() donotshowBanner:EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  donotshowBanneron():void{
+    this.showBanner.emit(false);
+  }
+  showBanneron():void{
+    this.showBanner.emit(true);
+  }
 
 
 }

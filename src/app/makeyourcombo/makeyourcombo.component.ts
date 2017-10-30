@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable} from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core';
 
 //import { OffersComponent } from '../offers/offers.component';
 
@@ -8,20 +8,22 @@ import { Component, OnInit, OnDestroy, Injectable} from '@angular/core';
   selector: 'app-makeyourcombo',
   templateUrl: './makeyourcombo.component.html',
   styleUrls: ['./makeyourcombo.component.css'],
-   
+  
 })
 export class MakeyourcomboComponent implements OnInit, OnDestroy{
   public headerColor;
   public MenuContainerWidth;
   public itemLengthid;
   isLinear = false;
-   
- public x:any;
+ 
+  
   constructor( ) { 
      
   }
 
   ngOnInit() {
+    
+    
     this.headerColor = document.getElementById('uboxitTopHeader'); //top stop the scroll window
     this.headerColor.classList.add("headerFixedShoppingCard");
 

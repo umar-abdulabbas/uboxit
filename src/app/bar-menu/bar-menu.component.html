@@ -2,8 +2,8 @@
 <div class="container grid-lg uboxitMenuContainer"> 
 <div class="column uboxitMenuColumn">
     <div>
-        <div class="float-left uboxitMenuFirst uboxitMenuActive c-hand" routerLink="/home" routerLinkActive="active"><span  class="hide-xs">Available Combo</span><span class="show-xs uboxitMenuFilterIcon"><i class="material-icons">restaurant_menu</i></span></div>
-        <div class="float-left uboxitMenuSecond c-hand"  routerLink="/makeyourcombo" routerLinkActive="active" ><span class="hide-xs">Make your own Combo</span><span class="show-xs uboxitMenuFilterIcon"><i class="material-icons">restaurant</i></span></div>
+        <div (click)="showBanneron();" class="float-left uboxitMenuFirst uboxitMenuActive c-hand" routerLink="/home" routerLinkActive="active"><span  class="hide-xs">Available Combo</span><span class="show-xs uboxitMenuFilterIcon"><i class="material-icons">restaurant_menu</i></span></div>
+        <div (click)="donotshowBanneron();" class="float-left uboxitMenuSecond c-hand"  routerLink="/makeyourcombo" routerLinkActive="active" ><span class="hide-xs">Make your own Combo</span><span class="show-xs uboxitMenuFilterIcon"><i class="material-icons">restaurant</i></span></div>
         <div class="dropdown dropdown-right float-right uboxitMenuFilter c-hand">
             <div class="uboxitMenuFilterIcon">
             

@@ -17,14 +17,7 @@ export class AppComponent implements  OnInit, OnDestroy {
   ngOnInit() {
      
   }
-  onChangeBanner1(showBanner:boolean){
-    console.log(showBanner);
-    this.showBanner = showBanner;
-  }
-  onChangeBanner2(showBanner:boolean){
-    console.log(showBanner);
-    this.showBanner = showBanner;
-  }
+
   ngOnDestroy() {  }
   @HostListener("window:scroll",['$events']) 
     onWindowScroll($event){

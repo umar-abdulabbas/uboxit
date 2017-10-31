@@ -17,7 +17,11 @@ export class AppComponent implements  OnInit, OnDestroy {
   ngOnInit() {
      
   }
-  onChangeBanner(showBanner:boolean){
+  onChangeBanner1(showBanner:boolean){
+    console.log(showBanner);
+    this.showBanner = showBanner;
+  }
+  onChangeBanner2(showBanner:boolean){
     console.log(showBanner);
     this.showBanner = showBanner;
   }

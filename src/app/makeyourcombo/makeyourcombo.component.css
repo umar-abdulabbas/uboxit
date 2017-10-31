@@ -34,3 +34,10 @@
 .uboxiplus{
     position: fixed;
 }
+
+@media only screen and (max-width: 480px) {
+    
+    .ubboxitBoxAfter::after {
+        top: -60px;
+    }
+}

@@ -2,13 +2,9 @@
     <section id="uboxitTopHeader" class="uboxitTopHeader" [ngClass]="{'headerFixed':headerFixed}">
             <app-header></app-header>
     </section>
-    <section *ngIf="showBanner" >
-        <app-banner></app-banner>
-    </section>
+ 
 
-<section class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}">
-     <app-bar-menu (showBanner)="onChangeBanner($event);"></app-bar-menu>
-</section>
+
     <section class="uboxitRouter">
     <router-outlet>
                 

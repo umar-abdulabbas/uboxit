@@ -7,19 +7,18 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class BarMenuComponent implements OnInit {
   public barFixed:boolean = false;
-   @Output() showBanner:EventEmitter<boolean> = new EventEmitter<boolean>();
-   @Output() donotshowBanner:EventEmitter<boolean> = new EventEmitter<boolean>();
+  public isActive:boolean = false;
+  public pathFinder:string;
   constructor() { }
 
   ngOnInit() {
+      this.pathFinder = location.pathname.split('/').pop();
+      if(this.pathFinder === "makeyourcombo"){
+        this.isActive = true;
+      }
   }
 
-  donotshowBanneron():void{
-    this.showBanner.emit(false);
-  }
-  showBanneron():void{
-    this.showBanner.emit(true);
-  }
+  
 
 
 }

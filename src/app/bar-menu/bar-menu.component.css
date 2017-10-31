@@ -7,11 +7,20 @@
 .uboxitMenuFirst{
     border-right:1px solid #ccc;  padding:0px 20px; width:45%; line-height:40px; text-align:center; 
 }
+
 .uboxitMenuSecond{
     padding:0px 20px;  width:45%; line-height:40px; text-align:center; border-right:1px solid #ccc; 
 }
+.uboxitMenuFirst:hover, .uboxitMenuSecond:hover, .uboxitMenuFilter:hover{
+    color: #ff675c;
+    background: #fff;
+}
 .uboxitMenuFilter{
-    padding:0px 20px;  width:10%;
+     width:10%; line-height:40px;
+}
+.anchorFixedSize{
+    width: 100%;
+    display: inline-block;
 }
 .uboxitMenuFilterIcon{
     text-align: center;
@@ -19,8 +28,11 @@
     top: 6px;
     
 }
-.uboxitMenuFilterIcon a{
+.uboxitMenuFilterIcon a {
     color:#000;
+}
+.uboxitMenuFilterIcon a:hover{
+    color: #ff675c;
 }
 .uboxitMenuActive{
     background: #fff;

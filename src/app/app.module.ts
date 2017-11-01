@@ -16,10 +16,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
+//Directives 
+
+import { stickyHeaderDirective } from './directives/sticky-header.directive';
+
 //Material Componets Added 
 
 import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule, MatStepperModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
+import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 
 
 
@@ -44,7 +49,8 @@ import { NgxCarouselModule } from 'ngx-carousel';
     DeliverTimeComponent,
     OrderedItemsComponent,
     MakeyourcomboComponent,
-    
+    stickyHeaderDirective,
+    MakeyourcomboOfferComponent
   ],
   imports: [
     BrowserModule,

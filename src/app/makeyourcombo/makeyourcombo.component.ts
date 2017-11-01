@@ -15,12 +15,12 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
   public MenuContainerWidth;
   public itemLengthid;
   isLinear = false;
- 
-  
+  public uboxitMenu:boolean = false;
+  public starters = "starters";
   constructor( ) { 
      
   }
-
+  
   ngOnInit() {
     
     
@@ -29,6 +29,19 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
 
 
   }
+    stickyHeaderValue(scrolValue){
+    if (scrolValue > 20 ){
+        this.uboxitMenu = true;  
+    }
+    else if(this.uboxitMenu && scrolValue < 5 ){
+        this.uboxitMenu = false; 
+    } 
+   
+
+  }
+   showSelectedValue(value){
+        this.starters = value;
+    }
   ngOnDestroy(){
     this.headerColor.classList.remove("headerFixedShoppingCard");
   }

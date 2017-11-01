@@ -13,17 +13,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
       
   }
-  
-  @HostListener("window:scroll",['$events']) 
-  onWindowScroll($event){
-    let headerScroll = window.scrollY;
-  
-    if(headerScroll > 330 ){
-      this.uboxitMenu = true;
-      //this.headerFixed = false;
+    stickyHeaderValue(scrolValue){
+    if(scrolValue > 330 ){
+      this.uboxitMenu = true;    
     }
-    else if(this.uboxitMenu && headerScroll < 200 ){
+    else if(this.uboxitMenu && scrolValue < 200 ){
       this.uboxitMenu = false;
     }
-}
+  }
+
 }

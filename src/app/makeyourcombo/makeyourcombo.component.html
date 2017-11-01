@@ -1,11 +1,11 @@
 <div style="margin-top:50px;">
-<section style="background:#f7f7f7; margin-bottom:5px; border-bottom:1px solid #ccc;">
+<section style="background:#f7f7f7; margin-bottom:5px; border-bottom:1px solid #ccc;" stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu}">
        <!--Menu -->
        <app-bar-menu></app-bar-menu>
        <!-- // Menu End -->
 </section>
 
-<section>
+<section [ngClass]="{'uboxitMenuInMakeComboSelect':uboxitMenu}">
 
     <div class="container grid-lg">
     <div class="container">
@@ -13,16 +13,19 @@
             
               <p>Cook up your own Combo using our virtual kitchen!</p>
           </section>
-      <div class="columns">
+      <div class="columns" >
        
-          <div class="column col-xs-4"><div class="bg-primary text-light rounded centered pt-2 uboxitBox ubboxitBoxAfter uboxitBoxTitle uboxitBoxactive">starters</div></div>
+          <div class="column col-xs-4"><div class="bg-primary text-light rounded centered pt-2 uboxitBox ubboxitBoxAfter uboxitBoxTitle uboxitBoxactive">{{starters}}</div></div>
           <div class="column col-xs-4"><div class="bg-primary text-light rounded centered pt-2 uboxitBox ubboxitBoxAfter uboxitBoxTitle"> Main Dish</div></div>
           <div class="column col-xs-4"><div class="bg-primary text-light rounded centered pt-2 uboxitBox uboxitBoxTitle">Dessert</div></div>
-          <!-- Offer Area -->
-          <app-offers></app-offers>
-          <!-- Offer Area End -->
+          
       </div>
       </div>
     </div>
+</section>
+<section>
+        <!-- Offer Area -->
+         <app-makeyourcombo-offer (selectedValue) ="showSelectedValue($event)"></app-makeyourcombo-offer>
+          <!-- Offer Area End -->
 </section>
 </div>

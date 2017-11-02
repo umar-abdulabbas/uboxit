@@ -9,8 +9,8 @@
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
             <div class="equalHMV eq" *ngFor="let offer of offers;" >
-             <div class="card animated fadeInDown" (click)="onSelect(offer); active = true" >
-                  <div class="card-image"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
+             <div class="card animated fadeInDown" >
+                  <div class="card-image" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header">
                           <div class="float-left ">
                           <div class="card-title h5">{{offer.title}}</div>
@@ -30,7 +30,21 @@
          <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
             <div class="modal-overlay"></div>
             <div class="modal-container">
-                <div><img src="{{selectedOffer.image}}" class="img-responsive" ></div>
+                <div class="relative">
+                  <img src="{{selectedOffer.image}}" class="img-responsive">
+                  <span class="absolute" style="height:40px; width:166px; bottom:60px; border:1px solid #000;">
+                        <img src="{{selectedOffer.image}}" width="166" height="105"/>
+                       
+                  </span>
+                  <span class="absolute" style="height:40px; width:166px; bottom:60px; left:167px; border:1px solid #000;">
+                      <img src="{{selectedOffer.image}}" width="166" height="105"/>
+                     
+                </span>
+                <span class="absolute" style="height:40px; width:166px; bottom:60px; left:334px; border:1px solid #000;">
+                    <img src="{{selectedOffer.image}}" width="166" height="105"/>
+                   
+              </span>
+                </div>
                 <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
                 <div class="modal-title h5">{{selectedOffer.title}}</div>

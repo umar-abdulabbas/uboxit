@@ -150,3 +150,13 @@
   height: 120px;
   overflow: auto;
 }
+.card-image{
+overflow: hidden;
+}
+.card-image img{
+  transition: all 0.3s;
+}
+
+.card-image:hover img{
+  transform: scale(1.5);
+}

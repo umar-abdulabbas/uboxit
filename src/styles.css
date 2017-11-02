@@ -24,7 +24,7 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; }
       background: #ededed
    }
    .uboxitRouter{
-     min-height: 600px;
+     min-height: 700px;
    }
    .btn.btn-link.uboxitLink, .btn.btn-link.uboxitLink:hover, .btn.btn-link.uboxitLink:active{
      color:#5755d9;
@@ -265,3 +265,4 @@ input:focus ~ .highlight {
 	.equalHMV { width:100% !important; margin: 1%; }
  
 }
+

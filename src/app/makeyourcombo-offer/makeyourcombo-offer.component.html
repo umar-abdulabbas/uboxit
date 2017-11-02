@@ -1,11 +1,31 @@
 <div class="container grid-lg"> 
 <div class="column">
-      <div (click)="onselectedValue(1)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">1</div>
-      <div (click)="onselectedValue(2)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">2</div>
-      <div (click)="onselectedValue(3)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">3</div>
-      <div (click)="onselectedValue(4)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">4</div>
-      <div (click)="onselectedValue(5)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">5</div>
-      <div (click)="onselectedValue(6)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">6</div>
-      <div (click)="onselectedValue(7)" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">7</div>
+      <div class="starters" *ngIf="isActivestarters" (outputsstarters)="outputsstartersshow($event);">
+      <div (click)="onselectedValue('S1')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S1</div>
+      <div (click)="onselectedValue('S2')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S2</div>
+      <div (click)="onselectedValue('S3')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S3</div>
+      <div (click)="onselectedValue('S4')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S4</div>
+      <div (click)="onselectedValue('S5')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S5</div>
+      <div (click)="onselectedValue('S6')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S6</div>
+      <div (click)="onselectedValue('S7')" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S7</div>
+     </div>
+     <div class="mainDish" *ngIf="isActiveMainDish">
+            <div (click)="onselectedMainDish('M1')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M1</div>
+            <div (click)="onselectedMainDish('M2')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M2</div>
+            <div (click)="onselectedMainDish('M3')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M3</div>
+            <div (click)="onselectedMainDish('M4')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M4</div>
+            <div (click)="onselectedMainDish('M5')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M5</div>
+            <div (click)="onselectedMainDish('M6')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M6</div>
+            <div (click)="onselectedMainDish('M7')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M7</div>
+      </div>
+      <div class="dessert" *ngIf="isActiveDessert">
+            <div (click)="onselectedDessert('D1')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D1</div>
+            <div (click)="onselectedDessert('D2')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D2</div>
+            <div (click)="onselectedDessert('D3')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D3</div>
+            <div (click)="onselectedDessert('D4')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D4</div>
+            <div (click)="onselectedDessert('D5')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D5</div>
+            <div (click)="onselectedDessert('D6')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D6</div>
+            <div (click)="onselectedDessert('D7')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D7</div>
+      </div>
 </div>
 </div>

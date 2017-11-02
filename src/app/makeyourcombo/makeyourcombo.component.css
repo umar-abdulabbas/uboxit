@@ -4,7 +4,7 @@
     background: #d9d9d9;
 }
 .ubboxitBoxAfter::after {
-    content: "+";
+    /* content: "+";
     position: relative;
     width:50px;
     height: 50px;
@@ -19,7 +19,17 @@
     color:#FF655A;
     right: -30px;
     text-align: center;
-    font-weight: bold;
+    font-weight: bold; */
+
+    content: "";
+    width: 48px;
+    height: 48px;
+    background:url('../../assets/images/plus_add.png') no-repeat;
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+    top:22px;
+    right:-22px;
 
 }
 .uboxitBoxTitle{
@@ -54,7 +64,8 @@
 }
 @media only screen and (max-width: 480px) {
     
-    .ubboxitBoxAfter::after {
-        top: -60px;
+  
+    .uboxitBoxTitle{
+        font-size: 15px;
     }
 }

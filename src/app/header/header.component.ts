@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getHeaders();
-    this.body = document.getElementById('uboxitwrapper'); //top stop the scroll window
+    this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
     
   }
 
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     this.headerservice.getHeaders().then(headers => this.headers = headers)
   }
 
-  openLoginWindow(event:any):void{
+  openLoginWindow():void{
     this.headerActive = true;
     this.body.classList.add("body-overflow");
       
@@ -42,7 +42,12 @@ export class HeaderComponent implements OnInit {
     this.headerActive = false;
     this.body.classList.remove("body-overflow");
     this.loginTitle = "Login";
-   
+    this.isActiveNonRegUser = true;
+    this.isActiveRegUser = false;
+    this.notFromHome = false;
+    this.forgetPwd = true;
+    this.LoginLayoutModel = false;
+  
    
   }
   openShoppingCart():void{

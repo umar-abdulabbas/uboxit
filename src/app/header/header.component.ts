@@ -70,4 +70,8 @@ export class HeaderComponent implements OnInit {
     this.LoginLayoutModel = true;
     this.loginTitle = "Forgot your password?";
  }
+ modelclose(event):void{
+  
+  this.headerActive = event;
+}
 }

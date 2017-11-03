@@ -8,10 +8,10 @@
    
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
-            <div class="equalHMV eq" *ngFor="let offer of offers;" >
+            <div class="equalHMV eq" *ngFor="let offer of offers;">
              <div class="card animated fadeInDown" >
                   <div class="card-image" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
-                  <div class="card-header">
+                  <div class="card-header" >
                           <div class="float-left ">
                           <div class="card-title h5">{{offer.title}}</div>
                           <div class="card-subtitle text-gray"> </div>
@@ -21,14 +21,17 @@
                   <div class="card-body"><span class="chip">{{offer.types}}</span></div>
                   <div class="card-footer">
                   <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
-                    <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
+                    <div class="float-right">
+                          <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
+                          <app-add-to-cart-counter></app-add-to-cart-counter>
+                    </div>
                   </div> 
             </div> <!-- // Card -->
 
             </div> <!-- Repeater End --> 
                 <!-- Model Window Start -->
          <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
-            <div class="modal-overlay"></div>
+            <div class="modal-overlay" modelCloseOnOverlay (modelClose)="modelclose($event)"></div>
             <div class="modal-container">
                 <div class="relative">
                   <img src="{{selectedOffer.image}}" class="img-responsive">

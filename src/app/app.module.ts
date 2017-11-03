@@ -18,13 +18,14 @@ import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
 //Directives 
 
-import { stickyHeaderDirective } from './directives/sticky-header.directive';
-
+import { stickyHeaderDirective } from './shared/directives/sticky-header.directive';
+import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
 //Material Componets Added 
 
 import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule, MatStepperModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
+import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
 
 
 
@@ -50,7 +51,9 @@ import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo
     OrderedItemsComponent,
     MakeyourcomboComponent,
     stickyHeaderDirective,
-    MakeyourcomboOfferComponent
+    modelCloseOverlay,
+    MakeyourcomboOfferComponent,
+    AddToCartCounterComponent
   ],
   imports: [
     BrowserModule,

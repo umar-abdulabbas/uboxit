@@ -64,6 +64,9 @@ export class OffersComponent implements OnInit {
     this.isActivedetails = false;
     this.isActiveingredients = true;
   }
-
+  modelclose(event):void{
+    
+    this.active = event;
+  }
  
 }

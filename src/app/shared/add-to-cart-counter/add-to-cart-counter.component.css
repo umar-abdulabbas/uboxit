@@ -1,0 +1,9 @@
+.btnArea{
+    display:inline-block; border:1px solid #ff675c; height:29px; padding:1px;
+}
+.btnCounter{
+    display:inline-block; background:#ff675c; height:25px; padding:0px 10px; position:relative; border:0px; padding-bottom:3px; color: #fff;
+}
+.inputCounter{
+    border:0px; box-shadow:none; border-radius:0px; padding:0px; width:30px; font-size:14px; text-align:center;    height: 20px;     line-height: 14px;
+}

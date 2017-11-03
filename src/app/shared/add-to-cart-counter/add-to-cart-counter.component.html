@@ -1,0 +1,8 @@
+<div class="btnArea" *ngIf="isActiveCounter">
+      <button class="btnCounter" (click)="decrement()"><i class="icon icon-minus"></i></button>
+      <div style="display:inline-block; width:30px;height:25px;">
+          <input [value]="counterValue" class="inputCounter"  id="" >
+      </div>
+      <button class="btnCounter" (click)="increment()"><i class="icon icon-plus"></i></button>
+</div>
+<button class="btn btn-primary" (click)="addtoCart();" *ngIf="isActiveCart">Add to Cart</button>

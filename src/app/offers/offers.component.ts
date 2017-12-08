@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export class Offer{
-  id:string;
-  image:string;
-  title:string;
-  anySpecTitle:string;
-  types:string;
-  price:string;
-  favourite:string;
-}
+import { Offer } from '../shared/services/offer.service';
 
 const OFFERS:Offer[] = [
     {id:"1", image:"assets/images/banner1.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
@@ -33,14 +24,14 @@ export class OffersComponent implements OnInit {
   activeyes:boolean = true;
   isActivedetails:boolean = true;
   isActiveingredients:boolean = false;
-  selectedOffer: Offer; 
+  selectedOffer: Offer;
 
   animation:boolean = false;
   constructor() { }
- 
+
   ngOnInit() {
      this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
-    
+
   }
   onSelect(offer:Offer):void{
     console.log(offer);
@@ -55,18 +46,18 @@ export class OffersComponent implements OnInit {
     this.activeyes = true;
     this.isActivedetails = true;
     this.isActiveingredients = false;
-    
-    
+
+
   }
   openingredients():void{
-    
+
     this.activeyes = false;
     this.isActivedetails = false;
     this.isActiveingredients = true;
   }
   modelclose(event):void{
-    
+
     this.active = event;
   }
- 
+
 }

@@ -2,11 +2,13 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
 import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
+import { AddToCartCounterComponent } from '../shared/add-to-cart-counter/add-to-cart-counter.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers:[HeaderService]
+  providers:[HeaderService], 
+  
 })
 export class HeaderComponent implements OnInit {
   headers: Header[];
@@ -18,7 +20,8 @@ export class HeaderComponent implements OnInit {
   notFromHome:boolean = false;
   forgetPwd:boolean = true;
   LoginLayoutModel:boolean = false;
-  loginTitle = "Login"
+  loginTitle = "Login";
+  public count = 1;
   constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router) { }
   
 
@@ -74,4 +77,6 @@ export class HeaderComponent implements OnInit {
   
   this.headerActive = event;
 }
+
+
 }

@@ -1,36 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { Offer } from '../shared/services/offer.service';
+import { Component, OnInit, Injectable, Output, EventEmitter} from '@angular/core';
+import { Offer } from '../shared/offers/offer';
+import { OfferService } from '../shared/offers/offer.service'
 
-const OFFERS:Offer[] = [
-    {id:"1", image:"assets/images/banner1.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"2", image:"assets/images/banner2.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"3", image:"assets/images/banner3.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"4", image:"assets/images/banner4.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"5", image:"assets/images/banner1.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"6", image:"assets/images/banner2.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"7", image:"assets/images/banner3.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-    {id:"8", image:"assets/images/banner4.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},
-];
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.css']
+  styleUrls: ['./offers.component.css'],
+  outputs:['incdecCounter']
 })
 export class OffersComponent implements OnInit {
-  offers = OFFERS;
+  offers: Offer[];
   active:boolean = true;
   public body;
-
+  incdecCounter = new EventEmitter();
   activeyes:boolean = true;
   isActivedetails:boolean = true;
   isActiveingredients:boolean = false;
   selectedOffer: Offer;
-
+  parentcount:any;
+  updatecount = 0;
   animation:boolean = false;
-  constructor() { }
+  constructor(private offerService:OfferService) {
+    this.parentcount;
+  }
 
   ngOnInit() {
      this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+     this.getOffers();
+  }
+  getOffers():void{
+    this.offerService.getOffers().subscribe(Offers => this.offers = Offers);
 
   }
   onSelect(offer:Offer):void{
@@ -56,8 +55,26 @@ export class OffersComponent implements OnInit {
     this.isActiveingredients = true;
   }
   modelclose(event):void{
-
+    console.log(event);
     this.active = event;
   }
 
+  onChange(event):void{
+      //console.log(event);
+      let keys = Object.values(event);
+
+      //console.log(keys);
+      this.parentcount = keys
+  }
+  incdecCounterupdate(event):void{
+    console.log(event);
+      if(event === "plus"){
+          this.updatecount++;
+          this.incdecCounter.emit(this.updatecount);
+      }
+      else if(event === "minus"){
+        this.updatecount--;
+        this.incdecCounter.emit(this.updatecount);
+      }
+  }
 }

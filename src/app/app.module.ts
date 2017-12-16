@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
+import { OfferService } from './shared/offers/offer.service';
 //Directives
 
 import { stickyHeaderDirective } from './shared/directives/sticky-header.directive';
@@ -27,8 +28,7 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
 
-
-
+//Shared Services
 
 
 
@@ -73,7 +73,7 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
     MatStepperModule
 
   ],
-  providers: [],
+  providers: [OfferService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

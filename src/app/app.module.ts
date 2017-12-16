@@ -17,13 +17,13 @@ import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
 import { OfferService } from './shared/offers/offer.service';
-//Directives 
+//Directives
 
 import { stickyHeaderDirective } from './shared/directives/sticky-header.directive';
 import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
-//Material Componets Added 
+//Material Componets Added
 
-import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule, MatStepperModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatTabsModule, MatGridListModule, MatCardModule, MatExpansionModule, MatStepperModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
@@ -59,19 +59,19 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-   
+
     //Material Import
     NgxCarouselModule,
-    MdButtonModule,
-    MdCheckboxModule,
-    MdToolbarModule,
-    MdSidenavModule,
-    MdTabsModule,
-    MdGridListModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatGridListModule,
     MatCardModule,
     MatExpansionModule,
     MatStepperModule
-   
+
   ],
   providers: [OfferService],
   bootstrap: [AppComponent]

@@ -16,21 +16,21 @@ export class OffersComponent implements OnInit {
   activeyes:boolean = true;
   isActivedetails:boolean = true;
   isActiveingredients:boolean = false;
-  selectedOffer: Offer; 
+  selectedOffer: Offer;
   parentcount:any;
   updatecount = 0;
   animation:boolean = false;
   constructor(private offerService:OfferService) {
     this.parentcount;
   }
- 
+
   ngOnInit() {
      this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
      this.getOffers();
   }
   getOffers():void{
     this.offerService.getOffers().subscribe(Offers => this.offers = Offers);
-    
+
   }
   onSelect(offer:Offer):void{
     console.log(offer);
@@ -45,11 +45,11 @@ export class OffersComponent implements OnInit {
     this.activeyes = true;
     this.isActivedetails = true;
     this.isActiveingredients = false;
-    
-    
+
+
   }
   openingredients():void{
-    
+
     this.activeyes = false;
     this.isActivedetails = false;
     this.isActiveingredients = true;
@@ -62,9 +62,9 @@ export class OffersComponent implements OnInit {
   onChange(event):void{
       //console.log(event);
       let keys = Object.values(event);
-    
+
       //console.log(keys);
-      this.parentcount = keys 
+      this.parentcount = keys
   }
   incdecCounterupdate(event):void{
     console.log(event);

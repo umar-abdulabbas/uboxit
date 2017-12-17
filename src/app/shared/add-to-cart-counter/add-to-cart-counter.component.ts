@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { CounterService } from './counter.service';
 
 @Component({
   selector: 'app-add-to-cart-counter',
@@ -10,9 +11,11 @@ export class AddToCartCounterComponent implements OnInit {
   @Input() counterValue = 0;
   counterChange = new EventEmitter();
   incdecCounter = new EventEmitter();
-  isActiveCart:boolean = true; 
+  isActiveCart:boolean = true;
   isActiveCounter:boolean;
-  constructor( private el:ElementRef) { }
+
+  constructor( private el: ElementRef, private counterService: CounterService) { }
+
   increment(){
       this.counterValue++;
       this.incdecCounter.emit("plus");
@@ -20,15 +23,17 @@ export class AddToCartCounterComponent implements OnInit {
         value:this.counterValue
       });
       this.isActiveCounter = true; this.isActiveCart = false;
+
+      this.counterService.add();
   }
   decrement()
   {
     console.log(this.counterValue);
-    
+
     if(this.counterValue == 1){
       console.log("y");
-      
-      this.isActiveCounter = false; 
+
+      this.isActiveCounter = false;
       this.isActiveCart = true;
       this.counterValue--;
       this.incdecCounter.emit("minus");
@@ -42,14 +47,16 @@ export class AddToCartCounterComponent implements OnInit {
       value:this.counterValue
     })
     }
+
+    this.counterService.reduce();
   }
- 
+
 
   ngOnInit() {
   }
   addtoCart():void{
       this.counterValue = 1;
       this.isActiveCounter = true; this.isActiveCart = false;
-  } 
+  }
 
 }

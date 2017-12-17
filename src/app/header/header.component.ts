@@ -3,12 +3,13 @@ import { Header } from './header';
 import { HeaderService } from './header.service';
 import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 import { AddToCartCounterComponent } from '../shared/add-to-cart-counter/add-to-cart-counter.component';
+import { CounterService } from '../shared/add-to-cart-counter/counter.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers:[HeaderService], 
-  
+  providers:[HeaderService],
+
 })
 export class HeaderComponent implements OnInit {
   headers: Header[];
@@ -22,13 +23,16 @@ export class HeaderComponent implements OnInit {
   LoginLayoutModel:boolean = false;
   loginTitle = "Login";
   public count = 1;
-  constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router) { }
-  
+
+  countt = this.counterService.countValue;
+
+  constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router, private counterService: CounterService) { }
+
 
   ngOnInit() {
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
-    
+
   }
 
   getHeaders():void{
@@ -38,9 +42,9 @@ export class HeaderComponent implements OnInit {
   openLoginWindow():void{
     this.headerActive = true;
     this.body.classList.add("body-overflow");
-      
+
   }
- 
+
   closeLoginWindow():void{
     this.headerActive = false;
     this.body.classList.remove("body-overflow");
@@ -50,15 +54,15 @@ export class HeaderComponent implements OnInit {
     this.notFromHome = false;
     this.forgetPwd = true;
     this.LoginLayoutModel = false;
-  
-   
+
+
   }
   openShoppingCart():void{
-    
+
     this.router.navigate(['/shoppingcart']);
   }
   goToHomePage():void{
-    
+
     this.router.navigate(['/home']);
   }
   openSignUp():void{
@@ -74,7 +78,7 @@ export class HeaderComponent implements OnInit {
     this.loginTitle = "Forgot your password?";
  }
  modelclose(event):void{
-  
+
   this.headerActive = event;
 }
 

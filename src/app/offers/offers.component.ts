@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable, Output, EventEmitter} from '@angular/core';
 import { Offer } from '../shared/offers/offer';
 import { OfferService } from '../shared/offers/offer.service'
+import { CounterService } from '../shared/add-to-cart-counter/counter.service';
 
 @Component({
   selector: 'app-offers',
@@ -20,12 +21,15 @@ export class OffersComponent implements OnInit {
   parentcount:any;
   updatecount = 0;
   animation:boolean = false;
-  constructor(private offerService:OfferService) {
+
+  count = this.counterService.countValue;
+
+  constructor(private offerService: OfferService, private counterService: CounterService) {
     this.parentcount;
   }
  
   ngOnInit() {
-     this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
      this.getOffers();
   }
   getOffers():void{

@@ -3,7 +3,7 @@
     
    <div class="text-center offerTitle">
          <div>"South Indian"</div>
-        
+
          <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
    </div>
    
@@ -24,7 +24,7 @@
                   <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
                     <div class="float-right">
                           <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
-                           Count{{updatecount}}
+                           <!--Count{{updatecount}} --> Count {{ count | async }}
                           <app-add-to-cart-counter (counterChange)="onChange($event);" (incdecCounter)="incdecCounterupdate($event)"></app-add-to-cart-counter>
                     </div>
                   </div> 

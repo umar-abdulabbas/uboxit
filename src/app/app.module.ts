@@ -27,6 +27,7 @@ import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTa
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
+import { CounterService } from './shared/add-to-cart-counter/counter.service';
 
 //Shared Services
 
@@ -73,7 +74,10 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
     MatStepperModule
    
   ],
-  providers: [OfferService],
+  providers: [
+    OfferService,
+    CounterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

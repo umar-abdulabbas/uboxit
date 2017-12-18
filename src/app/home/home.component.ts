@@ -7,7 +7,7 @@ import { Component, Inject, HostListener, Output, OnInit, EventEmitter }  from '
 })
 export class HomeComponent implements OnInit {
   public uboxitMenu:boolean = false;
-  
+  public updateCounter;
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +24,6 @@ export class HomeComponent implements OnInit {
 
   incdecCounterupdate(event):void{
     console.log(event);
-     
+    this.updateCounter = event;
   }
 }

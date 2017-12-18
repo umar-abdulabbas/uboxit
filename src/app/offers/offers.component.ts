@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable, Output, EventEmitter} from '@angular/core';
 import { Offer } from '../shared/offers/offer';
-import { OfferService } from '../shared/offers/offer.service'
-
+import { OfferService } from '../shared/offers/offer.service';
+import { CounterService } from '../shared/services/counter';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
@@ -20,10 +20,10 @@ export class OffersComponent implements OnInit {
   parentcount:any;
   updatecount = 0;
   animation:boolean = false;
-  constructor(private offerService:OfferService) {
+  constructor(private offerService:OfferService, private counterService: CounterService) {
     this.parentcount;
   }
- 
+  
   ngOnInit() {
      this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
      this.getOffers();
@@ -64,17 +64,20 @@ export class OffersComponent implements OnInit {
       let keys = Object.values(event);
     
       //console.log(keys);
-      this.parentcount = keys 
+      this.parentcount = keys;
+      this.counterService.sendPlus(this.parentcount);
   }
   incdecCounterupdate(event):void{
     console.log(event);
       if(event === "plus"){
           this.updatecount++;
           this.incdecCounter.emit(this.updatecount);
+          
       }
       else if(event === "minus"){
         this.updatecount--;
         this.incdecCounter.emit(this.updatecount);
+        
       }
   }
 }

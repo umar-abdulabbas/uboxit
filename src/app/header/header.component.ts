@@ -1,8 +1,10 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
 import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 import { AddToCartCounterComponent } from '../shared/add-to-cart-counter/add-to-cart-counter.component';
+import { Subscription } from 'rxjs/Subscription';
+import {CounterService} from '../shared/services/counter';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +12,7 @@ import { AddToCartCounterComponent } from '../shared/add-to-cart-counter/add-to-
   providers:[HeaderService], 
   
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy  {
   headers: Header[];
   headerActive:boolean = false;
   public headerFixed:boolean = false;
@@ -22,15 +24,23 @@ export class HeaderComponent implements OnInit {
   LoginLayoutModel:boolean = false;
   loginTitle = "Login";
   public count = 1;
-  constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router) { }
+  bage:any = "2";
+  message:any;
+  subscription: Subscription;
+  constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router, private counterService:CounterService) {
+      this.subscription = this.counterService.getCountInfo().subscribe(message => { this.message = message; console.log(message)});
+      
+   }
   
 
   ngOnInit() {
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
-    
+   
   }
+  ngOnDestroy(){
 
+  }
   getHeaders():void{
     this.headerservice.getHeaders().then(headers => this.headers = headers)
   }

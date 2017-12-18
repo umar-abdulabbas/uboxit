@@ -30,7 +30,7 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
 
 //Shared Services
 
-
+import { CounterService } from './shared/services/counter';
 
 
 
@@ -73,7 +73,7 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
     MatStepperModule
    
   ],
-  providers: [OfferService],
+  providers: [OfferService, CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

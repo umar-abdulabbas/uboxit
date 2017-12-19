@@ -1,18 +1,18 @@
 <div class="container grid-lg"> 
 <div class="column">
-            <div *ngIf="msgFromMakeYourOwnCombo">{{msgFromMakeYourOwnCombo.starter}} {{msgFromMakeYourOwnCombo.maindish}} {{msgFromMakeYourOwnCombo.desser}}  {{msgFromMakeYourOwnCombo.productid}} </div>
-      <div class="starters" *ngIf="isActivestarters" >
-      <div (click)="onselectedValue()" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S1</div>
-      
+      <div *ngIf="msgFromMakeYourOwnCombo">
+      <div class="starters" *ngIf="msgFromMakeYourOwnCombo.starter" >
+      <div (click)="onselectedStarter()" style="border:1px solid #ccc; padding:10px; background:#ddd; margin:5px 0px;">S1</div>
+     
      </div>
-     <div class="mainDish" *ngIf="isActiveMainDish">
-            <div (click)="onselectedMainDish('M1')" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M1</div>
-            
-      </div>
-      <div class="dessert" *ngIf="isActiveDessert">
-            <div (click)="onselectedDessert('D1')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D1</div>
+     <div class="mainDish" *ngIf="msgFromMakeYourOwnCombo.maindish">
+            <div (click)="onselectedMainDish()" style="border:1px solid #ccc; padding:10px; background:#FF5; margin:5px 0px;">M1</div>
          
       </div>
-     
+      <div class="dessert" *ngIf="msgFromMakeYourOwnCombo.dessert">
+            <div (click)="onselectedDessert('D1')" style="border:1px solid #ccc; padding:10px; background:#c78; margin:5px 0px;">D1</div>
+        
+      </div>
+      </div>
 </div>
 </div>

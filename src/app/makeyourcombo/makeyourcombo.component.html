@@ -14,9 +14,9 @@
           </section>
       <div class="columns" >
        
-          <div class="column col-xs-4 relative"><div  class="bg-primary text-light rounded centered pt-2 uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':isActiveStarter}">{{starters}}</div></div>
-          <div class="column col-xs-4 relative"><div class="bg-primary text-light rounded centered pt-2 uboxitBox ubboxitBoxAfter uboxitBoxTitle"   [ngClass]="{'uboxitBoxactive':isActiveMainDish}">{{mainDish}}</div></div>
-          <div class="column col-xs-4 relative"><div  class="bg-primary text-light rounded centered pt-2 uboxitBox uboxitBoxTitle uboxitBoxactive"  [ngClass]="{'uboxitBoxactive':isActiveDessert}">{{dessert}}</div></div>
+          <div class="column col-xs-4 relative"><div (click)="starterPress();"  class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':isActiveStarter}">{{starters}}</div></div>
+          <div class="column col-xs-4 relative"><div (click)="mainDishPress();" class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':isActiveMainDish}">{{mainDish}}</div></div>
+          <div class="column col-xs-4 relative"><div (click)="dessertPress();"  class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox uboxitBoxTitle uboxitBoxactive"  [ngClass]="{'uboxitBoxactive':isActiveDessert}">{{dessert}}</div></div>
 
       </div>
       <div *ngIf="showButton" style="margin:10px;"><button class="btn btn-primary" style="width:100%">Add to Cart</button></div>
@@ -25,10 +25,8 @@
 </section>
 <section>
         <!-- Offer Area -->
-             <app-makeyourcombo-offer (selectedStarter) ="showSelectedValue($event)" (selectedMainDish)="showSelectedMainDish($event)" (selectedDessert)="showSelectedDessert($event)"  ></app-makeyourcombo-offer>
+             <app-makeyourcombo-offer></app-makeyourcombo-offer>
          <!-- Offer Area End -->
-         <!--
-             
-          -->
+
 </section>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core';
-
+import { Subscription } from 'rxjs/Subscription';
+import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 //import { OffersComponent } from '../offers/offers.component';
 
 
@@ -12,7 +13,8 @@ import { Component, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core
 })
 export class MakeyourcomboComponent implements OnInit, OnDestroy{
 
-  
+  msgFromMakeYourOwnCombo:any;
+  subFromMakeYourOwnCombo:Subscription;
 
   public headerColor;
   public MenuContainerWidth;
@@ -26,8 +28,8 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
   public isActiveMainDish:boolean;
   public isActiveDessert:boolean;
   public showButton:boolean;
-  constructor( ) { 
-     
+  constructor( private makeyourowncomboservice:MakeYourOwnComboService) { 
+    this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe( msgFromMakeYourOwnCombo => { this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;})
   }
   
   ngOnInit() {
@@ -37,6 +39,28 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
     this.headerColor.classList.add("headerFixedShoppingCard");
 
 
+  }
+  setActiveColorForSelected(starter:boolean, maindish:boolean, dessert:boolean){
+        this.isActiveStarter = starter;
+        this.isActiveMainDish = maindish;
+        this.isActiveDessert = dessert;
+  }
+  starterPress():void{
+        this.makeyourowncomboservice.updateFields(true, false, false, '1');
+        this.setActiveColorForSelected(this.msgFromMakeYourOwnCombo.starter, this.msgFromMakeYourOwnCombo.maindish, this.msgFromMakeYourOwnCombo.dessert);
+  }
+  mainDishPress():void{
+        this.makeyourowncomboservice.updateFields(false, true, false, '2');
+        this.setActiveColorForSelected(this.msgFromMakeYourOwnCombo.starter, this.msgFromMakeYourOwnCombo.maindish, this.msgFromMakeYourOwnCombo.dessert);
+    }
+  dessertPress():void{
+        this.makeyourowncomboservice.updateFields(false, false, true, '3');
+        this.setActiveColorForSelected(this.msgFromMakeYourOwnCombo.starter, this.msgFromMakeYourOwnCombo.maindish, this.msgFromMakeYourOwnCombo.dessert);
+  }
+
+  ngOnDestroy(){
+    this.headerColor.classList.remove("headerFixedShoppingCard");
+    this.subFromMakeYourOwnCombo.unsubscribe();
   }
     stickyHeaderValue(scrolValue){
     if (scrolValue > 50 ){
@@ -48,39 +72,11 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
    
 
   }
-    showSelectedValue(value){
-        this.starters = value;
-        this.isActiveStarter = false;
-        this.isActiveMainDish = true;
-    }
-
-    showSelectedMainDish(value){
-          this.mainDish = value;
-          this.isActiveMainDish = false;
-          this.isActiveDessert = true;
-    }
-    showSelectedDessert(value){
-        this.dessert = value;
-        this.isActiveDessert = false;
-        this.showButton = true;
-    }
+    
     
 
 
-  ngOnDestroy(){
-    this.headerColor.classList.remove("headerFixedShoppingCard");
-  }
-   
-  left():void{
-  // https://codepen.io/mahish/pen/RajmQw?q=scroll+menu+&limit=all&type=type-pens
-  }
-  right():void{
 
-  }
-  //this.greeter = new Greeter("world", 6);
- // console.log(greeter.greet());
- // this.greeter.Greeter("World", 6);
-
+  
 }
-
 

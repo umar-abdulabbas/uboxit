@@ -31,7 +31,7 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
 //Shared Services
 
 import { CounterService } from './shared/services/counter';
-
+import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 
 
 @NgModule({
@@ -73,7 +73,7 @@ import { CounterService } from './shared/services/counter';
     MatStepperModule
    
   ],
-  providers: [OfferService, CounterService],
+  providers: [OfferService, CounterService, MakeYourOwnComboService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

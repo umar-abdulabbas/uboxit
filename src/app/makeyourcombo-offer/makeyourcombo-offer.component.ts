@@ -1,47 +1,42 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 @Component({
   selector: 'app-makeyourcombo-offer',
   templateUrl: './makeyourcombo-offer.component.html',
   styleUrls: ['./makeyourcombo-offer.component.css'],
-  outputs:['selectedStarter','selectedMainDish', 'selectedDessert']
+  
 })
-export class MakeyourcomboOfferComponent implements OnInit {
+export class MakeyourcomboOfferComponent implements OnInit, OnChanges, OnDestroy {
  
-  selectedStarter:EventEmitter<any> = new EventEmitter<any>();
-  selectedMainDish:EventEmitter<any> = new EventEmitter<any>();
-  selectedDessert:EventEmitter<any> = new EventEmitter<any>();
- 
-  isActivestarters:boolean = true;
+  msgFromMakeYourOwnCombo:any;
+  subFromMakeYourOwnCombo:Subscription;
+  isActivestarters = true;
   isActiveMainDish:boolean;
   isActiveDessert:boolean;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  onselectedValue(value:string):void{
-      console.log(value);
-      this.selectedStarter.emit(value);
-      this.isActivestarters = false;
-      this.isActiveMainDish = true;
+  constructor( private makeyourowncomboservice:MakeYourOwnComboService) { 
+      this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe( msgFromMakeYourOwnCombo => { this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo; console.log(this.msgFromMakeYourOwnCombo)});
+    
      
   }
-  onselectedMainDish(value:string):void{
-    console.log(value);
-    this.selectedMainDish.emit(value);
-    this.isActiveMainDish = false;
-    this.isActiveDessert = true;
-  }
-  onselectedDessert(value:string):void{
-    console.log(value);
-    this.selectedDessert.emit(value);
-   
+  ngOnInit() {
+      
+    
   }
 
-  outputsstartersshow(event){
-    console.log(event);
-    this.isActivestarters = event;
+  ngOnDestroy(){
+
   }
- 
+
+  ngOnChanges(){
+    if(this.msgFromMakeYourOwnCombo){
+      console.log('dd',this.msgFromMakeYourOwnCombo)
+      this.isActivestarters = this.msgFromMakeYourOwnCombo.starter;
+      this.isActiveMainDish = this.msgFromMakeYourOwnCombo.maindish;
+      this.isActiveDessert = this.msgFromMakeYourOwnCombo.dessert;
+    }
+  }
+  onselectedValue():void{
+    this.makeyourowncomboservice.updateFields(false, false, false, 'umar');
+  }
 }

@@ -14,6 +14,7 @@ export class MakeYourOwnComboService {
                 maindish:isActiveMainDish, 
                 dessert:isActiveDessert,
                 productid:selectedProductId
+                
             });
     }
     

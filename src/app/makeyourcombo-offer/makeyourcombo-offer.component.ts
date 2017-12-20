@@ -22,9 +22,7 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   isActiveDessert:boolean;
   constructor( private makeyourowncomboservice:MakeYourOwnComboService) { 
       this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe( msgFromMakeYourOwnCombo => { this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;});
-      if(this.msgFromMakeYourOwnCombo){
-        console.log('dd',this.msgFromMakeYourOwnCombo.starter);
-      }
+   
      
   }
   ngOnInit() {

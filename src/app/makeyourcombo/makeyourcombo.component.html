@@ -17,9 +17,13 @@
           <div class="column col-xs-4 relative"><div (click)="starterPress();"  class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.starter}">{{starters}}-{{msgFromMakeYourOwnCombo.productid}}</div></div>
           <div class="column col-xs-4 relative"><div (click)="mainDishPress();" class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.maindish}">{{mainDish}}-{{msgFromMakeYourOwnCombo.productid}}</div></div>
           <div class="column col-xs-4 relative"><div (click)="dessertPress();"  class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox uboxitBoxTitle uboxitBoxactive"  [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.dessert}">{{dessert}}-{{msgFromMakeYourOwnCombo.productid}}</div></div>
-          
+         
       </div>
-      <div *ngIf="showButton" style="margin:10px;"><button class="btn btn-primary" style="width:100%">Add to Cart</button></div>
+            <!-- <div *ngIf="showButton" style="margin:10px;"> -->
+            <div style="margin:10px;">
+                <button class="btn btn-primary btn-gray" style="width:49%">Clear Combo</button>
+                <button class="btn btn-primary" style="width:50%">Add to Cart</button>
+            </div>
       </div>
     </div>
 </section>

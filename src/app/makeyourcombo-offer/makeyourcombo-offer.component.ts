@@ -1,22 +1,30 @@
-import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
+
 @Component({
   selector: 'app-makeyourcombo-offer',
   templateUrl: './makeyourcombo-offer.component.html',
   styleUrls: ['./makeyourcombo-offer.component.css'],
   
 })
-export class MakeyourcomboOfferComponent implements OnInit, OnChanges, OnDestroy {
+export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
  
-  msgFromMakeYourOwnCombo:any;
+  msgFromMakeYourOwnCombo:any = {
+      starter:true,
+      maindish:false,
+      dessert:false,
+
+  }
   subFromMakeYourOwnCombo:Subscription;
   isActivestarters = true;
   isActiveMainDish:boolean;
   isActiveDessert:boolean;
   constructor( private makeyourowncomboservice:MakeYourOwnComboService) { 
-      this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe( msgFromMakeYourOwnCombo => { this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo; console.log(this.msgFromMakeYourOwnCombo)});
-    
+      this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe( msgFromMakeYourOwnCombo => { this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;});
+      if(this.msgFromMakeYourOwnCombo){
+        console.log('dd',this.msgFromMakeYourOwnCombo.starter);
+      }
      
   }
   ngOnInit() {
@@ -25,18 +33,14 @@ export class MakeyourcomboOfferComponent implements OnInit, OnChanges, OnDestroy
   }
 
   ngOnDestroy(){
-
+     this.subFromMakeYourOwnCombo.unsubscribe();
   }
 
-  ngOnChanges(){
-    if(this.msgFromMakeYourOwnCombo){
-      console.log('dd',this.msgFromMakeYourOwnCombo)
-      this.isActivestarters = this.msgFromMakeYourOwnCombo.starter;
-      this.isActiveMainDish = this.msgFromMakeYourOwnCombo.maindish;
-      this.isActiveDessert = this.msgFromMakeYourOwnCombo.dessert;
-    }
+ 
+  onselectedStarter():void{
+    this.makeyourowncomboservice.updateFields(false, true, false, 'd1');
   }
-  onselectedValue():void{
-    this.makeyourowncomboservice.updateFields(false, false, false, 'umar');
+  onselectedMainDish():void{
+    this.makeyourowncomboservice.updateFields(false, false, true, 'd1');
   }
 }

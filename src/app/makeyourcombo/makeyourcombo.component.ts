@@ -13,7 +13,12 @@ import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYou
 })
 export class MakeyourcomboComponent implements OnInit, OnDestroy{
 
-  msgFromMakeYourOwnCombo:any;
+   msgFromMakeYourOwnCombo:any = {
+      starter:true,
+      maindish:false,
+      dessert:false,
+
+  }
   subFromMakeYourOwnCombo:Subscription;
 
   public headerColor;
@@ -24,9 +29,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
   public starters = "starters";
   public mainDish = "Main Dish";
   public dessert = "Dessert";
-  public isActiveStarter:boolean=true;
-  public isActiveMainDish:boolean;
-  public isActiveDessert:boolean;
+  
   public showButton:boolean;
   constructor( private makeyourowncomboservice:MakeYourOwnComboService) { 
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe( msgFromMakeYourOwnCombo => { this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;})
@@ -40,22 +43,18 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy{
 
 
   }
-  setActiveColorForSelected(starter:boolean, maindish:boolean, dessert:boolean){
-        this.isActiveStarter = starter;
-        this.isActiveMainDish = maindish;
-        this.isActiveDessert = dessert;
-  }
+  
   starterPress():void{
         this.makeyourowncomboservice.updateFields(true, false, false, '1');
-        this.setActiveColorForSelected(this.msgFromMakeYourOwnCombo.starter, this.msgFromMakeYourOwnCombo.maindish, this.msgFromMakeYourOwnCombo.dessert);
+        
   }
   mainDishPress():void{
         this.makeyourowncomboservice.updateFields(false, true, false, '2');
-        this.setActiveColorForSelected(this.msgFromMakeYourOwnCombo.starter, this.msgFromMakeYourOwnCombo.maindish, this.msgFromMakeYourOwnCombo.dessert);
+        
     }
   dessertPress():void{
         this.makeyourowncomboservice.updateFields(false, false, true, '3');
-        this.setActiveColorForSelected(this.msgFromMakeYourOwnCombo.starter, this.msgFromMakeYourOwnCombo.maindish, this.msgFromMakeYourOwnCombo.dessert);
+        
   }
 
   ngOnDestroy(){

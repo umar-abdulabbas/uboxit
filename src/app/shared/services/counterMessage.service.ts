@@ -12,7 +12,6 @@ export class CounterService{
     }
     sendMinus(subCount:string){
         this.subject.next({count:subCount});
-
     }
 
     getCountInfo():Observable<any>{

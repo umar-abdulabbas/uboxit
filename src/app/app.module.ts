@@ -30,7 +30,7 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
 
 //Shared Services
 
-import { CounterService } from './shared/services/counter';
+import { CounterService } from './shared/services/InteractionCounter/counter';
 import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 
 

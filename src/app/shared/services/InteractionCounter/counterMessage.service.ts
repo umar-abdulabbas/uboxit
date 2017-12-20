@@ -7,8 +7,8 @@ import { Subject } from 'rxjs/Subject';
 export class CounterService{
     private subject = new Subject<any>();
 
-    updateCount(addCount: number){
-        this.subject.next({count:addCount});
+    updateCount(addSubCount: number){
+        this.subject.next({count:addSubCount});
     }
 
 

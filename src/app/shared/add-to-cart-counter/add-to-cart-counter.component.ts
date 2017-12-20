@@ -1,51 +1,49 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { CounterService } from '../services/InteractionCounter/counter';
 @Component({
   selector: 'app-add-to-cart-counter',
   templateUrl: './add-to-cart-counter.component.html',
   styleUrls: ['./add-to-cart-counter.component.css'],
-  outputs:['counterChange','incdecCounter']
+  
 })
-export class AddToCartCounterComponent implements OnInit {
+export class AddToCartCounterComponent implements OnInit, OnDestroy {
   @Input() counterValue = 0;
-  counterChange = new EventEmitter();
-  incdecCounter = new EventEmitter();
   isActiveCart:boolean = true; 
   isActiveCounter:boolean;
-  constructor( private el:ElementRef) { }
+  retrieveCounterValue:any = {
+    count: 0 
+  };
+  subscription:Subscription;
+  constructor(private counterService:CounterService ) { 
+      this.subscription = this.counterService.getCountInfo().subscribe(retrieveCounterValue => { this.retrieveCounterValue = retrieveCounterValue}); 
+  }
   increment(){
       this.counterValue++;
-      this.incdecCounter.emit("plus");
-      this.counterChange.emit({
-        value:this.counterValue
-      });
+      this.counterService.updateCount(this.retrieveCounterValue.count + 1 );
       this.isActiveCounter = true; this.isActiveCart = false;
   }
   decrement()
   {
     console.log(this.counterValue);
     
-    if(this.counterValue == 1){
-      console.log("y");
-      
+    if(this.counterValue == 1){      
       this.isActiveCounter = false; 
       this.isActiveCart = true;
       this.counterValue--;
-      this.incdecCounter.emit("minus");
-      console.log(this.counterValue);
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1 );
     }
     else{
-      console.log("n");
-      this.counterValue--;
-      this.incdecCounter.emit("minus");
-      this.counterChange.emit({
-      value:this.counterValue
-    })
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1 );
     }
   }
  
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
   addtoCart():void{
       this.counterValue = 1;

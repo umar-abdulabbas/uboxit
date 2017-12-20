@@ -4,7 +4,7 @@ import { HeaderService } from './header.service';
 import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 import { AddToCartCounterComponent } from '../shared/add-to-cart-counter/add-to-cart-counter.component';
 import { Subscription } from 'rxjs/Subscription';
-import {CounterService} from '../shared/services/counter';
+import {CounterService} from '../shared/services/InteractionCounter/counter';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -25,10 +25,10 @@ export class HeaderComponent implements OnInit, OnDestroy  {
   loginTitle = "Login";
   public count = 1;
   bage:any = "2";
-  message:any;
+  retrieveCounterValue:any;
   subscription: Subscription;
   constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router, private counterService:CounterService) {
-      this.subscription = this.counterService.getCountInfo().subscribe(message => { this.message = message; console.log(message)});
+      this.subscription = this.counterService.getCountInfo().subscribe(retrieveCounterValue => { this.retrieveCounterValue = retrieveCounterValue});
       
    }
   

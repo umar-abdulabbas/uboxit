@@ -25,8 +25,6 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
   }
   decrement()
   {
-    console.log(this.counterValue);
-    
     if(this.counterValue == 1){      
       this.isActiveCounter = false; 
       this.isActiveCart = true;
@@ -34,6 +32,7 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
       this.counterService.updateCount(this.retrieveCounterValue.count - 1 );
     }
     else{
+      this.counterValue--;
       this.counterService.updateCount(this.retrieveCounterValue.count - 1 );
     }
   }

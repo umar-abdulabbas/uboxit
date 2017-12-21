@@ -14,7 +14,7 @@ export class stickyHeaderDirective{
   
    @HostListener("window:scroll",['$events']) 
     onWindowScroll($event){
-      this.el.nativeElement = window.scrollY;
+     
       this.stickyHeaderValue.emit(this.el.nativeElement);
 
       

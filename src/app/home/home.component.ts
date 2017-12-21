@@ -22,8 +22,5 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  incdecCounterupdate(event):void{
-    console.log(event);
-    this.updateCounter = event;
-  }
+ 
 }

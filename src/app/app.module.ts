@@ -23,7 +23,7 @@ import { stickyHeaderDirective } from './shared/directives/sticky-header.directi
 import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
 //Material Componets Added 
 
-import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdTabsModule, MdGridListModule, MatCardModule, MatExpansionModule, MatStepperModule} from '@angular/material';
+import { MatExpansionModule, MatStepperModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
@@ -62,13 +62,6 @@ import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYour
    
     //Material Import
     NgxCarouselModule,
-    MdButtonModule,
-    MdCheckboxModule,
-    MdToolbarModule,
-    MdSidenavModule,
-    MdTabsModule,
-    MdGridListModule,
-    MatCardModule,
     MatExpansionModule,
     MatStepperModule
    

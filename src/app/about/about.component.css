@@ -1,0 +1,52 @@
+.aboutLeft{
+    float: left;
+    width: 50%;
+}
+.aboutRight{
+    float: left;
+    width: 50%;
+   
+}
+.aboutBanner img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.bannerCaption{
+    xfont-family: 'Satisfy', cursive;
+    position: absolute;
+    color: #fff;
+    position: absolute;
+    text-align: left;
+    font-size: 2.8rem;
+    display: block;
+    width: 100%;
+    height: 220px;
+    line-height: 220px;
+    
+  }
+  .aboutSecFirst{
+      padding-top: 10px;
+  }
+  .aboutCard{
+      background: #fff;
+      box-shadow:0 0 3px 0 rgba(0,0,0,.1);
+      margin: 10px 0px;
+  }
+  .aboutCard h5{
+      padding: 30px;
+  }
+  .aboutCard p{
+     padding:0px 30px 30px 30px;
+  }
+  .aboutSpace{
+      height: 50px;
+  }
+
+  @media (max-width: 800px) {
+    .aboutLeft, .aboutRight {   
+        width: 100%;
+        padding: 0;
+    }
+}

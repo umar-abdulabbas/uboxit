@@ -6,7 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
-
+import { FaqsComponent } from './faqs/faqs.component';
 const routes: Routes = [
     
     {path:'', redirectTo:'/home',pathMatch:'full'},
@@ -15,6 +15,7 @@ const routes: Routes = [
     {path:'shoppingcart',component:ShoppingcartComponent},
     {path:'contact',component:ContactComponent},
     {path:'makeyourcombo',component:MakeyourcomboComponent},
+    {path:'faqs',component:FaqsComponent},
  
 ];
 

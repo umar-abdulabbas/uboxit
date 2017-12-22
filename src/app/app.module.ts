@@ -32,6 +32,7 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
 
 import { CounterService } from './shared/services/InteractionCounter/counter';
 import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
+import { FaqsComponent } from './faqs/faqs.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYour
     stickyHeaderDirective,
     modelCloseOverlay,
     MakeyourcomboOfferComponent,
-    AddToCartCounterComponent
+    AddToCartCounterComponent,
+    FaqsComponent
   ],
   imports: [
     BrowserModule,

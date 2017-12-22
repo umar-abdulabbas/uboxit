@@ -1,0 +1,22 @@
+.faqsBanner img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.bannerCaption{
+    xfont-family: 'Satisfy', cursive;
+    position: absolute;
+    color: #fff;
+    position: absolute;
+    text-align: left;
+    font-size: 2.8rem;
+    display: block;
+    width: 100%;
+    height: 220px;
+    line-height: 220px;
+    
+  }
+  .faqsSection{
+      margin-top: 20px;
+  }

@@ -17,11 +17,11 @@ import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
 import { OfferService } from './shared/offers/offer.service';
-//Directives 
+//Directives
 
 import { stickyHeaderDirective } from './shared/directives/sticky-header.directive';
 import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
-//Material Componets Added 
+//Material Componets Added
 
 import { MatExpansionModule, MatStepperModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
@@ -33,6 +33,8 @@ import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-c
 import { CounterService } from './shared/services/InteractionCounter/counter';
 import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { FaqsComponent } from './faqs/faqs.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HeaderInterceptor } from './shared/header-interceptor';
 
 
 @NgModule({
@@ -59,16 +61,22 @@ import { FaqsComponent } from './faqs/faqs.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-   
+
     //Material Import
     NgxCarouselModule,
     MatExpansionModule,
     MatStepperModule
-   
+
   ],
-  providers: [OfferService, CounterService, MakeYourOwnComboService],
+  providers: [OfferService, CounterService, MakeYourOwnComboService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

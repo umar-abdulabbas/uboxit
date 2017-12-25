@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { OfferService } from '../shared/offers/offer.service';
 
 @Component({
   selector: 'app-bar-menu',
@@ -6,19 +7,26 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./bar-menu.component.css']
 })
 export class BarMenuComponent implements OnInit {
-  public barFixed:boolean = false;
-  public isActive:boolean = false;
-  public pathFinder:string;
-  constructor() { }
+  public barFixed: boolean = false;
+  public isActive: boolean = false;
+  public pathFinder: string;
 
-  ngOnInit() {
-      this.pathFinder = location.pathname.split('/').pop();
-      if(this.pathFinder === "makeyourcombo"){
-        this.isActive = true;
-      }
+  @Input() availableTypes: string[] = [];
+  @Output() filterType = new EventEmitter<string>();
+
+  constructor(private offerServie: OfferService) {
   }
 
-  
+  ngOnInit() {
+    this.pathFinder = location.pathname.split('/').pop();
+    if (this.pathFinder === "makeyourcombo") {
+      this.isActive = true;
+    }
+  }
 
+  selectType(type: string) {
+    console.log(type);
+    this.filterType.emit(type);
+  }
 
 }

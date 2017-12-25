@@ -1,23 +1,24 @@
 
-<div class="container grid-lg uboxitMenuContainer"> 
+<div class="container grid-lg uboxitMenuContainer">
 <div class="column uboxitMenuColumn">
     <div>
         <div class="float-left uboxitMenuFirst c-hand"  [ngClass]="{'uboxitMenuActive':!isActive}" routerLink="/home" routerLinkActive="active"><span  class="hide-xs">Available Combo</span><span class="show-xs uboxitMenuFilterIcon"><i class="material-icons">restaurant_menu</i></span></div>
         <div class="float-left uboxitMenuSecond c-hand" [ngClass]="{'uboxitMenuActive':isActive}" routerLink="/makeyourcombo" routerLinkActive="active" ><span class="hide-xs">Make your own Combo</span><span class="show-xs uboxitMenuFilterIcon"><i class="material-icons">restaurant</i></span></div>
         <div class="dropdown dropdown-right float-right uboxitMenuFilter c-hand">
             <div class="uboxitMenuFilterIcon">
-            
+
               <a class="dropdown-toggle anchorFixedSize" tabindex="0">
                 <i class="material-icons">filter_list</i>
               </a>
-          
+
               <!-- menu component -->
               <ul class="menu">
-                <li><a href="">SOUTH INDIAN</a></li>
-                <li><a href="">MAINS AND SIDES</a></li>
-                <li><a href="">HALL OF FAME</a></li>
-                <li><a href="">PIZZAS</a></li>
-                <li><a href="">PIZZAS</a></li>
+                <li *ngFor="let type of availableTypes"><a (click)="selectType(type)">{{type}}</a></li>
+                <!--<li><a href="">SOUTH INDIAN</a></li>-->
+                <!--<li><a href="">MAINS AND SIDES</a></li>-->
+                <!--<li><a href="">HALL OF FAME</a></li>-->
+                <!--<li><a href="">PIZZAS</a></li>-->
+                <!--<li><a href="">PIZZAS</a></li>-->
               </ul>
             </div>
           </div>

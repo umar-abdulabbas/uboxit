@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 import { Offer } from '../shared/offers/offer';
 import { OfferService } from '../shared/offers/offer.service';
 
@@ -6,57 +6,85 @@ import { OfferService } from '../shared/offers/offer.service';
   selector: 'app-offers',
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.css'],
-  outputs:['incdecCounter']
+  outputs: ['incdecCounter']
 })
 export class OffersComponent implements OnInit {
   offers: Offer[];
-  active:boolean = true;
+  offersToDisplay: Offer[];
+
+  active: boolean = true;
   public body;
   incdecCounter = new EventEmitter();
-  activeyes:boolean = true;
-  isActivedetails:boolean = true;
-  isActiveingredients:boolean = false;
+  activeyes: boolean = true;
+  isActivedetails: boolean = true;
+  isActiveingredients: boolean = false;
   selectedOffer: Offer;
-  parentcount:any;
+  parentcount: any;
   updatecount = 0;
-  animation:boolean = false;
-  constructor(private offerService:OfferService) {
+  animation: boolean = false;
+
+  availableTypes: string[] = [];
+  selectedType: string;
+
+  constructor(private offerService: OfferService) {
     this.parentcount;
   }
 
   ngOnInit() {
-     this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
-     this.getOffers();
+    this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+    this.getOffers();
   }
-  getOffers():void{
-    this.offerService.getOffers1().subscribe(offers => this.offers = offers.offers);
-    // this.offerService.getOffers1();
+
+  getOffers(): void {
+    this.offerService.getOffers().subscribe(result => {
+      this.offers = result.offers;
+      this.getAvailableTypes();
+      this.filterOffers(this.availableTypes[0]);
+    });
   }
-  onSelect(offer:Offer):void{
+
+  filterOffers(typeToFilter: string) {
+    this.selectedType = typeToFilter;
+    this.offersToDisplay = this.offers.filter(offer => offer.types === typeToFilter);
+  }
+
+  onSelect(offer: Offer): void {
     console.log(offer);
     this.selectedOffer = offer;
     this.body.classList.add("body-overflow");
   }
-  close():void{
-      this.active = false;
-      this.body.classList.remove("body-overflow");
+
+  close(): void {
+    this.active = false;
+    this.body.classList.remove("body-overflow");
   }
-  opendetails():void{
+
+  opendetails(): void {
     this.activeyes = true;
     this.isActivedetails = true;
     this.isActiveingredients = false;
 
 
   }
-  openingredients():void{
+
+  openingredients(): void {
 
     this.activeyes = false;
     this.isActivedetails = false;
     this.isActiveingredients = true;
   }
-  modelclose(event):void{
+
+  modelclose(event): void {
     console.log(event);
     this.active = event;
   }
 
+  private getAvailableTypes() {
+    this.offers.forEach(offer => {
+      if (!this.availableTypes.some(type => type === offer.types)) {
+        this.availableTypes.push(offer.types);
+      }
+    });
+    console.log(this.availableTypes);
+  }
 }

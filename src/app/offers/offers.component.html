@@ -1,15 +1,17 @@
-<div class="container grid-lg"> 
+<app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
+
+<div class="container grid-lg">
   <div class="column">
-    
+
    <div class="text-center offerTitle">
-         <div>"South Indian"</div>
-        
+         <div>"{{selectedType}}"</div>
+
          <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
    </div>
-   
+
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
-            <div class="equalHMV eq" *ngFor="let offer of offers;">
+            <div class="equalHMV eq" *ngFor="let offer of offersToDisplay;">
              <div class="card animated fadeInDown" >
                   <div class="card-image" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header" >
@@ -24,13 +26,13 @@
                   <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
                     <div class="float-right">
                           <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
-                           
+
                           <app-add-to-cart-counter (counterChange)="onChange($event);" (incdecCounter)="incdecCounterupdate($event)"></app-add-to-cart-counter>
                     </div>
-                  </div> 
+                  </div>
             </div> <!-- // Card -->
 
-            </div> <!-- Repeater End --> 
+            </div> <!-- Repeater End -->
                 <!-- Model Window Start -->
          <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
             <div class="modal-overlay" modelCloseOnOverlay (modelClose)="modelclose($event)"></div>
@@ -39,28 +41,28 @@
                   <img src="{{selectedOffer.image}}" class="img-responsive">
                   <span class="absolute" style="height:40px; width:166px; bottom:60px; border:1px solid #000;">
                         <img src="{{selectedOffer.image}}" width="166" height="105"/>
-                       
+
                   </span>
                   <span class="absolute" style="height:40px; width:166px; bottom:60px; left:167px; border:1px solid #000;">
                       <img src="{{selectedOffer.image}}" width="166" height="105"/>
-                     
+
                 </span>
                 <span class="absolute" style="height:40px; width:166px; bottom:60px; left:334px; border:1px solid #000;">
                     <img src="{{selectedOffer.image}}" width="166" height="105"/>
-                   
+
               </span>
                 </div>
                 <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
                 <div class="modal-title h5">{{selectedOffer.title}}</div>
                       <div>
-                            <div class="float-left"><span class="chip">{{selectedOffer.types}}</span></div> 
+                            <div class="float-left"><span class="chip">{{selectedOffer.types}}</span></div>
                             <div class="float-right"><i class="material-icons">favorite_border</i></div>
                             <div class="clearfix"></div>
                       </div>
                       <div class="divider"></div>
                       <div>
-                            <div class="float-left text-bold">&euro; 11</div> 
+                            <div class="float-left text-bold">&euro; 11</div>
                             <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
                             <div class="clearfix"></div>
                       </div>
@@ -86,15 +88,15 @@
                       Tomato, Onion, Paneer, Sandwich Bread, Cheese slice
                       </div>
                     </div>
-                  
+
                  <!-- content here -->
                 </div>
             </div>
            <div class="modal-footer">
-    
+
     </div>
       </div>
-    </div> 
+    </div>
       <!-- // Model Window -->
         <!-- Model Window End -->
 

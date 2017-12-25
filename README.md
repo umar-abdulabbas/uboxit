@@ -29,4 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## To run app from node server
 
-run npm run build then run node server.js
+run npm start

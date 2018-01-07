@@ -36,11 +36,9 @@ export class OffersComponent implements OnInit {
   }
 
   getOffers(): void {
-    this.offerService.getOffers().subscribe(result => {
-      this.offers = result.offers;
-      this.getAvailableTypes();
-      this.filterOffers(this.availableTypes[0]);
-    });
+    this.offers = this.offerService.offers;
+    this.getAvailableTypes();
+    this.filterOffers(this.availableTypes[0]);
   }
 
   filterOffers(typeToFilter: string) {

@@ -10,8 +10,9 @@ const TYPE_NAME_MAP = new Map([['NORTH_INDIAN', 'North Indian'], ['SOUTH_INDIAN'
 @Injectable()
 export class OfferService {
 
-  constructor(private http: HttpClient) {
+  offers: Offer[];
 
+  constructor(private http: HttpClient) {
   }
 
   getMockOffers(): Observable<Offer[]> {
@@ -19,27 +20,28 @@ export class OfferService {
   }
 
   getOffers() {
-    return this.http.get('/api/offer')
-      .switchMap((offer: any) => {
-        const offers: Offer[] = [];
-        offer.categories.forEach(category => {
-          category.combos.forEach(combo => {
-            const res = <Offer> {
-              id: combo.id,
-              title: combo.name,
-              description: combo.description,
-              price: combo.normalPrice.amount,
-              image: combo.imageUrls[0],
-              types: this.getTypeName(category.categoryType)
-            };
-            console.log(res);
-            offers.push(res);
-          });
-        });
-        return Observable.of({
-          offers
+    const offerObservable = this.http.get('/api/offer')
+      .publishReplay(1)
+      .refCount();
+    offerObservable.subscribe((result: any) => {
+      const offers: Offer[] = [];
+      result.categories.forEach(category => {
+        category.combos.forEach(combo => {
+          const res = <Offer> {
+            id: combo.id,
+            title: combo.name,
+            description: combo.description,
+            price: combo.normalPrice.amount,
+            image: combo.imageUrls[0],
+            types: this.getTypeName(category.categoryType)
+          };
+          console.log(res);
+          offers.push(res);
         });
       });
+      this.offers = offers;
+    });
+    return offerObservable;
   }
 
   private getTypeName(typeFromApi: string) {

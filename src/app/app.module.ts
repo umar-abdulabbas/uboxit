@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,7 +11,6 @@ import { OffersComponent } from './offers/offers.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
-import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
@@ -23,7 +22,7 @@ import { stickyHeaderDirective } from './shared/directives/sticky-header.directi
 import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
 //Material Componets Added
 
-import { MatExpansionModule, MatStepperModule} from '@angular/material';
+import { MatExpansionModule, MatStepperModule } from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
@@ -35,6 +34,7 @@ import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYour
 import { FaqsComponent } from './faqs/faqs.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './shared/header-interceptor';
+import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
 
 
 @NgModule({
@@ -49,7 +49,6 @@ import { HeaderInterceptor } from './shared/header-interceptor';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    ShoppingcartComponent,
     DeliverTimeComponent,
     OrderedItemsComponent,
     MakeyourcomboComponent,
@@ -71,12 +70,23 @@ import { HeaderInterceptor } from './shared/header-interceptor';
     MatStepperModule
 
   ],
-  providers: [OfferService, CounterService, MakeYourOwnComboService,
+  providers: [OfferService,
+    CounterService,
+    MakeYourOwnComboService,
+    AppInitializerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeaderInterceptor,
       multi: true,
-    }],
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: AppLoader,
+      deps: [AppInitializerService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -12,7 +12,7 @@ export class cType{
 export class OffersComponent implements OnInit {
   offers: Offer[];
   offersToDisplay: Offer[];
-
+  public uboxitMenu:boolean = false;
   active: boolean = true;
   public body;
   activeyes:boolean = true;
@@ -81,5 +81,13 @@ export class OffersComponent implements OnInit {
       }
     });
     console.log(this.availableTypes);
+  }
+  stickyHeaderValue(scrolValue){
+    if(scrolValue > 330 ){
+      this.uboxitMenu = true;    
+    }
+    else if(this.uboxitMenu && scrolValue < 200 ){
+      this.uboxitMenu = false;
+    }
   }
 }

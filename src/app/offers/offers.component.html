@@ -1,5 +1,6 @@
+<section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}">
 <app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
-
+</section>
 <div class="container grid-lg">
     <app-error-template></app-error-template>
   <div class="column">

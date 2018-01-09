@@ -20,8 +20,9 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
   }
   increment(){
       this.counterValue++;
-      this.counterService.updateCount(this.retrieveCounterValue.count + 1 );
+      this.counterService.updateCount(this.retrieveCounterValue.count + 1, "1212" );
       this.isActiveCounter = true; this.isActiveCart = false;
+      
   }
   decrement()
   {
@@ -29,11 +30,13 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
       this.isActiveCounter = false; 
       this.isActiveCart = true;
       this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1 );
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "123" );
+      
     }
     else{
       this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1 );
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "1213" );
+      
     }
   }
  

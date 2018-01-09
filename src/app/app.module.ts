@@ -35,8 +35,11 @@ import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYour
 import { FaqsComponent } from './faqs/faqs.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './shared/header-interceptor';
-
-
+import { OfferErrorMessageService } from './shared/offers/offer-error-message.service';
+//In Memory Data Service 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/offers/in-memory-data.service';
+import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,11 +60,13 @@ import { HeaderInterceptor } from './shared/header-interceptor';
     modelCloseOverlay,
     MakeyourcomboOfferComponent,
     AddToCartCounterComponent,
-    FaqsComponent
+    FaqsComponent,
+    ErrorTemplateComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
 
@@ -71,7 +76,7 @@ import { HeaderInterceptor } from './shared/header-interceptor';
     MatStepperModule
 
   ],
-  providers: [OfferService, CounterService, MakeYourOwnComboService,
+  providers: [OfferService, CounterService, MakeYourOwnComboService, OfferErrorMessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeaderInterceptor,

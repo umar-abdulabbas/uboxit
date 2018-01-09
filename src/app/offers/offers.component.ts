@@ -35,7 +35,7 @@ export class OffersComponent implements OnInit {
   getOffers(): void {
     this.offers = this.offerService.offers;
     this.getAvailableTypes();
-    this.filterOffers(this.availableTypes[0]);
+    this.offersToDisplay = this.offers;
   }
 
   filterOffers(typeToFilter: string) {

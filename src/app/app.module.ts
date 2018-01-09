@@ -11,6 +11,7 @@ import { OffersComponent } from './offers/offers.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
@@ -34,6 +35,11 @@ import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYour
 import { FaqsComponent } from './faqs/faqs.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './shared/header-interceptor';
+import { OfferErrorMessageService } from './shared/offers/offer-error-message.service';
+//In Memory Data Service
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/offers/in-memory-data.service';
+import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
 import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
 
 
@@ -49,6 +55,7 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
     AboutComponent,
     HomeComponent,
     ContactComponent,
+    ShoppingcartComponent,
     DeliverTimeComponent,
     OrderedItemsComponent,
     MakeyourcomboComponent,
@@ -56,11 +63,13 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
     modelCloseOverlay,
     MakeyourcomboOfferComponent,
     AddToCartCounterComponent,
-    FaqsComponent
+    FaqsComponent,
+    ErrorTemplateComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
 
@@ -74,6 +83,7 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
     CounterService,
     MakeYourOwnComboService,
     AppInitializerService,
+    OfferErrorMessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeaderInterceptor,

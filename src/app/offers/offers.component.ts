@@ -1,12 +1,13 @@
 import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 import { Offer } from '../shared/offers/offer';
 import { OfferService } from '../shared/offers/offer.service';
-
+export class cType{
+  ctype:string
+}
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.css'],
-  outputs: ['incdecCounter']
+  styleUrls: ['./offers.component.css']
 })
 export class OffersComponent implements OnInit {
   offers: Offer[];
@@ -14,14 +15,11 @@ export class OffersComponent implements OnInit {
 
   active: boolean = true;
   public body;
-  incdecCounter = new EventEmitter();
-  activeyes: boolean = true;
-  isActivedetails: boolean = true;
-  isActiveingredients: boolean = false;
+  activeyes:boolean = true;
+  isActivedetails:boolean = true;
+  isActiveingredients:boolean = false;
   selectedOffer: Offer;
-  parentcount: any;
-  updatecount = 0;
-  animation: boolean = false;
+  animation:boolean = false;
 
   availableTypes: string[] = [];
   selectedType: string;
@@ -71,11 +69,11 @@ export class OffersComponent implements OnInit {
     this.isActivedetails = false;
     this.isActiveingredients = true;
   }
-
-  modelclose(event): void {
-    console.log(event);
+  modelclose(event):void{
+    //This Function is used to close the Model Window on clicking outstide of the screen.
     this.active = event;
-  }
+    this.body.classList.remove("body-overflow");
+}
 
   private getAvailableTypes() {
     this.offers.forEach(offer => {

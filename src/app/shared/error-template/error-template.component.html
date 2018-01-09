@@ -1,0 +1,5 @@
+  <!--// Please add the class toast-primary, toast-success, toast-warning--> 
+  <div class="toast toast-primary toast-error mt-2" *ngIf="offerErrorMessageService.offerErrorMessages.length">
+    <button class="btn btn-clear float-right" (click)="offerErrorMessageService.clearOfferErrorMessage()"></button>
+    <p *ngFor="let error of offerErrorMessageService.offerErrorMessages"> {{error}}</p> 
+  </div>

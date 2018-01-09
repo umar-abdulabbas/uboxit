@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy  {
   LoginLayoutModel:boolean = false;
   loginTitle = "Login";
   public count = 1;
-  bage:any = "2";
+  
   retrieveCounterValue:any;
   subscription: Subscription;
   constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router, private counterService:CounterService) {

@@ -7,11 +7,11 @@ import { Subject } from 'rxjs/Subject';
 export class CounterService{
     private subject = new Subject<any>();
 
-    updateCount(addSubCount: number){
-        this.subject.next({count:addSubCount});
+    updateCount(addSubCount: number, prodId:string){
+        this.subject.next({count:addSubCount, productId:prodId});
     }
 
-
+   
     getCountInfo():Observable<any>{
             return this.subject.asObservable();
     }

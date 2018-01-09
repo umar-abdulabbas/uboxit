@@ -25,7 +25,6 @@ export class OffersComponent implements OnInit {
   selectedType: string;
 
   constructor(private offerService: OfferService) {
-    this.parentcount;
   }
 
   ngOnInit() {

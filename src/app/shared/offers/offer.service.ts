@@ -8,8 +8,8 @@ const ITEM_TYPE_NAME_MAP = new Map([['STARTERS', 'Starters'], ['MAIN_COURSE', 'M
 @Injectable()
 export class OfferService {
 
+  offerId: string;
   combos: Combo[] = [];
-
   items: Item[] = [];
 
   constructor(private http: HttpClient) {
@@ -20,6 +20,7 @@ export class OfferService {
       .publishReplay(1)
       .refCount();
     offerObservable.subscribe((result: any) => {
+      this.offerId = '12345';
       result.categories.forEach(category => {
         console.log(category.categoryType);
         category.items.forEach(item => {

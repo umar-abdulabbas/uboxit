@@ -1,8 +1,8 @@
-export class Product {
-  id: string;
-}
+import { Combo, Item } from './offer';
 
 export class Cart {
   id: string;
-  products: Product[];
+  items: Item[];
+  combos: Combo[];
+  offerId: string;
 }

@@ -1,8 +1,16 @@
-import { Combo, Item } from './offer';
-
-export class Cart {
+export interface ComboRequest {
   id: string;
-  items: Item[];
-  combos: Combo[];
+  count: number;
+}
+
+export interface ItemRequest {
+  id: string;
+  count: number;
+}
+
+export interface Cart {
+  id?: string;
+  items?: ItemRequest[];
+  combos?: ComboRequest[];
   offerId: string;
 }

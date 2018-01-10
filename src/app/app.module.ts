@@ -41,6 +41,7 @@ import { OfferErrorMessageService } from './shared/offers/offer-error-message.se
 // import { InMemoryDataService } from './shared/offers/in-memory-data.service';
 import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
 import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
+import { CartService } from './shared/offers/cart.service';
 
 
 @NgModule({
@@ -79,7 +80,9 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
     MatStepperModule
 
   ],
-  providers: [OfferService,
+  providers: [
+    OfferService,
+    CartService,
     CounterService,
     MakeYourOwnComboService,
     AppInitializerService,

@@ -5,8 +5,6 @@ export interface Product {
   description?: string;
   category: string;
   price: string;
-
-  count: number; // for cart
 }
 
 export interface Combo extends Product {

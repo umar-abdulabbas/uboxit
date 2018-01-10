@@ -1,4 +1,4 @@
-import { Offer } from './offer'
+import { Offer } from '../domain/offer'
 
 export const OFFERS:Offer[] = [
     {id:"1", image:"assets/images/banner1.jpg", title:"Rajma Chawal", anySpecTitle:"Meal of the day", types:"Indian", price:"100", favourite:"5"},

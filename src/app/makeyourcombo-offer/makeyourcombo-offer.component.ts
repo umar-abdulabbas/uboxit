@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { OfferService } from '../shared/offers/offer.service';
-import { Item } from '../shared/offers/offer';
+import { Item } from '../shared/domain/offer';
 
 @Component({
   selector: 'app-makeyourcombo-offer',

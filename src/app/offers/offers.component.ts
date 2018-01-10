@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
-import { Offer } from '../shared/offers/offer';
+import { Offer } from '../shared/domain/offer';
 import { OfferService } from '../shared/offers/offer.service';
 export class cType{
   ctype:string

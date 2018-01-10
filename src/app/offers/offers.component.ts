@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Combo } from '../shared/domain/offer';
 import { OfferService } from '../shared/offers/offer.service';
 
@@ -10,14 +10,13 @@ import { OfferService } from '../shared/offers/offer.service';
 export class OffersComponent implements OnInit {
   offers: Combo[];
   offersToDisplay: Combo[];
-  public uboxitMenu:boolean = false;
-  active: boolean = true;
-  public body;
-  activeyes:boolean = true;
-  isActivedetails:boolean = true;
-  isActiveingredients:boolean = false;
+  uboxitMenu = false;
+  active = true;
+  body;
+  activeyes = true;
+  isActivedetails = true;
+  isActiveingredients = false;
   selectedOffer: Combo;
-  animation:boolean = false;
 
   availableTypes: string[] = [];
   selectedType: string;
@@ -26,7 +25,7 @@ export class OffersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
+    this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.getOffers();
   }
 
@@ -44,33 +43,31 @@ export class OffersComponent implements OnInit {
   onSelect(offer: Combo): void {
     console.log(offer);
     this.selectedOffer = offer;
-    this.body.classList.add("body-overflow");
+    this.body.classList.add('body-overflow');
   }
 
   close(): void {
     this.active = false;
-    this.body.classList.remove("body-overflow");
+    this.body.classList.remove('body-overflow');
   }
 
   opendetails(): void {
     this.activeyes = true;
     this.isActivedetails = true;
     this.isActiveingredients = false;
-
-
   }
 
   openingredients(): void {
-
     this.activeyes = false;
     this.isActivedetails = false;
     this.isActiveingredients = true;
   }
-  modelclose(event):void{
-    //This Function is used to close the Model Window on clicking outstide of the screen.
+
+  modelclose(event): void {
+    // This Function is used to close the Model Window on clicking outstide of the screen.
     this.active = event;
-    this.body.classList.remove("body-overflow");
-}
+    this.body.classList.remove('body-overflow');
+  }
 
   private getAvailableTypes() {
     this.offers.forEach(offer => {
@@ -80,11 +77,11 @@ export class OffersComponent implements OnInit {
     });
     console.log(this.availableTypes);
   }
-  stickyHeaderValue(scrolValue){
-    if(scrolValue > 330 ){
+
+  stickyHeaderValue(scrolValue) {
+    if (scrolValue > 330) {
       this.uboxitMenu = true;
-    }
-    else if(this.uboxitMenu && scrolValue < 200 ){
+    } else if (this.uboxitMenu && scrolValue < 200) {
       this.uboxitMenu = false;
     }
   }

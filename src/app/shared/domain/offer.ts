@@ -1,21 +1,19 @@
-export class Offer {
+export interface Product {
   id: string;
   image: string;
   title: string;
   description?: string;
-  anySpecTitle: string;
-  types: string;
-  price: string;
-  favourite: string;
-}
-
-export class Item {
-  id: string;
-  image: string;
-  title: string;
-  description?: string;
-  type: string;
   category: string;
   price: string;
 }
+
+export interface Combo extends Product {
+  anySpecTitle: string;
+  favourite: string;
+}
+
+export interface Item extends Product {
+  type: string; // starter, main-course, dessert
+}
+
 

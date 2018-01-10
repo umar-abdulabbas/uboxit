@@ -1,24 +1,22 @@
 import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
-import { Offer } from '../shared/domain/offer';
+import { Combo } from '../shared/domain/offer';
 import { OfferService } from '../shared/offers/offer.service';
-export class cType{
-  ctype:string
-}
+
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.css']
 })
 export class OffersComponent implements OnInit {
-  offers: Offer[];
-  offersToDisplay: Offer[];
+  offers: Combo[];
+  offersToDisplay: Combo[];
   public uboxitMenu:boolean = false;
   active: boolean = true;
   public body;
   activeyes:boolean = true;
   isActivedetails:boolean = true;
   isActiveingredients:boolean = false;
-  selectedOffer: Offer;
+  selectedOffer: Combo;
   animation:boolean = false;
 
   availableTypes: string[] = [];
@@ -33,17 +31,17 @@ export class OffersComponent implements OnInit {
   }
 
   getOffers(): void {
-    this.offers = this.offerService.offers;
+    this.offers = this.offerService.combos;
     this.getAvailableTypes();
     this.offersToDisplay = this.offers;
   }
 
   filterOffers(typeToFilter: string) {
     this.selectedType = typeToFilter;
-    this.offersToDisplay = this.offers.filter(offer => offer.types === typeToFilter);
+    this.offersToDisplay = this.offers.filter(offer => offer.category === typeToFilter);
   }
 
-  onSelect(offer: Offer): void {
+  onSelect(offer: Combo): void {
     console.log(offer);
     this.selectedOffer = offer;
     this.body.classList.add("body-overflow");
@@ -76,15 +74,15 @@ export class OffersComponent implements OnInit {
 
   private getAvailableTypes() {
     this.offers.forEach(offer => {
-      if (!this.availableTypes.some(type => type === offer.types)) {
-        this.availableTypes.push(offer.types);
+      if (!this.availableTypes.some(type => type === offer.category)) {
+        this.availableTypes.push(offer.category);
       }
     });
     console.log(this.availableTypes);
   }
   stickyHeaderValue(scrolValue){
     if(scrolValue > 330 ){
-      this.uboxitMenu = true;    
+      this.uboxitMenu = true;
     }
     else if(this.uboxitMenu && scrolValue < 200 ){
       this.uboxitMenu = false;

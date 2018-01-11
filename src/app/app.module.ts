@@ -37,8 +37,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './shared/header-interceptor';
 import { OfferErrorMessageService } from './shared/offers/offer-error-message.service';
 //In Memory Data Service
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService } from './shared/offers/in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/offers/in-memory-data.service';
 import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
 import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
 
@@ -69,7 +69,7 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
   imports: [
     BrowserModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
 

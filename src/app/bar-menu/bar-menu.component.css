@@ -38,7 +38,9 @@
     background: #fff;
     color: #ff675c;
 }
-
+.dropdown, .dropdown-right, .float-right, .uboxitMenuFilter, .c-hand{
+    position: static;
+}
 @media only screen and (max-width: 480px) {
     .uboxitMenuContainer{
         border:0px;

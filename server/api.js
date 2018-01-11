@@ -9,8 +9,15 @@ router.get('/test', (req, res) => {
 });
 
 
-router.get('/offer', (req, res) => {
-  apiRequest.sendRequest(req)
+router.all('/offer', (req, res) => {
+  apiRequest.sendRequest(req, '/offer-api/offer')
+    .then(apiResponse => {
+      res.json(Object.assign({}, apiResponse.body));
+    });
+});
+
+router.all('/shop', (req, res) => {
+  apiRequest.sendRequest(req, '/shop-api/shop')
     .then(apiResponse => {
       res.json(Object.assign({}, apiResponse.body));
     });

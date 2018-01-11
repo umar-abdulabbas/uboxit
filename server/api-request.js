@@ -23,11 +23,11 @@ function authToken() {
   });
 }
 
-function sendRequest(req) {
+function sendRequest(req, resourceUrl) {
   return authToken()
     .then((token) => {
       return reqPromise({
-        uri: 'http://188.166.82.127:8085/offer-api/offer',
+        uri: 'http://188.166.82.127:8085' + resourceUrl,
         method: req.method,
         body: req.body,
         headers: getHeaders(req.headers, token),

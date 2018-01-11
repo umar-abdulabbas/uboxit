@@ -1,25 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-import { of } from 'rxjs/observable/of';
-import { Item, Offer } from './offer';
-import { OFFERS } from './mock-offer';
+import { Item, Combo } from '../domain/offer';
 import { HttpClient } from '@angular/common/http';
 
-const OFFER_TYPE_NAME_MAP = new Map([['NORTH_INDIAN', 'North Indian'], ['SOUTH_INDIAN', 'South Indian'], ['CONTINENTAL', 'Continental']]);
-const TYPE_NAME_MAP = new Map([['STARTERS', 'Starters'], ['MAIN_COURSE', 'Main Course'], ['DESERT', 'Desert']]);
+const CATEGORY_TYPE_NAME_MAP = new Map([['NORTH_INDIAN', 'North Indian'], ['SOUTH_INDIAN', 'South Indian'], ['CONTINENTAL', 'Continental']]);
+const ITEM_TYPE_NAME_MAP = new Map([['STARTERS', 'Starters'], ['MAIN_COURSE', 'Main Course'], ['DESERT', 'Desert']]);
 
 @Injectable()
 export class OfferService {
 
-  offers: Offer[];
-
-  items: Item[];
+  offerId: string;
+  combos: Combo[] = [];
+  items: Item[] = [];
 
   constructor(private http: HttpClient) {
-  }
-
-  getMockOffers(): Observable<Offer[]> {
-    return of(OFFERS);
   }
 
   getOffers() {
@@ -27,25 +20,18 @@ export class OfferService {
       .publishReplay(1)
       .refCount();
     offerObservable.subscribe((result: any) => {
-      const offers: Offer[] = [];
-      const items: Item[] = [];
+      this.offerId = '12345';
       result.categories.forEach(category => {
         console.log(category.categoryType);
-        console.log('items ')
         category.items.forEach(item => {
           const res = this.prepareDomainItem(item, category.categoryType);
-          console.log(res);
-          items.push(res);
+          this.items.push(res);
         });
-        console.log('combos ');
         category.combos.forEach(combo => {
-          const res = this.prepareDomainOffer(combo, category.categoryType);
-          console.log(res);
-          offers.push(res);
+          const res = this.prepareDomainCombos(combo, category.categoryType);
+          this.combos.push(res);
         });
       });
-      this.offers = offers;
-      this.items = items;
     });
     return offerObservable;
   }
@@ -64,35 +50,42 @@ export class OfferService {
 
   private getItems(itemType: string) {
     if (!this.items) {
-      throw new Error('please wait.. offers are not ready');
+      throw new Error('please wait.. combos are not ready');
     }
     return this.items.filter(item => item.type === itemType);
   }
 
-  private prepareDomainOffer(combo: any, categoryType: string) {
-    return <Offer> {
+  private prepareDomainCombos(combo: any, categoryType: string) {
+    console.log('combos ');
+    return <Combo> {
       id: combo.id,
       title: combo.name,
       description: combo.description,
       price: combo.normalPrice.amount,
       image: combo.imageUrls[0],
-      types: this.getTypeName(categoryType)
+      category: this.getCategoryTypeName(categoryType)
     };
   }
 
   private prepareDomainItem(apiItem: any, categoryType: string) {
+    console.log('items ');
     return <Item> {
       id: apiItem.id,
       title: apiItem.name,
       description: apiItem.description,
       price: apiItem.normalPrice.amount,
       image: apiItem.imageUrls[0],
+      // type: this.getItemTypeName(apiItem.itemType),
       type: apiItem.itemType,
-      category: this.getTypeName(categoryType)
+      category: this.getCategoryTypeName(categoryType)
     };
   }
 
-  private getTypeName(typeFromApi: string) {
-    return OFFER_TYPE_NAME_MAP.get(typeFromApi);
+  private getCategoryTypeName(typeFromApi: string) {
+    return CATEGORY_TYPE_NAME_MAP.get(typeFromApi);
+  }
+
+  private getItemTypeName(typeFromApi: string) {
+    return ITEM_TYPE_NAME_MAP.get(typeFromApi);
   }
 }

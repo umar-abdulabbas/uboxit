@@ -18,6 +18,27 @@
   box-shadow: 0px 3px 10px rgba(0,0,0,.4);
   border:0px;
 }
+.tinyCardLeftImage{
+  float:left; width:50%;
+}
+.tinyCardRightText{
+  float:left; width:50%; padding-left:10px;
+}
+.tinyCardContainer{
+  padding:10px
+}
+.tinyCardNextSec{
+  margin-top:10px;
+}
+.tinyCardPrice{
+  float:left; width:50%; font-size:20px; line-height:30px;
+}
+.tinycardBtn{
+  float:right; width:50%;
+}
+.tinycardBtn button{
+  float: right;
+}
 .card .card-image:first-child img{
   border-top-left-radius: 5px;
     border-top-right-radius: 5px;

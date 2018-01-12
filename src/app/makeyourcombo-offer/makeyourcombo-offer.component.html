@@ -9,34 +9,19 @@
           <div class="equalHMVWrap eqWrap">
                 <div class="equalHMV eq"  *ngFor="let starter of starters"> 
                     <div class="card animated fadeInDown"  (click)="onselectedStarter()">
-                        <!-- <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{starter.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
-                        <div class="card-header" >
-                                <div class="float-left ">
-                                <div class="card-title h5">{{starter.title}}</div>
-                                <div class="card-subtitle text-gray"> </div>
-                                </div>
-                                <div class="float-right text-bold"></div>
-                        </div>
-                        <div class="card-body"><span class="chip">{{starter.type}}</span></div>
-                        <div class="card-footer">
-                        <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
-                          <div class="float-right">
-                              
-                              <app-add-to-cart-counter></app-add-to-cart-counter>
-                          </div>
-                        </div> -->
-                        
-                        <div style="padding:10px">
-                              <div style="float:left; width:50%;"><img src="{{starter.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
-                              <div style="float:left; width:50%; padding-left:10px;">
+                        <div class="tinyCardContainer">
+                              <div class="tinyCardLeftImage"><img src="{{starter.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
+                              <div class="tinyCardRightText">
                               <h6>{{starter.title}}</h6> 
                               <p>{{starter.category}}</p>
                                
                               </div>
-                              <div>
-                                  <div style="float:left; width:50%;">&euro; {{starter.price}}</div>
-                                  <div style="float:right; width:50%;"><button class="btn btn-primary">Add to Combo</button></div>
+                              <div class="clearfix"></div>
+                              <div class="tinyCardNextSec">
+                                  <div class="tinyCardPrice">&euro; {{starter.price}}</div>
+                                  <div class="tinycardBtn"><button class="btn btn-primary">Add to Combo</button></div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
                   </div> <!-- // Card -->
                   
@@ -54,24 +39,25 @@
         <div class="paddingBlock">
             <div class="equalHMVWrap eqWrap">
                   <div class="equalHMV eq"  *ngFor="let mainCourse of mainCourses"> 
-                      <div class="card animated fadeInDown"   (click)="onselectedStarter()">
-                          <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{mainCourse.image}}" onError="this.src='assets/images/banner2.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
-                          <div class="card-header" >
-                                  <div class="float-left ">
-                                  <div class="card-title h5">{{mainCourse.title}}</div>
-                                  <div class="card-subtitle text-gray"> {{mainCourse.category}}</div>
-                                  </div>
-                                  <div class="float-right text-bold">&euro; {{mainCourse.price}}</div>
-                          </div>
-                          <div class="card-body"><span class="chip">{{mainCourse.type}}</span></div>
-                          <div class="card-footer">
-                          <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
-                            <div class="float-right">
-                                  <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
-                                <app-add-to-cart-counter></app-add-to-cart-counter>
+                     
+
+                    <div class="card animated fadeInDown"  (click)="onselectedStarter()">
+                        <div class="tinyCardContainer">
+                              <div class="tinyCardLeftImage"><img src="{{mainCourse.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
+                              <div class="tinyCardRightText">
+                              <h6>{{mainCourse.title}}</h6> 
+                              <p>{{mainCourse.category}}</p>
+                               
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="tinyCardNextSec">
+                                  <div class="tinyCardPrice">&euro; {{mainCourse.price}}</div>
+                                  <div class="tinycardBtn"><button class="btn btn-primary">Add to Combo</button></div>
                             </div>
-                          </div>
-                    </div> <!-- // Card -->
+                            <div class="clearfix"></div>
+                        </div>
+                  </div> <!-- // Card -->
+
                   </div>                
             </div>      
         </div>
@@ -83,24 +69,23 @@
         <div class="paddingBlock">
             <div class="equalHMVWrap eqWrap">
                   <div class="equalHMV eq"  *ngFor="let desert of deserts"> 
-                      <div class="card animated fadeInDown"   (click)="onselectedStarter()">
-                          <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{deserts.image}}" onError="this.src='assets/images/banner2.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
-                          <div class="card-header" >
-                                  <div class="float-left ">
-                                  <div class="card-title h5">{{deserts.title}}</div>
-                                  <div class="card-subtitle text-gray"> {{deserts.category}}</div>
-                                  </div>
-                                  <div class="float-right text-bold">&euro; {{deserts.price}}</div>
-                          </div>
-                          <div class="card-body"><span class="chip">{{deserts.type}}</span></div>
-                          <div class="card-footer">
-                          <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
-                            <div class="float-right">
-                                  <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
-                                <app-add-to-cart-counter></app-add-to-cart-counter>
+                    
+                    <div class="card animated fadeInDown"  (click)="onselectedStarter()">
+                        <div class="tinyCardContainer">
+                              <div class="tinyCardLeftImage"><img src="{{desert.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
+                              <div class="tinyCardRightText">
+                              <h6>{{desert.title}}</h6> 
+                              <p>{{desert.category}}</p>
+                               
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="tinyCardNextSec">
+                                  <div class="tinyCardPrice">&euro; {{desert.price}}</div>
+                                  <div class="tinycardBtn"><button class="btn btn-primary">Add to Combo</button></div>
                             </div>
-                          </div>
-                    </div> <!-- // Card -->
+                            <div class="clearfix"></div>
+                        </div>
+                  </div> <!-- // Card -->
                   </div>                
             </div>      
         </div>

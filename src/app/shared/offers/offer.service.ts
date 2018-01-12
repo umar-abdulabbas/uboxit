@@ -48,9 +48,16 @@ export class OfferService {
     return this.getItems('DESERT');
   }
 
+  getItemById(itemId: string) {
+    if (!this.items) {
+      throw new Error('please wait.. items are not ready');
+    }
+    return this.items.find(item => item.id === itemId);
+  }
+
   private getItems(itemType: string) {
     if (!this.items) {
-      throw new Error('please wait.. combos are not ready');
+      throw new Error('please wait.. offer not ready');
     }
     return this.items.filter(item => item.type === itemType);
   }

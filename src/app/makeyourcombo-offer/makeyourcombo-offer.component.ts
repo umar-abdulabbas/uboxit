@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { OfferService } from '../shared/offers/offer.service';
-import { Item } from '../shared/domain/offer';
+import { Item, ItemType } from '../shared/domain/offer';
 
 @Component({
   selector: 'app-makeyourcombo-offer',
@@ -16,9 +16,10 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
     starter: true,
     maindish: false,
     dessert: false,
-    productid:''
+    itemId: '',
+    itemType: undefined
+  };
 
-  }
   subFromMakeYourOwnCombo: Subscription;
   isActivestarters = true;
   isActiveMainDish: boolean;
@@ -45,16 +46,15 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   }
 
 
-  onselectedStarter(starterID:string): void {
-    this.makeyourowncomboservice.updateFields(false, true, false, starterID);
-  
+  onselectedStarter(id: string): void {
+    this.makeyourowncomboservice.updateFields(false, true, false, id, ItemType.Starters);
   }
 
-  onselectedMainDish(): void {
-    this.makeyourowncomboservice.updateFields(false, false, true, 'd1');
+  onselectedMainDish(id): void {
+    this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.MainDish);
   }
 
-  onselectedDessert() {
-    console.log('desert selected');
+  onselectedDessert(id) {
+    this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.Dessert);
   }
 }

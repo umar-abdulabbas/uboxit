@@ -1,37 +1,59 @@
 <div style="margin-top:50px;">
-<section style="background:#f7f7f7; margin-bottom:5px; border-bottom:1px solid #ccc;" stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu}">
-       <!--Menu -->
-       <app-bar-menu></app-bar-menu>
-       <!-- // Menu End -->
-</section>
+  <section style="background:#f7f7f7; margin-bottom:5px; border-bottom:1px solid #ccc;" stickyHeader
+           (stickyHeaderValue)="stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu}">
+    <!--Menu -->
+    <app-bar-menu></app-bar-menu>
+    <!-- // Menu End -->
+  </section>
 
-<section [ngClass]="{'uboxitMenuInMakeComboSelect':uboxitMenu}">
+  <section [ngClass]="{'uboxitMenuInMakeComboSelect':uboxitMenu}">
 
     <div class="container grid-lg">
-    <div class="container">
+      <div class="container">
         <section style="text-align:center;">
-            <p>Cook up your own Combo using our virtual kitchen!</p>
-          </section>
-      <div class="columns" *ngIf="msgFromMakeYourOwnCombo">
-          
-          <div class="column col-xs-4 relative"><div (click)="starterPress();"  class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.starter}">{{startersCaption}}{{msgFromMakeYourOwnCombo.productid}}</div></div>
-          <div class="column col-xs-4 relative"><div (click)="mainDishPress();" class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"  [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.maindish}">{{mainDishCaption}}-{{msgFromMakeYourOwnCombo.productid}}</div></div>
-          <div class="column col-xs-4 relative"><div (click)="dessertPress();"  class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox uboxitBoxTitle uboxitBoxactive"  [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.dessert}">{{dessertCaption}}-{{msgFromMakeYourOwnCombo.productid}}</div></div>
-         
-      </div>
-            <!-- <div *ngIf="showButton" style="margin:10px;"> -->
-            <div style="margin:10px;">
-                <button class="btn btn-primary btn-gray" style="width:33%">Clear Combo</button>
-                <button class="btn btn-primary" style="width:33%">Add to Cart</button>
-                <button class="btn btn-primary" style="width:33%">Filter</button>
+          <p>Cook up your own Combo using our virtual kitchen!</p>
+        </section>
+        <div class="columns" *ngIf="msgFromMakeYourOwnCombo">
+
+          <div class="column col-xs-4 relative">
+            <div (click)="starterPress();"
+                 class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"
+                 [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.starter}">
+              {{startersCaption}}
+              <span *ngIf="selectedStarter">{{selectedStarter.title}}</span>
             </div>
+          </div>
+          <div class="column col-xs-4 relative">
+            <div (click)="mainDishPress();"
+                 class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"
+                 [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.maindish}">
+              {{mainDishCaption}}
+              <span *ngIf="selectedMainDish">{{selectedMainDish.title}}</span>
+            </div>
+          </div>
+          <div class="column col-xs-4 relative">
+            <div (click)="dessertPress();"
+                 class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox uboxitBoxTitle uboxitBoxactive"
+                 [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.dessert}">
+              {{dessertCaption}}
+              <span *ngIf="selectedDessert">{{selectedDessert.title}}</span>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div *ngIf="showButton" style="margin:10px;"> -->
+        <div style="margin:10px;">
+          <button class="btn btn-primary btn-gray" style="width:33%">Clear Combo</button>
+          <button class="btn btn-primary" style="width:33%">Add to Cart</button>
+          <button class="btn btn-primary" style="width:33%">Filter</button>
+        </div>
       </div>
     </div>
-</section>
-<section>
-        <!-- Offer Area -->
-             <app-makeyourcombo-offer></app-makeyourcombo-offer>
-         <!-- Offer Area End -->
+  </section>
+  <section>
+    <!-- Offer Area -->
+    <app-makeyourcombo-offer></app-makeyourcombo-offer>
+    <!-- Offer Area End -->
 
-</section>
+  </section>
 </div>

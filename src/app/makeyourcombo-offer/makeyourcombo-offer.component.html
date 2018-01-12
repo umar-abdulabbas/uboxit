@@ -1,36 +1,36 @@
 <div class="container grid-lg">
   <div class="column">
     <div *ngIf="msgFromMakeYourOwnCombo">
-     
-    
+
+
     <!-- Template for repeat all the starters -->
     <div class="starters" *ngIf="msgFromMakeYourOwnCombo.starter">
       <div class="paddingBlock">
           <div class="equalHMVWrap eqWrap">
-                <div class="equalHMV eq"  *ngFor="let starter of starters"> 
+                <div class="equalHMV eq"  *ngFor="let starter of starters">
                     <div class="card animated fadeInDown" >
                         <div class="tinyCardContainer">
                               <div class="tinyCardLeftImage"><img src="{{starter.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                               <div class="tinyCardRightText">
-                              <h6>{{starter.title}}</h6> 
+                              <h6>{{starter.title}}</h6>
                               <p>{{starter.category}}</p>
-                               
+
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
                                   <div class="tinyCardPrice">&euro; {{starter.price}}</div>
-                                  <div class="tinycardBtn"><button class="btn btn-primary"  (click)="onselectedStarter(starter.id)">Add to Combo</button></div>
+                                  <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedStarter(starter.id)">Add to Combo</button></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                   </div> <!-- // Card -->
-                  
-                </div>                
-          </div>      
-      </div>
-    </div> 
 
-      
+                </div>
+          </div>
+      </div>
+    </div>
+
+
 
     <!--  // End of Sarter -->
 
@@ -38,62 +38,62 @@
     <div class="starters" *ngIf="msgFromMakeYourOwnCombo.maindish">
         <div class="paddingBlock">
             <div class="equalHMVWrap eqWrap">
-                  <div class="equalHMV eq"  *ngFor="let mainCourse of mainCourses"> 
-                     
+                  <div class="equalHMV eq"  *ngFor="let mainCourse of mainCourses">
 
-                    <div class="card animated fadeInDown"  (click)="onselectedStarter()">
+
+                    <div class="card animated fadeInDown">
                         <div class="tinyCardContainer">
                               <div class="tinyCardLeftImage"><img src="{{mainCourse.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                               <div class="tinyCardRightText">
-                              <h6>{{mainCourse.title}}</h6> 
+                              <h6>{{mainCourse.title}}</h6>
                               <p>{{mainCourse.category}}</p>
-                               
+
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
                                   <div class="tinyCardPrice">&euro; {{mainCourse.price}}</div>
-                                  <div class="tinycardBtn"><button class="btn btn-primary">Add to Combo</button></div>
+                                  <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedMainDish(mainCourse.id)">Add to Combo</button></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                   </div> <!-- // Card -->
 
-                  </div>                
-            </div>      
+                  </div>
+            </div>
         </div>
-    </div> 
+    </div>
     <!--  // End of Main Course -->
 
     <!-- Template for repeat all the Dessert -->
     <div class="starters" *ngIf="msgFromMakeYourOwnCombo.dessert">
         <div class="paddingBlock">
             <div class="equalHMVWrap eqWrap">
-                  <div class="equalHMV eq"  *ngFor="let desert of deserts"> 
-                    
-                    <div class="card animated fadeInDown"  (click)="onselectedStarter()">
+                  <div class="equalHMV eq"  *ngFor="let desert of deserts">
+
+                    <div class="card animated fadeInDown">
                         <div class="tinyCardContainer">
                               <div class="tinyCardLeftImage"><img src="{{desert.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                               <div class="tinyCardRightText">
-                              <h6>{{desert.title}}</h6> 
+                              <h6>{{desert.title}}</h6>
                               <p>{{desert.category}}</p>
-                               
+
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
                                   <div class="tinyCardPrice">&euro; {{desert.price}}</div>
-                                  <div class="tinycardBtn"><button class="btn btn-primary">Add to Combo</button></div>
+                                  <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedDessert(desert.id)">Add to Combo</button></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                   </div> <!-- // Card -->
-                  </div>                
-            </div>      
+                  </div>
+            </div>
         </div>
-    </div> 
+    </div>
     <!--  // End of Dessert-->
 
     </div>
 
-    
+
   </div>
 </div>

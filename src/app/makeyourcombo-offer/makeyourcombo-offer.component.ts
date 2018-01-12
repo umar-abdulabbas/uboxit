@@ -16,6 +16,7 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
     starter: true,
     maindish: false,
     dessert: false,
+    productid:''
 
   }
   subFromMakeYourOwnCombo: Subscription;
@@ -44,8 +45,9 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   }
 
 
-  onselectedStarter(): void {
-    this.makeyourowncomboservice.updateFields(false, true, false, 'd1');
+  onselectedStarter(starterID:string): void {
+    this.makeyourowncomboservice.updateFields(false, true, false, starterID);
+  
   }
 
   onselectedMainDish(): void {

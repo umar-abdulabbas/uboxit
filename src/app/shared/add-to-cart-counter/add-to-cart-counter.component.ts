@@ -1,55 +1,59 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { CounterService } from '../services/InteractionCounter/counter';
+
 @Component({
   selector: 'app-add-to-cart-counter',
   templateUrl: './add-to-cart-counter.component.html',
   styleUrls: ['./add-to-cart-counter.component.css'],
-  
+
 })
 export class AddToCartCounterComponent implements OnInit, OnDestroy {
   @Input() counterValue = 0;
-  isActiveCart:boolean = true; 
-  isActiveCounter:boolean;
-  retrieveCounterValue:any = {
-    count: 0 
+  isActiveCart = true;
+  isActiveCounter: boolean;
+  retrieveCounterValue: any = {
+    count: 0
   };
-  subscription:Subscription;
-  constructor(private counterService:CounterService ) { 
-      this.subscription = this.counterService.getCountInfo().subscribe(retrieveCounterValue => { this.retrieveCounterValue = retrieveCounterValue}); 
+  subscription: Subscription;
+
+  constructor(private counterService: CounterService) {
+    this.subscription = this.counterService.getCountInfo().subscribe(retrieveCounterValue => {
+      this.retrieveCounterValue = retrieveCounterValue;
+    });
   }
-  increment(){
-      this.counterValue++;
-      this.counterService.updateCount(this.retrieveCounterValue.count + 1, "1212" );
-      this.isActiveCounter = true; this.isActiveCart = false;
-      
+
+  increment() {
+    this.counterValue++;
+    this.counterService.updateCount(this.retrieveCounterValue.count + 1, "1212");
+    this.isActiveCounter = true;
+    this.isActiveCart = false;
   }
-  decrement()
-  {
-    if(this.counterValue == 1){      
-      this.isActiveCounter = false; 
+
+  decrement() {
+    if (this.counterValue === 1) {
+      this.isActiveCounter = false;
       this.isActiveCart = true;
       this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "123" );
-      
-    }
-    else{
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "123");
+
+    } else {
       this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "1213" );
-      
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "1213");
     }
   }
- 
+
 
   ngOnInit() {
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  addtoCart():void{
-      this.counterValue = 1;
-      this.isActiveCounter = true; this.isActiveCart = false;
-  } 
 
+  addtoCart(): void {
+    this.counterValue = 1;
+    this.isActiveCounter = true;
+    this.isActiveCart = false;
+  }
 }

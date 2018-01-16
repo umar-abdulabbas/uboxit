@@ -2,7 +2,7 @@
 <app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
 </section>
 <div class="container grid-lg">
-  
+
   <div class="column">
 
    <div class="text-center offerTitle">
@@ -27,7 +27,7 @@
                   <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
                     <div class="float-right">
                           <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
-                        <app-add-to-cart-counter></app-add-to-cart-counter>
+                        <app-add-to-cart-counter (updatedCount)="addProductToCart(offer.id, $event)"></app-add-to-cart-counter>
                     </div>
                   </div>
             </div> <!-- // Card -->

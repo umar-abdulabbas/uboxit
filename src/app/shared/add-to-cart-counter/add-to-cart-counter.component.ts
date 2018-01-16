@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { CounterService } from '../services/InteractionCounter/counter';
 
@@ -10,7 +10,8 @@ import { CounterService } from '../services/InteractionCounter/counter';
 })
 export class AddToCartCounterComponent implements OnInit, OnDestroy {
   @Input() counterValue = 0;
-  @Input() productId;
+
+  @Output() updatedCount = new EventEmitter<number>();
 
   isActiveCart = true;
   isActiveCounter: boolean;
@@ -27,22 +28,18 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
 
   increment() {
     this.counterValue++;
-    this.counterService.updateCount(this.retrieveCounterValue.count + 1, this.productId);
     this.isActiveCounter = true;
     this.isActiveCart = false;
+    this.updatedCount.emit(this.counterValue);
   }
 
   decrement() {
     if (this.counterValue === 1) {
       this.isActiveCounter = false;
       this.isActiveCart = true;
-      this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1, this.productId);
-
-    } else {
-      this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1, this.productId);
     }
+    this.counterValue--;
+    this.updatedCount.emit(this.counterValue);
   }
 
 

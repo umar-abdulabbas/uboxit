@@ -1,56 +1,15 @@
 <div class="orderedItemsLayout">
-    <div class="panel">
-       
-        <div class="xpanel-body">
-          <!-- contents -->
-          <div *ngFor="let order of ordered">
-          <div class="tile">
-              <div class="tile-icon">
-                <div class="example-tile-icon"><img src="{{order.image}}" width="100px"></div>
-              </div>
-              <div class="tile-content">
-                <p class="tile-title">Fruit Cake</p>
-                <input mdInput type="number" min="1" placeholder="1" class="countInput">
-                <div class="float-right priceTag">&euro; 12</div>
-                
-              </div>
-              
-              <div class="tile-action">
-                  <button class="btn btn-clear float-right" (click)="closeLoginWindow();"></button>
-              </div>
-              
+  <div *ngFor="let order of ordered" style="">
+      <div style="border-bottom:1px solid #ccc;">
+            <div style="width:20%;float:left">
+                  <div><img src="{{order.image}}" style="height:100px;"></div>
+                  <div><app-add-to-cart-counter></app-add-to-cart-counter></div>
             </div>
-            <div class="divider"></div>
-          </div> <!-- //Ordered Items Ends Here -->
-
-          <div>
-              <table class="table">
-                  <thead>
-                    <tr>
-                      <td>Items</td>
-                      <td>&euro;30</td>
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="">
-                      <td>Vat</td>
-                      <td> &euro;4</td>
-                     
-                    </tr>
-                    <tr class="">
-                        <th>Grand Total</th>
-                        <th> &euro;34</th>
-                       
-                      </tr>
-                  </tbody>
-                </table>
-
-          </div>
-          <div class="panel-footer">
-              <!-- buttons or inputs -->
+            <div style="width:50%;float:left">
+                <div>{{order.title}}</div>
             </div>
-        </div>
-      
-      </div>
+            <div style="width:30%;float:left">4</div>
+      </div>   
+      <div class="clearfix"></div>
+  </div>        
 </div>

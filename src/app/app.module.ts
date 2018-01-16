@@ -22,8 +22,8 @@ import { OfferService } from './shared/offers/offer.service';
 import { stickyHeaderDirective } from './shared/directives/sticky-header.directive';
 import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
 //Material Componets Added
+import {MatExpansionModule} from '@angular/material/expansion';
 
-import { MatExpansionModule, MatStepperModule } from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
@@ -65,7 +65,8 @@ import { CartService } from './shared/offers/cart.service';
     MakeyourcomboOfferComponent,
     AddToCartCounterComponent,
     FaqsComponent,
-    ErrorTemplateComponent
+    ErrorTemplateComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -73,11 +74,10 @@ import { CartService } from './shared/offers/cart.service';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
-
+    MatExpansionModule,
     //Material Import
     NgxCarouselModule,
-    MatExpansionModule,
-    MatStepperModule
+   
 
   ],
   providers: [

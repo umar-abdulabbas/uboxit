@@ -213,7 +213,7 @@ input:focus ~ .highlight {
 }
 
 .eq {
-  padding: 10px;
+  xpadding: 10px;
 }
 
 

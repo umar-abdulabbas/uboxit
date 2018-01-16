@@ -415,7 +415,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34580",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -461,7 +461,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34581",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -507,7 +507,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34582",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -829,7 +829,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34583",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -875,7 +875,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34584",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -921,7 +921,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34585",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -1242,7 +1242,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34586",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -1288,7 +1288,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34587",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  
@@ -1334,7 +1334,7 @@ export class InMemoryDataService implements InMemoryDbService{
                 "id":"34588",
                 "name":"Paneer Tikka Test",
                 "imageUrls":[  
-                   "http://res.cloudinary.com/your-delicacy-bv/image/upload/Paneer%20Tikka%20Test"
+                   "https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg"
                 ],
                 "caption":"Soft Cottage Cheese Dices, Laccha Paratha, Tandoori Spices, Chutney, Beverage",
                 "normalPrice":{  

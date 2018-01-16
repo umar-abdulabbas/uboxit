@@ -1,1 +1,1 @@
-export * from './counterMessage.service';
+export * from './counter.service';

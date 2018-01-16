@@ -10,6 +10,8 @@ import { CounterService } from '../services/InteractionCounter/counter';
 })
 export class AddToCartCounterComponent implements OnInit, OnDestroy {
   @Input() counterValue = 0;
+  @Input() productId;
+
   isActiveCart = true;
   isActiveCounter: boolean;
   retrieveCounterValue: any = {
@@ -25,7 +27,7 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
 
   increment() {
     this.counterValue++;
-    this.counterService.updateCount(this.retrieveCounterValue.count + 1, "1212");
+    this.counterService.updateCount(this.retrieveCounterValue.count + 1, this.productId);
     this.isActiveCounter = true;
     this.isActiveCart = false;
   }
@@ -35,11 +37,11 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
       this.isActiveCounter = false;
       this.isActiveCart = true;
       this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "123");
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1, this.productId);
 
     } else {
       this.counterValue--;
-      this.counterService.updateCount(this.retrieveCounterValue.count - 1, "1213");
+      this.counterService.updateCount(this.retrieveCounterValue.count - 1, this.productId);
     }
   }
 

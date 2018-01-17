@@ -1,15 +1,12 @@
 <div class="orderedItemsLayout">
-  <div *ngFor="let order of ordered" style="">
-      <div style="border-bottom:1px solid #ccc;">
-            <div style="width:20%;float:left">
-                  <div><img src="{{order.image}}" style="height:100px;"></div>
-                  <div><app-add-to-cart-counter></app-add-to-cart-counter></div>
-            </div>
-            <div style="width:50%;float:left">
-                <div>{{order.title}}</div>
-            </div>
-            <div style="width:30%;float:left">4</div>
-      </div>   
-      <div class="clearfix"></div>
-  </div>        
+  <div *ngFor="let order of ordered">
+    <div class="columns" >
+        <div class="column col-xs-3"><img src="{{order.image}}" class="img-responsive"/></div>
+        <div class="column col-xs-3">{{order.anySpecTitle}}</div>
+        <div class="column col-xs-3"><app-add-to-cart-counter></app-add-to-cart-counter></div>
+        <div class="column col-xs-3">{{order.price}}</div>
+
+      </div>
+       <div style="border-bottom:1px solid #ccc; margin-bottom:10px;margin-top:10px"></div>
+      </div>  
 </div>

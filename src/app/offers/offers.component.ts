@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Combo } from '../shared/domain/offer';
 import { OfferService } from '../shared/offers/offer.service';
+import { CartService } from '../shared/offers/cart.service';
 
 @Component({
   selector: 'app-offers',
@@ -21,12 +22,13 @@ export class OffersComponent implements OnInit {
   availableTypes: string[] = [];
   selectedType: string;
 
-  constructor(private offerService: OfferService) {
+  constructor(private offerService: OfferService, private cartService: CartService) {
   }
 
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.getOffers();
+    this.cartService.initializeCart(this.offerService.offerId);
   }
 
   getOffers(): void {
@@ -67,6 +69,10 @@ export class OffersComponent implements OnInit {
     // This Function is used to close the Model Window on clicking outstide of the screen.
     this.active = event;
     this.body.classList.remove('body-overflow');
+  }
+
+  addProductToCart(productId: string, count: number) {
+    this.cartService.addComboToCart(productId, count);
   }
 
   private getAvailableTypes() {

@@ -1,7 +1,9 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { DeliverTimeComponent} from '../deliver-time/deliver-time.component';
+import { DeliverTimeComponent } from '../deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from '../ordered-items/ordered-items.component';
+import { CartService } from '../shared/offers/cart.service';
+
 @Component({
   selector: 'app-shoppingcart',
   templateUrl: './shoppingcart.component.html',
@@ -9,16 +11,20 @@ import { OrderedItemsComponent } from '../ordered-items/ordered-items.component'
 })
 export class ShoppingcartComponent implements OnInit, OnDestroy {
   public headerColor;
-  constructor() { }
+  step = 0;
+
+  constructor(private cartService: CartService) {
+  }
 
   ngOnInit() {
-    this.headerColor = document.getElementById('uboxitTopHeader'); //top stop the scroll window
-    this.headerColor.classList.add("headerFixedShoppingCard");
+    this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
+    this.headerColor.classList.add('headerFixedShoppingCard');
+    this.cartService.updateCart();
   }
-  ngOnDestroy(){
-    this.headerColor.classList.remove("headerFixedShoppingCard");
+
+  ngOnDestroy() {
+    this.headerColor.classList.remove('headerFixedShoppingCard');
   }
-  step = 0;
 
   setStep(index: number) {
     this.step = index;
@@ -31,5 +37,5 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   prevStep() {
     this.step--;
   }
-  
+
 }

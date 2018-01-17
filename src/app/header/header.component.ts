@@ -1,92 +1,99 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
-import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
-import { AddToCartCounterComponent } from '../shared/add-to-cart-counter/add-to-cart-counter.component';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import {CounterService} from '../shared/services/InteractionCounter/counter';
+import { CartService } from '../shared/offers/cart.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers:[HeaderService], 
-  
+  providers: [HeaderService],
+
 })
-export class HeaderComponent implements OnInit, OnDestroy  {
+export class HeaderComponent implements OnInit, OnDestroy {
   headers: Header[];
-  headerActive:boolean = false;
-  public headerFixed:boolean = false;
-  public body;
-  isActiveNonRegUser:boolean = true;
-  isActiveRegUser:boolean = false;
-  notFromHome:boolean = false;
-  forgetPwd:boolean = true;
-  LoginLayoutModel:boolean = false;
-  loginTitle = "Login";
-  public count = 1;
-  
-  retrieveCounterValue:any;
+  headerActive = false;
+  body;
+  isActiveNonRegUser = true;
+  isActiveRegUser = false;
+  notFromHome = false;
+  forgetPwd = true;
+  LoginLayoutModel = false;
+  loginTitle = 'Login';
+
+  totalCount: number;
   subscription: Subscription;
-  constructor( private headerservice:HeaderService, private _eref:ElementRef, private router:Router, private counterService:CounterService) {
-      this.subscription = this.counterService.getCountInfo().subscribe(retrieveCounterValue => { this.retrieveCounterValue = retrieveCounterValue});
-      
-   }
-  
+
+  constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
+              private cartService: CartService) {
+    this.cartService.totalCountSubject.subscribe(c => this.totalCount = c);
+
+  }
+
 
   ngOnInit() {
     this.getHeaders();
-    this.body = document.getElementsByTagName('body')[0]; //top stop the scroll window
-   
-  }
-  ngOnDestroy(){
+    this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
 
   }
-  getHeaders():void{
-    this.headerservice.getHeaders().then(headers => this.headers = headers)
+
+  ngOnDestroy() {
+
   }
 
-  openLoginWindow():void{
+  getHeaders(): void {
+    this.headerservice.getHeaders().then(headers => this.headers = headers);
+  }
+
+  openLoginWindow(): void {
     this.headerActive = true;
-    this.body.classList.add("body-overflow");
-      
+    this.body.classList.add('body-overflow');
+
   }
- 
-  closeLoginWindow():void{
+
+  closeLoginWindow(): void {
     this.headerActive = false;
-    this.body.classList.remove("body-overflow");
-    this.loginTitle = "Login";
+    this.body.classList.remove('body-overflow');
+    this.loginTitle = 'Login';
     this.isActiveNonRegUser = true;
     this.isActiveRegUser = false;
     this.notFromHome = false;
     this.forgetPwd = true;
     this.LoginLayoutModel = false;
-  
-   
+
+
   }
-  openShoppingCart():void{
-    
+
+  openShoppingCart(): void {
+
     this.router.navigate(['/shoppingcart']);
   }
-  goToHomePage():void{
-    
+
+  goToHomePage(): void {
+
     this.router.navigate(['/home']);
   }
-  openSignUp():void{
+
+  openSignUp(): void {
     this.isActiveNonRegUser = false;
     this.isActiveRegUser = true;
-    this.loginTitle = "Register Form";
+    this.loginTitle = 'Register Form';
   }
- openForget():void{
+
+  openForget(): void {
     this.isActiveNonRegUser = true;
     this.isActiveRegUser = true;
     this.forgetPwd = false;
     this.LoginLayoutModel = true;
-    this.loginTitle = "Forgot your password?";
- }
- modelclose(event):void{
-  
-  this.headerActive = event;
-}
+    this.loginTitle = 'Forgot your password?';
+  }
+
+  modelclose(event): void {
+
+    this.headerActive = event;
+  }
 
 
 }

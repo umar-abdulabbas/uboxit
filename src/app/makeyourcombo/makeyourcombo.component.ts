@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 //import { OffersComponent } from '../offers/offers.component';
 import { OfferService } from '../shared/offers/offer.service';
 import { Item, ItemType } from '../shared/domain/offer';
+import { window } from 'rxjs/operators/window';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { Item, ItemType } from '../shared/domain/offer';
 })
 export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   msgFromMakeYourOwnCombo: any = {
     starter: true,
     maindish: false,
@@ -25,11 +28,8 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   subFromMakeYourOwnCombo: Subscription;
 
   public headerColor;
-  public MenuContainerWidth;
-  public itemLengthid;
-  isLinear = false;
   public uboxitMenu = false;
-
+ 
   public startersCaption = 'Starters';
   public mainDishCaption = 'Main Dish';
   public dessertCaption = 'Dessert';
@@ -40,13 +40,12 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   selectedMainDish: Item;
   selectedDessert: Item;
 
-  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService) {
+  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,) {
   }
 
   ngOnInit() {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     this.headerColor.classList.add('headerFixedShoppingCard');
-
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
       const selectedItemId = this.msgFromMakeYourOwnCombo.itemId;
@@ -68,17 +67,18 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   starterPress(): void {
     this.makeyourowncomboservice.updateFields(true, false, false, '', ItemType.Starters);
+    this.scrollTarget();
 
   }
 
   mainDishPress(): void {
     this.makeyourowncomboservice.updateFields(false, true, false, '', ItemType.MainDish);
-
+    this.scrollTarget();
   }
 
   dessertPress(): void {
     this.makeyourowncomboservice.updateFields(false, false, true, '', ItemType.Dessert);
-
+    this.scrollTarget();
   }
 
   ngOnDestroy() {
@@ -97,6 +97,12 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   }
 
+  scrollTarget(){
+    var body = document.body; // For Safari
+    var html = document.documentElement; // Chrome, Firefox, IE and Opera 
+    body.scrollTop = 0;
+    html.scrollTop = 0;
+     }
 
 }
 

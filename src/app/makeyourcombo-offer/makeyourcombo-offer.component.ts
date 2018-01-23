@@ -48,13 +48,23 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
 
   onselectedStarter(id: string): void {
     this.makeyourowncomboservice.updateFields(false, true, false, id, ItemType.Starters);
+    this.scrollTarget();
   }
 
   onselectedMainDish(id): void {
     this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.MainDish);
+    this.scrollTarget();
   }
 
   onselectedDessert(id) {
     this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.Dessert);
+    this.scrollTarget();
   }
+  
+  scrollTarget(){
+    var body = document.body; // For Safari
+    var html = document.documentElement; // Chrome, Firefox, IE and Opera 
+    body.scrollTop = 0;
+    html.scrollTop = 0;
+     }
 }

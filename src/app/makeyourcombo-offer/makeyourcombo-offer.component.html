@@ -18,7 +18,7 @@
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
-                                  <div class="tinyCardPrice">&euro; {{starter.price}}</div>
+                                  <div class="tinyCardPrice">&euro; {{starter.normalPrice}} {{starter.discountedPrice}}</div>
                                   <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedStarter(starter.id)">Add to Combo</button></div>
                             </div>
                             <div class="clearfix"></div>
@@ -51,7 +51,7 @@
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
-                                  <div class="tinyCardPrice">&euro; {{mainCourse.price}}</div>
+                                  <div class="tinyCardPrice">&euro; {{mainCourse.normalPrice}} {{mainCourse.discountedPrice}}</div>
                                   <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedMainDish(mainCourse.id)">Add to Combo</button></div>
                             </div>
                             <div class="clearfix"></div>
@@ -80,7 +80,7 @@
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
-                                  <div class="tinyCardPrice">&euro; {{desert.price}}</div>
+                                  <div class="tinyCardPrice">&euro; {{desert.normalPrice}} {{desert.discountedPrice}}</div>
                                   <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedDessert(desert.id)">Add to Combo</button></div>
                             </div>
                             <div class="clearfix"></div>

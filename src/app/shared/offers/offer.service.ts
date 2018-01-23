@@ -20,7 +20,8 @@ export class OfferService {
       .publishReplay(1)
       .refCount();
     offerObservable.subscribe((result: any) => {
-      this.offerId = '12345';
+      this.offerId = result.id;
+      console.log(this.offerId);
       result.categories.forEach(category => {
         console.log(category.categoryType);
         category.items.forEach(item => {

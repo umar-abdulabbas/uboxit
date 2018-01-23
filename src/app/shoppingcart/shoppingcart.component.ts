@@ -19,7 +19,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     this.headerColor.classList.add('headerFixedShoppingCard');
-    this.cartService.updateCart();
+    // this.cartService.updateCart();
   }
 
   ngOnDestroy() {

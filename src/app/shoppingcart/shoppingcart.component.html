@@ -11,7 +11,8 @@
                 </div>
             
                 <mat-action-row>
-                  <button color="primary" (click)="nextStep()">Next</button>
+                    <button class="btn btn-primary" (click)="nextStep()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue Shopping</button>&nbsp;
+                    <button class="btn btn-primary" (click)="nextStep()">Place Order</button>
                 </mat-action-row>
               </mat-expansion-panel>
             
@@ -21,8 +22,8 @@
                 </mat-expansion-panel-header>
                 
                 <mat-action-row>
-                  <button color="warn" (click)="prevStep()">Previous</button>
-                  <button color="primary" (click)="nextStep()">Next</button>
+                  <button color="btn btn-primary" (click)="prevStep()">Previous</button>
+                  <button color="btn btn-primary" (click)="nextStep()">Next</button>
                 </mat-action-row>
               </mat-expansion-panel>
             

@@ -4,7 +4,8 @@ export interface Product {
   title: string;
   description?: string;
   category: string;
-  price: string;
+  discountedPrice: string;
+  normalPrice: string;
 }
 
 export interface Combo extends Product {

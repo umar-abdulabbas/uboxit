@@ -20,7 +20,7 @@
                           <div class="card-title h5">{{offer.title}}</div>
                           <div class="card-subtitle text-gray"> </div>
                           </div>
-                          <div class="float-right text-bold">&euro; 11</div>
+                          <div class="float-right text-bold">&euro; {{offer.normalPrice}} {{offer.discountedPrice}}</div>
                   </div>
                   <div class="card-body"><span class="chip">{{offer.category}}</span></div>
                   <div class="card-footer">
@@ -62,7 +62,7 @@
                       </div>
                       <div class="divider"></div>
                       <div>
-                            <div class="float-left text-bold">&euro; 11</div>
+                            <div class="float-left text-bold">&euro; {{selectedOffer.normalPrice}} {{selectedOffer.discountedPrice}}</div>
                             <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
                             <div class="clearfix"></div>
                       </div>

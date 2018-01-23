@@ -66,18 +66,18 @@ import { CartService } from './shared/offers/cart.service';
     AddToCartCounterComponent,
     FaqsComponent,
     ErrorTemplateComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,
     //Material Import
     NgxCarouselModule,
-   
+
 
   ],
   providers: [

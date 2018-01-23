@@ -20,7 +20,8 @@ export class OfferService {
       .publishReplay(1)
       .refCount();
     offerObservable.subscribe((result: any) => {
-      this.offerId = '12345';
+      this.offerId = result.id;
+      console.log(this.offerId);
       result.categories.forEach(category => {
         console.log(category.categoryType);
         category.items.forEach(item => {
@@ -68,7 +69,8 @@ export class OfferService {
       id: combo.id,
       title: combo.name,
       description: combo.description,
-      price: combo.normalPrice.amount,
+      normalPrice: combo.normalPrice.amount,
+      discountedPrice: combo.discountedPrice.amount,
       image: combo.imageUrls[0],
       category: this.getCategoryTypeName(categoryType)
     };
@@ -80,7 +82,8 @@ export class OfferService {
       id: apiItem.id,
       title: apiItem.name,
       description: apiItem.description,
-      price: apiItem.normalPrice.amount,
+      normalPrice: apiItem.normalPrice.amount,
+      discountedPrice: apiItem.discountedPrice.amount,
       image: apiItem.imageUrls[0],
       // type: this.getItemTypeName(apiItem.itemType),
       type: apiItem.itemType,

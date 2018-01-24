@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { DeliverTimeComponent } from '../deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from '../ordered-items/ordered-items.component';
@@ -13,7 +14,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   public headerColor;
   step = 0;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router:Router) {
   }
 
   ngOnInit() {
@@ -37,5 +38,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   prevStep() {
     this.step--;
   }
-
+  linkToHomePage(){
+      this.router.navigateByUrl('/home');
+  }
 }

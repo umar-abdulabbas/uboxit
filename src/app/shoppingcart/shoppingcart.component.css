@@ -33,17 +33,18 @@ md-panel-title{
   justify-content: space-between;
   align-items: center;
 }
-.mat-expansion-panel-body{
-    padding: 0px;
-}
 
+.orderedItemLayout{
+    margin:0px;
+    padding-top:10px;
+}
 @media only screen and (max-width: 480px) {
     .uboxit-expansion{
         width: 100%;
         margin: 10px 10px;
     }
-  
-    .mat-expansion-panel-body{
-        padding: 0 0px 0px;
+    .orderedItemLayout{
+        margin: 0 -24px -16px;
     }
+  
 }

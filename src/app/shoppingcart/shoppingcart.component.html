@@ -6,12 +6,12 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>My Cart</mat-panel-title>
                 </mat-expansion-panel-header>
-                <div>
+                  <div class="orderedItemLayout">
                     <app-ordered-items></app-ordered-items>
-                </div>
+                  </div>
             
                 <mat-action-row>
-                    <button class="btn btn-primary" (click)="nextStep()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue Shopping</button>&nbsp;
+                    <button class="btn" (click)="linkToHomePage()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue Shopping</button>&nbsp;
                     <button class="btn btn-primary" (click)="nextStep()">Place Order</button>
                 </mat-action-row>
               </mat-expansion-panel>

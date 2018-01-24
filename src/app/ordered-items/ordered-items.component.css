@@ -18,3 +18,18 @@
     right: -25px;
     font-weight: 600;
 }
+.columns img{
+    
+    border-radius: 5px;
+    xbox-shadow: 0px 3px 10px rgba(0,0,0,.4);
+    border: 0px;
+}
+
+@media only screen and (max-width: 480px){
+    .column.col-xs-3.text-left {
+    width: 15%;
+}
+.column.col-xs-3.count{
+    width: 35%;
+}
+}

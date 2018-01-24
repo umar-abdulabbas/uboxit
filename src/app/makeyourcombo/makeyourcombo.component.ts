@@ -5,6 +5,7 @@ import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYou
 import { OfferService } from '../shared/offers/offer.service';
 import { Item, ItemType } from '../shared/domain/offer';
 import { window } from 'rxjs/operators/window';
+import { CartService } from '../shared/offers/cart.service';
 
 
 
@@ -29,18 +30,19 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   public headerColor;
   public uboxitMenu = false;
- 
+
   public startersCaption = 'Starters';
   public mainDishCaption = 'Main Dish';
   public dessertCaption = 'Dessert';
 
-  public showButton: boolean;
+  public comboComplete: boolean;
+  public comboHasMinimumContent: boolean;
 
   selectedStarter: Item;
   selectedMainDish: Item;
   selectedDessert: Item;
 
-  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,) {
+  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private cartService: CartService) {
   }
 
   ngOnInit() {
@@ -62,6 +64,13 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
         console.log(selectedItem.id);
         console.log(selectedItem.description);
       }
+
+      if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
+        this.comboComplete = true;
+      }
+      if (!!this.selectedStarter || !!this.selectedMainDish || !!this.selectedDessert) {
+        this.comboHasMinimumContent = true;
+      }
     });
   }
 
@@ -79,6 +88,23 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   dessertPress(): void {
     this.makeyourowncomboservice.updateFields(false, false, true, '', ItemType.Dessert);
     this.scrollTarget();
+  }
+
+  clearSelection() {
+    this.selectedDessert = undefined;
+    this.selectedMainDish = undefined;
+    this.selectedStarter = undefined;
+    this.starterPress(); // select starter again
+    // disable buttons again
+    this.comboHasMinimumContent = false;
+    this.comboComplete = false;
+  }
+
+  addToCart(id: string, count: number) {
+    // id is dummy
+    console.log('add to cart');
+    const itemIds = [this.selectedStarter, this.selectedMainDish, this.selectedDessert].map(item => item.id);
+    this.cartService.prepareCustomisedCombo(itemIds, count);
   }
 
   ngOnDestroy() {
@@ -99,7 +125,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   scrollTarget(){
     var body = document.body; // For Safari
-    var html = document.documentElement; // Chrome, Firefox, IE and Opera 
+    var html = document.documentElement; // Chrome, Firefox, IE and Opera
     body.scrollTop = 0;
     html.scrollTop = 0;
      }

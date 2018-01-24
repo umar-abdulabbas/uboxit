@@ -16,36 +16,36 @@
         <div class="columns" *ngIf="msgFromMakeYourOwnCombo">
 
           <div class="column col-xs-4 relative">
-                    <!-- Starter --> 
+                    <!-- Starter -->
                     <div *ngIf="!selectedStarter"  (click)="starterPress();"
                         class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"
                         [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.starter}">
                         {{startersCaption}}
-                      
+
                     </div>
                     <div *ngIf="selectedStarter" (click)="starterPress();"
                     class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle uboxitBoxactive "
                     [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.starter}" [ngStyle]="{ 'background-image':'url(' + selectedStarter.image + ')', 'background-size':'cover', 'background-position':'center'}">
                     <span class="selectedText">{{selectedStarter.title}}</span>
                     </div>
-                    <!-- Starter --> 
-          </div>  
+                    <!-- Starter -->
+          </div>
           <div class="column col-xs-4 relative">
                     <!--Main Dishes -->
                     <div *ngIf="!selectedMainDish" (click)="mainDishPress();"
                         class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"
                         [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.maindish}">
                         {{mainDishCaption}}
-                     
+
                     </div>
-                    
+
                     <div *ngIf="selectedMainDish" (click)="mainDishPress();"
                         class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox ubboxitBoxAfter uboxitBoxTitle"
                         [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.maindish}" [ngStyle]="{ 'background-image':'url(' + selectedMainDish.image + ')', 'background-size':'cover', 'background-position':'center'}" >
                         <span class="selectedText">{{selectedMainDish.title}}</span>
                       <span ></span>
                     </div>
-                      
+
                     <!--Main Dishes -->
           </div>
           <div class="column col-xs-4 relative">
@@ -54,26 +54,27 @@
                         class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox uboxitBoxTitle uboxitBoxactive"
                         [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.dessert}">
                         {{dessertCaption}}
-                    
+
                     </div>
-                    
+
                     <div *ngIf="selectedDessert" (click)="dessertPress();"
                         class="bg-primary text-light rounded centered pt-2 c-hand uboxitBox uboxitBoxTitle uboxitBoxactive"
                         [ngClass]="{'uboxitBoxactive':msgFromMakeYourOwnCombo.dessert}" [ngStyle]="{ 'background-image':'url(' + selectedDessert.image + ')', 'background-size':'cover', 'background-position':'center'}" >
                         <span class="selectedText">{{selectedDessert.title}}</span>
-                     
+
                     </div>
 
                      <!-- Desserts -->
           </div>
-                    
+
         </div>
         <div class="columns" style="margin-top:10px; margin-bottom:10px" >
             <div class="column col-xs-4 relative">
-                <button class="btn btn-primary disabled" style="width:100%">Clear Combo</button>
+                <button class="btn btn-primary" [ngClass]="{'disabled':!comboHasMinimumContent}" style="width:100%" (click)="clearSelection()">Clear Combo</button>
             </div>
             <div class="column col-xs-4 relative">
-                <button class="btn btn-primary disabled" style="width:100%">Add to Cart</button>
+              <button *ngIf="!comboComplete" class="btn btn-primary disabled" style="width:100%">Add to Cart</button>
+              <app-add-to-cart-counter *ngIf="comboComplete" (updatedCount)="addToCart('test', $event)"></app-add-to-cart-counter>
             </div>
             <div class="column col-xs-4 relative">
                 <div class="dropdown dropdown-right" style="width:100%">
@@ -89,7 +90,7 @@
             </div>
         </div>
         <!-- <div *ngIf="showButton" style="margin:10px;"> -->
-        
+
       </div>
     </div>
   </section>

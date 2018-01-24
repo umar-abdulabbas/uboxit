@@ -1,6 +1,7 @@
 export interface ComboRequest {
-  id: string;
+  id?: string; // customised combo will not have id
   count: number;
+  items?: ItemRequest[];
 }
 
 export interface ItemRequest {

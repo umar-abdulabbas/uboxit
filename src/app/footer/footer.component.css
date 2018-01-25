@@ -1,0 +1,15 @@
+.socialMedia ul li{
+    list-style: none;
+    float: left;
+    padding-right: 10px;
+}
+.defaultLink ul li{
+    list-style: none;
+    
+}
+.defaultLink ul li a{
+   color: #FF655A;
+}
+.defaultLink ul li a span{
+    padding-left: 10px;
+ }

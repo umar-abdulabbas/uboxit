@@ -4,21 +4,20 @@
             <div class="equalHMVWrap eqWrap">
                 <div class="equalHMV eq">
                    <h5>Company</h5>
-                   <div>
+                   <div class="defaultLink">
                        <ul>
-                           <li>Home</li>
-                           <li>About</li>
-                           <li>FAQ</li>
+                           <li routerLinkActive="active"> <a [routerLink]="['/home']"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
+                           <li routerLinkActive="active"> <a [routerLink]="['/about']"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>About</span></a></li>
+                           <li routerLinkActive="active"> <a [routerLink]="['/faqs']"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>FAQ</span></a></li>
                        </ul>
                    </div>
                 </div>
                 <div class="equalHMV eq">
                     <h5>HELP &amp; CONTACT</h5>
-                    <div>
+                    <div class="defaultLink">
                         <ul>
-                            <li >Help Center</li>
-                            <li>Email Us</li>
-                            <li>+31 649668445 </li>
+                            <li><a><i class="fa fa-envelope-o" aria-hidden="true"></i><span>connect@uboxit.com</span></a></li>
+                            <li><a><i class="fa fa-phone" aria-hidden="true"></i><span>31 649-668-8449</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,8 +38,13 @@
                 <span>Terms &nbsp; | &nbsp;</span>
                 <span>Privacy</span>
             </div>
-            <div class="float-right">
-                Social Media
+            <div class="float-right socialMedia">
+                    <ul>
+                            <li><button class="btn btn-primary btn-action circle"><i class="fa fa-facebook" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary btn-action circle"><i class="fa fa-twitter" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary btn-action circle"><i class="fa fa-instagram" aria-hidden="true"></i></button></li>
+                            <li><button class="btn btn-primary btn-action circle"><i class="fa fa-google-plus" aria-hidden="true"></i></button></li>
+                        </ul>
             </div>
         </div>
         <div class="clearfix"></div>

@@ -25,11 +25,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   totalCount: number;
   subscription: Subscription;
-
+  
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private cartService: CartService) {
     this.cartService.totalCountSubject.subscribe(c => this.totalCount = c);
-
+    
   }
 
 

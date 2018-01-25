@@ -38,6 +38,14 @@ md-panel-title{
     margin:0px;
     padding-top:10px;
 }
+mat-expansion-panel-header{
+    height: 50px !important;
+   
+}
+mat-panel-title{
+    color: #fff ;
+  
+}
 @media only screen and (max-width: 480px) {
     .uboxit-expansion{
         width: 100%;
@@ -45,6 +53,7 @@ md-panel-title{
     }
     .orderedItemLayout{
         margin: 0 -24px -16px;
+        padding-bottom: 10px;
     }
   
 }

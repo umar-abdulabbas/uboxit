@@ -1,20 +1,44 @@
 <div class="orderedItemsLayout">
   <div *ngFor="let order of ordered">
-      <div class="columns" >
-        <div class="column col-xs-3"><img src="{{order.image}}" class="img-responsive"/></div>
+      <div style="padding-right:10px"><button class="btn btn-clear float-right"></button></div>
+      <div class="clearfix"></div>
+      <div class="columns">
+       
+        <div class="column col-xs-3 img"><img src="{{order.image}}" class="img-responsive"/></div>
         <div class="column col-xs-3">{{order.anySpecTitle}}</div>
         <div class="column col-xs-3 count"><app-add-to-cart-counter></app-add-to-cart-counter></div>
-        <div class="column col-xs-3 text-left">&euro;{{order.price}}</div>
-
+        <div class="column col-xs-3 text-left priceList-top">&euro;{{order.price}}</div>
+      
       </div>
        <div style="border-bottom:1px solid #ccc; margin-bottom:10px;margin-top:10px"></div>
      
       </div>
       <div class="columns" >
+
         <div class="column col-xs-3 text-bold"></div>
         <div class="column col-xs-3 text-bold">PRICE DETAILS</div>
-        <div class="column col-xs-3 count text-bold">Amount Payable</div>
+        <div class="column col-xs-3 count text-bold">Total</div>
         <div class="column col-xs-3 text-left text-bold">&euro;400</div>
 
-      </div>  
+      </div>  <!-- Total Area --> 
+
+      <div class="columns" >
+
+          <div class="column col-xs-3 text-bold"></div>
+          <div class="column col-xs-3 text-bold"></div>
+          <div class="column col-xs-3 count ">Vat %</div>
+          <div class="column col-xs-3 text-left">&euro;20</div>
+  
+      </div>  <!-- Vat Area --> 
+    
+      <div class="columns" >
+
+          <div class="column col-xs-3 text-bold"></div>
+          <div class="column col-xs-3 text-bold"></div>
+          <div class="column col-xs-3 count text-bold">Amount Payable</div>
+          <div class="column col-xs-3 text-left text-bold">&euro;420</div>
+  
+      </div>  <!-- Vat Area --> 
+
+      <div></div>
 </div>

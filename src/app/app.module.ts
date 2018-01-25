@@ -42,6 +42,7 @@ import { InMemoryDataService } from './shared/offers/in-memory-data.service';
 import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
 import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
 import { CartService } from './shared/offers/cart.service';
+import { PersonalComponent } from './personal/personal.component';
 
 
 @NgModule({
@@ -66,12 +67,13 @@ import { CartService } from './shared/offers/cart.service';
     AddToCartCounterComponent,
     FaqsComponent,
     ErrorTemplateComponent,
+    PersonalComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

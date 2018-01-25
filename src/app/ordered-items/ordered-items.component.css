@@ -24,12 +24,24 @@
     xbox-shadow: 0px 3px 10px rgba(0,0,0,.4);
     border: 0px;
 }
+.column.col-xs-3.img img{
+        height: 80px;
+}
 
+.priceList-top{
+  
+    padding-top:10px;
+}
 @media only screen and (max-width: 480px){
     .column.col-xs-3.text-left {
     width: 15%;
+ 
 }
 .column.col-xs-3.count{
     width: 35%;
+}
+.column.col-xs-3.img img{
+    height: auto;
+    margin-left: 10px;
 }
 }

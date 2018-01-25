@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cart, ComboRequest } from '../domain/cart';
+import { Cart, ComboRequest, ItemRequest } from '../domain/cart';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -46,6 +46,29 @@ export class CartService {
     this.addAllCountAndEmitValue();
   }
 
+  prepareCustomisedCombo(itemIds: string[], count: number) {
+    let combo: ComboRequest;
+    if (!this.cart) {
+      throw new Error('please initialize cart');
+    } else if (!!this.cart && this.isCustomisedComboAlreadyPresent(this.cart.combos, itemIds)) {
+      combo = this.getCustomisedComboIfAlreadyPresent(this.cart.combos, itemIds);
+      combo.count = count;
+    } else {
+      const items = [];
+      itemIds.forEach(id => {
+        items.push({
+          id: id
+        });
+      });
+      combo = {
+        items: items,
+        count: count
+      };
+      this.cart.combos.push(combo);
+    }
+    this.addAllCountAndEmitValue();
+  }
+
   private isProductAlreadyPresent(productList: any[], id: string) {
     return !!productList && !!productList.find(p => p.id === id);
   }
@@ -61,5 +84,21 @@ export class CartService {
     }
     this.totalCount = itemCount + comboCount;
     this.totalCountSubject.next(this.totalCount);
+  }
+
+  private isCustomisedComboAlreadyPresent(productList: any[], itemIds: string[]) {
+    return !!productList && !!productList.find(p => {
+      const existingIdKey = p.items.map(item => item.id).join('-');
+      const newIdKey = itemIds.join('-');
+      return existingIdKey === newIdKey;
+    });
+  }
+
+  private getCustomisedComboIfAlreadyPresent(productList: any[], itemIds: string[]) {
+    return productList.find(p => {
+      const existingIdKey = p.items.map(item => item.id).join('-');
+      const newIdKey = itemIds.join('-');
+      return existingIdKey === newIdKey;
+    });
   }
 }

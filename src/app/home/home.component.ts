@@ -1,5 +1,5 @@
 import { Component, Inject, HostListener, Output, OnInit, EventEmitter }  from '@angular/core';
-
+import { UserExpStyleService } from '../shared/UI/globalUI.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,10 +8,10 @@ import { Component, Inject, HostListener, Output, OnInit, EventEmitter }  from '
 export class HomeComponent implements OnInit {
   public uboxitMenu:boolean = false;
   public updateCounter;
-  constructor() { }
+  constructor(private uistyleservice:UserExpStyleService) { }
 
   ngOnInit() {
-      
+    this.uistyleservice.scrollToTop();
   }
     stickyHeaderValue(scrolValue){
     if(scrolValue > 330 ){

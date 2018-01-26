@@ -10,36 +10,26 @@ html, body {  margin: 0; font-family: 'Open Sans', sans-serif; color:#2a2a2a; xb
 body::-webkit-scrollbar{  width: 6px; height: 6px; }
 .uboxitLoading { position:fixed; left:50%; top:48%; background:#000; color:#000; }
 
-   .uboxitwrapper { display: block; position: relative; }
-   .uboxitHero{ border-bottom: 1px solid #ff675c ;}
-   .uboxitTopHeader{ position: fixed;  z-index: 300 ; top:0px; height: 50px; width:100%;  background:rgba(255,101,90, 0.6); border-bottom:1px solid #ff675c }
-   .headerFixed{ background:#FF655A!important; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);}
-   .headerFixedShoppingCard { background:#FF655A!important; }
-   .uboxitMenu{ position: fixed;  width: 100%; top:55px; box-shadow: 0 8px 6px -6px #ccc;z-index: 310; border-bottom:0px !important; }
-   s{ color:#ccc; font-size: 15px; font-size: normal;}
-   .uboxitMenuBar{ background: #f7f7f7; margin-top:-5px;  border-bottom: 1px solid #ccc;}
-   
-   .uboxitFooter{
-      border-top:1px solid #f7f7f7;
-      background: #ededed
-   }
-   .uboxitRouter{
-     min-height: 700px;
-   }
-   .btn.btn-link.uboxitLink, .btn.btn-link.uboxitLink:hover, .btn.btn-link.uboxitLink:active{
-     color:#5755d9;
-   }
-   .btn.btn-success {
-    background: rgba(255, 183, 0, .9);
-    border-color: #ffb700;
-    color: #fff;
-}
-   .modal-container .modal-header{
-     padding-bottom: 0px;
-   }
-   .btn.btn-clear:hover{
-     color: #FF655A;
-   }
+.uboxitwrapper { display: block; position: relative; }
+.uboxitHero{ border-bottom: 1px solid #ff675c ;}
+.uboxitTopHeader{ position: fixed;  z-index: 300 ; top:0px; height: 50px; width:100%;  background:rgba(255,101,90, 0.6); border-bottom:1px solid #ff675c }
+.headerFixed{ background:#FF655A!important; box-shadow:0 2px 5px 0 rgba(0,0,0,.3);}
+.headerFixedShoppingCard { background:#FF655A!important; }
+.uboxitMenu{ position: fixed;  width: 100%; top:55px; box-shadow: 0 8px 6px -6px #ccc;z-index: 310; border-bottom:0px !important; }
+.uboxitMenuBar{ background: #f7f7f7; margin-top:-5px;  border-bottom: 1px solid #ccc;}
+.uboxitFooter{ border-top:1px solid #f7f7f7; background: #ededed  }
+.uboxitRouter{ min-height: 700px;   }
+.btn.btn-link.uboxitLink, .btn.btn-link.uboxitLink:hover, .btn.btn-link.uboxitLink:active{  color:#5755d9;   }
+.btn.btn-success { background: rgba(255, 183, 0, .9); border-color: #ffb700;  color: #fff; height: 29px; margin-top: -2px;}
+.modal-container .modal-header{ padding-bottom: 0px; }
+.btn.btn-clear:hover{ color: #FF655A;   }
+.btn:focus{ box-shadow:none;  }
+.btn.btn-link{ color:#fff;   }
+.badge:not([data-badge])::after, .badge[data-badge]::after{ color:#FF655A;  background: #fff;   }
+.btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover{  color:#fff;  }
+.btn.btn-primary{ background:#FF655A; border-color:#FF655A; }
+.btn.btn-primary:focus, .btn.btn-primary:hover{ background:#FFAC8B; border-color:#FFAC8B;   }
+s{ color:#ccc; font-size: 15px; font-size: normal;}
   /*spectre override*/
  
   .body-overflow {
@@ -74,30 +64,7 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; }
     z-index: 1;
   }
 
-  .btn:focus{
-    box-shadow:none;
-  }
-  .btn.btn-link{
-      color:#fff;
-  }
-
-  .badge:not([data-badge])::after, .badge[data-badge]::after{
-      color:#FF655A;
-      background: #fff;
-  }
-  .btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover{
-      color:#fff;
-     
-  }
-  .btn.btn-primary{
-    background:#FF655A;
-    border-color:#FF655A;
-  }
-  .btn.btn-primary:focus, .btn.btn-primary:hover{
-    background:#FFAC8B;
-    border-color:#FFAC8B;
-  }
-
+  
   .form-input:focus {
     border-color: #FF655A;
     box-shadow: 0 0 0 0.1rem rgba(255,101,90,.2);

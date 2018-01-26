@@ -43,6 +43,7 @@ import { ErrorTemplateComponent } from './shared/error-template/error-template.c
 import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
 import { CartService } from './shared/offers/cart.service';
 import { PersonalComponent } from './personal/personal.component';
+import { UserExpStyleService } from './shared/UI/globalUI.service';
 
 
 @NgModule({
@@ -68,7 +69,7 @@ import { PersonalComponent } from './personal/personal.component';
     FaqsComponent,
     ErrorTemplateComponent,
     PersonalComponent,
-
+    
   ],
   imports: [
     BrowserModule,
@@ -88,6 +89,7 @@ import { PersonalComponent } from './personal/personal.component';
     CounterService,
     MakeYourOwnComboService,
     AppInitializerService,
+    UserExpStyleService,
     OfferErrorMessageService,
     {
       provide: HTTP_INTERCEPTORS,

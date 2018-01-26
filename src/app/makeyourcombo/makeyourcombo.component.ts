@@ -7,7 +7,7 @@ import { Item, ItemType } from '../shared/domain/offer';
 import { window } from 'rxjs/operators/window';
 import { CartService } from '../shared/offers/cart.service';
 
-
+import { UserExpStyleService } from '../shared/UI/globalUI.service';
 
 @Component({
   selector: 'app-makeyourcombo',
@@ -42,10 +42,11 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   selectedMainDish: Item;
   selectedDessert: Item;
 
-  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private cartService: CartService) {
+  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private cartService: CartService, private uistyleservice:UserExpStyleService) {
   }
 
   ngOnInit() {
+    this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     this.headerColor.classList.add('headerFixedShoppingCard');
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
@@ -76,18 +77,18 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   starterPress(): void {
     this.makeyourowncomboservice.updateFields(true, false, false, '', ItemType.Starters);
-    this.scrollTarget();
+    this.uistyleservice.scrollToTop();
 
   }
 
   mainDishPress(): void {
     this.makeyourowncomboservice.updateFields(false, true, false, '', ItemType.MainDish);
-    this.scrollTarget();
+    this.uistyleservice.scrollToTop();
   }
 
   dessertPress(): void {
     this.makeyourowncomboservice.updateFields(false, false, true, '', ItemType.Dessert);
-    this.scrollTarget();
+    this.uistyleservice.scrollToTop();
   }
 
   clearSelection() {
@@ -123,12 +124,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   }
 
-  scrollTarget(){
-    var body = document.body; // For Safari
-    var html = document.documentElement; // Chrome, Firefox, IE and Opera
-    body.scrollTop = 0;
-    html.scrollTop = 0;
-     }
+  
 
 }
 

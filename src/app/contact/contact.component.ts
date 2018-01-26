@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserExpStyleService } from '../shared/UI/globalUI.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private uistyleservice:UserExpStyleService) { }
 
   ngOnInit() {
+    this.uistyleservice.scrollToTop();
   }
 
 }

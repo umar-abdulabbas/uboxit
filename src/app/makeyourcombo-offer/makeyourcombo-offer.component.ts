@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { OfferService } from '../shared/offers/offer.service';
 import { Item, ItemType } from '../shared/domain/offer';
-
+import { UserExpStyleService } from '../shared/UI/globalUI.service';
 @Component({
   selector: 'app-makeyourcombo-offer',
   templateUrl: './makeyourcombo-offer.component.html',
@@ -29,7 +29,7 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   mainCourses: Item[];
   deserts: Item[];
 
-  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService) {
+  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private uistyleservice:UserExpStyleService) {
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
     });
@@ -48,23 +48,18 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
 
   onselectedStarter(id: string): void {
     this.makeyourowncomboservice.updateFields(false, true, false, id, ItemType.Starters);
-    this.scrollTarget();
+    this.uistyleservice.scrollToTop();
   }
 
   onselectedMainDish(id): void {
     this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.MainDish);
-    this.scrollTarget();
+    this.uistyleservice.scrollToTop();
   }
 
   onselectedDessert(id) {
     this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.Dessert);
-    this.scrollTarget();
+    this.uistyleservice.scrollToTop();
   }
   
-  scrollTarget(){
-    var body = document.body; // For Safari
-    var html = document.documentElement; // Chrome, Firefox, IE and Opera 
-    body.scrollTop = 0;
-    html.scrollTop = 0;
-     }
+
 }

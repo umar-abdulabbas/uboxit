@@ -15,6 +15,8 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
 
   isActiveCart = true;
   isActiveCounter: boolean;
+  findCurrentShopPath:boolean = true;
+  findCurrentMCPath:boolean = false;
   retrieveCounterValue: any = {
     count: 0
   };
@@ -44,6 +46,13 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    let findcurrentpath = location.pathname.split('/').pop();
+    if(findcurrentpath === "shoppingcart"){
+        this.findCurrentShopPath = false;
+      } 
+    if(findcurrentpath === "makeyourcombo"){
+        this.findCurrentMCPath = true; 
+    }
   }
 
   ngOnDestroy() {
@@ -55,4 +64,5 @@ export class AddToCartCounterComponent implements OnInit, OnDestroy {
     this.isActiveCounter = true;
     this.isActiveCart = false;
   }
+ 
 }

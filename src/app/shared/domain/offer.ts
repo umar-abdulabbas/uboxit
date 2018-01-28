@@ -6,6 +6,8 @@ export interface Product {
   category: string;
   discountedPrice: string;
   normalPrice: string;
+
+  count: number; // taken from the cart (while loading the page, need to show the selected count on the combo/item)
 }
 
 export interface Combo extends Product {

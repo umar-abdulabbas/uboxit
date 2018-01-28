@@ -21,7 +21,7 @@ export class OffersComponent implements OnInit {
 
   availableTypes: string[] = [];
   selectedType: string;
-  
+
   constructor(private offerService: OfferService, private cartService: CartService) {
   }
 
@@ -73,7 +73,7 @@ export class OffersComponent implements OnInit {
 
   addProductToCart(productId: string, count: number) {
     this.cartService.addComboToCart(productId, count);
-   
+    this.offerService.updateCountForCombo(productId, count); // just for UI - will not be used for processing cart
   }
 
   private getAvailableTypes() {

@@ -56,6 +56,11 @@ export class OfferService {
     return this.items.find(item => item.id === itemId);
   }
 
+  // just for UI purpose - this count will not be used to process the cart
+  updateCountForCombo(id: string, count: number) {
+    this.combos.find(c => c.id === id).count = count;
+  }
+
   private getItems(itemType: string) {
     if (!this.items) {
       throw new Error('please wait.. offer not ready');

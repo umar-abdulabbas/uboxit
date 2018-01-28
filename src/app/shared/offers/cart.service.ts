@@ -21,11 +21,13 @@ export class CartService {
   }
 
   initializeCart(offerId: string) {
-    this.cart = {
-      offerId: offerId,
-      combos: [],
-      items: []
-    };
+    if (!this.cart) { // without this old cart will be reset
+      this.cart = {
+        offerId: offerId,
+        combos: [],
+        items: []
+      };
+    }
   }
 
   addComboToCart(productId: string, count: number) {
@@ -88,17 +90,23 @@ export class CartService {
 
   private isCustomisedComboAlreadyPresent(productList: any[], itemIds: string[]) {
     return !!productList && !!productList.find(p => {
-      const existingIdKey = p.items.map(item => item.id).join('-');
-      const newIdKey = itemIds.join('-');
-      return existingIdKey === newIdKey;
+      if (!!p.items) { // there will be products without items, ready made combos
+        const existingIdKey = p.items.map(item => item.id).join('-');
+        const newIdKey = itemIds.join('-');
+        return existingIdKey === newIdKey;
+      }
+      return false;
     });
   }
 
   private getCustomisedComboIfAlreadyPresent(productList: any[], itemIds: string[]) {
     return productList.find(p => {
-      const existingIdKey = p.items.map(item => item.id).join('-');
-      const newIdKey = itemIds.join('-');
-      return existingIdKey === newIdKey;
+      if (!!p.items) {
+        const existingIdKey = p.items.map(item => item.id).join('-');
+        const newIdKey = itemIds.join('-');
+        return existingIdKey === newIdKey;
+      }
+      return false;
     });
   }
 }

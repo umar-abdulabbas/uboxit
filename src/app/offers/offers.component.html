@@ -22,16 +22,15 @@
                           </div>
                           <div class="float-right text-bold">
                               <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
-                              <span *ngIf="!offer.discountedPrice">&euro;{{offer.normalPrice}</span>
+                              <span *ngIf="!offer.discountedPrice">&euro;{{offer.normalPrice}}</span>
                          </div>
                   </div>
                   <div class="card-body"><span class="chip">{{offer.category}}</span></div>
                   <div class="card-footer">
                   <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
                     <div class="float-right">
-                          <!-- <button class="btn btn-primary" (click)="open();">Add to Cart</button> -->
-                        <app-add-to-cart-counter (updatedCount)="addProductToCart(offer.id, $event)"></app-add-to-cart-counter>
-                        
+                        <app-add-to-cart-counter [counterValue]="!!offer.count ? offer.count : 0" (updatedCount)="addProductToCart(offer.id, $event)"></app-add-to-cart-counter>
+
                     </div>
                   </div>
             </div> <!-- // Card -->

@@ -11,7 +11,7 @@
 <section class="navbar-section">
 
     <button class="btn btn-link" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button>
-    <button class="btn btn-link"  (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span class="uboxitBadge animated" [ngClass]="{'flash':totalCount}" *ngIf="totalCount">{{totalCount}}</span></button>
+    <button class="btn btn-link"  (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
 </section>
 </header>
 

@@ -4,6 +4,7 @@ import { HeaderService } from './header.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { CartService } from '../shared/offers/cart.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-header',
@@ -23,20 +24,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   LoginLayoutModel = false;
   loginTitle = 'Login';
 
-  totalCount: number;
-  subscription: Subscription;
-  
+  totalCount: Observable<number>;
+
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private cartService: CartService) {
-    this.cartService.totalCountSubject.subscribe(c => this.totalCount = c);
-    
+
   }
 
 
   ngOnInit() {
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
-
+    this.totalCount = this.cartService.totalCountSubject;
   }
 
   ngOnDestroy() {

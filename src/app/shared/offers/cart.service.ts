@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cart, ComboRequest, ItemRequest } from '../domain/cart';
-import { Subject } from 'rxjs/Subject';
+import { Cart, ComboRequest } from '../domain/cart';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class CartService {
@@ -9,7 +9,7 @@ export class CartService {
   cart: Cart;
 
   totalCount = 0;
-  totalCountSubject = new Subject<number>();
+  totalCountSubject = new BehaviorSubject<number>(this.totalCount);
 
   constructor(private http: HttpClient) {
   }

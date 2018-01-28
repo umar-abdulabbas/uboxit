@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DeliverTimeComponent } from '../deliver-time/deliver-time.component';
-import { OrderedItemsComponent } from '../ordered-items/ordered-items.component';
 import { CartService } from '../shared/offers/cart.service';
 
 @Component({
@@ -14,13 +12,13 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   public headerColor;
   step = 0;
 
-  constructor(private cartService: CartService, private router:Router) {
+  constructor(private cartService: CartService, private router: Router) {
   }
 
   ngOnInit() {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     this.headerColor.classList.add('headerFixedShoppingCard');
-    //this.cartService.updateCart();
+    this.cartService.updateCart();
   }
 
   ngOnDestroy() {
@@ -38,7 +36,8 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   prevStep() {
     this.step--;
   }
-  linkToHomePage(){
+
+  linkToHomePage() {
       this.router.navigateByUrl('/home');
   }
 }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -44,6 +45,9 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
 import { CartService } from './shared/offers/cart.service';
 import { PersonalComponent } from './personal/personal.component';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
+import { DeliveryaddressComponent } from './deliveryaddress/deliveryaddress.component';
+
+//Payment 
 
 
 @NgModule({
@@ -69,6 +73,7 @@ import { UserExpStyleService } from './shared/UI/globalUI.service';
     FaqsComponent,
     ErrorTemplateComponent,
     PersonalComponent,
+    DeliveryaddressComponent,
     
   ],
   imports: [
@@ -80,7 +85,7 @@ import { UserExpStyleService } from './shared/UI/globalUI.service';
     MatExpansionModule,
     //Material Import
     NgxCarouselModule,
-
+    
 
   ],
   providers: [

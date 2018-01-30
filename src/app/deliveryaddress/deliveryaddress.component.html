@@ -1,0 +1,74 @@
+<!-- Saved Address --> 
+<section style=" margin:0 -24px -16px;">
+   <div class="deliveryTitle">
+       <h4> Ready to eat?</h4>
+        <p>Where do you want your order to be delivered?</p>
+   </div> <!-- Title -->
+    <div class="container grid-lg" style="border-bottom:1px solid #ccc;">
+        <div class="columns addressrepeat">
+                
+                <div class="radioarea"><input type="radio" name="gender" value="male" /><span>Mr. Umar Abbas</span>
+                <button class="btn btn-link float-right edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                </div>
+                <div class="addressInfo">
+                <ul>
+                    <li>99A,  Populierenlaan, 1180 CA, Amstelveen Amsterdam </li>
+                    <li><i aria-hidden="true" class="fa fa-phone"></i>+31 649668445</li>
+                </ul>
+          </div>
+           <!-- Address already stored end -->    
+        </div>
+        
+      </div>
+      <div class="container grid-lg" style="border-bottom:1px solid #ccc;">
+            <div class="columns addressrepeat">
+                
+                    <div class="radioarea"><input type="radio" name="gender" value="male" /><span>Mr. Umar Abbas</span>
+                    <button class="btn btn-link float-right edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="addressInfo">
+                    <ul>
+                        <li>99A,  Populierenlaan, 1180 CA, Amstelveen Amsterdam </li>
+                        <li><i aria-hidden="true" class="fa fa-phone"></i>+31 649668445</li>
+                    </ul>
+              </div>
+               <!-- Address already stored end -->    
+            </div>
+            
+        </div>
+        
+        <div class="container grid-lg" style="border-bottom:1px solid #ccc;">
+                <div class="columns addressrepeat">
+                    
+                        <div class="radioarea" (click)="showIfNewAddress = !showIfNewAddress"><input type="radio" name="gender" value="male" /><span>Add a new Address</span>
+                        <button class="btn btn-link float-right edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </div>
+                   
+                   <!-- Address already stored end -->    
+                </div>
+
+                <div class="column col-xs-12" *ngIf="showIfNewAddress">
+                        <form >
+                        <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>Name</label></div>
+                        <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>Address</label></div>                    
+                        <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Postcode</label></div>
+                        <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>City</label></div>
+                        <div class="group removebottom"> <input type="password" required><span class="highlight"></span><span class="bar"></span><label>Phone Numaber</label></div>
+                        <div><button class="btn btn-primary uboxitSignIn">Save and Deliver here</button></div>
+                        <div style="height:30px;"></div>
+                        </form>
+                    </div> <!-- //.nonRegUser-->
+        
+                
+            </div>
+
+</section>
+
+
+
+
+
+
+            
+                   
+        

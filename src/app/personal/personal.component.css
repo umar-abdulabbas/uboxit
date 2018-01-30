@@ -1,0 +1,15 @@
+.notLoggedIn{
+    padding-top:20px;
+}
+.notLoggedINText p{
+    color: #ccc;
+}
+.notLoggedINText ul li{
+    list-style: none;
+}
+.notLoggedINText ul li i{
+    color: #ff675c; padding-right: 10px;
+}
+.SignInLayout{
+    padding-top:20px;
+}

@@ -18,18 +18,18 @@ import { DeliverTimeComponent } from './deliver-time/deliver-time.component';
 import { OrderedItemsComponent } from './ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './makeyourcombo/makeyourcombo.component';
 import { OfferService } from './shared/offers/offer.service';
-//Directives
+// Directives
 
 import { stickyHeaderDirective } from './shared/directives/sticky-header.directive';
 import { modelCloseOverlay } from './shared/directives/modelCloseonOverlay.directive';
-//Material Componets Added
-import {MatExpansionModule} from '@angular/material/expansion';
+// Material Componets Added
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './shared/add-to-cart-counter/add-to-cart-counter.component';
 
-//Shared Services
+// Shared Services
 
 import { CounterService } from './shared/services/InteractionCounter/counter';
 import { MakeYourOwnComboService } from './shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
@@ -37,7 +37,7 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './shared/header-interceptor';
 import { OfferErrorMessageService } from './shared/offers/offer-error-message.service';
-//In Memory Data Service
+// In Memory Data Service
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/offers/in-memory-data.service';
 import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
@@ -47,7 +47,8 @@ import { PersonalComponent } from './personal/personal.component';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
 import { DeliveryaddressComponent } from './deliveryaddress/deliveryaddress.component';
 import { PaymentComponent } from './payment/payment.component';
-//Payment 
+
+// Payment
 
 
 @NgModule({
@@ -79,14 +80,12 @@ import { PaymentComponent } from './payment/payment.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,
-    //Material Import
-    NgxCarouselModule,
-    
-
+    // Material Import
+    NgxCarouselModule
   ],
   providers: [
     OfferService,

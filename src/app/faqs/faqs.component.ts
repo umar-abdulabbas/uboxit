@@ -8,7 +8,8 @@ import { UserExpStyleService } from '../shared/UI/globalUI.service';
 })
 export class FaqsComponent implements OnInit {
 
-  constructor(private uistyleservice:UserExpStyleService) { }
+  constructor(private uistyleservice: UserExpStyleService) {
+  }
 
   ngOnInit() {
     this.uistyleservice.scrollToTop();

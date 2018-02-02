@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OfferErrorMessageService } from '../offers/offer-error-message.service';
+
 @Component({
   selector: 'app-error-template',
   templateUrl: './error-template.component.html',
@@ -7,7 +8,8 @@ import { OfferErrorMessageService } from '../offers/offer-error-message.service'
 })
 export class ErrorTemplateComponent implements OnInit {
 
-  constructor(public offerErrorMessageService:OfferErrorMessageService) { }
+  constructor(public offerErrorMessageService: OfferErrorMessageService) {
+  }
 
   ngOnInit() {
   }

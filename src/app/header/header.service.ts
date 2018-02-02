@@ -4,8 +4,8 @@ import { Header } from './header';
 import { HEADERS } from './data-header';
 
 @Injectable()
-export class HeaderService{
-    getHeaders():Promise<Header[]>{
-        return Promise.resolve(HEADERS);
-    }
+export class HeaderService {
+  getHeaders(): Promise<Header[]> {
+    return Promise.resolve(HEADERS);
+  }
 }

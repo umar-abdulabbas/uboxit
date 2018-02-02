@@ -2,7 +2,6 @@ import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 import { CartService } from '../shared/offers/cart.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -11,7 +10,6 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   providers: [HeaderService],
-
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   headers: Header[];
@@ -49,7 +47,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   openLoginWindow(): void {
     this.headerActive = true;
     this.body.classList.add('body-overflow');
-
   }
 
   closeLoginWindow(): void {
@@ -61,17 +58,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.notFromHome = false;
     this.forgetPwd = true;
     this.LoginLayoutModel = false;
-
-
   }
 
   openShoppingCart(): void {
-
     this.router.navigate(['/shoppingcart']);
   }
 
   goToHomePage(): void {
-
     this.router.navigate(['/home']);
   }
 
@@ -90,9 +83,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   modelclose(event): void {
-
     this.headerActive = event;
   }
-
-
 }

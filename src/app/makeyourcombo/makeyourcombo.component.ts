@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
-//import { OffersComponent } from '../offers/offers.component';
 import { OfferService } from '../shared/offers/offer.service';
 import { Item, ItemType } from '../shared/domain/offer';
-import { window } from 'rxjs/operators/window';
 import { CartService } from '../shared/offers/cart.service';
 
 import { UserExpStyleService } from '../shared/UI/globalUI.service';
@@ -42,7 +40,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   selectedMainDish: Item;
   selectedDessert: Item;
 
-  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private cartService: CartService, private uistyleservice:UserExpStyleService) {
+  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private cartService: CartService, private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
@@ -116,15 +114,8 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   stickyHeaderValue(scrolValue) {
     if (scrolValue > 50) {
       this.uboxitMenu = true;
-    }
-    else if (this.uboxitMenu && scrolValue < 5) {
+    } else if (this.uboxitMenu && scrolValue < 5) {
       this.uboxitMenu = false;
     }
-
-
   }
-
-  
-
 }
-

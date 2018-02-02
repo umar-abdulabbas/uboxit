@@ -7,8 +7,8 @@ import { OfferService } from '../shared/offers/offer.service';
   styleUrls: ['./bar-menu.component.css']
 })
 export class BarMenuComponent implements OnInit {
-  public barFixed: boolean = false;
-  public isActive: boolean = false;
+  // public barFixed = false;
+  public isActive = false;
   public pathFinder: string;
 
   @Input() availableTypes: string[] = [];
@@ -19,7 +19,7 @@ export class BarMenuComponent implements OnInit {
 
   ngOnInit() {
     this.pathFinder = location.pathname.split('/').pop();
-    if (this.pathFinder === "makeyourcombo") {
+    if (this.pathFinder === 'makeyourcombo') {
       this.isActive = true;
     }
   }

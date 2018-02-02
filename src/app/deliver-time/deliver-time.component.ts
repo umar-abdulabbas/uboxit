@@ -6,19 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deliver-time.component.css']
 })
 export class DeliverTimeComponent implements OnInit {
-  isActiveDeliverNow:boolean = true;
-  isActiveDeliverLater:boolean = false;
-  active:boolean = false;
-  constructor() { }
+  isActiveDeliverNow = true;
+  isActiveDeliverLater = false;
+  active = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
-  openDeliverNow():void{
+
+  openDeliverNow(): void {
     this.active = false;
     this.isActiveDeliverLater = false;
     this.isActiveDeliverNow = true;
   }
-  openDeliverLater():void{
+
+  openDeliverLater(): void {
     this.active = true;
     this.isActiveDeliverLater = true;
     this.isActiveDeliverNow = false;

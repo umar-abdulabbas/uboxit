@@ -11,7 +11,6 @@ export class CounterService {
     this.subject.next({count: addSubCount, productId: prodId});
   }
 
-
   getCountInfo(): Observable<any> {
     return this.subject.asObservable();
   }

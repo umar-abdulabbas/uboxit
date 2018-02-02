@@ -4,11 +4,11 @@ import { MakeYourOwnComboService } from '../shared/services/InteractionOfMakeYou
 import { OfferService } from '../shared/offers/offer.service';
 import { Item, ItemType } from '../shared/domain/offer';
 import { UserExpStyleService } from '../shared/UI/globalUI.service';
+
 @Component({
   selector: 'app-makeyourcombo-offer',
   templateUrl: './makeyourcombo-offer.component.html',
   styleUrls: ['./makeyourcombo-offer.component.css'],
-
 })
 export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
 
@@ -29,7 +29,7 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   mainCourses: Item[];
   deserts: Item[];
 
-  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private uistyleservice:UserExpStyleService) {
+  constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private uistyleservice: UserExpStyleService) {
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
     });
@@ -45,7 +45,6 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
     this.subFromMakeYourOwnCombo.unsubscribe();
   }
 
-
   onselectedStarter(id: string): void {
     this.makeyourowncomboservice.updateFields(false, true, false, id, ItemType.Starters);
     this.uistyleservice.scrollToTop();
@@ -60,6 +59,5 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
     this.makeyourowncomboservice.updateFields(false, false, true, id, ItemType.Dessert);
     this.uistyleservice.scrollToTop();
   }
-  
 
 }

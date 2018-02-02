@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
-export class banner{
-  id:string;
-  imageurl:string;
-  caption:string;
-  
+
+export class Banner {
+  id: string;
+  imageurl: string;
+  caption: string;
 }
-const BANNERS:banner[] = [
-  {id:"1", imageurl:"assets/images/heroBanner.jpeg", caption:"Order delicious food online!"},
-  {id:"2", imageurl:"assets/images/banner2.jpg", caption:"Make your own box!"},
-  {id:"3", imageurl:"assets/images/banner3.jpg", caption:"Authentic Food"},
-  {id:"4", imageurl:"assets/images/heroBanner.jpg", caption:"Lets ring in the festivities "},
-  
+
+const BANNERS: Banner[] = [
+  {id: '1', imageurl: 'assets/images/heroBanner.jpeg', caption: 'Order delicious food online!'},
+  {id: '2', imageurl: 'assets/images/banner2.jpg', caption: 'Make your own box!'},
+  {id: '3', imageurl: 'assets/images/banner3.jpg', caption: 'Authentic Food'},
+  {id: '4', imageurl: 'assets/images/heroBanner.jpg', caption: 'Lets ring in the festivities '},
 ];
+
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
@@ -21,10 +22,12 @@ const BANNERS:banner[] = [
 export class BannerComponent implements OnInit {
   banners = BANNERS;
   public carouselOne: NgxCarousel;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
-     this.carouselOne = {
+    this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
       slide: 1,
       speed: 400,
@@ -64,11 +67,12 @@ export class BannerComponent implements OnInit {
       touch: true,
       loop: true,
       custom: 'banner'
-    }
+    };
   }
- public myfunc(event: Event) {
-     // carouselLoad will trigger this funnction when your load value reaches
-     // it is helps to load the data by parts to increase the performance of the app
-     // must use feature to all carousel
+
+  public myfunc(event: Event) {
+    // carouselLoad will trigger this funnction when your load value reaches
+    // it is helps to load the data by parts to increase the performance of the app
+    // must use feature to all carousel
   }
 }

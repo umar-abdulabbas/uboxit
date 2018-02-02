@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deliveryaddress.component.css', '../header/header.component.css']
 })
 export class DeliveryaddressComponent implements OnInit {
-  showIfNewAddress:boolean;
-  constructor() { }
+  showIfNewAddress: boolean;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

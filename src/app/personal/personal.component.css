@@ -13,3 +13,6 @@
 .SignInLayout{
     padding-top:20px;
 }
+.btn.btn-clear.uboxitLink{
+    content: "";
+}

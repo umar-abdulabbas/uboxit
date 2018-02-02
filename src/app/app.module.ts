@@ -46,7 +46,7 @@ import { CartService } from './shared/offers/cart.service';
 import { PersonalComponent } from './personal/personal.component';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
 import { DeliveryaddressComponent } from './deliveryaddress/deliveryaddress.component';
-
+import { PaymentComponent } from './payment/payment.component';
 //Payment 
 
 
@@ -74,7 +74,7 @@ import { DeliveryaddressComponent } from './deliveryaddress/deliveryaddress.comp
     ErrorTemplateComponent,
     PersonalComponent,
     DeliveryaddressComponent,
-    
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

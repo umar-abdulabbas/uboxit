@@ -1,0 +1,90 @@
+.uboxitBox{
+    height: 100px;
+    border-radius: 10px;
+    background: #d9d9d9;
+}
+.btn-gray, .btn-gray:hover, .btn-gray:active, .btn-gray:focus{
+    background: gray;
+    border: gray;
+}
+.selectedText {
+    text-shadow: 1px 1px 2px rgb(10, 10, 10), 0 0 1em rgb(255, 255, 255), 0 0 0.2em #fff;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.ubboxitBoxAfter::after {
+    /* content: "+";
+    position: relative;
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    float: right;
+    font-size: 1.2rem;
+    background: #FFF;
+    line-height:25px;
+    margin: auto;
+    top: 22%;
+    padding: 10px;
+    color:#FF655A;
+    right: -30px;
+    text-align: center;
+    font-weight: bold; */
+
+    content: "";
+    width: 48px;
+    height: 48px;
+    background:url('../../../../assets/images/plus_add.png') no-repeat;
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+    top:22px;
+    right:-22px;
+
+}
+.uboxitBoxTitle{
+    text-align: center;
+    line-height: 80px;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.uboxitBoxactive{
+    background: #FF655A;
+
+}
+
+.uboxiplus{
+    position: fixed;
+}
+.uboxitMenuInMakeCombo{
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 8px 6px -6px #ccc;
+    z-index: 310;
+    border-bottom: 0px !important;
+}
+
+.uboxitMenuInMakeComboSelect{
+    position: fixed;
+    width: 100%;
+
+    z-index: 311;
+    top:90px;
+    background: #fff;
+   border-top: 1px solid #ccc;
+   padding: 10px 0px;
+}
+.uboxitSection{
+    box-shadow: 0 8px 6px -6px #ccc;
+}
+@media only screen and (max-width: 480px) {
+
+
+    .uboxitBoxTitle{
+        font-size: 15px;
+    }
+}

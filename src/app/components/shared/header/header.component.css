@@ -1,0 +1,106 @@
+.loginLayout{
+    width: 300px
+}
+.badge.btn::after{
+    top:8px;
+    right: 4px;
+}
+.uboxitSignIn{
+    width:270px;
+}
+.notFromHome{
+    background:rgba(255,101,90, 1);
+    height: 50px;
+}
+
+.uboxit-google, .uboxit-google:hover, .uboxit-google:focus{
+    background: #d34836 url('../../../../assets/images/google-plus.png') no-repeat;
+    width:270px;
+    height: 35px;
+    background-size: 28px 28px;
+    background-position: 20px;
+    margin-bottom: 20px;
+
+}
+.uboxit-facebook, .uboxit-facebook:hover, .uboxit-facebook:focus{
+    background: #3B5998 url('../../../../assets/images/facebook.png') no-repeat;
+    width:270px;
+    height: 35px;
+    background-size: 28px 28px;
+    background-position: 20px;
+    margin-bottom: 20px;
+    border-color:#3B5998;
+
+}
+.badge[data-badge]::after {
+    font-size: 0.5rem;
+    height: 16px;
+    line-height: 1;
+    min-width: 16px;
+    padding: 2px 3px;
+    text-align: center;
+    white-space: nowrap;}
+    .modal.headerActive, .modal:target{
+        display: flex;
+         display: -ms-flexbox;
+         opacity: 1;
+        z-index: 400;
+    }
+.uboxitLogo img{
+    position: relative;
+    top:10px;
+}
+input{
+    width: 270px;
+    font-size: 12px !important;
+    border-color: #e7e9ed;
+}
+.bar{
+    width:270px;
+}
+.group label{
+font-size: 12px !important;
+}
+input:focus ~ label, input:valid ~ label{
+    top:-10px;
+}
+.group{
+    margin-bottom: 20px;
+}
+.bar:before, .bar:after{
+    background: #FF655A;
+}
+.modal-container .modal-body{
+   max-height: none;
+}
+.regUserIn{
+    display: none;
+}
+.nonRegUser{
+     display: none;
+}
+.forgetPwd{
+    display: none;
+}
+.LoginLayoutModel{
+    display: none;
+}
+.uboxitBadge{
+    font-size: 11px;
+    height: 16px;
+    line-height: 1;
+    min-width: .9rem;
+    padding: .1rem .2rem;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    top: -15px;
+    right: 4px;
+    color: #FF655A;
+    background: #fff;
+    -webkit-transform: translate(50%,-50%);
+    transform: translate(-.1rem, -.5rem);
+    border-radius: .5rem;
+    background-clip: padding-box;
+    box-shadow: 0 0 0 0.1rem #fff;
+}

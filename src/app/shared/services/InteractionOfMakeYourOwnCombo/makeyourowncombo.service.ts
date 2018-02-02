@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
-import { ItemType } from '../../domain/offer';
+import { ItemType } from '../../../core/domain/offer';
 
 
 @Injectable()

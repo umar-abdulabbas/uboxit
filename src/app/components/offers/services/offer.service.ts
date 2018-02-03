@@ -16,7 +16,7 @@ export class OfferService {
   }
 
   getOffers() {
-    const offerObservable = this.http.get('/api/offer')
+    const offerObservable = this.http.get('/offer-api/offer')
       .publishReplay(1)
       .refCount();
     offerObservable.subscribe((result: any) => {

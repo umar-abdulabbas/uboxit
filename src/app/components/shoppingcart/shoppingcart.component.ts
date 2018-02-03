@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CartService } from './services/cart.service';
+import { Cart } from '../../core/domain/cart';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -12,13 +14,18 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   public headerColor;
   step = 0;
 
+  cart: Observable<Cart>;
+
   constructor(private cartService: CartService, private router: Router) {
   }
 
   ngOnInit() {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     this.headerColor.classList.add('headerFixedShoppingCard');
-    this.cartService.updateCart();
+    this.cart = this.cartService.createCart();
+    // .subscribe((cart) => {
+    //   this.cart = cart;
+    // });
   }
 
   ngOnDestroy() {

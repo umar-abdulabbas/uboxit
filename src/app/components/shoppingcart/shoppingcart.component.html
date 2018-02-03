@@ -7,15 +7,15 @@
                   <mat-panel-title>My Cart</mat-panel-title>
                 </mat-expansion-panel-header>
                   <div class="orderedItemLayout">
-                    <app-ordered-items></app-ordered-items>
+                    <app-ordered-items [cart]="cart | async"></app-ordered-items>
                   </div>
-            
+
                 <mat-action-row>
                     <button class="btn" (click)="linkToHomePage()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue Shopping</button>&nbsp;
                     <button class="btn btn-primary" (click)="nextStep()">Place Order</button>
                 </mat-action-row>
               </mat-expansion-panel>
-            
+
               <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
                 <mat-expansion-panel-header>
                       <mat-panel-title>Login or SignUp</mat-panel-title>
@@ -28,16 +28,16 @@
                   <button class="btn btn-primary" (click)="nextStep()">Next</button>
                 </mat-action-row>
               </mat-expansion-panel>
-            
+
               <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
                 <mat-expansion-panel-header>
                   <mat-panel-title>Delivery Address</mat-panel-title>
-           
+
                 </mat-expansion-panel-header>
-            
+
                 <div><app-deliveryaddress></app-deliveryaddress></div>
-               
-            
+
+
                 <mat-action-row>
                   <button class="btn btn-primary" (click)="prevStep()">Previous</button>&nbsp;
                   <button  class="btn btn-primary" (click)="nextStep()">Next</button>
@@ -47,20 +47,20 @@
               <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle="true">
                   <mat-expansion-panel-header>
                     <mat-panel-title>Payment Options</mat-panel-title>
-             
+
                   </mat-expansion-panel-header>
-              
+
                  <app-payment></app-payment>
-                 
-              
+
+
                   <mat-action-row>
                     <button class="btn btn-primary" (click)="prevStep()">Previous</button>&nbsp;
                     <button  class="btn btn-primary" (click)="nextStep()">End</button>
                   </mat-action-row>
                 </mat-expansion-panel>
-            
+
             </mat-accordion>
-         
+
       </div>
 </div>
 

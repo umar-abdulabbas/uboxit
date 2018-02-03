@@ -10,6 +10,7 @@ import { CounterService } from '../../../shared/services/InteractionCounter/coun
 })
 export class AddToCartCounterComponent implements OnInit, OnDestroy {
   @Input() counterValue = 0;
+  @Input() showAddToCartWhenZero = true; // on the cart page, when count reduced to zero no need to change the button to 'add to cart'
 
   @Output() updatedCount = new EventEmitter<number>();
 

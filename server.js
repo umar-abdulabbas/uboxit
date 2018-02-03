@@ -2,9 +2,8 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const api = require('./server/api');
-
 const app = express();
+const apiRequest = require('./server/api-request');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,7 +11,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Run the app by serving the static files in the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/api', api);
+app.all('/:resource/*', (req, res) => {
+  console.log(req.url);
+  apiRequest.sendRequest(req, req.url)
+    .then(apiResponse => {
+    res.json(Object.assign({}, apiResponse.body));
+  });
+});
+
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

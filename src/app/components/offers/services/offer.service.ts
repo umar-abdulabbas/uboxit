@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Item, Combo } from '../../../core/domain/offer';
 import { HttpClient } from '@angular/common/http';
+import { Cart } from '../../../core/domain/cart';
+import { StorageService } from '../../../shared/services/storage-service';
 
 const CATEGORY_TYPE_NAME_MAP = new Map([['NORTH_INDIAN', 'North Indian'], ['SOUTH_INDIAN', 'South Indian'], ['CONTINENTAL', 'Continental']]);
 const ITEM_TYPE_NAME_MAP = new Map([['STARTERS', 'Starters'], ['MAIN_COURSE', 'Main Course'], ['DESERT', 'Desert']]);
@@ -12,10 +14,15 @@ export class OfferService {
   combos: Combo[] = [];
   items: Item[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private storageService: StorageService) {
   }
 
   getOffers() {
+    // this clear is required, while re-requesting offer after payment is successful
+    this.combos = [];
+    this.items = [];
+    this.offerId = '';
     const offerObservable = this.http.get('/offer-api/offer')
       .publishReplay(1)
       .refCount();
@@ -77,7 +84,8 @@ export class OfferService {
       normalPrice: combo.normalPrice.amount,
       discountedPrice: combo.discountedPrice.amount,
       image: combo.imageUrls[0],
-      category: this.getCategoryTypeName(categoryType)
+      category: this.getCategoryTypeName(categoryType),
+      count: this.getCountIfPresentInLocalStorage(combo.id)
     };
   }
 
@@ -102,5 +110,16 @@ export class OfferService {
 
   private getItemTypeName(typeFromApi: string) {
     return ITEM_TYPE_NAME_MAP.get(typeFromApi);
+  }
+
+  private getCountIfPresentInLocalStorage(id: string) {
+    const cart: Cart = this.storageService.getStoredCart();
+    if (!!cart) {
+      const cachedCombo = cart.combos.find(c => c.id === id);
+      if (!!cachedCombo) {
+        return cachedCombo.count;
+      }
+    }
+    return 0;
   }
 }

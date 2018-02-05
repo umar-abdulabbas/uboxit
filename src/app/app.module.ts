@@ -48,6 +48,8 @@ import { PersonalComponent } from './components/personal/personal.component';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
 import { DeliveryaddressComponent } from './components/deliveryaddress/deliveryaddress.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { LocalStorageModule } from 'angular-2-local-storage';
+import { StorageService } from './shared/services/storage-service';
 
 // Payment
 
@@ -87,11 +89,16 @@ import { PaymentComponent } from './components/payment/payment.component';
     AppRoutingModule,
     MatExpansionModule,
     // Material Import
-    NgxCarouselModule
+    NgxCarouselModule,
+    LocalStorageModule.withConfig({
+      prefix: 'uboxit',
+      storageType: 'localStorage'
+    })
   ],
   providers: [
     OfferService,
     CartService,
+    StorageService,
     CounterService,
     MakeYourOwnComboService,
     AppInitializerService,

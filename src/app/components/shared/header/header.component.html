@@ -3,15 +3,22 @@
 <div class="container grid-lg">
  <header class="navbar">
  <section class="navbar-section">
-        <app-hamburger></app-hamburger>
+        <app-hamburger></app-hamburger>       
  </section>
 <section class="navbar-center">
      <span class="uboxitLogo c-hand" (click)="goToHomePage();"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
 </section>
 <section class="navbar-section">
-
+    <button class="btn btn-link"><i class="material-icons tooltip">place</i></button>
+    <div class="default-location" style="width:237px;">
+        <button class="btn btn-clear float-right"></button>
+        <div>We are Currently Offering in</div>
+        <h5>Amstelveen</h5>
+        <p>You wish to Change the location?</p>
+        <button  class="btn btn-primary" style="width:100%;">Change Location</button>
+    </div>
     <button class="btn btn-link" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button>
-    <button class="btn btn-link"  (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
+    <button class="btn btn-link" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
 </section>
 </header>
 

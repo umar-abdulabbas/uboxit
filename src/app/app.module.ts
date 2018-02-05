@@ -18,6 +18,7 @@ import { DeliverTimeComponent } from './components/deliver-time/deliver-time.com
 import { OrderedItemsComponent } from './components/shoppingcart/ordered-items/ordered-items.component';
 import { MakeyourcomboComponent } from './components/offers/makeyourcombo/makeyourcombo.component';
 import { OfferService } from './components/offers/services/offer.service';
+import { AdvertisementComponent } from './components/shared/advertisement/advertisement.Component';
 // Directives
 
 import { stickyHeaderDirective } from './directives/sticky-header.directive';
@@ -75,12 +76,13 @@ import { PaymentComponent } from './components/payment/payment.component';
     ErrorTemplateComponent,
     PersonalComponent,
     DeliveryaddressComponent,
-    PaymentComponent
+    PaymentComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+   //  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

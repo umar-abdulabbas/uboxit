@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Cart, Combo } from '../../../core/domain/cart';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { StorageService } from '../../../shared/services/storage-service';
 
 @Injectable()
 export class CartService {
@@ -12,7 +13,8 @@ export class CartService {
 
   private cartRequest: Cart;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private storageService: StorageService) {
   }
 
   createCart(): Observable<Cart> {
@@ -35,9 +37,15 @@ export class CartService {
         items: []
       };
     }
+    const cachedCart: Cart = this.storageService.getStoredCart();
+    if (!!cachedCart) {
+      this.cartRequest = cachedCart;
+      this.addAllCountAndEmitValue();
+    }
   }
 
   addComboToCart(productId: string, count: number) {
+    // this.localStorageService.set(`product_${productId}`, count);
     let combo: Combo;
     if (!this.cartRequest) {
       throw new Error('please initialize cart');
@@ -52,6 +60,7 @@ export class CartService {
       this.cartRequest.combos.push(combo);
     }
     console.log(combo);
+    this.storageService.storeCart(this.cartRequest);
     this.addAllCountAndEmitValue();
   }
 
@@ -75,6 +84,7 @@ export class CartService {
       };
       this.cartRequest.combos.push(combo);
     }
+    this.storageService.storeCart(this.cartRequest);
     this.addAllCountAndEmitValue();
   }
 

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CartService } from './services/cart.service';
 import { Cart } from '../../core/domain/cart';
 import { Observable } from 'rxjs/Observable';
+import { StorageService } from '../../shared/services/storage-service';
+import { OfferService } from '../offers/services/offer.service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -16,7 +18,9 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   cart: Observable<Cart>;
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(private cartService: CartService, private router: Router,
+              private storageService: StorageService,
+              private offerService: OfferService) {
   }
 
   ngOnInit() {
@@ -42,6 +46,13 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   prevStep() {
     this.step--;
+  }
+
+  goToPayment() {
+    this.nextStep();
+    console.log('going to pay for the selection, hence clear the current selection');
+    this.storageService.clearCart();
+    this.offerService.getOffers(); // start new offers - to be moved to somewhere else
   }
 
   linkToHomePage() {

@@ -1,4 +1,5 @@
 const reqPromise = require('request-promise');
+const apiAuth = require('./api-auth');
 
 function getHeaders(reqHeaders, token) {
   if (token) {
@@ -9,41 +10,8 @@ function getHeaders(reqHeaders, token) {
   return reqHeaders;
 }
 
-function authToken() {
-  return reqPromise({
-    uri: 'http://188.166.82.127:8085/authserver/oauth/token',
-    method: 'POST',
-    form: {
-      'grant_type': 'client_credentials'
-    },
-    headers: {
-      'Authorization': 'Basic cmVzdGF1cmFudDpyZXN0YXVyYW50c2VjcmV0',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    json: true
-  });
-}
-
-function authUser(userName, password) {
-  return reqPromise({
-    uri: 'http://188.166.82.127:8085/authserver/oauth/token',
-    method: 'POST',
-    form: {
-      'grant_type': 'password',
-      'username': userName,
-      'password': password
-
-    },
-    headers: {
-      'Authorization': 'Basic cmVzdGF1cmFudDpyZXN0YXVyYW50c2VjcmV0',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    json: true
-  });
-}
-
 function sendRequest(req) {
-  return authToken()
+  return apiAuth.authToken(req.header('x-uboxit-username'))
     .then((token) => {
     console.log(token);
       return reqPromise({
@@ -68,7 +36,7 @@ function sendRequest(req) {
 
 function createOrUpdateCustomer(req) {
   console.log('create customer');
-  return authToken()
+  return apiAuth.authToken()
     .then((token) => {
     console.log(token);
     return reqPromise({
@@ -81,6 +49,9 @@ function createOrUpdateCustomer(req) {
       simple: false,
       resolveWithFullResponse: true
     }).then((response) => {
+      // once user is created, just get token for the user
+      apiAuth.authToken(req.body.email, req.body.password)
+      .then(token => console.log(token));
       return response;
     }).catch((err) => {
         console.log(`Error in Processing Request for ${apiUrl} error log - ${err}`);
@@ -93,7 +64,7 @@ function createOrUpdateCustomer(req) {
 }
 
 function login(req) {
-  return authUser(req.body.username, req.body.password)
+  return apiAuth.authToken(req.body.username, req.body.password)
     .then((token) => {
     console.log(token);
     return reqPromise({

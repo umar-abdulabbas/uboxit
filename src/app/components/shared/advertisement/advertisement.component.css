@@ -1,0 +1,33 @@
+.advertLayout{
+    position:relative; margin-top:51px; margin-bottom:1px;
+}
+.advert-banner img{
+    height: 300px;
+    width: 100%;
+}
+.advert-newUser{
+    position:absolute; right:10px; bottom:10px; height:100px;  width:300px;
+}
+.advert-title{
+    position:absolute; left:10%; top:40%; height:100px;  width:350px; color:#fff;
+}
+.advert-title h2{
+    text-shadow: #fff 1px 0 10px;
+}
+
+@media only screen and (max-width: 480px) {
+	
+    .advert-banner img{
+        height: 200px;
+      
+    }
+    .advert-newUser{
+       height:50px;  width:320px;
+    }
+    .advert-newUser h4{
+        font-size: 12px;
+    }
+    .advert-newUser span{
+        font-size: 10px;
+    }
+}

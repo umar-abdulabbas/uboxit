@@ -19,6 +19,7 @@ padding-top: 60px;
 }
 .mat-expansion-panel-body{
     padding: 0px 0px 0px 0px !important;
+    overflow: hidden;
 }
 md-panel-title{
     color: #fff;

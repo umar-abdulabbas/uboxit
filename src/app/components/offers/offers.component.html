@@ -42,15 +42,15 @@
             <div class="modal-container">
                 <div class="relative">
                   <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  class="img-responsive">
-                  <span class="absolute" style="height:40px; width:166px; bottom:60px; border:1px solid #000;">
+                  <span class="absolute" style="height:40px; width:166px; bottom:60px;">
                         <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
                   </span>
-                  <span class="absolute" style="height:40px; width:166px; bottom:60px; left:167px; border:1px solid #000;">
+                  <span class="absolute" style="height:40px; width:166px; bottom:60px; left:167px;">
                       <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
                 </span>
-                <span class="absolute" style="height:40px; width:166px; bottom:60px; left:334px; border:1px solid #000;">
+                <span class="absolute" style="height:40px; width:166px; bottom:60px; left:334px;">
                     <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
               </span>
@@ -65,7 +65,10 @@
                       </div>
                       <div class="divider"></div>
                       <div>
-                            <div class="float-left text-bold">&euro; {{selectedOffer.normalPrice}} {{selectedOffer.discountedPrice}}</div>
+                            <div class="float-left text-bold">
+                              <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
+                              <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
+                            </div>
                             <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
                             <div class="clearfix"></div>
                       </div>

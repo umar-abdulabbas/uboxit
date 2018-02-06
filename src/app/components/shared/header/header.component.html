@@ -9,10 +9,10 @@
      <span class="uboxitLogo c-hand" (click)="goToHomePage();"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
 </section>
 <section class="navbar-section">
-    <button class="btn btn-link"><i class="material-icons tooltip">place</i></button>
-    <div class="default-location" style="width:237px;">
-        <button class="btn btn-clear float-right"></button>
-        <div>We are Currently Offering in</div>
+    <button class="btn btn-link" (click)="openChangeLocation();"><i class="material-icons">place</i></button>
+    <div class="default-location" *ngIf="showLocationPanel">
+        <button class="btn btn-clear float-right" (click)="closeChangeLocation();"></button>
+        <div>We are Currently Offering ind</div>
         <h5>Amstelveen</h5>
         <p>You wish to Change the location?</p>
         <button  class="btn btn-primary" style="width:100%;">Change Location</button>

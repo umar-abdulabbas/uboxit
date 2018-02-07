@@ -3,7 +3,7 @@
 <div class="container grid-lg">
  <header class="navbar">
  <section class="navbar-section">
-        <app-hamburger></app-hamburger>       
+        <app-hamburger></app-hamburger>
  </section>
 <section class="navbar-center">
      <span class="uboxitLogo c-hand" (click)="goToHomePage();"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
@@ -32,50 +32,52 @@
       <div class="modal-title h5">{{loginTitle}}</div>
     </div>
     <div class="modal-body">
-        <div class="content">
-        <!-- Login Area -->
-        <div [ngClass]="{'LoginLayoutModel':LoginLayoutModel}">
-                  <!-- <div class="toast toast-error">
-                  Error Message Area - Will display all kind of login errors in this sections
-                  </div>  Error-->
-                  <div class="m-2"></div>
-          <div class="socialmedia">
-          <!-- <div><button class="btn btn-primary uboxit-google">Log in With Google</button></div> -->
-          <!-- <div><button class="btn btn-primary uboxit-facebook">Log in With Facebook</button></div> -->
-          <!-- <div class="divider text-center" data-content="OR"></div> -->
-          </div> <!-- //.socialmedia -->
-        <div [ngClass]="{'regUserIn': isActiveRegUser }">
-          <form>
-           <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>Name</label></div>
-           <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
-          </form>
-        </div> <!--//.regUserIn -->
-        <div [ngClass]="{'nonRegUser' : isActiveNonRegUser}">
-            <form>
-            <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>First Name</label></div>
+        <!--<div class="content">-->
+        <!--&lt;!&ndash; Login Area &ndash;&gt;-->
+        <!--<div [ngClass]="{'LoginLayoutModel':LoginLayoutModel}">-->
+                  <!--&lt;!&ndash; <div class="toast toast-error">-->
+                  <!--Error Message Area - Will display all kind of login errors in this sections-->
+                  <!--</div>  Error&ndash;&gt;-->
+                  <!--<div class="m-2"></div>-->
+          <!--<div class="socialmedia">-->
+          <!--&lt;!&ndash; <div><button class="btn btn-primary uboxit-google">Log in With Google</button></div> &ndash;&gt;-->
+          <!--&lt;!&ndash; <div><button class="btn btn-primary uboxit-facebook">Log in With Facebook</button></div> &ndash;&gt;-->
+          <!--&lt;!&ndash; <div class="divider text-center" data-content="OR"></div> &ndash;&gt;-->
+          <!--</div> &lt;!&ndash; //.socialmedia &ndash;&gt;-->
+        <!--<div [ngClass]="{'regUserIn': isActiveRegUser }">-->
+          <!--<form>-->
+           <!--<div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>Name</label></div>-->
+           <!--<div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>-->
+          <!--</form>-->
+        <!--</div> &lt;!&ndash;//.regUserIn &ndash;&gt;-->
+        <!--<div [ngClass]="{'nonRegUser' : isActiveNonRegUser}">-->
+            <!--<form>-->
+            <!--<div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>First Name</label></div>-->
 
-            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Mobile Number</label></div>
-            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
-            <div class="group removebottom"> <input type="password" required><span class="highlight"></span><span class="bar"></span><label>Password</label></div>
-            </form>
-        </div> <!-- //.nonRegUser-->
+            <!--<div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Mobile Number</label></div>-->
+            <!--<div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>-->
+            <!--<div class="group removebottom"> <input type="password" required><span class="highlight"></span><span class="bar"></span><label>Password</label></div>-->
+            <!--</form>-->
+        <!--</div> &lt;!&ndash; //.nonRegUser&ndash;&gt;-->
 
-        <div><button class="btn btn-primary uboxitSignIn">Sign In</button></div>
+        <!--<div><button class="btn btn-primary uboxitSignIn">Sign In</button></div>-->
 
-        <div class="float-right mt-1"><button class="btn btn-link uboxitLink" (click)="openForget();">Forget Password?</button></div>
-        <div class="clearfix"></div>
-        <div class="divider text-center"></div>
-        <div>Don't have an account? <button class="btn btn-link uboxitLink"  (click)="openSignUp();">Sign up</button></div>
-        </div> <!--// .LoginLayout End -->
-        <div [ngClass]="{'forgetPwd':forgetPwd}">
-         <form>
-           <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
-           <p>Enter your email address and we'll send you an email to reset your password.</p>
-            <div><button class="btn btn-primary uboxitSignIn">Send Email</button></div>
-          </form>
-        </div><!--// .forgetPwd -->
-        <!-- Login Area End -->
-      </div>
+        <!--<div class="float-right mt-1"><button class="btn btn-link uboxitLink" (click)="openForget();">Forget Password?</button></div>-->
+        <!--<div class="clearfix"></div>-->
+        <!--<div class="divider text-center"></div>-->
+        <!--<div>Don't have an account? <button class="btn btn-link uboxitLink"  (click)="openSignUp();">Sign up</button></div>-->
+        <!--</div> &lt;!&ndash;// .LoginLayout End &ndash;&gt;-->
+        <!--<div [ngClass]="{'forgetPwd':forgetPwd}">-->
+         <!--<form>-->
+           <!--<div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>-->
+           <!--<p>Enter your email address and we'll send you an email to reset your password.</p>-->
+            <!--<div><button class="btn btn-primary uboxitSignIn">Send Email</button></div>-->
+          <!--</form>-->
+        <!--</div>&lt;!&ndash;// .forgetPwd &ndash;&gt;-->
+        <!--&lt;!&ndash; Login Area End &ndash;&gt;-->
+      <!--</div>-->
+
+      <app-personal></app-personal>
     </div>
 
   </div>

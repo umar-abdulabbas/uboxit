@@ -4,6 +4,7 @@ import { HeaderService } from './header.service';
 import { Router } from '@angular/router';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { Observable } from 'rxjs/Observable';
+import { LoginService } from '../../personal/services/login-service';
 
 @Component({
   selector: 'app-header',
@@ -23,9 +24,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loginTitle = 'Login';
   showLocationPanel = true;
   totalCount: Observable<number>;
+  loggedIn: Observable<boolean>;
 
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
-              private cartService: CartService) {
+              private cartService: CartService,
+              private loginService: LoginService) {
 
   }
 
@@ -34,6 +37,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.totalCount = this.cartService.totalCountSubject;
+    this.loggedIn = this.loginService.loggedIn;
+    this.loginService.loggedIn.subscribe(v => {
+      if (v) {
+        this.closeLoginWindow();
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -90,5 +99,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   openChangeLocation(): void {
     this.showLocationPanel = true;
-  } 
+  }
 }

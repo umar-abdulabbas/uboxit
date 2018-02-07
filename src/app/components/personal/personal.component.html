@@ -1,53 +1,74 @@
 <!-- If the Customer not Logged in, We have show this section -->
 <section class="notLoggedIn">
-    <div class="container grid-lg">
-        <div class="columns">
-            <div class="column col-xs-6">
-                <div>
-                    
-                    <div class="uboxitRegUser" *ngIf="isActiveRegUser">  
-                 
-                     <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>Name</label></div>
-                     <div class="group removebottom"> 
-                         <input type="passowrd" required><span class="highlight"></span><span class="bar"></span><label>Password</label>                        
-                     </div>
-                     <div>
-                            <div class="float-left" style="width:70%;"><button class="btn btn-primary uboxitSignIn" >Log  In</button></div>
-                            <div class="float-left"style="width:30%;"><button class="btn btn-link uboxitLink" aria-label="Close" role="button">Forgt?</button></div>
-                            <div class="clearfix"></div>
-                         
-                         
-                    </div>
-                   
-                    <div style="padding-top:10px"><button (click)="showNonRegUser();" class="btn btn-success uboxitSignIn">New to Uboxit?Sign up</button></div>
-                    
-                    </div><!--//.uboxitRegUser -->
-                    <div class="uboxitNewUser" *ngIf="isActiveNonRegUser">
-                            <div class="group"><input type="text" required><span class="highlight"></span> <span class="bar"></span><label>First Name</label></div>
-    
-                            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Mobile Number</label></div>
-                            <div class="group removebottom"> <input type="text" required><span class="highlight"></span><span class="bar"></span><label>Email</label></div>
-                            <div class="group removebottom"> <input type="password" required><span class="highlight"></span><span class="bar"></span><label>Password</label></div>
-                            <div><button class="btn btn-primary uboxitSignIn">Sign In</button></div>
-                            <div style="padding-top:10px"><button  (click)="showRegUser();" class="btn btn-success uboxitSignIn">Already do you have Uboxit?</button></div>
-                    </div> <!-- // .uboxitNewUser--> 
-                    
-                  </div> 
-            </div>
-            <div class="divider-vert hide-xs hide-sm" data-content="''"></div>
-            <div class="column col-xs-6 hide-xs hide-sm">
-                
-                <div class="notLoggedINText">
-                    <p>Advantages of our secure login</p>
-                    <ul>
-                        <li><i class="fa fa-truck" aria-hidden="true"></i>Easily Track Orders, Hassle free Returns</li>
-                        <li><i class="fa fa-bell" aria-hidden="true"></i>Get Relevant Alerts and Recommendation</li>
-                        <li><i class="fa fa-heart" aria-hidden="true"></i>Wishlist, Reviews, Ratings and more.</li>
-                    </ul>
+  <div class="container grid-lg">
+    <div class="columns">
+      <div class="column col-xs-6">
+        <div>
+
+          <div class="uboxitRegUser" *ngIf="isActiveRegUser">
+
+            <form (ngSubmit)="logIn()">
+              <div class="group">
+                <input type="text" required [(ngModel)]="model.username" name="username">
+                <span class="highlight"></span>
+                <span class="bar"></span><label>Name</label></div>
+              <div class="group removebottom">
+                <input type="password" required [(ngModel)]="model.password" name="password">
+                <span class="highlight"></span>
+                <span class="bar"></span><label>Password</label>
+              </div>
+
+              <div>
+                <div class="float-left" style="width:70%;">
+                  <button type="submit" class="btn btn-primary uboxitSignIn">Log In</button>
                 </div>
+                <div class="float-left" style="width:30%;">
+                  <button class="btn btn-link uboxitLink" aria-label="Close" role="button">Forgt?</button>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </form>
+
+            <div style="padding-top:10px">
+              <button (click)="showNonRegUser();" class="btn btn-success uboxitSignIn">New to Uboxit?Sign up</button>
             </div>
-            
+
+          </div><!--//.uboxitRegUser -->
+
+          <div class="uboxitNewUser" *ngIf="isActiveNonRegUser">
+            <div class="group"><input type="text" required><span class="highlight"></span> <span
+              class="bar"></span><label>First Name</label></div>
+
+            <div class="group removebottom"><input type="text" required><span class="highlight"></span><span
+              class="bar"></span><label>Mobile Number</label></div>
+            <div class="group removebottom"><input type="text" required><span class="highlight"></span><span
+              class="bar"></span><label>Email</label></div>
+            <div class="group removebottom"><input type="password" required><span class="highlight"></span><span
+              class="bar"></span><label>Password</label></div>
+            <div>
+              <button class="btn btn-primary uboxitSignIn">Sign In</button>
+            </div>
+            <div style="padding-top:10px">
+              <button (click)="showRegUser();" class="btn btn-success uboxitSignIn">Already do you have Uboxit?</button>
+            </div>
+          </div> <!-- // .uboxitNewUser-->
+
         </div>
+      </div>
+      <div class="divider-vert hide-xs hide-sm" data-content="''"></div>
+      <div class="column col-xs-6 hide-xs hide-sm">
+
+        <div class="notLoggedINText">
+          <p>Advantages of our secure login</p>
+          <ul>
+            <li><i class="fa fa-truck" aria-hidden="true"></i>Easily Track Orders, Hassle free Returns</li>
+            <li><i class="fa fa-bell" aria-hidden="true"></i>Get Relevant Alerts and Recommendation</li>
+            <li><i class="fa fa-heart" aria-hidden="true"></i>Wishlist, Reviews, Ratings and more.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 <!-- // End of ==Not Logged== Cutomers -->

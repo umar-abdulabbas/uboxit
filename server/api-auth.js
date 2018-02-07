@@ -57,7 +57,7 @@ module.exports.authToken = function (userName, password) {
         return token;
     }).catch((err) => {
         console.log(`Error in fetching Token/Creation ${apiName} with ${err}`);
-        memoryCache.del(apiName);
+        memoryCache.del(key);
         return Promise.reject(err);
     });
 

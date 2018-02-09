@@ -18,6 +18,14 @@ export class StorageService {
     this.set(CART_UPDATED_TIME_KEY, new Date());
   }
 
+  storeUser(username: string) {
+    this.set('username', username);
+  }
+
+  getUser() {
+    this.localStorageService.get('username');
+  }
+
   getStoredCart() {
     const cartUpdatedAt: string = <string> this.localStorageService.get(CART_UPDATED_TIME_KEY);
     if (!!cartUpdatedAt) {

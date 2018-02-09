@@ -50,6 +50,8 @@ import { DeliveryaddressComponent } from './components/deliveryaddress/deliverya
 import { PaymentComponent } from './components/payment/payment.component';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { StorageService } from './shared/services/storage-service';
+import { LoginService } from './components/personal/services/login-service';
+import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/shared/location/location.component';
 
 // Payment
@@ -86,7 +88,8 @@ import { LocationComponent } from './components/shared/location/location.compone
   imports: [
     BrowserModule,
     HttpClientModule,
-    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    FormsModule,
+   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,
@@ -102,6 +105,7 @@ import { LocationComponent } from './components/shared/location/location.compone
     CartService,
     StorageService,
     CounterService,
+    LoginService,
     MakeYourOwnComboService,
     AppInitializerService,
     UserExpStyleService,

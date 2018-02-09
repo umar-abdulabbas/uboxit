@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './services/login-service';
 
 @Component({
   selector: 'app-personal',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class PersonalComponent implements OnInit {
   isActiveNonRegUser = false; // based on customer not reg
   isActiveRegUser = true; // based on customer logged in or not values
-  constructor() {
+
+  model: any = {};
+
+  constructor(private loginServie: LoginService) {
   }
 
   ngOnInit() {
@@ -22,5 +26,10 @@ export class PersonalComponent implements OnInit {
   showRegUser(): void {
     this.isActiveRegUser = true;
     this.isActiveNonRegUser = false;
+  }
+
+  logIn() {
+    console.log(this.model);
+    this.loginServie.login(this.model.username, this.model.password);
   }
 }

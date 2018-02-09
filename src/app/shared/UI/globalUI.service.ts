@@ -10,6 +10,4 @@ export class UserExpStyleService {
     body.scrollTop = 0;
     html.scrollTop = 0;
   }
-  
-
 }

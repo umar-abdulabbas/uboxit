@@ -9,7 +9,7 @@
    <div class="text-center offerTitle">
          <div *ngIf="selectedType">"{{selectedType}}"</div>
          <h4>"Chef made combos"</h4>
-         
+
    </div>
 
    <div class="paddingBlock">
@@ -40,7 +40,7 @@
             </div> <!-- Repeater End -->
                 <!-- Model Window Start -->
          <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
-            <div class="modal-overlay" modelCloseOnOverlay (modelClose)="modelclose($event)"></div>
+            <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
             <div class="modal-container">
                 <div class="relative">
                   <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  class="img-responsive">

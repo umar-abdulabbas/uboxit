@@ -93,10 +93,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   modelclose(event): void {
     this.headerActive = event;
   }
-  closeChangeLocation(): void {
-    this.showLocationPanel = false;
-  }
-  openChangeLocation(): void {
-    this.showLocationPanel = true;
-  }
 }

@@ -1,11 +1,12 @@
-import { Directive, ElementRef, HostListener, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, HostListener, EventEmitter, Output } from '@angular/core';
 
 @Directive({
-  selector: '[modelCloseOnOverlay]',
-  outputs: ['modelClose']
+  selector: '[appModelCloseOnOverlay]'
 })
 
-export class modelCloseOverlay {
+export class ModelCloseOverlayDirective {
+
+  @Output()
   modelClose = new EventEmitter();
 
   constructor(private el: ElementRef) {

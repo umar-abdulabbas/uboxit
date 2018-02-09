@@ -21,8 +21,8 @@ import { OfferService } from './components/offers/services/offer.service';
 import { AdvertisementComponent } from './components/shared/advertisement/advertisement.component';
 // Directives
 
-import { stickyHeaderDirective } from './directives/sticky-header.directive';
-import { modelCloseOverlay } from './directives/modelCloseonOverlay.directive';
+import { StickyHeaderDirective } from './directives/sticky-header.directive';
+import { ModelCloseOverlayDirective } from './directives/modelCloseonOverlay.directive';
 // Material Componets Added
 import { MatExpansionModule } from '@angular/material/expansion';
 
@@ -73,8 +73,8 @@ import { LocationComponent } from './components/shared/location/location.compone
     DeliverTimeComponent,
     OrderedItemsComponent,
     MakeyourcomboComponent,
-    stickyHeaderDirective,
-    modelCloseOverlay,
+    StickyHeaderDirective,
+    ModelCloseOverlayDirective,
     MakeyourcomboOfferComponent,
     AddToCartCounterComponent,
     FaqsComponent,

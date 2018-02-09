@@ -9,6 +9,9 @@ export interface Combo {
   items?: Item[];
   discountedPrice?: Price;
   normalPrice?: Price;
+
+  // from response
+  price?: Price;
 }
 
 export interface Item {
@@ -16,6 +19,9 @@ export interface Item {
   count: number;
   discountedPrice?: Price;
   normalPrice?: Price;
+
+  // from response
+  price?: Price;
 }
 
 export interface Cart {
@@ -25,4 +31,9 @@ export interface Cart {
   offerId?: string;
   discountedPrice?: Price;
   normalPrice?: Price;
+
+  // from response
+  price?: Price;
+  totalPrice?: Price;
+  vatPrice?: Price;
 }

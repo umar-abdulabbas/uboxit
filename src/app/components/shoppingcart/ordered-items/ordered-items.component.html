@@ -13,7 +13,7 @@
           <app-add-to-cart-counter [showAddToCartWhenZero]="false" [counterValue]="order.count"
                                    (updatedCount)="updateOrder(order.id, $event)"></app-add-to-cart-counter>
         </div>
-        <div class="column col-xs-3 text-left priceList-top">&euro; {{order.discountedPrice}}</div>
+        <div class="column col-xs-3 text-left priceList-top">&euro; {{order.price.amount}}</div>
 
       </div>
       <div style="border-bottom:1px solid #ccc; margin-bottom:10px;margin-top:10px"></div>
@@ -24,7 +24,7 @@
     <div class="column col-xs-3 text-bold"></div>
     <div class="column col-xs-3 text-bold">PRICE DETAILS</div>
     <div class="column col-xs-3 count text-bold">Total</div>
-    <div class="column col-xs-3 text-left text-bold">&euro; {{cart.discountedPrice.amount}}</div>
+    <div class="column col-xs-3 text-left text-bold">&euro; {{cart.price.amount}}</div>
 
   </div>  <!-- Total Area -->
 
@@ -33,7 +33,7 @@
     <div class="column col-xs-3 text-bold"></div>
     <div class="column col-xs-3 text-bold"></div>
     <div class="column col-xs-3 count ">Vat %</div>
-    <div class="column col-xs-3 text-left">&euro; 20</div>
+    <div class="column col-xs-3 text-left">&euro; {{cart.vatPrice.amount}}</div>
 
   </div>  <!-- Vat Area -->
 
@@ -42,7 +42,7 @@
     <div class="column col-xs-3 text-bold"></div>
     <div class="column col-xs-3 text-bold"></div>
     <div class="column col-xs-3 count text-bold">Amount Payable</div>
-    <div class="column col-xs-3 text-left text-bold">&euro; {{cart.discountedPrice.amount + 20}}</div>
+    <div class="column col-xs-3 text-left text-bold">&euro; {{cart.totalPrice.amount}}</div>
 
   </div>  <!-- Vat Area -->
 

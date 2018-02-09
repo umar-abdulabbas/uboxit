@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
+
 
 @Injectable()
 export class UserExpStyleService {
@@ -9,4 +10,6 @@ export class UserExpStyleService {
     body.scrollTop = 0;
     html.scrollTop = 0;
   }
+  
+
 }

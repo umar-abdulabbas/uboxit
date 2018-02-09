@@ -1,13 +1,15 @@
-<section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}">
-<app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
+
+<section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}" >
+    <app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
 </section>
-<div class="container grid-lg">
+<div class="container grid-lg" id="isActiveForDestop" >
 
   <div class="column">
 
    <div class="text-center offerTitle">
          <div *ngIf="selectedType">"{{selectedType}}"</div>
-      <p>Chef made meals, inspired by cuisines from across the world, using fresh ingredients and no preservatives.</p>
+         <h4>"Chef made combos"</h4>
+         
    </div>
 
    <div class="paddingBlock">
@@ -109,13 +111,9 @@
       </div> <!-- // equalHMVWrap eqWrap -->
   </div> <!--//paddingBlock-->
 
-  <!-- Second Item -->
-
-
-
-
-
-
-
 </div> <!-- // Column -->
 </div>
+
+
+
+

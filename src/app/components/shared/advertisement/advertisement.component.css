@@ -1,33 +1,62 @@
 .advertLayout{
-    position:relative; margin-top:51px; margin-bottom:1px;
+    border-top:1px solid #fff; margin-top:50px;
+}
+.advert-banner{
+    position: relative;
+    text-align: center;
+    color: white;
 }
 .advert-banner img{
-    height: 300px;
+    height: 250px;
     width: 100%;
+    opacity: 0.8;
 }
-.advert-newUser{
-    position:absolute; right:10px; bottom:10px; height:100px;  width:300px;
+
+.darken-pseudo:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .darken-with-text  {
+    margin: 0;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+     z-index: 1;
+  }
+.txt-centered-1 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform:uppercase;
+    font-size: 1rem;
 }
-.advert-title{
-    position:absolute; left:10%; top:40%; height:100px;  width:350px; color:#fff;
-}
-.advert-title h2{
-    text-shadow: #fff 1px 0 10px;
+.txt-centered-2 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform:uppercase;
+    font-size: 1.25rem;
 }
 
 @media only screen and (max-width: 480px) {
 	
     .advert-banner img{
-        height: 200px;
+        height: 170px;
       
     }
-    .advert-newUser{
-       height:50px;  width:320px;
+    .txt-centered-1 {
+        top: 38%;
+        font-size: 0.6rem;
     }
-    .advert-newUser h4{
-        font-size: 12px;
-    }
-    .advert-newUser span{
-        font-size: 10px;
+    .txt-centered-2 {
+        font-size: 0.8rem;
     }
 }

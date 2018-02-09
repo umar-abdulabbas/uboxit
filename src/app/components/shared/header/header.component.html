@@ -9,15 +9,8 @@
      <span class="uboxitLogo c-hand" (click)="goToHomePage();"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
 </section>
 <section class="navbar-section">
-    <button class="btn btn-link" (click)="openChangeLocation();"><i class="material-icons">place</i></button>
-    <div class="default-location" *ngIf="showLocationPanel">
-        <button class="btn btn-clear float-right" (click)="closeChangeLocation();"></button>
-        <div>We are Currently Offering ind</div>
-        <h5>Amstelveen</h5>
-        <p>You wish to Change the location?</p>
-        <button  class="btn btn-primary" style="width:100%;">Change Location</button>
-    </div>
-    <button class="btn btn-link" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button>
+    <app-location></app-location><span style="color:#fff; font-size:1.25rem">/</span>
+    <button class="btn btn-link" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button> <span style="color:#fff; font-size:1.25rem">/</span>
     <button class="btn btn-link" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
 </section>
 </header>

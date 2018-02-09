@@ -17,13 +17,6 @@ export class HomeComponent implements OnInit {
     this.uistyleservice.scrollToTop();
   }
 
-  stickyHeaderValue(scrolValue) {
-    if (scrolValue > 330) {
-      this.uboxitMenu = true;
-    } else if (this.uboxitMenu && scrolValue < 200) {
-      this.uboxitMenu = false;
-    }
-  }
 
 
 }

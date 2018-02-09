@@ -165,3 +165,12 @@ overflow: hidden;
 .card-image:hover img{
   transform: scale(1.5);
 }
+
+.isShow{
+  display: block;
+}
+
+.isHide{
+  display: none;
+}
+

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Combo } from '../../core/domain/offer';
 import { OfferService } from './services/offer.service';
 import { CartService } from '../shoppingcart/services/cart.service';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+
 
 @Component({
   selector: 'app-offers',
@@ -18,17 +21,17 @@ export class OffersComponent implements OnInit {
   isActivedetails = true;
   isActiveingredients = false;
   selectedOffer: Combo;
-
   availableTypes: string[] = [];
   selectedType: string;
-
   constructor(private offerService: OfferService, private cartService: CartService) {
+
   }
+  
 
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.getOffers();
-    this.cartService.initializeCart(this.offerService.offerId);
+    this.cartService.initializeCart(this.offerService.offerId);   
   }
 
   getOffers(): void {
@@ -86,9 +89,9 @@ export class OffersComponent implements OnInit {
   }
 
   stickyHeaderValue(scrolValue) {
-    if (scrolValue > 330) {
+    if (scrolValue > 250) {
       this.uboxitMenu = true;
-    } else if (this.uboxitMenu && scrolValue < 200) {
+    } else if (this.uboxitMenu && scrolValue < 250) {
       this.uboxitMenu = false;
     }
   }

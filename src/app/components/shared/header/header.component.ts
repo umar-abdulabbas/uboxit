@@ -21,9 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   forgetPwd = true;
   LoginLayoutModel = false;
   loginTitle = 'Login';
-  showLocationPanel = true;
   totalCount: Observable<number>;
-
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private cartService: CartService) {
 
@@ -85,10 +83,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
   modelclose(event): void {
     this.headerActive = event;
   }
-  closeChangeLocation(): void {
-    this.showLocationPanel = false;
-  }
-  openChangeLocation(): void {
-    this.showLocationPanel = true;
-  } 
+ 
 }

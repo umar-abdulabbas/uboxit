@@ -9,8 +9,9 @@ import { OfferService } from '../../offers/services/offer.service';
 export class BarMenuComponent implements OnInit {
   // public barFixed = false;
   public isActive = false;
+  public isBtnActive = true;
   public pathFinder: string;
-
+  public isActiveDropDown = false;
   @Input() availableTypes: string[] = [];
   @Output() filterType = new EventEmitter<string>();
 
@@ -21,12 +22,17 @@ export class BarMenuComponent implements OnInit {
     this.pathFinder = location.pathname.split('/').pop();
     if (this.pathFinder === 'makeyourcombo') {
       this.isActive = true;
+      this.isBtnActive = false;
     }
   }
 
   selectType(type: string) {
     console.log(type);
     this.filterType.emit(type);
+  }
+
+  showDropDown(): void {
+    this.isActiveDropDown = !this.isActiveDropDown;
   }
 
 }

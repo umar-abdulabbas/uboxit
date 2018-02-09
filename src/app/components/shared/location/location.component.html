@@ -1,0 +1,41 @@
+<button class="btn btn-link" (click)="openChangeLocation();"><i class="material-icons pulse">place</i></button>
+<div class="default-location" *ngIf="showLocationPanel">
+        <button class="btn btn-clear float-right" (click)="closeChangeLocation();"></button>
+        <div>We are Currently Offering ind</div>
+        <h5>Amstelveen</h5>
+        <p>You wish to Change the location?</p>
+        <button  class="btn btn-primary" style="width:100%;">Change Location</button>
+</div>
+  <!-- Model Window -->
+  <div class="modal modal-lg active" id="modal-id" *ngIf="isModelActive">
+      <a href="#close" class="modal-overlay" aria-label="Close"></a>
+      <div class="modal-container">
+        <div class="modal-header" style="background:#ff675c;">
+          <button href="#close" class="btn btn-clear uboxitLogo float-right" (click)="closeModel();" ></button>
+          <div class="modal-title h5"><img src="assets/images/Uboxitlogo.png" width="80px"/></div>
+        </div>
+        <div class="modal-body">
+          <div class="content">
+              <div style="padding:10px;">
+                  <div class="divider text-center" data-content="View Menu For"></div>
+              </div>
+              <div>
+                  <span class="chip selected">Amstelveen</span>
+                  <span class="chip">Hoofdorp</span>
+                  <span class="chip">Aalsmeer</span>
+                  <span class="chip">Bijlmer Arena</span>
+              </div>
+              <div style="padding-top:20px; padding-bottom:20px;">
+                  <div class="has-icon-left">
+                      <input type="text" class="form-input" placeholder="Search your Loaction.. ">
+                      <i class="form-icon icon icon-search"></i>
+                    </div>
+              </div>
+              <div>
+                  <button  class="btn btn-primary" style="width:100%" (click)="goToHome();">See Today's Menu</button>
+              </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>

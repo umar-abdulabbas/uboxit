@@ -6,6 +6,8 @@ export interface Price {
 export interface Combo {
   id?: string; // customised combo will not have id
   count: number;
+  name?: string;
+  imageUrls?: string[];
   items?: Item[];
   discountedPrice?: Price;
   normalPrice?: Price;

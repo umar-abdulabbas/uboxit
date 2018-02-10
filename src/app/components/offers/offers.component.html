@@ -19,7 +19,7 @@
                   <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header" >
                           <div class="float-left ">
-                          <div class="card-title h5">{{offer.title}}</div>
+                          <div class="card-title h5">{{offer.title}} {{offer.itemNames}}</div>
                           <div class="card-subtitle text-gray"> </div>
                           </div>
                           <div class="float-right text-bold">
@@ -44,22 +44,22 @@
             <div class="modal-container">
                 <div class="relative">
                   <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  class="img-responsive">
-                  <span class="absolute" style="height:40px; width:166px; bottom:60px;">
-                        <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
+                  <span *ngIf="selectedOffer.items[0]" class="absolute" style="height:40px; width:166px; bottom:60px;">
+                        <img src="{{selectedOffer.items[0].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
                   </span>
-                  <span class="absolute" style="height:40px; width:166px; bottom:60px; left:167px;">
-                      <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
+                  <span *ngIf="selectedOffer.items[1]" class="absolute" style="height:40px; width:166px; bottom:60px; left:167px;">
+                      <img src="{{selectedOffer.items[1].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
                 </span>
-                <span class="absolute" style="height:40px; width:166px; bottom:60px; left:334px;">
-                    <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
+                <span *ngIf="selectedOffer.items[2]" class="absolute" style="height:40px; width:166px; bottom:60px; left:334px;">
+                    <img src="{{selectedOffer.items[2].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
               </span>
                 </div>
                 <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
-                <div class="modal-title h5">{{selectedOffer.title}}</div>
+                <div class="modal-title h5">{{selectedOffer.title}} {{selectedOffer.itemNames}}</div>
                       <div>
                             <div class="float-left"><span class="chip">{{selectedOffer.category}}</span></div>
                             <div class="float-right"><i class="material-icons">favorite_border</i></div>
@@ -71,7 +71,9 @@
                               <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
                               <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
                             </div>
-                            <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
+                            <div class="float-right">
+                              <app-add-to-cart-counter [counterValue]="!!selectedOffer.count ? selectedOffer.count : 0" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
+                            </div>
                             <div class="clearfix"></div>
                       </div>
                 </div>

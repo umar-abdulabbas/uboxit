@@ -6,7 +6,7 @@ const app = express();
 const apiRequest = require('./server/api-request');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false })) ;
 
 // Run the app by serving the static files in the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -41,4 +41,4 @@ app.get('*', (req, res) => {
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8085, () => console.log(`APP running`));
+app.listen(process.env.PORT || 8081, () => console.log(`APP running in 8081`));

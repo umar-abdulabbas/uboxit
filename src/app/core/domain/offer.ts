@@ -17,6 +17,8 @@ export interface Combo extends Product {
 
   // ui related
   itemNames: string;
+  itemDescriptions: string[];
+  itemIngredients: string[];
 }
 
 export interface Item extends Product {

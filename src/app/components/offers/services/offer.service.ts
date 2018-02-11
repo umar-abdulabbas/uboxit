@@ -87,7 +87,9 @@ export class OfferService {
       category: this.getCategoryTypeName(categoryType),
       count: this.getCountIfPresentInLocalStorage(combo.id),
       items: combo.items.map(i => this.prepareDomainItem(i, categoryType)),
-      itemNames: combo.items.map(i => i.name).join(' + ')
+      itemNames: combo.items.map(i => i.name).join(' + '),
+      itemDescriptions: combo.items.map(i => i.description).join(' '),
+      itemIngredients: combo.items.map(i => i.ingredients.map(ing => ing.name))[0].join(', ')
     };
   }
 

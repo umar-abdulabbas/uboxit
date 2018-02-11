@@ -19,8 +19,8 @@
                   <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header" >
                           <div class="float-left ">
-                          <div class="card-title h5">{{offer.title}} {{offer.itemNames}}</div>
-                          <div class="card-subtitle text-gray"> </div>
+                          <div class="card-title h5">{{offer.title}}</div>
+                          <div class="card-subtitle text-gray">{{offer.itemNames}}</div>
                           </div>
                           <div class="float-right text-bold">
                               <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
@@ -59,7 +59,8 @@
                 </div>
                 <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
-                <div class="modal-title h5">{{selectedOffer.title}} {{selectedOffer.itemNames}}</div>
+                <div class="modal-title h5">{{selectedOffer.title}}</div>
+                  <div class="card-subtitle text-gray">{{selectedOffer.itemNames}}</div>
                       <div>
                             <div class="float-left"><span class="chip">{{selectedOffer.category}}</span></div>
                             <div class="float-right"><i class="material-icons">favorite_border</i></div>
@@ -92,10 +93,10 @@
                   </div>
                     <div class="detailContainer">
                       <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}">
-                      Here's an incredibly nutritious mix that you can munch on without any regrets. This Signature pack comes with a mix of corn, wheat flakes, oats, crunchy almonds, sunflower seeds, blueberries, raisins and exotic goji berries, in the right ratio to complement a good breakfast.
+                        {{selectedOffer.itemDescriptions}}
                       </div>
                       <div class="text-justify ingredients" [ngClass]="{'nonactive animated zoomIn':isActiveingredients}">
-                      Tomato, Onion, Paneer, Sandwich Bread, Cheese slice
+                      {{selectedOffer.itemIngredients}}
                       </div>
                     </div>
 

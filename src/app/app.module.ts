@@ -53,6 +53,7 @@ import { StorageService } from './shared/services/storage-service';
 import { LoginService } from './components/personal/services/login-service';
 import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/shared/location/location.component';
+import { FinishComponent } from './components/shared/finish/finish.component';
 import { PaymentService } from './components/payment/services/payment-service';
 
 // Payment

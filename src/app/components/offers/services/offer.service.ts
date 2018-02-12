@@ -85,7 +85,11 @@ export class OfferService {
       discountedPrice: combo.discountedPrice.amount,
       image: combo.imageUrls[0],
       category: this.getCategoryTypeName(categoryType),
-      count: this.getCountIfPresentInLocalStorage(combo.id)
+      count: this.getCountIfPresentInLocalStorage(combo.id),
+      items: combo.items.map(i => this.prepareDomainItem(i, categoryType)),
+      itemNames: combo.items.map(i => i.name).join(' + '),
+      itemDescriptions: combo.items.map(i => i.description).join(' '),
+      itemIngredients: combo.items.map(i => i.ingredients.map(ing => ing.name))[0].join(', ')
     };
   }
 

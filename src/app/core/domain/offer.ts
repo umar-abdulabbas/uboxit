@@ -13,6 +13,12 @@ export interface Product {
 export interface Combo extends Product {
   anySpecTitle: string;
   favourite: string;
+  items: Item[];
+
+  // ui related
+  itemNames: string;
+  itemDescriptions: string[];
+  itemIngredients: string[];
 }
 
 export interface Item extends Product {

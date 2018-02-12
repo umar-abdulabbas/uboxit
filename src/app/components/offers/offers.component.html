@@ -9,7 +9,7 @@
    <div class="text-center offerTitle">
          <div *ngIf="selectedType">"{{selectedType}}"</div>
          <h4>"Chef made combos"</h4>
-         
+
    </div>
 
    <div class="paddingBlock">
@@ -20,7 +20,7 @@
                   <div class="card-header" >
                           <div class="float-left ">
                           <div class="card-title h5">{{offer.title}}</div>
-                          <div class="card-subtitle text-gray"> </div>
+                          <div class="card-subtitle text-gray">{{offer.itemNames}}</div>
                           </div>
                           <div class="float-right text-bold">
                               <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
@@ -40,26 +40,27 @@
             </div> <!-- Repeater End -->
                 <!-- Model Window Start -->
          <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
-            <div class="modal-overlay" modelCloseOnOverlay (modelClose)="modelclose($event)"></div>
+            <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
             <div class="modal-container">
                 <div class="relative">
                   <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  class="img-responsive">
-                  <span class="absolute" style="height:40px; width:166px; bottom:60px;">
-                        <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
+                  <span *ngIf="selectedOffer.items[0]" class="absolute" style="height:40px; width:166px; bottom:60px;">
+                        <img src="{{selectedOffer.items[0].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
                   </span>
-                  <span class="absolute" style="height:40px; width:166px; bottom:60px; left:167px;">
-                      <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
+                  <span *ngIf="selectedOffer.items[1]" class="absolute" style="height:40px; width:166px; bottom:60px; left:167px;">
+                      <img src="{{selectedOffer.items[1].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
                 </span>
-                <span class="absolute" style="height:40px; width:166px; bottom:60px; left:334px;">
-                    <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
+                <span *ngIf="selectedOffer.items[2]" class="absolute" style="height:40px; width:166px; bottom:60px; left:334px;">
+                    <img src="{{selectedOffer.items[2].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
 
               </span>
                 </div>
                 <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
                 <div class="modal-title h5">{{selectedOffer.title}}</div>
+                  <div class="card-subtitle text-gray">{{selectedOffer.itemNames}}</div>
                       <div>
                             <div class="float-left"><span class="chip">{{selectedOffer.category}}</span></div>
                             <div class="float-right"><i class="material-icons">favorite_border</i></div>
@@ -71,7 +72,9 @@
                               <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
                               <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
                             </div>
-                            <div class="float-right"><button class="btn btn-primary" (click)="open();">Add to Cart</button></div>
+                            <div class="float-right">
+                              <app-add-to-cart-counter [counterValue]="!!selectedOffer.count ? selectedOffer.count : 0" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
+                            </div>
                             <div class="clearfix"></div>
                       </div>
                 </div>
@@ -90,10 +93,10 @@
                   </div>
                     <div class="detailContainer">
                       <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}">
-                      Here's an incredibly nutritious mix that you can munch on without any regrets. This Signature pack comes with a mix of corn, wheat flakes, oats, crunchy almonds, sunflower seeds, blueberries, raisins and exotic goji berries, in the right ratio to complement a good breakfast.
+                        {{selectedOffer.itemDescriptions}}
                       </div>
                       <div class="text-justify ingredients" [ngClass]="{'nonactive animated zoomIn':isActiveingredients}">
-                      Tomato, Onion, Paneer, Sandwich Bread, Cheese slice
+                      {{selectedOffer.itemIngredients}}
                       </div>
                     </div>
 

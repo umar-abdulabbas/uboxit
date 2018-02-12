@@ -23,15 +23,15 @@ export class OffersComponent implements OnInit {
   selectedOffer: Combo;
   availableTypes: string[] = [];
   selectedType: string;
+
   constructor(private offerService: OfferService, private cartService: CartService) {
 
   }
-  
 
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.getOffers();
-    this.cartService.initializeCart(this.offerService.offerId);   
+    this.cartService.initializeCart(this.offerService.offerId);
   }
 
   getOffers(): void {

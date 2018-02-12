@@ -18,7 +18,7 @@
 </div>
 </section>
 <div class="modal" [ngClass]="{'active':headerActive}">
-  <div class="modal-overlay" modelCloseOnOverlay (modelClose)="modelclose($event)"></div>
+  <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
   <div class="modal-container loginLayout">
     <div class="modal-header">
       <button class="btn btn-clear float-right" (click)="closeLoginWindow();"></button>

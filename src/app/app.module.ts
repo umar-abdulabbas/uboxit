@@ -21,8 +21,8 @@ import { OfferService } from './components/offers/services/offer.service';
 import { AdvertisementComponent } from './components/shared/advertisement/advertisement.component';
 // Directives
 
-import { stickyHeaderDirective } from './directives/sticky-header.directive';
-import { modelCloseOverlay } from './directives/modelCloseonOverlay.directive';
+import { StickyHeaderDirective } from './directives/sticky-header.directive';
+import { ModelCloseOverlayDirective } from './directives/modelCloseonOverlay.directive';
 // Material Componets Added
 import { MatExpansionModule } from '@angular/material/expansion';
 
@@ -53,7 +53,7 @@ import { StorageService } from './shared/services/storage-service';
 import { LoginService } from './components/personal/services/login-service';
 import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/shared/location/location.component';
-import { FinishComponent } from './components/shared/finish/finish.component';
+import { PaymentService } from './components/payment/services/payment-service';
 
 // Payment
 
@@ -74,8 +74,8 @@ import { FinishComponent } from './components/shared/finish/finish.component';
     DeliverTimeComponent,
     OrderedItemsComponent,
     MakeyourcomboComponent,
-    stickyHeaderDirective,
-    modelCloseOverlay,
+    StickyHeaderDirective,
+    ModelCloseOverlayDirective,
     MakeyourcomboOfferComponent,
     AddToCartCounterComponent,
     FaqsComponent,
@@ -108,6 +108,7 @@ import { FinishComponent } from './components/shared/finish/finish.component';
     StorageService,
     CounterService,
     LoginService,
+    PaymentService,
     MakeYourOwnComboService,
     AppInitializerService,
     UserExpStyleService,

@@ -53,6 +53,7 @@ import { StorageService } from './shared/services/storage-service';
 import { LoginService } from './components/personal/services/login-service';
 import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/shared/location/location.component';
+import { FinishComponent } from './components/shared/finish/finish.component';
 
 // Payment
 
@@ -83,13 +84,14 @@ import { LocationComponent } from './components/shared/location/location.compone
     DeliveryaddressComponent,
     PaymentComponent,
     AdvertisementComponent,
-    LocationComponent
+    LocationComponent,
+    FinishComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

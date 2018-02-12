@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   notFromHome = false;
   forgetPwd = true;
   LoginLayoutModel = false;
+  showLocationPanel = false;
   loginTitle = 'Login';
   totalCount: Observable<number>;
   loggedIn: Observable<boolean>;

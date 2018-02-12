@@ -26,11 +26,11 @@ export class BarMenuComponent implements OnInit {
     }
   }
 
-  selectType(type: string) {
+  selectType(type: string): void {
     console.log(type);
     this.filterType.emit(type);
+    
   }
-
   showDropDown(): void {
     this.isActiveDropDown = !this.isActiveDropDown;
   }

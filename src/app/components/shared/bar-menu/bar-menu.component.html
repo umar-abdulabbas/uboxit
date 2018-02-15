@@ -1,23 +1,34 @@
 <section [ngClass]="{'bar-layout':isBtnActive}">
     <div class="container grid-lg">
         <div class="columns">
-            <div class="column col-xs-4 c-hand btn-common btn-orange" [ngClass]="{'btn-active':isBtnActive}"  [ngClass]="{'uboxitMenuActive':!isActive}" routerLink="/home" routerLinkActive="active">
+            <div (click)="showDropDown();" style="position:relative"class="column col-xs-4 c-hand btn-common btn-orange" [ngClass]="{'btn-active':isBtnActive}"  [ngClass]="{'uboxitMenuActive':!isActive}" routerLink="/home" routerLinkActive="active">
                   <div class="text-center"><i class="material-icons">restaurant_menu</i></div>
-                  <div class="text-center">Available Combo</div>
+                  <div class="text-center">Combo's <i class="material-icons" style="color:#FF655A">arrow_drop_down_circle</i></div>      
+                  <div style="position:absolute; border:1px solid #CCC;background:#fff; width:90%" *ngIf="isActiveDropDown">
+                        <div class="text-center" style="padding-top:10px">Filter By Cuisine</div>
+                        <ul><li *ngFor="let type of availableTypes"><a (click)="selectType(type)">{{type}}</a></li></ul>
+                  </div>
+                  
             </div>
             <div class="column col-xs-4 c-hand btn-common btn-uboxit" [ngClass]="{'btn-active':!isBtnActive}" routerLink="/makeyourcombo" routerLinkActive="active">
                 <div class="text-center"><i class="material-icons">restaurant</i></div>
                 <div class="text-center">Make your own Combo</div>
             </div>
-            <div *ngIf="!isActive" class="column col-xs-4 c-hand btn-common btn-purple" [ngClass]="{'btn-active':isActiveDropDown}" style="position:relative">
-                <div class="dropdown dropdown-right uboxitdrop" [ngClass]="{'active':isActiveDropDown}" (click)="showDropDown();">
-                   <div class="text-center"><i class="material-icons">filter_list</i></div>
-                   <div class="text-center">Filter Combo</div>
-                    <ul class="menu">
-                          <li *ngFor="let type of availableTypes"><a (click)="selectType(type)">{{type}}</a></li>
-                    </ul>
-                </div>
-            </div>
+            <div class="column col-xs-4 c-hand btn-common btn-purple"  [ngClass]="{'uboxitMenuActive':!isActive}" >
+                <div class="text-center"><i class="material-icons">room_service</i></div>
+                <div class="text-center">Available Items</div>
+          </div>
         </div>
       </div>
 </section>
+
+<!-- <div *ngIf="!isActive" class="column col-xs-4 c-hand btn-common btn-purple" [ngClass]="{'btn-active':isActiveDropDown}" style="position:relative">
+        <div class="dropdown dropdown-right uboxitdrop" [ngClass]="{'active':isActiveDropDown}" (click)="showDropDown();">
+           <div class="text-center"><i class="material-icons">filter_list</i></div>
+           <div class="text-center">Filter Combo</div>
+           <ul class="menu">
+                <li *ngFor="let type of availableTypes"><a (click)="selectType(type)">{{type}}</a></li>
+            </ul>
+        </div>
+        
+</div> -->

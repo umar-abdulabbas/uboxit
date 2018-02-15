@@ -12,6 +12,7 @@ export class BarMenuComponent implements OnInit {
   public isBtnActive = true;
   public pathFinder: string;
   public isActiveDropDown = false;
+
   @Input() availableTypes: string[] = [];
   @Output() filterType = new EventEmitter<string>();
 

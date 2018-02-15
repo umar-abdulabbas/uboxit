@@ -46,7 +46,7 @@ import { AppInitializerService, AppLoader } from './shared/app-initializer.servi
 import { CartService } from './components/shoppingcart/services/cart.service';
 import { PersonalComponent } from './components/personal/personal.component';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
-import { DeliveryaddressComponent } from './components/deliveryaddress/deliveryaddress.component';
+import { DeliveryaddressComponent } from './components/shared/deliveryaddress/deliveryaddress.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { StorageService } from './shared/services/storage-service';
@@ -55,6 +55,7 @@ import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/shared/location/location.component';
 import { FinishComponent } from './components/shared/finish/finish.component';
 import { PaymentService } from './components/payment/services/payment-service';
+import { FilterComponent } from './components/offers/filter/filter.component';
 
 // Payment
 
@@ -86,13 +87,14 @@ import { PaymentService } from './components/payment/services/payment-service';
     PaymentComponent,
     AdvertisementComponent,
     LocationComponent,
-    FinishComponent
+    FinishComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

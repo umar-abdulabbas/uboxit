@@ -11,6 +11,8 @@ export class CartService {
   totalCount = 0;
   totalCountSubject = new BehaviorSubject<number>(this.totalCount);
 
+  cartId: string;
+
   private cartRequest: Cart;
 
   constructor(private http: HttpClient,
@@ -18,15 +20,23 @@ export class CartService {
   }
 
   createCart(): Observable<Cart> {
-    return this.http.post<Cart>('shop-api/shop', this.cartRequest)
+    const createCartObservable = this.http.post<Cart>('shop-api/shop', this.cartRequest)
       .publishReplay()
       .refCount();
+    createCartObservable.subscribe((result: any) => {
+      this.cartId = result.id;
+    });
+    return createCartObservable;
   }
 
   updateCart(cartId: string, update: Cart): Observable<Cart> {
-    return this.http.put<Cart>(`shop-api/shop/${cartId}`, update)
+    const updateCartObservable = this.http.put<Cart>(`shop-api/shop/${cartId}`, update)
       .publishReplay()
       .refCount();
+    updateCartObservable.subscribe((result: any) => {
+      this.cartId = result.id;
+    });
+    return updateCartObservable;
   }
 
   initializeCart(offerId: string) {

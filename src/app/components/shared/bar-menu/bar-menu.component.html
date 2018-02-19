@@ -24,16 +24,20 @@
 <section [ngClass]="{'bar-layout':isBtnActive}">
     <div class="container grid-lg">
         <div class="columns" >
-                <div class="btn-common btn-uboxit column" *ngFor="let menu of menuList" [ngClass]="{'col-xs-6':showTwoCol, 'col-xs-4':showThreeCol, 'btn-active':menu.menuActive}">
+                <div class="btn-common btn-uboxit column" *ngFor="let menu of menuList" [ngClass]="{'col-xs-6':showTwoCol, 'col-xs-4':showThreeCol, 'btn-active':menu.menuActive}" (click)="openMenu(menu.id);">
                     <div class="text-center c-hand"><i class="material-icons">{{menu.icon}}</i></div>
-                    <div class="text-center c-hand" (click)="showDropDown();">{{menu.name}} <span *ngIf="menu.filter && menu.menuActive"><i class="material-icons matIconPos" style="color:#FF655A">arrow_drop_down_circle</i></span></div>
+                    <div class="text-center c-hand" >{{menu.name}} <span *ngIf="menu.filter && menu.menuActive"><i class="material-icons matIconPos" (click)="showDropDown();" style="color:#FF655A">arrow_drop_down_circle</i></span></div>
                 </div>
                
         </div>
         <div  class="columns uboxitDropDown">
                 <div class="uboxitdropDownBox" *ngIf="isActiveDropDown">
-                        <div class="text-center" style="padding-top:10px">Filter By Cuisine</div>
-                        <ul><li *ngFor="let type of availableTypes"><a (click)="selectType(type)">{{type}}</a></li></ul>
+                        <div>          
+                            <button class="btn btn-clear float-right" (click)="closeDropDown();"></button> 
+                            <div class="text-center">Filter By Cuisine</div>
+                        </div>
+
+                        <ul><li *ngFor="let type of availableTypes" class="c-hand"><a (click)="selectType(type)">{{type}}</a></li></ul>
                 </div>
         </div>
     </div>

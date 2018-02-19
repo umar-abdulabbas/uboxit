@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { OfferService } from '../../offers/services/offer.service';
 import { Observable } from 'rxjs/Observable';
-
+import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
 /* Menu Start */
 export class MenuList {
   id: string;
@@ -14,8 +14,8 @@ export class MenuList {
 
 const MENULIST: MenuList[] = [
   {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: true},
-  {id: '002', name: 'Make Combo', link: '/home', icon: 'room_service', filter: false, menuActive: false},
-  {id: '003', name: 'Items', link: '/home', icon: 'restaurant', filter: true, menuActive: false}
+  {id: '002', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false},
+ // {id: '003', name: 'Items', link: '/home', icon: 'restaurant', filter: true, menuActive: false}
 ];
 
 /* Menu End */
@@ -26,7 +26,6 @@ const MENULIST: MenuList[] = [
 })
 export class BarMenuComponent implements OnInit {
   // public barFixed = false;
-  public isActive = false;
   public isBtnActive = true;
   public pathFinder: string;
   public isActiveDropDown = false;
@@ -37,18 +36,17 @@ export class BarMenuComponent implements OnInit {
   @Input() availableTypes: string[] = [];
   @Output() filterType = new EventEmitter<string>();
 
-  constructor(private offerServie: OfferService) {
+  constructor(private offerServie: OfferService, private router:Router) {
   }
 
   ngOnInit() {
     this.pathFinder = location.pathname.split('/').pop();
     if (this.pathFinder === 'makeyourcombo') {
-      this.isActive = true;
-      this.isBtnActive = false;
+       
     }
     this.showHideColClass();
   }
-
+ 
   showHideColClass() {
     if (this.menuList.length === 2) {
       return this.showTwoCol = true;
@@ -61,6 +59,18 @@ export class BarMenuComponent implements OnInit {
   selectType(type: string): void {
     console.log(type);
     this.filterType.emit(type);
+    this.isActiveDropDown = false;
+  }
+  openMenu(id:string): void {
+      let menuItem =  this.menuList.find(item => item.id == id);
+      this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = !i.menuActive);
+          menuItem.menuActive=true;
+          this.router.navigate([menuItem.link]);
+      } 
+      
+    
+  
+  closeDropDown(): void {
     this.isActiveDropDown = false;
   }
 

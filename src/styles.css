@@ -2,7 +2,7 @@
 /* Major Colors are noted Header - #ff675c and Gray - f7f7f7 */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-a:focus, button:focus{
+a:focus, button:focus, div:focus{
   outline: 0;
   box-shadow:none !important;
 }

@@ -1,23 +1,22 @@
 
 .bar-layout{ margin-top: -5px;}
 .btn-common { padding: 10px; z-index: 10; border-top:1px solid #fff;}
-.btn-orange { 
-        background: linear-gradient(to bottom, rgba(255,145,115,1) 0%,rgba(255,100,69,1) 100%); 
-        color: #fff;
-        border-bottom: 1px solid #fff;
-}
+
 .btn-uboxit { 
         color: #fff; 
-        background: linear-gradient(to bottom, rgba(255,145,115,1) 0%,rgba(255,100,69,1) 100%); 
+        xbackground: linear-gradient(to bottom, rgba(255,145,115,1) 0%,rgba(255,100,69,1) 100%); 
         border-bottom: 1px solid #fff;border-left: 1px solid #fff;
+        background: #FF655A;
     }
-.btn-purple { 
-    border-left:1px solid #fff; 
-    border-bottom: 1px solid #fff; 
-    color: #fff;
-     background: linear-gradient(to bottom, rgba(255,145,115,1) 0%,rgba(255,100,69,1) 100%);}
-
-.btn-active { background: #f8f9fa;   box-shadow: inset -1px 5px 11px -6px; color: #000;  border-bottom: 0px;}
+.uboxitDropDown{
+    position:relative; z-index:10
+}
+.uboxitdropDownBox{
+    position:absolute; border:1px solid #CCC;background:#fff; max-width: 100%; width: 280px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,.4);
+}
+.matIconPos{ position: relative; top: 5px;}
+.btn-active { background: #f8f9fa;   box-shadow: inset -1px 5px 11px -6px; color: #000;  border-bottom: 0px; }
 .uboxitdrop { display: block}
 .uboxitdrop ul li {
     padding: 10px;

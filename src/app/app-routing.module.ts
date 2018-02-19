@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'makeyourcombo', component: MakeyourcomboComponent},
   {path: 'faqs', component: FaqsComponent},
-  {path: 'finish', component:FinishComponent}
+  {path: 'finish', component: FinishComponent}
 
 ];
 

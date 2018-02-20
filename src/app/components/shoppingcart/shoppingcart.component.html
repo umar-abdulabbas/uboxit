@@ -21,7 +21,7 @@
         </mat-expansion-panel>
 
         <!-- login -->
-        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel *ngIf="!loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Login or SignUp</mat-panel-title>
           </mat-expansion-panel-header>
@@ -32,6 +32,13 @@
             <button class="btn" (click)="prevStep()">Previous</button>&nbsp;
             <button class="btn btn-primary" (click)="nextStep()">Next</button>
           </mat-action-row>
+        </mat-expansion-panel>
+
+        <!-- logged in user -->
+        <mat-expansion-panel *ngIf="loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Your personal details</mat-panel-title>
+          </mat-expansion-panel-header>
         </mat-expansion-panel>
 
         <!-- address -->

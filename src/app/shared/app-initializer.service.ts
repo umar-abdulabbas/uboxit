@@ -6,6 +6,8 @@ export function AppLoader(appInitializer: AppInitializerService) {
   return () => appInitializer.initialize();
 }
 
+// not used now
+
 @Injectable()
 export class AppInitializerService {
   constructor(private offerService: OfferService) {

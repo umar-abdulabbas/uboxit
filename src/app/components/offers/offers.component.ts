@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Combo } from '../../core/domain/offer';
 import { OfferService } from './services/offer.service';
 import { CartService } from '../shoppingcart/services/cart.service';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 
 @Component({
@@ -30,11 +28,13 @@ export class OffersComponent implements OnInit {
 
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
-    this.getOffers();
-    this.cartService.initializeCart(this.offerService.offerId);
+    this.offerService.getOffers().subscribe(res => {
+      this.initialize();
+      this.cartService.initializeCart(this.offerService.offerId);
+    });
   }
 
-  getOffers(): void {
+  initialize(): void {
     this.offers = this.offerService.combos;
     this.getAvailableTypes();
     this.offersToDisplay = this.offers;

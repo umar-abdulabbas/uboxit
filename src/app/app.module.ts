@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -41,7 +41,6 @@ import { OfferErrorMessageService } from './shared/offers/offer-error-message.se
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/offers/in-memory-data.service';
 import { ErrorTemplateComponent } from './shared/error-template/error-template.component';
-import { AppInitializerService, AppLoader } from './shared/app-initializer.service';
 import { CartService } from './components/shoppingcart/services/cart.service';
 import { PersonalComponent } from './components/personal/personal.component';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
@@ -87,7 +86,7 @@ import { PaymentService } from './components/payment/services/payment-service';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,
@@ -106,19 +105,12 @@ import { PaymentService } from './components/payment/services/payment-service';
     LoginService,
     PaymentService,
     MakeYourOwnComboService,
-    AppInitializerService,
     UserExpStyleService,
     OfferErrorMessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeaderInterceptor,
       multi: true,
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: AppLoader,
-      deps: [AppInitializerService],
-      multi: true
     }
   ],
   bootstrap: [AppComponent]

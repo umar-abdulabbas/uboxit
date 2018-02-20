@@ -23,10 +23,8 @@ export class OfferService {
     this.combos = [];
     this.items = [];
     this.offerId = '';
-    //const offerObservable = this.http.get('/api/offer')
-    const offerObservable = this.http.get('/offer-api/offer')
-      .publishReplay(1)
-      .refCount();
+    // const offerObservable = this.http.get('/api/offer');
+    const offerObservable = this.http.get('/offer-api/offer');
     offerObservable.subscribe((result: any) => {
       this.offerId = result.id;
       console.log(this.offerId);

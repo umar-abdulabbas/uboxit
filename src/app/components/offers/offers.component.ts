@@ -28,16 +28,21 @@ export class OffersComponent implements OnInit {
 
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
-    this.offerService.getOffers().subscribe(res => {
+    // only if not has data, make http call
+    if (this.offerService.combos.length === 0) {
+      this.offerService.getOffers().subscribe(res => {
+        this.initialize();
+      });
+    } else {
       this.initialize();
-      this.cartService.initializeCart(this.offerService.offerId);
-    });
+    }
   }
 
   initialize(): void {
     this.offers = this.offerService.combos;
     this.getAvailableTypes();
     this.offersToDisplay = this.offers;
+    this.cartService.initializeCart(this.offerService.offerId);
   }
 
   filterOffers(typeToFilter: string) {

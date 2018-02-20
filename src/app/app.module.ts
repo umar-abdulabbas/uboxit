@@ -52,6 +52,7 @@ import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/shared/location/location.component';
 import { FinishComponent } from './components/shared/finish/finish.component';
 import { PaymentService } from './components/payment/services/payment-service';
+import { AppInitializerService } from './shared/app-initializer.service';
 
 // Payment
 
@@ -98,6 +99,7 @@ import { PaymentService } from './components/payment/services/payment-service';
     })
   ],
   providers: [
+    AppInitializerService,
     OfferService,
     CartService,
     StorageService,

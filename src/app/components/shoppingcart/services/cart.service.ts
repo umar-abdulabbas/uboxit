@@ -45,6 +45,12 @@ export class CartService {
     return updateCartObservable;
   }
 
+  // only to update make your own combo section if cart is already crated
+  updateCartWithCustomisedCombo() {
+    this.http.put<Cart>(`shop-api/shop/${this.cartId}`, this.cartRequest)
+      .subscribe(res => console.log(res));
+  }
+
   initializeCart(offerId: string) {
     if (!this.cartRequest) { // without this old cart will be reset
       this.cartRequest = {

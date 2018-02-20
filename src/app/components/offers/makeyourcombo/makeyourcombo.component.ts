@@ -103,6 +103,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     console.log('add to cart');
     const itemIds = [this.selectedStarter, this.selectedMainDish, this.selectedDessert].map(item => item.id);
     this.cartService.prepareCustomisedCombo(itemIds, count);
+    if (!!this.cartService.cartId) {
+      this.cartService.updateCartWithCustomisedCombo();
+    }
   }
 
   ngOnDestroy() {

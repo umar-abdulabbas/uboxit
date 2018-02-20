@@ -19,7 +19,7 @@ export class PersonalComponent implements OnInit {
   }
 
   showNonRegUser(): void {
-    console.log("n");
+    console.log('n');
     this.isActiveNonRegUser = true;
     this.isActiveRegUser = false;
   }

@@ -56,7 +56,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeLoginWindow(): void {
     this.headerActive = false;
     this.body.classList.remove('body-overflow');
-      
   }
 
   openShoppingCart(): void {
@@ -66,10 +65,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   goToHomePage(): void {
     this.router.navigate(['/home']);
   }
-
- 
-
-  
 
   modelclose(event): void {
     this.headerActive = event;

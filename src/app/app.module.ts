@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { HamburgerComponent } from './components/shared/header/hamburger/hamburger.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { BannerComponent } from './components/banner/banner.component';
 import { BarMenuComponent } from './components/shared/bar-menu/bar-menu.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { AboutComponent } from './components/shared/about/about.component';
@@ -64,7 +63,6 @@ import { PaymentService } from './components/payment/services/payment-service';
     HeaderComponent,
     FooterComponent,
     HamburgerComponent,
-    BannerComponent,
     BarMenuComponent,
     OffersComponent,
     AboutComponent,
@@ -84,13 +82,12 @@ import { PaymentService } from './components/payment/services/payment-service';
     PaymentComponent,
     AdvertisementComponent,
     LocationComponent,
-    FinishComponent,   
-  ],
+    FinishComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}),
+    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

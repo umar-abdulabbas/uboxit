@@ -6,11 +6,12 @@
 	margin: 0px;
 }
 .offerTitle{
-  padding-top:10px; 
+  padding-top:15px; 
 }
 .offerTitle div{
   font-size: 1.4rem;
   color: #acb3c2;
+  padding-bottom: 15px;
 }
 .card{
   height: 350px;

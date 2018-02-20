@@ -24,7 +24,7 @@ export class OfferService {
     this.items = [];
     this.offerId = '';
     //const offerObservable = this.http.get('/api/offer')
-     const offerObservable = this.http.get('/offer-api/offer')
+    const offerObservable = this.http.get('/offer-api/offer')
       .publishReplay(1)
       .refCount();
     offerObservable.subscribe((result: any) => {

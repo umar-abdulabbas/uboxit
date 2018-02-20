@@ -28,7 +28,6 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   public headerColor;
   public uboxitMenu = false;
-
   public startersCaption = 'Starters';
   public mainDishCaption = 'Main Dish';
   public dessertCaption = 'Dessert';
@@ -114,8 +113,11 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   stickyHeaderValue(scrolValue) {
     if (scrolValue > 50) {
       this.uboxitMenu = true;
+     
     } else if (this.uboxitMenu && scrolValue < 5) {
       this.uboxitMenu = false;
     }
+    
+
   }
 }

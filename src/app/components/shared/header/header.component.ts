@@ -16,11 +16,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   headers: Header[];
   headerActive = false;
   body;
-  isActiveNonRegUser = true;
-  isActiveRegUser = false;
-  notFromHome = false;
-  forgetPwd = true;
-  LoginLayoutModel = false;
   showLocationPanel = false;
   loginTitle = 'Login';
   totalCount: Observable<number>;
@@ -61,12 +56,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeLoginWindow(): void {
     this.headerActive = false;
     this.body.classList.remove('body-overflow');
-    this.loginTitle = 'Login';
-    this.isActiveNonRegUser = true;
-    this.isActiveRegUser = false;
-    this.notFromHome = false;
-    this.forgetPwd = true;
-    this.LoginLayoutModel = false;
+      
   }
 
   openShoppingCart(): void {
@@ -77,19 +67,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/home']);
   }
 
-  openSignUp(): void {
-    this.isActiveNonRegUser = false;
-    this.isActiveRegUser = true;
-    this.loginTitle = 'Register Form';
-  }
+ 
 
-  openForget(): void {
-    this.isActiveNonRegUser = true;
-    this.isActiveRegUser = true;
-    this.forgetPwd = false;
-    this.LoginLayoutModel = true;
-    this.loginTitle = 'Forgot your password?';
-  }
+  
 
   modelclose(event): void {
     this.headerActive = event;

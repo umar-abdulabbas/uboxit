@@ -19,6 +19,12 @@ export class CartService {
               private storageService: StorageService) {
   }
 
+  getCart(): Observable<Cart> {
+    return this.http.get<Cart>(`shop-api/shop/${this.cartId}`)
+      .publishReplay()
+      .refCount();
+  }
+
   createCart(): Observable<Cart> {
     const createCartObservable = this.http.post<Cart>('shop-api/shop', this.cartRequest)
       .publishReplay()

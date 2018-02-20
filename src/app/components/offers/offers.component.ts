@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Combo } from '../../core/domain/offer';
 import { OfferService } from './services/offer.service';
 import { CartService } from '../shoppingcart/services/cart.service';
+import { Cart } from '../../core/domain/cart';
 
 
 @Component({
@@ -82,6 +83,10 @@ export class OffersComponent implements OnInit {
   addProductToCart(productId: string, count: number) {
     this.cartService.addComboToCart(productId, count);
     this.offerService.updateCountForCombo(productId, count); // just for UI - will not be used for processing cart
+    if (!!this.cartService.cartId) {
+      const request: Cart = { combos: [ { id: productId, count: count } ] };
+      this.cartService.updateCart(this.cartService.cartId, request);
+    }
   }
 
   private getAvailableTypes() {

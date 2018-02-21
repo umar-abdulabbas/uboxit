@@ -6,6 +6,7 @@ import { Cart } from '../../core/domain/cart';
 import { Observable } from 'rxjs/Observable';
 import { StorageService } from '../../shared/services/storage-service';
 import { OfferService } from '../offers/services/offer.service';
+import { LoginService } from '../personal/services/login-service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -17,10 +18,12 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   step = 0;
 
   cart: Observable<Cart>;
+  loggedIn: boolean;
 
   constructor(private cartService: CartService, private router: Router,
               private storageService: StorageService,
-              private offerService: OfferService) {
+              private offerService: OfferService,
+              private loginService: LoginService) {
   }
 
   ngOnInit() {
@@ -33,6 +36,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     } else {
       this.cart = this.cartService.getCart();
     }
+    this.loginService.loggedIn.subscribe(val => this.loggedIn = val);
   }
 
   ngOnDestroy() {

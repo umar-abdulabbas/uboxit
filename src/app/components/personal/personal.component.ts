@@ -11,8 +11,9 @@ export class PersonalComponent implements OnInit {
   isActiveRegUser = true; // based on customer logged in or not values
 
   model: any = {};
+  newUserModel: any = {};
 
-  constructor(private loginServie: LoginService) {
+  constructor(private loginService: LoginService) {
   }
 
   ngOnInit() {
@@ -31,6 +32,11 @@ export class PersonalComponent implements OnInit {
 
   logIn() {
     console.log(this.model);
-    this.loginServie.login(this.model.username, this.model.password);
+    this.loginService.login(this.model.username, this.model.password);
+  }
+
+  signUp() {
+    console.log(this.newUserModel);
+    this.loginService.signUp(this.newUserModel);
   }
 }

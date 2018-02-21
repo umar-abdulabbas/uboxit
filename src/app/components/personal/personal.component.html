@@ -22,7 +22,7 @@
                 <div class="float-left" style="width:70%;">
                   <button type="submit" class="btn btn-primary uboxitSignIn">Log In</button>
                 </div>
-             
+
                 <div class="clearfix"></div>
               </div>
             </form>
@@ -30,32 +30,34 @@
             <div style="padding-top:10px">
               <button (click)="showNonRegUser();" class="btn btn-success uboxitSignIn">New to Uboxit?Sign up</button>
             </div>
-            <div >
-                <button class="btn btn-link uboxitLink" aria-label="Close" role="button">Forgt?</button>
-              </div>
+            <div>
+              <button class="btn btn-link uboxitLink" aria-label="Close" role="button">Forgt?</button>
+            </div>
           </div><!--//.uboxitRegUser -->
 
-          <div class="uboxitNewUser" *ngIf="isActiveNonRegUser">
-            <div class="group"><input type="text" required><span class="highlight"></span> <span
-              class="bar"></span><label>First Name</label></div>
-
-            <div class="group removebottom"><input type="text" required><span class="highlight"></span><span
-              class="bar"></span><label>Mobile Number</label></div>
-            <div class="group removebottom"><input type="text" required><span class="highlight"></span><span
-              class="bar"></span><label>Email</label></div>
-            <div class="group removebottom"><input type="password" required><span class="highlight"></span><span
-              class="bar"></span><label>Password</label></div>
-            <div>
-              <button class="btn btn-primary uboxitSignIn">Sign In</button>
-            </div>
-            <div style="padding-top:10px">
-              <button (click)="showRegUser();" class="btn btn-success uboxitSignIn">Already do you have Uboxit?</button>
-            </div>
-          </div> <!-- // .uboxitNewUser-->
-
+          <form (ngSubmit)="signUp()">
+            <div class="uboxitNewUser" *ngIf="isActiveNonRegUser">
+              <div class="group"><input type="text" required [(ngModel)]="newUserModel.firstName" name="firstName"><span class="highlight"></span> <span
+                class="bar"></span><label>First Name</label></div>
+              <div class="group"><input type="text" required [(ngModel)]="newUserModel.lastName" name="lastName"><span class="highlight"></span> <span
+                class="bar"></span><label>Last Name</label></div>
+              <div class="group removebottom"><input type="text" required [(ngModel)]="newUserModel.mobileNumber" name="mobileNumber"><span class="highlight"></span><span
+                class="bar"></span><label>Mobile Number</label></div>
+              <div class="group removebottom"><input type="text" required [(ngModel)]="newUserModel.email" name="email"><span class="highlight"></span><span
+                class="bar"></span><label>Email</label></div>
+              <div class="group removebottom"><input type="password" required [(ngModel)]="newUserModel.password" name="password"><span class="highlight"></span><span
+                class="bar"></span><label>Password</label></div>
+              <div>
+                <button class="btn btn-primary uboxitSignIn">Sign Up</button>
+              </div>
+              <div style="padding-top:10px">
+                <button (click)="showRegUser();" class="btn btn-success uboxitSignIn">Already do you have Uboxit?
+                </button>
+              </div>
+            </div> <!-- // .uboxitNewUser-->
+          </form>
         </div>
       </div>
-      
 
 
     </div>

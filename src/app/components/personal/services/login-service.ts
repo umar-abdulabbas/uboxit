@@ -15,6 +15,16 @@ export class LoginService {
               private storageService: StorageService) {
   }
 
+  signUp(req: any) {
+    this.http.post<Individual>('customer-api/individual', req)
+      .subscribe(res => {
+        console.log(res);
+        this.individual = res;
+        // this.storageService.storeUser(username);
+        // this.loggedIn.next(true);
+      });
+  }
+
   login(username: string, password: string) {
     this.http.post<Individual>('customer-api/individual', {username: username, password: password})
       .subscribe(res => {

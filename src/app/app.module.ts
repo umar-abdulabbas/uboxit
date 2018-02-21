@@ -53,6 +53,7 @@ import { LocationComponent } from './components/shared/location/location.compone
 import { FinishComponent } from './components/shared/finish/finish.component';
 import { PaymentService } from './components/payment/services/payment-service';
 import { AppInitializerService } from './shared/app-initializer.service';
+import { AddressComponent } from './components/shoppingcart/address/address.component';
 
 // Payment
 
@@ -82,7 +83,8 @@ import { AppInitializerService } from './shared/app-initializer.service';
     PaymentComponent,
     AdvertisementComponent,
     LocationComponent,
-    FinishComponent ],
+    FinishComponent,
+    AddressComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,

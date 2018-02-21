@@ -35,13 +35,13 @@
         </mat-expansion-panel>
 
         <!-- address -->
-        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true" class="addressPanel">
           <mat-expansion-panel-header>
             <mat-panel-title>Delivery Address</mat-panel-title>
 
           </mat-expansion-panel-header>
 
-          <div>where is my address?</div>
+          <div><app-address></app-address></div>
 
 
           <mat-action-row>

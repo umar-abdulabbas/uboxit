@@ -18,8 +18,12 @@ padding-top: 60px;
     background:#ff675c;
 }
 .mat-expansion-panel-body{
-    padding: 0px 0px 0px 0px !important;
+    margin: 0px 0px 0px 0px !important;
     overflow: hidden;
+}
+/deep/ .addressPanel .mat-expansion-panel-body {
+    padding: 0;
+    margin: 0px;
 }
 md-panel-title{
     color: #fff;

@@ -1,0 +1,26 @@
+.uboxitLayout{
+    padding: 10px;
+}
+.addressPresent{
+    width:100%;
+}
+.address-repeat{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.addressPresent-left{
+    width:5%; float:left;
+}
+.addressPresent-right{
+    width:90%; float:left;
+}
+.address-name{
+    font-weight:800;
+}
+
+@media only screen and (max-width: 480px) {
+    .addressPresent-left{
+        width:10%; float:left;
+    }
+}

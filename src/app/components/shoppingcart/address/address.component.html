@@ -1,52 +1,84 @@
 <section class="uboxitLayout">
-    <div class="container grid-lg">
-      <div class="columns">
-          <!--Already Address Present -->
-          <section class="addressPresent">
-                <div class="address-repeat">
-                  
-                  <div class="addressPresent-left"><input type="radio" name="address" style="width:30px; height:18px;"/></div>
-                  <div class="addressPresent-right">
-                      <div class="address-name">Mr.Umar Abbas</div>
-                      <div>Populierenlaan, 219.</div>
-                      <div>1185SK, Amstelveen, The Netherlands</div>
-                      <div>+31 649668445</div>
-                  </div>
-                  <div class="clearfix"></div>
-                 
-               
+        <div class="address-repeat" *ngFor="let address of addressList">
+            <div class="addressInner">
+                <div class="address-left">
+                <div class="radioarea"><input type="radio" name="address" value="{{address.name}}" /></div>
                 </div>
-                
-                <div  class="address-repeat"> 
-                  
-                    <div class="addressPresent-left"><input type="radio" name="address" style="width:30px; height:18px;"/></div>
-                    <div class="addressPresent-right">
-                        <div class="address-name">Mr.Umar Abbas</div>
-                        <div>Populierenlaan, 219.</div>
-                        <div>1185SK, Amstelveen, The Netherlands</div>
-                        <div>+31 649668445</div>
+                <div class="address-right">
+                        <div class="address-name">{{address.name}}</div>
+                        <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
+                        <div>{{address.postalcode}}, {{address.city}}, {{address.email}}</div>
+                        <div>{{address.phone}}</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- New Adress Section --> 
+        <div class="address-repeat" [ngClass]="{'address-repeat-w':'isActiveNewForm'}">
+                <div class="addressInner" (click)="showNewForm()">
+                    <div class="address-left">
+                    <div class="radioarea"><input type="radio" name="address" value="Add a New Address" /></div>
+                    </div>
+                    <div class="address-right">
+                            <div class="address-name"> Add a New Address</div>
                     </div>
                     <div class="clearfix"></div>
-                   
-                 
-                  </div>
-          </section>
-          <section>
-                <div style="padding-top:10px;">
-                    
-                    <div class="popover popover-right">
-                        <button class="btn btn-primary">Add a new Address</button>
-                        <div class="popover-container">
-                          <div class="card">
-                            <div class="card-header">
-                                <h6>Working in Progress</h6>
+                </div>
+                <div class="addressNewForm" *ngIf="isActiveNewForm">
+                       
+                        <div class="addressNewFormInner">
+                            <div class="group">
+                                <input type="text" required name="Name">
+                                <span class="highlight"></span>
+                                <span class="bar"></span><label>Name</label>
                             </div>
+                            <div class="group">
+                                <table style="width:100%">
+                                    <tr>
+                                        <td>
+                                                <div class="group">
+                                                        <input type="text" required name="housenumber">
+                                                        <span class="highlight"></span>
+                                                        <span class="bar"></span><label>House Number</label>
+                                                </div>
+                                        </td>
+                                        <td>
+                                                <div class="group">
+                                                        <input type="text" required name="streetname">
+                                                        <span class="highlight"></span>
+                                                        <span class="bar"></span><label>Street Name</label>
+                                                </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+                            <div class="group">
+                                    <input type="text" required name="postcode">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span><label>Postcode</label>
+                            </div>
+                            <div class="group">
+                                    <input type="text" required name="city">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span><label>City</label>
+                            </div>
+                            <div class="group">
+                                    <input type="text" required name="phone">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span><label>Phone Number</label>
+                            </div>
+                            <div class="group">
+                                    <input type="text" required name="email">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span><label>Email Address</label>
+                            </div>
+                            <div>
+                                    <button class="btn btn-primary">Save and Deliver here</button> 
+                                    <button aria-label="Close" class="btn btn-link uboxitLink" role="button">CANCEL</button>
                             </div>
                         </div>
-                      </div>
-                      <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                 </div>
-          </section>
-      </div>
-    </div>
+        </div>
 </section>
+

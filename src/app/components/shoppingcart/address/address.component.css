@@ -1,26 +1,85 @@
-.uboxitLayout{
+.address-repeat{
+    background: #f8f9fa;
+    border:1px solid #f0f1f4;
     padding: 10px;
 }
-.addressPresent{
-    width:100%;
+.address-repeat-w{
+    background: #fff;
 }
-.address-repeat{
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    padding-top: 10px;
+.address-left{
+    padding-right:15px; float:left;
 }
-.addressPresent-left{
-    width:5%; float:left;
-}
-.addressPresent-right{
-    width:90%; float:left;
+.address-right{
+    xwidth:95%; float:left;
 }
 .address-name{
-    font-weight:800;
+    position:relative; top:-3px; font-weight: bold;
+}
+.radioarea input{
+    width:20px;
+    display: inline;
+    height: 20px;
+}
+.radioarea span{
+    display: inline-block;
+    top: -5px;
+    position: relative;
+    font-size: 18px;
+    padding-left: 10px;
 }
 
+
+.radioarea input[type='radio']:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    xposition: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #acb3c2;
+}
+
+.radioarea input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    xposition: relative;
+    background-color: #ff675c;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #acb3c2;
+}
+input{
+    width: 100%;
+    font-size: 12px !important;
+    border-color: #e7e9ed;
+}
+.bar{
+    width: 100%;
+}
+.group label{
+font-size: 12px !important;
+}
+input:focus ~ label, input:valid ~ label{
+    top:-10px;
+}
+.group{
+    margin-bottom: 20px;
+}
+.bar:before, .bar:after{
+    background: #FF655A;
+}
+.addressNewFormInner{
+    padding: 20px;
+}
+.addressNewForm 
 @media only screen and (max-width: 480px) {
-    .addressPresent-left{
-        width:10%; float:left;
-    }
+ 
 }

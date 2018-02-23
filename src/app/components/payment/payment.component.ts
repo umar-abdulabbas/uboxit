@@ -36,6 +36,19 @@ export class PaymentComponent implements OnInit {
         this.storageService.clearCart();
         return true;
       };
+
+      adyenSdk['hooks']['beforeComplete'] = (node, paymentData) => {
+        console.log('before complete');
+        console.log(node);
+        console.log(paymentData);
+        if (paymentData.resultCode === 'authorised') {
+          this.paymentService.finalizePayment(paymentData.payload)
+            .subscribe(res => console.log(res));
+        } else {
+          console.error('payment not success');
+        }
+        return true;
+      };
     });
   }
 

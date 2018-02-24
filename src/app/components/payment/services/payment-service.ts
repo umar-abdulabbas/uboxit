@@ -3,16 +3,19 @@ import { Injectable } from '@angular/core';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { LoginService } from '../../personal/services/login-service';
 import { StorageService } from '../../../shared/services/storage-service';
-
-const returnurl = 'http://localhost:8081/finish';
+import { PlatformLocation } from '@angular/common';
 
 @Injectable()
 export class PaymentService {
 
+  origin: string;
+
   constructor(private http: HttpClient,
               private cartService: CartService,
               private loginService: LoginService,
-              private storageService: StorageService) {
+              private storageService: StorageService,
+              private platformLocation: PlatformLocation) {
+    this.origin = (this.platformLocation as any).location.origin;
   }
 
   initiatePayment() {
@@ -22,7 +25,8 @@ export class PaymentService {
     return this.http.post('/order-api/order', {
       'shopId': cartId,
       'individualId': this.loginService.individual.id,
-      'returnurl': returnurl,
+      'returnurl': `${this.origin}/finish`,
+      'origin': this.origin,
       'deliveryAddress': {
         'area': 'Amstelveen',
         'houseNumber': '54A',

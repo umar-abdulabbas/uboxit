@@ -28,7 +28,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
-    this.headerColor.classList.add('headerFixedShoppingCard');
+    //this.headerColor.classList.add('headerFixedShoppingCard');
     if (!this.cartService.cartId) {
       this.cart = this.cartService.createCart();
       /* tslint:disable */
@@ -40,7 +40,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.headerColor.classList.remove('headerFixedShoppingCard');
+    //this.headerColor.classList.remove('headerFixedShoppingCard');
   }
 
   setStep(index: number) {

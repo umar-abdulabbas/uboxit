@@ -1,11 +1,13 @@
 
 $uboxit-font: 'Open Sans', sans-serif;
-$uboxit-primary-color: #FF655A;
+$uboxit-primary-color:/* #FF655A;*/ #fdc631;
 $uboxit-black-color: #2a2a2a;
 $uboxit-background-color: #f8f9fa; /* #041340;*/
 $uboxit-barMenuFont: #78909c;
 $uboxit-barMenuBg:linear-gradient(to bottom,#cfd8dc, #dde3e6); 
 $uboxit-boxshadow:0px 3px 10px rgba(0,0,0,.4);
+$uboxit-white:#fff;
+
 // * Start Media Queries
 
 $break-phone: 320px; /* smartphones, iPhone, portrait 480x320 phones */
@@ -29,7 +31,13 @@ $break-tablet-hscreen: 1281px; /* hi-res laptops and desktops */
 html, body {  margin: 0; font-family: $uboxit-font; color:$uboxit-black-color; background:$uboxit-background-color}
 body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar 
 
-//Layout
+//Button Start 
+.btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover{  color:$uboxit-white;  }
+.btn.btn-primary{ background:$uboxit-primary-color; border-color:$uboxit-primary-color;  }
+.btn.btn-primary:focus, .btn.btn-primary:hover{ background:lighten($uboxit-primary-color, 10%); border-color:lighten($uboxit-primary-color, 10%)   }
+.btn.btn-clear { color:$uboxit-primary-color; opacity: 1;}
+.btn.btn-clear.uboxitLogo { color:$uboxit-white;}
+.uboxitBoxactive { background:$uboxit-primary-color; }
 
 //Loading 
 .loading-layout {  background:$uboxit-black-color; position:absolute; top:0; left:0; width:100%; height:100%; background:$uboxit-primary-color;}
@@ -44,6 +52,7 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
 
 
 //Header Start
+.header-top{ background: $uboxit-primary-color; height:50px; }
 .header{
     background: $uboxit-primary-color;
     height: 100px;
@@ -52,6 +61,11 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
     width:100%;
     display: -webkit-flex; /* Safari */
     display: flex;
+}
+.uboxitBadge{ font-size: 11px;  height: 16px; line-height: 1; min-width: .9rem;  padding: .1rem .2rem; text-align: center;
+    white-space: nowrap; position: relative; top: -15px;  right: 4px; color:$uboxit-primary-color;  background: #fff;
+    -webkit-transform: translate(50%,-50%); transform: translate(-.1rem, -.5rem);  border-radius: .5rem;
+    background-clip: padding-box;   box-shadow: 0 0 0 0.1rem #fff;
 }
 .container{
     @include breakpoint(smart-phone){

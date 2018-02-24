@@ -54,6 +54,7 @@ import { FinishComponent } from './components/shared/finish/finish.component';
 import { PaymentService } from './components/payment/services/payment-service';
 import { AppInitializerService } from './shared/app-initializer.service';
 import { AddressComponent } from './components/shoppingcart/address/address.component';
+import { MyinfoComponent } from './components/shoppingcart/myinfo/myinfo.component';
 
 // Payment
 
@@ -84,7 +85,8 @@ import { AddressComponent } from './components/shoppingcart/address/address.comp
     AdvertisementComponent,
     LocationComponent,
     FinishComponent,
-    AddressComponent ],
+    AddressComponent,
+    MyinfoComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,

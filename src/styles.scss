@@ -1,17 +1,116 @@
-@import '~@angular/material/theming';
+
+$uboxit-font: 'Open Sans', sans-serif;
+$uboxit-primary-color: #FF655A;
+$uboxit-black-color: #2a2a2a;
+$uboxit-background-color: #f8f9fa; /* #041340;*/
+$uboxit-barMenuFont: #78909c;
+$uboxit-barMenuBg:linear-gradient(to bottom,#cfd8dc, #dde3e6); 
+$uboxit-boxshadow:0px 3px 10px rgba(0,0,0,.4);
+// * Start Media Queries
+
+$break-phone: 320px; /* smartphones, iPhone, portrait 480x320 phones */
+$break-smartPhone: 481px; /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+$break-tablet: 641px; /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+$break-tablet-L: 961px; /* tablet, landscape iPad, lo-res laptops ands desktops */
+$break-tablet-screen: 1025px; /* big landscape tablets, laptops, and desktops */ 
+$break-tablet-hscreen: 1281px; /* hi-res laptops and desktops */
+
+@mixin breakpoint($name){
+    @if $name == smart-phone {
+      @media only screen and (max-width: $break-smartPhone) {
+        @content;
+      }
+    }
+   
+  }
+
+// *End Media Queries
+
+html, body {  margin: 0; font-family: $uboxit-font; color:$uboxit-black-color; background:$uboxit-background-color}
+body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar 
+
+//Layout
+
+//Loading 
+.loading-layout {  background:$uboxit-black-color; position:absolute; top:0; left:0; width:100%; height:100%; background:$uboxit-primary-color;}
+.loading-icon { 
+    background: url('assets/images/Uboxitlogo.png'); 
+    background-repeat: no-repeat; 
+    position: fixed;top:50%; left:50%; width: 152px; height: 72px; margin-top: -72px; margin-left: -100px;
+    @include breakpoint(smart-phone){
+        background-size: 100px 47px; margin-top: -47px; margin-left: -50px;
+    }
+}
 
 
-@include mat-core();
+//Header Start
+.header{
+    background: $uboxit-primary-color;
+    height: 100px;
+    border-radius: 0px 0px 25px 25px;
+    padding: 20px;
+    width:100%;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+.container{
+    @include breakpoint(smart-phone){
+        padding: 0px;
+    }
+}
+.header-menu { -webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 42px; }
+.header-logo { -webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 79%; text-align: center;
+    @include breakpoint(smart-phone){
+        flex-basis: 43%;
+        text-align: left;
+        padding-left: 10px;
+    }
+}
+.header-rightLogo{-webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 152px;  }
 
-$uboxit-theme-primary: mat-palette($mat-red);
-$uboxit-theme-accent: mat-palette($mat-blue);
-$uboxit-theme-warn: mat-palette($mat-red);
+//Header End
 
-$uboxit-theme: mat-light-theme(
-     $uboxit-theme-primary,
-     $uboxit-theme-accent,
-     $uboxit-theme-warn
-);
+//Advertisment Start 
 
-@include angular-material-theme($uboxit-theme);
+.advertisement { background: #fff; border-radius: 25px 25px 0px 0px; margin-top:-30px; margin-left: 10px; margin-right:10px; box-shadow: 0px 3px 10px rgba(0,0,0,.4) }
+.advert-banner { position: relative; text-align: center;  color: white; }
+.advert-banner img { height: 250px; width: 100%;  opacity: 0.8; border-radius: 25px 25px 0px 0px;
+    @include breakpoint(smart-phone){
+        height: 170px;
+    }
+}
+.darken-pseudo:after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: block; background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px 25px 0px 0px; margin-bottom:5px;
+}
+.darken-with-text  { margin: 0; font-size: 2em; text-align: center; color: white;  z-index: 1;  }
+.txt-centered-1 { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-transform:uppercase; font-size: 1rem;
+    @include breakpoint(smart-phone){
+        top: 38%; font-size: 0.6rem;
+    }
+}
+.txt-centered-2 { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); text-transform:uppercase; font-size: 1.25rem;
+    @include breakpoint(smart-phone){
+        font-size: 0.8rem;
+    }
+}
 
+
+//Advertisment End
+
+//Bar Menu Start //
+
+.barMenu-layout{ background:$uboxit-barMenuBg;  height: 50px; margin-top:-5px; border-top:1px }
+.btn-uboxit { color:$uboxit-barMenuFont }
+.btn-active { background:$uboxit-background-color ;  border-top:2px solid $uboxit-primary-color; border-radius:25px 25px 0px 0px; }
+.btn-common { padding: 10px; z-index: 10;}
+.menuIcon i{ position: relative; top:4px;}
+.menuIcon span i { color: $uboxit-primary-color}
+.uboxitDropDown {  position:relative; z-index:10; margin-left:10px;}
+.uboxitdropDownBox{  position:absolute; border-radius:0px 0px 25px 25px; background:$uboxit-background-color; width: 50%;  }
+.uboxitdropDownBox div {padding-top: 10px;}
+.uboxitdropDownBox div button{ position: relative;  right: 10px; }
+.uboxitdropDownBox ul li{ list-style: none;}
+.matIconPos{ position: relative; top: 5px;}
+
+
+//Bar Menu End //

@@ -45,7 +45,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
-    this.headerColor.classList.add('headerFixedShoppingCard');
+   // this.headerColor.classList.add('headerFixedShoppingCard');
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
       const selectedItemId = this.msgFromMakeYourOwnCombo.itemId;
@@ -109,7 +109,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.headerColor.classList.remove('headerFixedShoppingCard');
+    //this.headerColor.classList.remove('headerFixedShoppingCard');
     this.subFromMakeYourOwnCombo.unsubscribe();
   }
 

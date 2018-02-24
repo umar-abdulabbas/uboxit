@@ -32,7 +32,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     if (!this.cartService.cartId) {
       this.cart = this.cartService.createCart();
       /* tslint:disable */
-       this.cart = Observable.of({'items':[],'combos':[{'id':'23458','count':2},{'id':'23461','count':2}],'offerId':'1dda4b04-2372-4b3f-8eb5-79461c83969a','normalPrice':{'amount':140,'currencyCode':'EUR'},'discountedPrice':{'amount':128,'currencyCode':'EUR'},'_links':{'self':{'href':'http://localhost:8085/shop-api/shop/a1bc9134-b9e3-4075-b840-441818b5a627'}},'id':'a1bc9134-b9e3-4075-b840-441818b5a627'}); //add cmd for deployment
+      // this.cart = Observable.of({'items':[],'combos':[{'id':'23458','count':2},{'id':'23461','count':2}],'offerId':'1dda4b04-2372-4b3f-8eb5-79461c83969a','normalPrice':{'amount':140,'currencyCode':'EUR'},'discountedPrice':{'amount':128,'currencyCode':'EUR'},'_links':{'self':{'href':'http://localhost:8085/shop-api/shop/a1bc9134-b9e3-4075-b840-441818b5a627'}},'id':'a1bc9134-b9e3-4075-b840-441818b5a627'}); //add cmd for deployment
     } else {
       this.cart = this.cartService.getCart();
     }

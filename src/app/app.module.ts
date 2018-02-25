@@ -56,6 +56,8 @@ import { AppInitializerService } from './shared/app-initializer.service';
 import { AddressComponent } from './components/shoppingcart/address/address.component';
 import { MyinfoComponent } from './components/shoppingcart/myinfo/myinfo.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ErrorInterceptor } from './core/interceptors/error-interceptor';
+import { AlertInvoker } from './core/services/alert-invoker.service';
 
 // Payment
 
@@ -115,11 +117,9 @@ import { AuthGuard } from './guards/auth.guard';
     MakeYourOwnComboService,
     UserExpStyleService,
     OfferErrorMessageService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HeaderInterceptor,
-      multi: true,
-    }
+    AlertInvoker,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

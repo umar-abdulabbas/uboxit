@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login-service';
+import { AlertInvoker } from '../../core/services/alert-invoker.service';
 
 @Component({
   selector: 'app-personal',
@@ -13,7 +14,10 @@ export class PersonalComponent implements OnInit {
   model: any = {};
   newUserModel: any = {};
 
-  constructor(private loginService: LoginService) {
+  message = this.alertInvoker.message;
+
+  constructor(private loginService: LoginService,
+              private alertInvoker: AlertInvoker) {
   }
 
   ngOnInit() {

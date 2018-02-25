@@ -38,7 +38,7 @@ export class PaymentService {
   }
 
   finalizePayment(paymentPayload: string) {
-    return this.http.post('/order-api/order/payment', {
+    return this.http.post('/order-api/order/finalizeTransaction', {
       shopId: this.storageService.getCartId(),
       paymentPayload: paymentPayload
     });

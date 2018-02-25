@@ -55,6 +55,7 @@ import { PaymentService } from './components/payment/services/payment-service';
 import { AppInitializerService } from './shared/app-initializer.service';
 import { AddressComponent } from './components/shoppingcart/address/address.component';
 import { MyinfoComponent } from './components/shoppingcart/myinfo/myinfo.component';
+import { AuthGuard } from './guards/auth.guard';
 
 // Payment
 
@@ -103,6 +104,7 @@ import { MyinfoComponent } from './components/shoppingcart/myinfo/myinfo.compone
     })
   ],
   providers: [
+    AuthGuard,
     AppInitializerService,
     OfferService,
     CartService,

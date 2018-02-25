@@ -6,13 +6,13 @@ export class AddressList{
     address: string;
     housenumber: string;
     city: string;
-    postalcode:string
+    postalcode: string;
     email: string;
-    phone: string;   
-    checked:string; 
+    phone: string;
+    checked: string;
 }
 
-const ADDRESSLIST: AddressList[] = [ 
+const ADDRESSLIST: AddressList[] = [
   { id: '001', name: 'Umar Abbas', address:'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode:'1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked:'checked' },
   { id: '002', name: 'Prabhu', address:'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode:'1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked:'' },
   { id: '003', name: 'Malai', address:'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode:'1185SK', email: 'umar432@gmail.com', phone: '0649668445',checked:'' },
@@ -32,6 +32,7 @@ export class AddressComponent implements OnInit {
 
   ngOnInit() {
   }
+
   showNewForm(checked: string) {
     console.log(this.isActiveNewForm);
     this.isActiveNewForm = !this.isActiveNewForm;
@@ -39,8 +40,8 @@ export class AddressComponent implements OnInit {
     this.isActiveRadio = checked;
     this.isActiveRadio = !this.isActiveRadio
   }
+
   radioSelect(id: string) {
-    
     this.addressList.filter(i => i.id !== id).forEach(i => i.checked = '');
     const addressCheck = this.addressList.find(i => i.id === id );
     addressCheck.checked = 'checked';

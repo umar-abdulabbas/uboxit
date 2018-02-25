@@ -109,7 +109,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    //this.headerColor.classList.remove('headerFixedShoppingCard');
+    // this.headerColor.classList.remove('headerFixedShoppingCard');
     this.subFromMakeYourOwnCombo.unsubscribe();
   }
 

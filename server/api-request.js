@@ -76,7 +76,6 @@ function login(req) {
         simple: false,
         resolveWithFullResponse: true
     }).then((response) => {
-      console.log(response);
       return response;
     }).catch((err) => {
         console.log(`Error in Processing Request for ${apiUrl} error log - ${err}`);

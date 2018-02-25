@@ -24,7 +24,7 @@ export class PaymentService {
     this.storageService.storeCartId(cartId);
     return this.http.post('/order-api/order', {
       'shopId': cartId,
-      'individualId': this.loginService.individual.id,
+      'individualId': this.loginService.individual.customerId,
       'returnurl': `${this.origin}/finish`,
       'origin': this.origin,
       'deliveryAddress': {

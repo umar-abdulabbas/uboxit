@@ -8,7 +8,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class LoginService {
 
-  loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn = new BehaviorSubject<boolean>(!!this.storageService.getUser());
+
   individual: Individual;
 
   constructor(private http: HttpClient,
@@ -33,5 +34,10 @@ export class LoginService {
         this.storageService.storeUser(username);
         this.loggedIn.next(true);
       });
+  }
+
+  logout() {
+    this.storageService.clearUser();
+    this.loggedIn.next(false);
   }
 }

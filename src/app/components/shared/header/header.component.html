@@ -37,9 +37,10 @@
         <div class="header-logo"  (click)="goToHomePage();">
             <img src="assets/images/Uboxitlogo.png" width="80px"/>
         </div>
-        <div class="header-rightLogo"> 
+        <div class="header-rightLogo">
           <app-location></app-location>
-          <button class="btn btn-link" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button>
+          <button class="btn btn-link" *ngIf="!(loggedIn | async)" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button>
+          <span *ngIf="(loggedIn | async)" (click)="logout()">Profile</span>
           <button class="btn btn-link" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
         </div>
     </div>
@@ -55,6 +56,6 @@
       </div>
       <div class="modal-body">
            <app-personal></app-personal>
-      </div>  
+      </div>
 </div>
 </div>

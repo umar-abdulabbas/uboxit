@@ -58,6 +58,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.body.classList.remove('body-overflow');
   }
 
+  logout() {
+    this.loginService.logout();
+  }
+
   openShoppingCart(): void {
     this.router.navigate(['/shoppingcart']);
   }

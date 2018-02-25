@@ -3,6 +3,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import { Cart } from '../../core/domain/cart';
 
 const CART_KEY = 'cart';
+const USER_KEY = 'username';
 const CART_ID_KEY = 'cart_id';
 const CART_UPDATED_TIME_KEY = 'cart_updated_at';
 
@@ -24,11 +25,11 @@ export class StorageService {
   }
 
   storeUser(username: string) {
-    this.set('username', username);
+    this.set(USER_KEY, username);
   }
 
   getUser() {
-    this.localStorageService.get('username');
+    return this.localStorageService.get(USER_KEY);
   }
 
   getStoredCart() {
@@ -52,6 +53,10 @@ export class StorageService {
 
   clearCart() {
     this.localStorageService.remove(CART_KEY, CART_UPDATED_TIME_KEY);
+  }
+
+  clearUser() {
+    this.localStorageService.remove(USER_KEY);
   }
 
   set(key: string, value: any) {

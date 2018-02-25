@@ -17,6 +17,8 @@ export class FinishComponent implements OnInit {
 
   routerParamSubscription: Subscription = new Subscription();
 
+  orderConfirmation: string;
+
   constructor(private route: ActivatedRoute,
               private paymentService: PaymentService) { }
 
@@ -28,7 +30,10 @@ export class FinishComponent implements OnInit {
       console.log(resultCode);
       if (resultCode === 'authorised') {
         this.paymentService.finalizePayment(payLoad)
-          .subscribe(res => console.log(res));
+          .subscribe((res: any) => {
+            console.log(res);
+            this.orderConfirmation = res.orderConfirmation;
+          });
       } else {
         console.error('payment not success');
       }

@@ -1,0 +1,48 @@
+@import "../../../../assets/css/variables";
+
+//Bar Menu Start //
+
+.barMenu-layout{ background:$uboxit-barMenuBg;  height: 50px; margin-top:-5px; border-top:1px }
+.btn-uboxit { color:$uboxit-barMenuFont }
+.btn-active { background:$uboxit-background-color ;  border-top:2px solid $uboxit-primary-color; border-radius:25px 25px 0px 0px; }
+.btn-common { padding: 10px; z-index: 10;}
+.menuIcon i{ position: relative; top:4px;}
+.menuIcon span i { color: $uboxit-primary-color}
+.uboxitDropDown {  position:relative; z-index:10; margin-left:10px;}
+.uboxitdropDownBox{  position:absolute; border-radius:0px 0px 25px 25px; background:$uboxit-background-color; width: 50%;  }
+.uboxitdropDownBox div {padding-top: 10px;}
+.uboxitdropDownBox div button{ position: relative;  right: 10px; }
+.uboxitdropDownBox ul li{ list-style: none;}
+.matIconPos{ position: relative; top: 5px;}
+
+
+//Bar Menu End //
+
+
+
+
+
+
+@media only screen and (max-width: 480px) {
+    .uboxitMenuContainer{
+        border:0px;
+    }
+    .uboxitMenuSecond{
+        width: 40%;
+    }
+    .uboxitMenuFirst{
+        width: 40%;
+    }
+    .uboxitMenuFilter{ 
+        width: 20%;
+    }   
+    .column.col-xs-4.c-hand.btn-common.btn-orange.btn-active.active{
+        width:33.33%;
+    }
+    .column.col-xs-4.c-hand.btn-common.btn-orange{
+        width: 50%;
+    }
+    .column.col-xs-4.c-hand.btn-common.btn-uboxit.btn-active.active{
+        width: 50%;
+    }
+}

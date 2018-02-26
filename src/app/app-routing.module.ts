@@ -7,6 +7,7 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
 import { MakeyourcomboComponent } from './components/offers/makeyourcombo/makeyourcombo.component';
 import { FaqsComponent } from './components/shared/faqs/faqs.component';
 import { FinishComponent } from './components/shared/finish/finish.component';
+import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'makeyourcombo', component: MakeyourcomboComponent},
   {path: 'faqs', component: FaqsComponent},
-  {path: 'finish', component: FinishComponent, canActivate: [AuthGuard] }
+  {path: 'finish', component: FinishComponent, canActivate: [AuthGuard] },
+  {path: 'myprofile', component: MyprofileComponent},
 
 ];
 

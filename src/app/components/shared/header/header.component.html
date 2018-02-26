@@ -1,47 +1,25 @@
-
-<!-- <<section>
-<div class="container grid-lg">
- <header class="navbar">
- <section class="navbar-section">
-        <app-hamburger></app-hamburger>
- </section>
-<section class="navbar-center">
-     <span class="uboxitLogo c-hand" (click)="goToHomePage();"><img src="assets/images/Uboxitlogo.png" width="80px"/></span>
-</section>
-<section class="navbar-section">
-    <app-location></app-location><span style="color:#fff; font-size:1.25rem">/</span>
-    <button class="btn btn-link" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button> <span style="color:#fff; font-size:1.25rem">/</span>
-    <button class="btn btn-link" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
-</section>
-</header>
-
-</div>
-</section>
-<div class="modal" [ngClass]="{'active':headerActive}">
-  <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
-  <div class="modal-container loginLayout">
-    <div class="modal-header">
-      <button class="btn btn-clear float-right" (click)="closeLoginWindow();"></button>
-      <div class="modal-title h5">{{loginTitle}}</div>
-    </div>
-    <div class="modal-body">
-         <app-personal></app-personal>
-    </div>
-
-  </div>
-</div> -->
 <div class="header-top"></div>
 <div class="container grid-lg" style="margin-top:-50px">
     <div class="header">
         <div class="header-menu"><app-hamburger></app-hamburger></div>
-        <div class="header-logo"  (click)="goToHomePage();">
+        <div class="header-logo c-hand"  (click)="goToHomePage();">
             <img src="assets/images/Uboxitlogo.png" width="80px"/>
         </div>
         <div class="header-rightLogo">
           <app-location></app-location>
-          <button class="btn btn-link" *ngIf="!(loggedIn | async)" (click)="openLoginWindow();"><i class="material-icons">lock_open</i></button>
-          <span *ngIf="(loggedIn | async)" (click)="logout()">Profile</span>
-          <button class="btn btn-link" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
+          <button class="btn btn-link c-hand" *ngIf="!(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
+          <button class="btn btn-link c-hand" *ngIf="(loggedIn | async)" (click)="logoutPanel()"><i class="material-icons">lock </i></button>
+          <div appModelCloseOnOverlay (modelClose)="modelclose($event)" *ngIf="showLoggedIn" class="showLoggedInPanelOverLay"></div>
+          <div class="showLoggedInPanel animated" [ngClass]="{'flipInX':showLoggedIn}" *ngIf="showLoggedIn">
+              
+              <div class="showLoggedInPanelInner">
+                  <ul>
+                    <li class="c-hand" routerLinkActive="active" [routerLink]="['/myprofile']"><i class="material-icons" >account_circle</i><span>My Profile</span></li>
+                    <li class="c-hand"><i class="material-icons" (click)="logout()">lock_open</i><span>LogOut</span></li>
+                  </ul>
+              </div>
+          </div>
+          <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
         </div>
     </div>
 </div>

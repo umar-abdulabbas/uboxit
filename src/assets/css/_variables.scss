@@ -1,0 +1,27 @@
+$uboxit-font: 'Open Sans', sans-serif;
+$uboxit-primary-color:/* #FF655A;*/ #fdc631;
+$uboxit-black-color: #2a2a2a;
+$uboxit-background-color: #f8f9fa; /* #041340;*/
+$uboxit-barMenuFont: #78909c;
+$uboxit-barMenuBg:linear-gradient(to bottom,#cfd8dc, #dde3e6); 
+$uboxit-boxshadow:0px 3px 10px rgba(0,0,0,.4);
+$uboxit-white:#fff;
+$uboxit-footer-bg:#454d5d;
+$uboxit-btn-success:#32b643;
+// * Start Media Queries
+
+$break-phone: 320px; /* smartphones, iPhone, portrait 480x320 phones */
+$break-smartPhone: 481px; /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+$break-tablet: 641px; /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+$break-tablet-L: 961px; /* tablet, landscape iPad, lo-res laptops ands desktops */
+$break-tablet-screen: 1025px; /* big landscape tablets, laptops, and desktops */ 
+$break-tablet-hscreen: 1281px; /* hi-res laptops and desktops */
+
+@mixin breakpoint($name){
+    @if $name == smart-phone {
+      @media only screen and (max-width: $break-smartPhone) {
+        @content;
+      }
+    }
+   
+  }

@@ -5,7 +5,7 @@ import { CounterService } from '../../../shared/services/InteractionCounter/coun
 @Component({
   selector: 'app-add-to-cart-counter',
   templateUrl: './add-to-cart-counter.component.html',
-  styleUrls: ['./add-to-cart-counter.component.css'],
+  styleUrls: ['./add-to-cart-counter.component.scss'],
 
 })
 export class AddToCartCounterComponent implements OnInit, OnDestroy {

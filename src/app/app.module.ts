@@ -58,6 +58,7 @@ import { MyinfoComponent } from './components/shoppingcart/myinfo/myinfo.compone
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorInterceptor } from './core/interceptors/error-interceptor';
 import { AlertInvoker } from './core/services/alert-invoker.service';
+import { MyprofileComponent } from './components/myprofile/myprofile.component';
 
 // Payment
 
@@ -89,7 +90,8 @@ import { AlertInvoker } from './core/services/alert-invoker.service';
     LocationComponent,
     FinishComponent,
     AddressComponent,
-    MyinfoComponent ],
+    MyinfoComponent,
+    MyprofileComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,

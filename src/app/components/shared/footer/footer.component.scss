@@ -1,3 +1,7 @@
+@import "../../../../assets/css/variables";
+
+
+
 .socialMedia ul li{
     list-style: none;
     float: left;
@@ -8,7 +12,7 @@
     
 }
 .defaultLink ul li a{
-   color: #FF655A;
+   color: $uboxit-primary-color;
 }
 .defaultLink ul li a span{
     padding-left: 10px;

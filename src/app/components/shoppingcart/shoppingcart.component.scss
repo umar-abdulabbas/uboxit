@@ -1,3 +1,4 @@
+@import "../../../assets/css/variables";
 .shoppingLayout{
 xpadding-top: 60px;
 
@@ -10,14 +11,14 @@ xpadding-top: 60px;
 .mat-expansion-panel-header{
     border-bottom: 1px solid #ccc;
     font-family:  'Open Sans', sans-serif;
-    background-color:#ff675c;
+    background-color:$uboxit-primary-color;
     
 }
 .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']).cdk-keyboard-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']).cdk-program-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']){
-    background-color:#ff968c;
+    background-color:lighten( $uboxit-primary-color, 10% )
 }
 .mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover{
-    background:#ff675c;
+    background:$uboxit-primary-color;
 }
 .mat-expansion-panel-body{
     margin: 0px 0px 0px 0px !important;

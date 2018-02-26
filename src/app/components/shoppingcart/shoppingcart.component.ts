@@ -11,7 +11,7 @@ import { LoginService } from '../personal/services/login-service';
 @Component({
   selector: 'app-shoppingcart',
   templateUrl: './shoppingcart.component.html',
-  styleUrls: ['./shoppingcart.component.css']
+  styleUrls: ['./shoppingcart.component.scss']
 })
 export class ShoppingcartComponent implements OnInit, OnDestroy {
   public headerColor;

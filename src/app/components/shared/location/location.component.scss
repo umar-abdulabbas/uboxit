@@ -1,3 +1,4 @@
+@import "../../../../assets/css/variables";
 .pulse {
   display: block;
   border-radius: 50%;
@@ -23,7 +24,9 @@
   width:275px;
   right:99px;
 }
-
+.header-color{
+  background: $uboxit-primary-color;
+}
 .default-location:after {
   bottom: 100%;
   left: 50%;

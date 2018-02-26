@@ -1,30 +1,6 @@
 
-$uboxit-font: 'Open Sans', sans-serif;
-$uboxit-primary-color:/* #FF655A;*/ #fdc631;
-$uboxit-black-color: #2a2a2a;
-$uboxit-background-color: #f8f9fa; /* #041340;*/
-$uboxit-barMenuFont: #78909c;
-$uboxit-barMenuBg:linear-gradient(to bottom,#cfd8dc, #dde3e6); 
-$uboxit-boxshadow:0px 3px 10px rgba(0,0,0,.4);
-$uboxit-white:#fff;
+@import "assets/css/variables";
 
-// * Start Media Queries
-
-$break-phone: 320px; /* smartphones, iPhone, portrait 480x320 phones */
-$break-smartPhone: 481px; /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-$break-tablet: 641px; /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-$break-tablet-L: 961px; /* tablet, landscape iPad, lo-res laptops ands desktops */
-$break-tablet-screen: 1025px; /* big landscape tablets, laptops, and desktops */ 
-$break-tablet-hscreen: 1281px; /* hi-res laptops and desktops */
-
-@mixin breakpoint($name){
-    @if $name == smart-phone {
-      @media only screen and (max-width: $break-smartPhone) {
-        @content;
-      }
-    }
-   
-  }
 
 // *End Media Queries
 
@@ -38,7 +14,8 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
 .btn.btn-clear { color:$uboxit-primary-color; opacity: 1;}
 .btn.btn-clear.uboxitLogo { color:$uboxit-white;}
 .uboxitBoxactive { background:$uboxit-primary-color; }
-
+.btn.btn-success { background:$uboxit-btn-success; border-color:$uboxit-btn-success; color: #fff; height: 29px; margin-top: -2px;}
+.chip.selected{ background:$uboxit-primary-color;  color:$uboxit-white; } 
 //Loading 
 .loading-layout {  background:$uboxit-black-color; position:absolute; top:0; left:0; width:100%; height:100%; background:$uboxit-primary-color;}
 .loading-icon { 
@@ -50,23 +27,11 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
     }
 }
 
+//common
+a{ color:$uboxit-primary-color;}
+a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decoration: underline; }
 
-//Header Start
-.header-top{ background: $uboxit-primary-color; height:50px; }
-.header{
-    background: $uboxit-primary-color;
-    height: 100px;
-    border-radius: 0px 0px 25px 25px;
-    padding: 20px;
-    width:100%;
-    display: -webkit-flex; /* Safari */
-    display: flex;
-}
-.uboxitBadge{ font-size: 11px;  height: 16px; line-height: 1; min-width: .9rem;  padding: .1rem .2rem; text-align: center;
-    white-space: nowrap; position: relative; top: -15px;  right: 4px; color:$uboxit-primary-color;  background: #fff;
-    -webkit-transform: translate(50%,-50%); transform: translate(-.1rem, -.5rem);  border-radius: .5rem;
-    background-clip: padding-box;   box-shadow: 0 0 0 0.1rem #fff;
-}
+
 .container{
     @include breakpoint(smart-phone){
         padding: 0px;
@@ -83,7 +48,15 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
 .header-rightLogo{-webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 152px;  }
 
 //Header End
-
+//Footer Start 
+.container.grid-lg.footer { background: $uboxit-footer-bg; border-radius: 25px 25px 0px 0px; padding: 20px 10px 10px 10px; color: $uboxit-white; margin-top: -50px; }
+.uboxitFooter{ border-top:1px solid #f7f7f7; background: $uboxit-footer-bg; color: $uboxit-white;  }
+.uboxitRouter{    min-height: 700px; margin-bottom:60px;  
+     @include breakpoint(smart-phone){
+        min-height: 450px;  
+    } 
+}
+//Footer End
 //Advertisment Start 
 
 .advertisement { background: #fff; border-radius: 25px 25px 0px 0px; margin-top:-30px; margin-left: 10px; margin-right:10px; box-shadow: 0px 3px 10px rgba(0,0,0,.4) }
@@ -111,20 +84,3 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
 
 //Advertisment End
 
-//Bar Menu Start //
-
-.barMenu-layout{ background:$uboxit-barMenuBg;  height: 50px; margin-top:-5px; border-top:1px }
-.btn-uboxit { color:$uboxit-barMenuFont }
-.btn-active { background:$uboxit-background-color ;  border-top:2px solid $uboxit-primary-color; border-radius:25px 25px 0px 0px; }
-.btn-common { padding: 10px; z-index: 10;}
-.menuIcon i{ position: relative; top:4px;}
-.menuIcon span i { color: $uboxit-primary-color}
-.uboxitDropDown {  position:relative; z-index:10; margin-left:10px;}
-.uboxitdropDownBox{  position:absolute; border-radius:0px 0px 25px 25px; background:$uboxit-background-color; width: 50%;  }
-.uboxitdropDownBox div {padding-top: 10px;}
-.uboxitdropDownBox div button{ position: relative;  right: 10px; }
-.uboxitdropDownBox ul li{ list-style: none;}
-.matIconPos{ position: relative; top: 5px;}
-
-
-//Bar Menu End //

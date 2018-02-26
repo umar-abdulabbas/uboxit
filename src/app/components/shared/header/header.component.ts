@@ -9,7 +9,7 @@ import { LoginService } from '../../personal/services/login-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
   providers: [HeaderService],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loginTitle = 'Login';
   totalCount: Observable<number>;
   loggedIn: Observable<boolean>;
-
+  showLoggedIn = false;
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private cartService: CartService,
               private loginService: LoginService) {
@@ -59,9 +59,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.loginService.logout();
+   this.loginService.logout();
+   
   }
-
+  logoutPanel() {
+    this.showLoggedIn = !this.showLoggedIn;
+    
+  }
   openShoppingCart(): void {
     this.router.navigate(['/shoppingcart']);
   }
@@ -72,5 +76,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   modelclose(event): void {
     this.headerActive = event;
+    this.showLoggedIn = event;
   }
 }

@@ -5,7 +5,7 @@ import { AlertInvoker } from '../../core/services/alert-invoker.service';
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
-  styleUrls: ['./personal.component.css', '../shared/header/header.component.css']
+  styleUrls: ['./personal.component.css', '../shared/header/header.component.scss']
 })
 export class PersonalComponent implements OnInit {
   isActiveNonRegUser = false; // based on customer not reg

@@ -4,7 +4,7 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-faqs',
   templateUrl: './faqs.component.html',
-  styleUrls: ['./faqs.component.css']
+  styleUrls: ['./faqs.component.scss']
 })
 export class FaqsComponent implements OnInit {
 

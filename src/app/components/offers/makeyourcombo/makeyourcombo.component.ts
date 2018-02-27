@@ -39,6 +39,8 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   selectedMainDish: Item;
   selectedDessert: Item;
 
+  comboCount = 0;
+
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private cartService: CartService, private uistyleservice: UserExpStyleService) {
   }
 
@@ -65,6 +67,12 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
       if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
         this.comboComplete = true;
+        const selectedCombination = [this.selectedStarter.id, this.selectedMainDish.id, this.selectedDessert.id];
+        // if selected items are already in the cart, show the add to cart with existing value
+        if (this.cartService.isCustomComboAlreadySelected(selectedCombination)) {
+          this.comboCount = this.cartService.getCustomeComboCountIfAlreadySelected(selectedCombination);
+          console.log(this.comboCount);
+        }
       }
       if (!!this.selectedStarter || !!this.selectedMainDish || !!this.selectedDessert) {
         this.comboHasMinimumContent = true;

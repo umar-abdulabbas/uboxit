@@ -13,6 +13,8 @@ export class CartService {
 
   cartId: string;
 
+  cart: Cart;
+
   private cartRequest: Cart;
 
   constructor(private http: HttpClient,
@@ -20,9 +22,13 @@ export class CartService {
   }
 
   getCart(): Observable<Cart> {
-    return this.http.get<Cart>(`shop-api/shop/${this.cartId}`)
+    const getCartObservable = this.http.get<Cart>(`shop-api/shop/${this.cartId}`)
       .publishReplay()
       .refCount();
+    getCartObservable.subscribe((result: any) => {
+      this.enrichDomainCart(result);
+    });
+    return getCartObservable;
   }
 
   createCart(): Observable<Cart> {
@@ -31,20 +37,24 @@ export class CartService {
       .refCount();
     createCartObservable.subscribe((result: any) => {
       this.cartId = result.id;
+      this.enrichDomainCart(result);
     });
     return createCartObservable;
   }
 
+  // to update already defined combo - so the request can be already prepared @ component level
   updateCart(cartId: string, update: Cart): Observable<Cart> {
     const updateCartObservable = this.http.put<Cart>(`shop-api/shop/${cartId}`, update)
       .publishReplay()
       .refCount();
     updateCartObservable.subscribe((result: any) => {
       this.cartId = result.id;
+      this.enrichDomainCart(result);
     });
     return updateCartObservable;
   }
 
+  // to update custom combo - request will be prepare here - as it is complex
   // only to update make your own combo section if cart is already crated
   updateCartWithCustomisedCombo() {
     this.http.put<Cart>(`shop-api/shop/${this.cartId}`, this.cartRequest)
@@ -110,6 +120,14 @@ export class CartService {
     this.addAllCountAndEmitValue();
   }
 
+  isCustomComboAlreadySelected(itemIds: string[]) {
+    return this.isCustomisedComboAlreadyPresent(this.cartRequest.combos, itemIds);
+  }
+
+  getCustomeComboCountIfAlreadySelected(itemIds: string[]) {
+    return this.getCustomisedComboIfAlreadyPresent(this.cartRequest.combos, itemIds).count;
+  }
+
   private isProductAlreadyPresent(productList: any[], id: string) {
     return !!productList && !!productList.find(p => p.id === id);
   }
@@ -147,5 +165,12 @@ export class CartService {
       }
       return false;
     });
+  }
+
+  private enrichDomainCart(cartRes: Cart) {
+    cartRes.combos.forEach(combo => {
+      combo.itemNames = combo.items.map(i => i.name).join(' + ');
+    });
+    this.cart = cartRes;
   }
 }

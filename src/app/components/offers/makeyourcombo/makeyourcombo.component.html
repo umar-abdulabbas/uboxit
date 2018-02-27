@@ -74,7 +74,7 @@
             </div>
             <div class="column col-xs-4 relative">
               <button *ngIf="!comboComplete" class="btn btn-primary disabled" style="width:100%">Add to Cart</button>
-              <app-add-to-cart-counter *ngIf="comboComplete" (updatedCount)="addToCart('test', $event)"></app-add-to-cart-counter>
+              <app-add-to-cart-counter *ngIf="comboComplete" [counterValue]="comboCount" (updatedCount)="addToCart('test', $event)"></app-add-to-cart-counter>
             </div>
             <div class="column col-xs-4 relative">
                 <div class="dropdown dropdown-right" style="width:100%">

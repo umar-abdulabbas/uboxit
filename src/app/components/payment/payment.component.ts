@@ -14,42 +14,40 @@ export class PaymentComponent implements OnInit {
   @Input() cart: Observable<Cart>;
 
   sdkConfigObj = {
-    context : 'test' // change it to `live` when going live.
+    context: 'test' // change it to `live` when going live.
   };
 
   constructor(private paymentService: PaymentService,
-              private storageService: StorageService) { }
+              private storageService: StorageService) {
+  }
 
   ngOnInit() {
 
     const adyenSdk = window['chckt'];
 
-    this.cart.subscribe((res1) => {
-      console.log(res1);
-      this.paymentService.initiatePayment()
-        .subscribe(res => {
-          adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
-        });
+    this.paymentService.initiatePayment()
+      .subscribe(res => {
+        adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
+      });
 
-      adyenSdk['hooks']['beforeRedirect'] = () => {
-        console.log('before redirect');
-        this.storageService.clearCart();
-        return true;
-      };
+    adyenSdk['hooks']['beforeRedirect'] = () => {
+      console.log('before redirect');
+      this.storageService.clearCart();
+      return true;
+    };
 
-      adyenSdk['hooks']['beforeComplete'] = (node, paymentData) => {
-        console.log('before complete');
-        console.log(node);
-        console.log(paymentData);
-        if (paymentData.resultCode === 'authorised') {
-          this.paymentService.finalizePayment(paymentData.payload)
-            .subscribe(res => console.log(res));
-        } else {
-          console.error('payment not success');
-        }
-        return true;
-      };
-    });
+    adyenSdk['hooks']['beforeComplete'] = (node, paymentData) => {
+      console.log('before complete');
+      console.log(node);
+      console.log(paymentData);
+      if (paymentData.resultCode === 'authorised') {
+        this.paymentService.finalizePayment(paymentData.payload)
+          .subscribe(res => console.log(res));
+      } else {
+        console.error('payment not success');
+      }
+      return true;
+    };
   }
 
 }

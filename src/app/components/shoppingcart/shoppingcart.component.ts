@@ -17,7 +17,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   public headerColor;
   step = 0;
 
-  cart: Observable<Cart>;
+  cart: Cart;
   loggedIn: boolean;
 
   constructor(private cartService: CartService, private router: Router,
@@ -30,12 +30,17 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     // this.headerColor.classList.add('headerFixedShoppingCard');
     if (!this.cartService.cartId) {
-      this.cart = this.cartService.createCart();
+      this.cartService.createCart().subscribe(res => {
+        this.cart = this.cartService.cart;
+      });
       /* tslint:disable */
-       // this.cart = Observable.of({'items':[],'combos':[{'id':'23458','count':2},{'id':'23461','count':2}],'offerId':'1dda4b04-2372-4b3f-8eb5-79461c83969a','normalPrice':{'amount':140,'currencyCode':'EUR'},'discountedPrice':{'amount':128,'currencyCode':'EUR'},'_links':{'self':{'href':'http://localhost:8085/shop-api/shop/a1bc9134-b9e3-4075-b840-441818b5a627'}},'id':'a1bc9134-b9e3-4075-b840-441818b5a627'}); //add cmd for deployment
+      // this.cart = Observable.of({'items':[],'combos':[{'id':'23458','count':2},{'id':'23461','count':2}],'offerId':'1dda4b04-2372-4b3f-8eb5-79461c83969a','normalPrice':{'amount':140,'currencyCode':'EUR'},'discountedPrice':{'amount':128,'currencyCode':'EUR'},'_links':{'self':{'href':'http://localhost:8085/shop-api/shop/a1bc9134-b9e3-4075-b840-441818b5a627'}},'id':'a1bc9134-b9e3-4075-b840-441818b5a627'}); //add cmd for deployment
     } else {
-      this.cart = this.cartService.getCart();
+      this.cartService.getCart().subscribe(res => {
+        this.cart = this.cartService.cart;
+      });
     }
+
     this.loginService.loggedIn.subscribe(val => this.loggedIn = val);
   }
 

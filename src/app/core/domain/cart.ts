@@ -14,10 +14,14 @@ export interface Combo {
 
   // from response
   price?: Price;
+
+  // ui related
+  itemNames?: string;
 }
 
 export interface Item {
   id: string;
+  name: string;
   count: number;
   discountedPrice?: Price;
   normalPrice?: Price;

@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   totalCount: Observable<number>;
   loggedIn: Observable<boolean>;
   showLoggedIn = false;
+
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private cartService: CartService,
               private loginService: LoginService) {
@@ -59,12 +60,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-   this.loginService.logout();
+    this.loginService.logout();
+    this.logoutPanel();
   }
 
   logoutPanel() {
     this.showLoggedIn = !this.showLoggedIn;
   }
+
   openShoppingCart(): void {
     this.router.navigate(['/shoppingcart']);
   }

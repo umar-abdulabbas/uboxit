@@ -60,11 +60,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logout() {
    this.loginService.logout();
-   
   }
+
   logoutPanel() {
     this.showLoggedIn = !this.showLoggedIn;
-    
   }
   openShoppingCart(): void {
     this.router.navigate(['/shoppingcart']);

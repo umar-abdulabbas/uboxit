@@ -1,0 +1,23 @@
+@import "../../../../assets/css/variables";
+
+.advertisement {border-radius: 25px; margin-top:-30px; margin-left: 10px; margin-right:10px;  }
+.advert-banner { position: relative; text-align: center;  color: white; }
+.advert-banner img { height: 250px; width: 100%;  opacity: 0.8; border-radius: 25px;
+    @include breakpoint(smart-phone){
+        height: 170px;
+    }
+}
+.darken-pseudo:after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: block; background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px; margin-bottom:5px;
+}
+.darken-with-text  { margin: 0; font-size: 2em; text-align: center; color: white;  z-index: 1;  }
+.txt-centered-1 { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-transform:uppercase; font-size: 1rem;
+    @include breakpoint(smart-phone){
+        top: 38%; font-size: 0.6rem;
+    }
+}
+.txt-centered-2 { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); text-transform:uppercase; font-size: 1.25rem;
+    @include breakpoint(smart-phone){
+        font-size: 0.8rem;
+    }
+}

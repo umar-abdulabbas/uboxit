@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export class AddressList{
+export class AddressList {
     id: string;
     name: string;
     address: string;
@@ -13,10 +13,10 @@ export class AddressList{
 }
 
 const ADDRESSLIST: AddressList[] = [
-  { id: '001', name: 'Umar Abbas', address:'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode:'1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked:'checked' },
-  { id: '002', name: 'Prabhu', address:'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode:'1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked:'' },
-  { id: '003', name: 'Malai', address:'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode:'1185SK', email: 'umar432@gmail.com', phone: '0649668445',checked:'' },
-  { id: '004', name: 'Pickup at Store', address:'Augustinuspark ', housenumber: '14', city: 'Amstelveen', postalcode:'1185CN', email: 'connect@uboxit.com', phone: '0645433592', checked:'' }
+  { id: '001', name: 'Umar Abbas', address: 'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode: '1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked: 'checked' },
+  { id: '002', name: 'Prabhu', address: 'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode: '1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked: '' },
+  { id: '003', name: 'Malai', address: 'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode: '1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked: '' },
+  { id: '004', name: 'Pickup at Store', address: 'Augustinuspark ', housenumber: '14', city: 'Amstelveen', postalcode: '1185CN', email: 'connect@uboxit.com', phone: '0645433592', checked: '' }
 ];
 
 @Component({
@@ -38,7 +38,7 @@ export class AddressComponent implements OnInit {
     this.isActiveNewForm = !this.isActiveNewForm;
     console.log(checked);
     this.isActiveRadio = checked;
-    this.isActiveRadio = !this.isActiveRadio
+    this.isActiveRadio = !this.isActiveRadio;
   }
 
   radioSelect(id: string) {

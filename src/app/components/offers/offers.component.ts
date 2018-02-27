@@ -8,7 +8,7 @@ import { Cart } from '../../core/domain/cart';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.css']
+  styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
   offers: Combo[];

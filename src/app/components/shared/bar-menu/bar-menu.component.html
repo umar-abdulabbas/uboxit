@@ -1,24 +1,24 @@
-<div class="barMenu-layout" [ngClass]="{'bar-layout':isBtnActive}">
-    <div class="container grid-lg" >
-            <div class="columns" style="margin-left:10px; margin-right:10px">
-                    <div class="btn-common btn-uboxit column" *ngFor="let menu of menuList" [ngClass]="{'col-xs-6':showTwoCol, 'col-xs-4':showThreeCol, 'btn-active':menu.menuActive}" (click)="openMenu(menu.id, menu.menuActive);">
-                        <div class="text-center c-hand menuIcon"><i class="material-icons">{{menu.icon}}</i>
-                            {{menu.name}} <span *ngIf="menu.filter && menu.menuActive"><i class="material-icons matIconPos" (click)="showDropDown(menu.id, menu.menuActive);">arrow_drop_down_circle</i></span>
-                        </div>
-                       
-                    </div>
-                   
-            </div> 
-            <div class="columns uboxitDropDown">
-                    <div class="uboxitdropDownBox" *ngIf="isActiveDropDown">
-                            <div>          
-                                <div class="text-center">Filter By Cuisine
-                                 <button class="btn btn-clear float-right" (click)="closeDropDown();" style="margin-right:10px"></button> 
-                                </div>
-                            </div>
-    
-                            <ul><li *ngFor="let type of availableTypes" class="c-hand"><a (click)="selectType(type)">{{type}}</a></li></ul>
-                    </div>
-            </div> 
+<div [ngClass]="{'bar-layout':isBtnActive}">
+<div class="container grid-lg">
+    <div class="barMenu-layout">
+        <div *ngFor="let menu of menuList" [ngClass]="{'btn-active':menu.menuActive}" (click)="openMenu(menu.id, menu.menuActive);">
+            <div  [ngClass]="{'btn-active-border':menu.menuActive}" class="c-hand">
+                <i class="material-icons matIconPos">{{menu.icon}}</i>
+                <span>{{menu.name}}</span>
+                <span *ngIf="menu.filter && menu.menuActive" ><i class="material-icons matIconPos" (click)="showDropDown(menu.id, menu.menuActive);">arrow_drop_down_circle</i></span>
+            </div>
+        </div>
     </div>
+    <div class="columns uboxitDropDown">
+            <div class="uboxitdropDownBox" *ngIf="isActiveDropDown">
+                    <div>          
+                        <div class="text-center">Filter By Cuisine
+                         <button class="btn btn-clear float-right" (click)="closeDropDown();" style="margin-right:10px"></button> 
+                        </div>
+                    </div>
+
+                    <ul><li *ngFor="let type of availableTypes" class="c-hand"><a (click)="selectType(type)">{{type}}</a></li></ul>
+            </div>
+    </div> 
+</div>
 </div>

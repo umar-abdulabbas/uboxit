@@ -2,18 +2,22 @@
 
 //Bar Menu Start //
 
-.barMenu-layout{ background:$uboxit-barMenuBg;  height: 50px; margin-top:-5px; border-top:1px }
-.btn-uboxit { color:$uboxit-barMenuFont }
-.btn-active { background:$uboxit-background-color ;  border-top:2px solid $uboxit-primary-color; border-radius:25px 25px 0px 0px; }
-.btn-common { padding: 10px; z-index: 10;}
-.menuIcon i{ position: relative; top:4px;}
-.menuIcon span i { color: $uboxit-primary-color}
+.barMenu-layout{  height:50px;align-items: baseline;  display:flex; flex-direction: row;  clip:rect();
+    border-bottom: 1px solid #ccc; background:$uboxit-background-color ;  color:$uboxit-barMenuFont 
+}
+.barMenu-layout > div{
+    width:50%; text-align:center; line-height:48px; 
+}
+.matIconPos{ position: relative; top: 5px;}
+.btn-active { background:$uboxit-background-color ; color:$uboxit-primary-color }
+.btn-active-border{border-bottom:2px solid $uboxit-primary-color;}
+
 .uboxitDropDown {  position:relative; z-index:10; margin-left:10px;}
 .uboxitdropDownBox{  position:absolute; border-radius:0px 0px 25px 25px; background:$uboxit-background-color; width: 50%;  }
 .uboxitdropDownBox div {padding-top: 10px;}
 .uboxitdropDownBox div button{ position: relative;  right: 10px; }
 .uboxitdropDownBox ul li{ list-style: none;}
-.matIconPos{ position: relative; top: 5px;}
+
 
 
 //Bar Menu End //

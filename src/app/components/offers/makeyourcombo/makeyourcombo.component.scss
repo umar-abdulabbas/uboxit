@@ -60,17 +60,16 @@
 .uboxitMenuInMakeCombo{
     position: fixed;
     width: 100%;
-    xbox-shadow: 0 8px 6px -6px #ccc;
     z-index: 310;
     border-bottom: 0px !important;
-    top:5px;
+    top:0px;
 }
 
 .uboxitMenuInMakeComboSelect{
     position: fixed;
     width: 100%;
     z-index: 309;
-    top:50px;
+    top:43px;
     background: #f8f9fa;
    border-top: 1px solid #ccc;
    padding: 10px 0px;

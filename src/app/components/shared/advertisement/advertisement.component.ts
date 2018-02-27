@@ -4,7 +4,7 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-advertisement',
   templateUrl: './advertisement.component.html',
-  styleUrls: ['./advertisement.component.css']
+  styleUrls: ['./advertisement.component.scss']
 })
 export class AdvertisementComponent implements OnInit {
 

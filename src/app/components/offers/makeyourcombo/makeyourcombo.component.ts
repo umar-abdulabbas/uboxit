@@ -10,7 +10,7 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-makeyourcombo',
   templateUrl: './makeyourcombo.component.html',
-  styleUrls: ['./makeyourcombo.component.css'],
+  styleUrls: ['./makeyourcombo.component.scss'],
 
 })
 export class MakeyourcomboComponent implements OnInit, OnDestroy {

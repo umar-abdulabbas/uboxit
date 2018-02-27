@@ -8,7 +8,7 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-makeyourcombo-offer',
   templateUrl: './makeyourcombo-offer.component.html',
-  styleUrls: ['./makeyourcombo-offer.component.css'],
+  styleUrls: ['./makeyourcombo-offer.component.scss'],
 })
 export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
 

@@ -1,5 +1,5 @@
 
-<section> 
+<section *ngIf="isDesktop"  class="animated" [ngClass]="{'bounceInUp':!isMobile}"> 
 <section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}" >
     <app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
 </section>
@@ -122,3 +122,18 @@
 </section> <!-- //Entire Layout For Desktop -->
 
 <!-- //Entire Layout For Mobile -->
+<section *ngIf="isMobile" >
+    <div class="container grid-lg c-hand animated bounceInDown" (click)="openChoice()" > 
+        <div class="genLayoutM">
+            <div class="genBannerCaptionM">Choice</div>
+            <img src="assets/images/heroBanner.jpg" class="img-responsive" alt="..." >   
+        </div>
+    </div>
+    <div style="height:10px;" ></div>
+    <div class="container grid-lg c-hand animated bounceInDown" routerLinkActive="active" [routerLink]="['/makeyourcombo']">
+        <div class="genLayoutM">
+            <div class="genBannerCaptionM">Combo</div>
+            <img src="assets/images/indian-food-platter.jpg" class="img-responsive" alt="..." >   
+        </div>
+    </div>
+</section>

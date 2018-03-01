@@ -29,7 +29,7 @@ export class StorageService {
   }
 
   getUser() {
-    return this.localStorageService.get(USER_KEY);
+    return this.localStorageService.get<string>(USER_KEY);
   }
 
   getStoredCart() {

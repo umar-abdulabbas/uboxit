@@ -36,6 +36,18 @@ export class LoginService {
       });
   }
 
+  // if browser cookie has email get user details
+  getUser(email: string) {
+    if (email) {
+      this.http.get<Individual>(`customer-api/individual/${email}`)
+        .subscribe(res => {
+          this.individual = res;
+          // this.storageService.storeUser(username);
+          // this.loggedIn.next(true);
+        });
+    }
+  }
+
   logout() {
     this.storageService.clearUser();
     this.loggedIn.next(false);

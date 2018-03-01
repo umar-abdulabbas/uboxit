@@ -59,6 +59,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ErrorInterceptor } from './core/interceptors/error-interceptor';
 import { AlertInvoker } from './core/services/alert-invoker.service';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
+import { RewardProgramComponent } from './components/reward-program/reward-program.component';
 
 // Payment
 
@@ -91,7 +92,8 @@ import { MyprofileComponent } from './components/myprofile/myprofile.component';
     FinishComponent,
     AddressComponent,
     MyinfoComponent,
-    MyprofileComponent ],
+    MyprofileComponent,
+    RewardProgramComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,

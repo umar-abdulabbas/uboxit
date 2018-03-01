@@ -22,8 +22,6 @@ export class OffersComponent implements OnInit {
   selectedOffer: Combo;
   availableTypes: string[] = [];
   selectedType: string;
-  isDesktop = false;
-  isMobile = true;
   constructor(private offerService: OfferService, private cartService: CartService) {
 
   }
@@ -107,9 +105,5 @@ export class OffersComponent implements OnInit {
     }
   }
 
-  openChoice() {
-    this.isMobile = false;
-    this.isDesktop = true;
-  }
- 
+
 }

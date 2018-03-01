@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'makeyourcombo', component: MakeyourcomboComponent},
   {path: 'faqs', component: FaqsComponent},
-  {path: 'finish', component: FinishComponent, canActivate: [AuthGuard] },
+  {path: 'finish', component: FinishComponent},
   {path: 'myprofile', component: MyprofileComponent},
 
 ];

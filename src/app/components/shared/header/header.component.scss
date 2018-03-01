@@ -1,8 +1,6 @@
 @import "../../../../assets/css/variables";
 //Header Start
-.header-top{ background: $uboxit-primary-color; height:50px; }
-.header { background: $uboxit-primary-color; height: 100px; border-radius: 0px 0px 25px 25px; padding: 20px; width:100%; display: -webkit-flex; /* Safari */  display: flex;
-}
+
 .container.grid-lg.header { margin-top:-50px;}
 .uboxitBadge{ font-size: 11px;  height: 16px; line-height: 1; min-width: .9rem;  padding: .1rem .2rem; text-align: center;
     white-space: nowrap; position: relative; top: -15px;  right: 4px; color:$uboxit-primary-color;  background: #fff;

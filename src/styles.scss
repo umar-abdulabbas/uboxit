@@ -28,9 +28,16 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
 }
 
 //common
+.toast{ margin-bottom: 20px;}
+.header-top{ background: $uboxit-primary-color; height:50px; }
+.header { background: $uboxit-primary-color; height: 80px; border-radius: 0px 0px 25px 25px; padding: 20px; width:100%; display: -webkit-flex; /* Safari */  display: flex;
+}
 a{ color:$uboxit-primary-color;}
 a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decoration: underline; }
-.genLayout { border-radius:25px; height:200px; margin-left:10px; margin-right:10px; position:relative; top:-30px;
+.UboxitLayout{
+    padding-top:20px;
+}
+.genLayout { border-radius:25px; height:200px; margin-left:10px; margin-right:10px; position:relative; top:-10px;
     @include breakpoint(smart-phone){
         height:150px;
     } 

@@ -1,6 +1,10 @@
 <!-- If the Customer not Logged in, We have show this section -->
 <section class="notLoggedIn">
-  <span>{{ message | async }}</span>
+  
+  <div class="toast toast-error" *ngIf="message | async">
+   {{ message | async }}
+   <div class="p-1"></div>
+  </div>
   <div class="container grid-lg">
     <div class="columns">
       <div class="column">
@@ -65,3 +69,6 @@
   </div>
 </section>
 <!-- // End of ==Not Logged== Cutomers -->
+<!-- Edit Personal Information -->
+
+<section></section>

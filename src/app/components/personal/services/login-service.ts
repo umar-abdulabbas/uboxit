@@ -39,7 +39,7 @@ export class LoginService {
   // if browser cookie has email get user details
   getUser(email: string) {
     if (email) {
-      this.http.get<Individual>(`customer-api/individual/${email}`)
+      this.http.get<Individual>(`customer-api/individual?emailId=${email}`)
         .subscribe(res => {
           this.individual = res;
           // this.storageService.storeUser(username);

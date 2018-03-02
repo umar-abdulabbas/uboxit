@@ -1,9 +1,9 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StorageService } from '../../../shared/services/storage-service';
 import { Individual } from '../../../core/domain/individual';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import * as CryptoJS from 'crypto-js';
 
 @Injectable()
 export class LoginService {
@@ -27,7 +27,7 @@ export class LoginService {
   }
 
   login(username: string, password: string) {
-    this.http.post<Individual>('customer-api/individual', {username: username, password: password})
+    this.http.post<Individual>('customer-api/individual', {username: username, password: this.encrypt(password)})
       .subscribe(res => {
         console.log(res);
         this.individual = res;
@@ -51,5 +51,12 @@ export class LoginService {
   logout() {
     this.storageService.clearUser();
     this.loggedIn.next(false);
+  }
+
+  private encrypt(password: string) {
+    const encrypted = CryptoJS.AES.encrypt(password, 'encryption-key');
+
+    console.log(encrypted.toString());
+    return encrypted.toString();
   }
 }

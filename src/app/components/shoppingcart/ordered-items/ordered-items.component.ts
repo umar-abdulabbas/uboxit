@@ -27,7 +27,7 @@ export class OrderedItemsComponent implements OnInit {
     const request: Cart = { combos: [ { id: productId, count: count } ] };
     this.cartService.updateCart(this.cart.id, request).subscribe((updatedCart) => {
       this.cart = updatedCart;
-      const totalCount = this.cart.combos.map(c => c.count).reduce((prev, cur) => prev + cur, 0);
+      const totalCount = this.cart.combos ? this.cart.combos.map(c => c.count).reduce((prev, cur) => prev + cur, 0) : 0;
       if (totalCount === 0) {
         console.log('All your orders are cancelled, you can start over again!!');
         this.router.navigate(['/home']);

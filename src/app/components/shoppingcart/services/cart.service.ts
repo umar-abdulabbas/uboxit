@@ -168,9 +168,13 @@ export class CartService {
   }
 
   private enrichDomainCart(cartRes: Cart) {
-    cartRes.combos.forEach(combo => {
-      combo.itemNames = combo.items.map(i => i.name).join(' + ');
-    });
-    this.cart = cartRes;
+    if (cartRes.combos) {
+      cartRes.combos.forEach(combo => {
+        combo.itemNames = combo.items.map(i => i.name).join(' + ');
+      });
+      this.cart = cartRes;
+    } else {
+      this.cart = {};
+    }
   }
 }

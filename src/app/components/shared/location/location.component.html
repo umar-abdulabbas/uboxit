@@ -1,10 +1,16 @@
-<button class="btn btn-link" (click)="openChangeLocation();"><i class="material-icons pulse">place</i></button>
-<div class="default-location" *ngIf="showLocationPanel">
-        <button class="btn btn-clear float-right" (click)="closeChangeLocation();"></button>
-        <div>We are Currently Offering ind</div>
-        <h5>Amstelveen</h5>
+
+<button class="btn btn-link" ><i class="material-icons pulse" (click)="openChangeLocation()">place</i></button>
+<span class="areaTitlePos">
+        <span class="areaTitleLayout">{{placeTitle}}</span>
+</span>
+<div class="locationPos" *ngIf="showLocationPanel">
+<div class="default-location" >
+        <button class="btn btn-clear float-right" (click)="closeChangeLocation()"></button>
+        <div >We are Currently Offering</div>
+        <h5 >Amstelveen</h5>
         <p>You wish to Change the location?</p>
-        <button  class="btn btn-primary" style="width:100%;">Change Location</button>
+        <button  class="btn btn-primary" (click)="openChangeLocation()" style="width:100%;">Change Location</button>
+</div>
 </div>
   <!-- Model Window -->
   <div class="modal modal-lg active" id="modal-id" *ngIf="isModelActive">
@@ -20,20 +26,16 @@
                   <div class="divider text-center" data-content="View Menu For"></div>
               </div>
               <div>
-                  <span class="chip selected">Amstelveen</span>
-                  <span class="chip">Hoofdorp</span>
-                  <span class="chip">Aalsmeer</span>
-                  <span class="chip">Bijlmer Arena</span>
+                  <span class="chip c-hand" *ngFor="let place of placeList" [ngClass]="{'selected':place.menuActive}" (click)="goToHome(place.name, place.id)">{{place.name}}</span>
+                
               </div>
               <div style="padding-top:20px; padding-bottom:20px;">
-                  <div class="has-icon-left">
+                  <!-- <div class="has-icon-left">
                       <input type="text" class="form-input" placeholder="Search your Loaction.. ">
                       <i class="form-icon icon icon-search"></i>
-                    </div>
+                    </div> -->
               </div>
-              <div>
-                  <button  class="btn btn-primary" style="width:100%" (click)="goToHome();">See Today's Menu</button>
-              </div>
+              
           </div>
         </div>
       

@@ -60,6 +60,9 @@ import { ErrorInterceptor } from './core/interceptors/error-interceptor';
 import { AlertInvoker } from './core/services/alert-invoker.service';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { RewardProgramComponent } from './components/reward-program/reward-program.component';
+import { ChoicesComponent } from './components/offers/choices/choices.component';
+import { ToastsComponent } from './components/shared/toasts/toasts.component';
+import { ErrorComponent } from './components/shared/error/error.component';
 
 // Payment
 
@@ -93,7 +96,10 @@ import { RewardProgramComponent } from './components/reward-program/reward-progr
     AddressComponent,
     MyinfoComponent,
     MyprofileComponent,
-    RewardProgramComponent ],
+    RewardProgramComponent,
+    ChoicesComponent,
+    ToastsComponent,
+    ErrorComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,

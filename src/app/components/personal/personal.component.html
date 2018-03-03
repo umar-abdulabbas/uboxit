@@ -11,7 +11,10 @@
         <div>
 
           <div class="uboxitRegUser" *ngIf="isActiveRegUser">
-
+            <div><button class="btn uboxitSignIn">Continue as Guest</button></div>
+            <div class="h-2x"></div>
+            <div class="divider text-center" data-content="OR"></div>
+            
             <form (ngSubmit)="logIn()">
               <div class="group">
                 <input type="text" required [(ngModel)]="model.username" name="username">

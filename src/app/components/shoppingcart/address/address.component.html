@@ -28,9 +28,24 @@
                        
                         <div class="addressNewFormInner">
                             <div class="group">
-                                <input type="text" required name="Name">
-                                <span class="highlight"></span>
-                                <span class="bar"></span><label>Name</label>
+                                    <table style="width:100%">
+                                            <tr>
+                                                <td> 
+                                                    <div class="group">
+                                                    <input type="text" required name="fname">
+                                                    <span class="highlight"></span>
+                                                    <span class="bar"></span><label>First Name</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="group">
+                                                    <input type="text" required name="lname">
+                                                    <span class="highlight"></span>
+                                                    <span class="bar"></span><label>Last Name</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table> 
                             </div>
                             <div class="group">
                                 <table style="width:100%">
@@ -58,22 +73,24 @@
                                     <span class="bar"></span><label>Postcode</label>
                             </div>
                             <div class="group">
-                                    <input type="text" required name="city">
+                                    <input type="text" required name="cityarea">
                                     <span class="highlight"></span>
-                                    <span class="bar"></span><label>City</label>
+                                    <span class="bar"></span><label>City/Area</label>
                             </div>
                             <div class="group">
-                                    <input type="text" required name="phone">
+                                    <span style="position:absolute; top:10px;">(+31)</span>
+                                    <input type="text" required name="phone" style="padding-left:38px">
                                     <span class="highlight"></span>
-                                    <span class="bar"></span><label>Phone Number</label>
+                                    <span class="bar"></span><label style="padding-left:35px">Phone Number</label>
                             </div>
                             <div class="group">
                                     <input type="text" required name="email">
                                     <span class="highlight"></span>
                                     <span class="bar"></span><label>Email Address</label>
                             </div>
-                            
+                            <div><button  class="btn btn-primary" >Save & Deliver</button></div>
                         </div>
+                        
                 </div>
         </div>
 </section>

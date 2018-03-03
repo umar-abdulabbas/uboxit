@@ -1,0 +1,32 @@
+@import "../../../../assets/css/variables";
+
+.error-wrapper {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    @include breakpoint(smart-phone){
+        height: 450px;
+    }
+}
+
+.error-wrapper img {
+    position: absolute;
+    left: 20%;
+    bottom: 0;
+    @include breakpoint(smart-phone){
+        width: 230px;
+    }
+}
+.oops{
+    font-family: $uboxit-font;
+    color:#2d2d2d;
+    font-size: 6.1rem;
+    padding-top: 10px;
+    margin-bottom: 50px;
+}
+.caption{
+    font-family: $uboxit-font;
+    font-size: 1.1rem;
+    text-align: center;
+    
+}

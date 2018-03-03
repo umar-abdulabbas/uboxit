@@ -22,7 +22,7 @@ const ADDRESSLIST: AddressList[] = [
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css']
+  styleUrls: ['./address.component.scss']
 })
 export class AddressComponent implements OnInit {
   addressList = ADDRESSLIST;

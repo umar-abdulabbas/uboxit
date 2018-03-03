@@ -8,6 +8,8 @@ import { MakeyourcomboComponent } from './components/offers/makeyourcombo/makeyo
 import { FaqsComponent } from './components/shared/faqs/faqs.component';
 import { FinishComponent } from './components/shared/finish/finish.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
+import { ChoicesComponent } from './components/offers/choices/choices.component';
+import { ErrorComponent } from './components/shared/error/error.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -21,7 +23,8 @@ const routes: Routes = [
   {path: 'faqs', component: FaqsComponent},
   {path: 'finish', component: FinishComponent},
   {path: 'myprofile', component: MyprofileComponent},
-
+  {path: 'choices', component:ChoicesComponent},
+  {path: 'error', component:ErrorComponent}
 ];
 
 @NgModule({

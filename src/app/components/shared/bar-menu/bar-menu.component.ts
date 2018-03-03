@@ -8,14 +8,14 @@ export class MenuList {
   name: string;
   link: string;
   icon: string;
-  filter: boolean;
+  filter: boolean; 
   menuActive: boolean;
 }
 
 const MENULIST: MenuList[] = [
-  {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: true},
+  {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: false},
   {id: '002', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false},
- // {id: '003', name: 'Choices', link: '/home', icon: 'restaurant', filter: true, menuActive: false}
+  {id: '003', name: 'Choices', link: '/choices', icon: 'restaurant', filter: false, menuActive: false}
 ];
 
 /* Menu End */
@@ -29,8 +29,7 @@ export class BarMenuComponent implements OnInit {
   public isBtnActive = true;
   public pathFinder: string;
   public isActiveDropDown = false;
-  public showTwoCol = false;
-  public showThreeCol = false;
+  public menuActive: boolean;
   menuList = MENULIST;
   totalCount: Observable<any>;
   @Input() availableTypes: string[] = [];
@@ -40,24 +39,26 @@ export class BarMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.showHideColClass();
+    let findPathUrl = window.location.href.split('/').pop();
+    if (findPathUrl === 'home') {
+        this.updateMenuList('001', true);
+    }
+    if (findPathUrl === 'makeyourcombo') {
+      this.updateMenuList('002', true);
+    }
+    if (findPathUrl === 'choices') {
+      this.updateMenuList('003', true);
+    }
   }
 
-  showHideColClass() {
-    if (this.menuList.length === 2) {
-      return this.showTwoCol = true;
-    }
-    if (this.menuList.length === 3) {
-      return this.showThreeCol = true;
-    }
-  }
+  
 
   selectType(type: string): void {
     this.filterType.emit(type);
     this.isActiveDropDown = false;
   }
-  openMenu(id: string, mActive: boolean): void {
-    this.updateMenuList(id, mActive);
+  openMenu(link: string): void {
+    this.router.navigate([link]); 
   }
   closeDropDown(): void {
     this.isActiveDropDown = false;
@@ -70,16 +71,8 @@ export class BarMenuComponent implements OnInit {
   }
   updateMenuList(id: string, menuActive: boolean): void {
     const menuItem = this.menuList.find(item => item.id === id);
-    if (menuActive) {
-
-      menuItem.menuActive = true;
-    } else {
-
-      this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = !i.menuActive);
-      menuItem.menuActive = true;
-      this.router.navigate([menuItem.link]);
-
-    }
-
+    menuItem.menuActive = menuActive;
+    this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = false);
+    
   }
 }

@@ -26,9 +26,11 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
         background-size: 100px 47px; margin-top: -47px; margin-left: -50px;
     }
 }
-
+.chckt-button{
+    background: $uboxit-primary-color !important;
+}
 //common
-.toast{ margin-bottom: 20px;}
+.h-2x{ height: 20px;}
 .header-top{ background: $uboxit-primary-color; height:50px; }
 .header { background: $uboxit-primary-color; height: 80px; border-radius: 0px 0px 25px 25px; padding: 20px; width:100%; display: -webkit-flex; /* Safari */  display: flex;
 }

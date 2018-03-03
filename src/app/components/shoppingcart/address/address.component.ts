@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Address } from '../../../core/domain/address';
 import { PaymentService } from '../../payment/services/payment-service';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
@@ -35,6 +35,8 @@ export class AddressComponent implements OnInit {
   addressModel: Address = <Address>{};
   userModel: any = {};
 
+  @Output() addressUpdated = new EventEmitter<boolean>();
+
   // features
   loginEnabled: boolean;
 
@@ -60,11 +62,14 @@ export class AddressComponent implements OnInit {
   }
 
   addAddress() {
+    // validation to be done
     console.log('added address');
     console.log(this.addressModel);
     console.log(this.userModel);
 
     this.p.enrichAddress(this.addressModel);
     this.p.enrichUserDetails(this.userModel);
+
+    this.addressUpdated.emit(true);
   }
 }

@@ -7,7 +7,7 @@ import { AlertInvoker } from '../../../core/services/alert-invoker.service';
   styleUrls: ['./toasts.component.scss']
 })
 export class ToastsComponent implements OnInit {
-  showToasts = true;
+  showToasts: boolean;
   message: string;
 
   constructor(private alertInvoker: AlertInvoker) { }

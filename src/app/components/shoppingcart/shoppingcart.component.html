@@ -48,7 +48,7 @@
         </mat-expansion-panel>
 
         <!-- address -->
-        <mat-expansion-panel [disabled]="!loggedIn" [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true" class="addressPanel">
+        <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true" class="addressPanel">
           <mat-expansion-panel-header>
             <mat-panel-title>Delivery Address</mat-panel-title>
 
@@ -64,7 +64,7 @@
         </mat-expansion-panel>
 
         <!-- payment -->
-        <mat-expansion-panel [disabled]="!loggedIn" [expanded]="step === 3" (opened)="setStep(3)" hideToggle="true">
+        <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 3" (opened)="setStep(3)" hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Payment Options</mat-panel-title>
 

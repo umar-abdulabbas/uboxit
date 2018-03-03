@@ -8,7 +8,7 @@ export class MenuList {
   name: string;
   link: string;
   icon: string;
-  filter: boolean; 
+  filter: boolean;
   menuActive: boolean;
 }
 
@@ -39,7 +39,7 @@ export class BarMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    let findPathUrl = window.location.href.split('/').pop();
+    const findPathUrl = window.location.href.split('/').pop();
     if (findPathUrl === 'home') {
         this.updateMenuList('001', true);
     }
@@ -51,14 +51,12 @@ export class BarMenuComponent implements OnInit {
     }
   }
 
-  
-
   selectType(type: string): void {
     this.filterType.emit(type);
     this.isActiveDropDown = false;
   }
   openMenu(link: string): void {
-    this.router.navigate([link]); 
+    this.router.navigate([link]);
   }
   closeDropDown(): void {
     this.isActiveDropDown = false;
@@ -73,6 +71,5 @@ export class BarMenuComponent implements OnInit {
     const menuItem = this.menuList.find(item => item.id === id);
     menuItem.menuActive = menuActive;
     this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = false);
-    
   }
 }

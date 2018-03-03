@@ -43,14 +43,13 @@ export class LocationComponent implements OnInit {
   closeChangeLocation(): void {
     this.isModelActive = false;
     this.showLocationPanel = false;
-    
   }
 
   openChangeLocation(): void {
     this.isModelActive = true;
   }
 
-  goToHome(place:string, id:string): void {
+  goToHome(place: string, id: string): void {
     this.placeTitle = place;
     this.isModelActive = false;
     this.showLocationPanel = false;

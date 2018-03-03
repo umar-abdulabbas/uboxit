@@ -23,8 +23,8 @@ const routes: Routes = [
   {path: 'faqs', component: FaqsComponent},
   {path: 'finish', component: FinishComponent},
   {path: 'myprofile', component: MyprofileComponent},
-  {path: 'choices', component:ChoicesComponent},
-  {path: 'error', component:ErrorComponent}
+  {path: 'choices', component: ChoicesComponent},
+  {path: 'error', component: ErrorComponent}
 ];
 
 @NgModule({

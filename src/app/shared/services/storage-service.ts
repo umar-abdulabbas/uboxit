@@ -52,7 +52,7 @@ export class StorageService {
   }
 
   clearCart() {
-    this.localStorageService.remove(CART_KEY, CART_UPDATED_TIME_KEY);
+    this.localStorageService.remove(CART_KEY, CART_UPDATED_TIME_KEY, CART_ID_KEY);
   }
 
   clearUser() {

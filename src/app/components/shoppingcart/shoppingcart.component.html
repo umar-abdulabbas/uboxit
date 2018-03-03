@@ -16,12 +16,12 @@
             <button class="btn" (click)="linkToHomePage()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue
               Shopping
             </button>&nbsp;
-            <button class="btn btn-primary" (click)="nextStep()">Place Order</button>
+            <button class="btn btn-primary" (click)="loginEnabled ? nextStep() : skipLoginStep()">Place Order</button>
           </mat-action-row>
         </mat-expansion-panel>
 
         <!-- login -->
-        <mat-expansion-panel *ngIf="!loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel *ngIf="loginEnabled && !loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Login or SignUp</mat-panel-title>
           </mat-expansion-panel-header>
@@ -34,7 +34,7 @@
         </mat-expansion-panel>
 
         <!-- logged in user -->
-        <mat-expansion-panel *ngIf="loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel *ngIf="loginEnabled && loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Welcome Customer1036!</mat-panel-title>
           </mat-expansion-panel-header>
@@ -75,9 +75,9 @@
 
           <mat-action-row>
               <mat-panel-title><div class="secure3d"><span class="secure3dTxt">Payment secured by : </span><img src="../assets/images/3dsecure.png" height="40px"/></div></mat-panel-title>
-            
+
             <button class="btn btn-primary" (click)="prevStep()">Previous</button>&nbsp;
-            
+
           </mat-action-row>
         </mat-expansion-panel>
 

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../../personal/services/login-service';
+import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   totalCount: Observable<number>;
   loggedIn: Observable<boolean>;
   showLoggedIn = false;
+
+  // features
+  loginEnabled: boolean;
 
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private cartService: CartService,
@@ -39,6 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.closeLoginWindow();
       }
     });
+    this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
   }
 
   ngOnDestroy() {

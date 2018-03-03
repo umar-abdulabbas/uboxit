@@ -7,7 +7,7 @@
         </div>
         <div class="header-rightLogo">
           <app-location></app-location>
-          <button class="btn btn-link c-hand" *ngIf="!(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
+          <button class="btn btn-link c-hand" *ngIf="loginEnabled && !(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
 
           <button class="btn btn-link c-hand" *ngIf="(loggedIn | async)" (click)="logoutPanel()"><i class="material-icons">lock </i></button>
 

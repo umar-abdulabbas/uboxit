@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 
 import { CartService } from './services/cart.service';
 import { Cart } from '../../core/domain/cart';
-import { Observable } from 'rxjs/Observable';
 import { StorageService } from '../../shared/services/storage-service';
 import { OfferService } from '../offers/services/offer.service';
 import { LoginService } from '../personal/services/login-service';
+import { FeatureSwitch } from '../../core/feature-switch/feature-switch';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -19,6 +19,9 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   cart: Cart;
   loggedIn: boolean;
+
+  // features
+  loginEnabled: boolean;
 
   constructor(private cartService: CartService, private router: Router,
               private storageService: StorageService,
@@ -41,6 +44,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
       });
     }
 
+    this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
     this.loginService.loggedIn.subscribe(val => this.loggedIn = val);
   }
 
@@ -54,6 +58,10 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   nextStep() {
     this.step++;
+  }
+
+  skipLoginStep() {
+    this.step += 2;
   }
 
   prevStep() {

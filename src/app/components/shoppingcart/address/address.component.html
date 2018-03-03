@@ -1,23 +1,26 @@
 <section class="uboxitLayout">
-  <div class="address-repeat" *ngFor="let address of addressList">
-    <div class="addressInner" (click)="radioSelect(address.id)">
-      <div class="address-left">
-        <div class="radioarea"><input type="radio" id="{{address.id}}" name="address" value="{{address.name}}"
-                                      checked="{{address.checked}}"/></div>
+  <div *ngIf="loginEnabled">
+    <div class="address-repeat" *ngFor="let address of addressList">
+      <div class="addressInner" (click)="radioSelect(address.id)">
+        <div class="address-left">
+          <div class="radioarea"><input type="radio" id="{{address.id}}" name="address" value="{{address.name}}"
+                                        checked="{{address.checked}}"/></div>
+        </div>
+        <div class="address-right">
+          <div class="address-name">{{address.name}}</div>
+          <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
+          <div>{{address.postalcode}}, {{address.city}}, {{address.email}}</div>
+          <div>{{address.phone}}</div>
+        </div>
+        <div class="clearfix"></div>
       </div>
-      <div class="address-right">
-        <div class="address-name">{{address.name}}</div>
-        <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
-        <div>{{address.postalcode}}, {{address.city}}, {{address.email}}</div>
-        <div>{{address.phone}}</div>
-      </div>
-      <div class="clearfix"></div>
     </div>
   </div>
+
   <!-- New Adress Section -->
   <form (ngSubmit)="addAddress()">
     <div class="address-repeat" [ngClass]="{'address-repeat-w':'isActiveNewForm'}">
-      <div class="addressInner" (click)="showNewForm(addradio.checked)">
+      <div class="addressInner" *ngIf="loginEnabled" (click)="showNewForm(addradio.checked)">
         <div class="address-left">
           <div class="radioarea"><input #addradio type="radio" name="address" value="Add a New Address"
                                         checked="{{isActiveRadio}}"/></div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Address } from '../../../core/domain/address';
 import { PaymentService } from '../../payment/services/payment-service';
+import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
 
 export class AddressList {
     id: string;
@@ -34,9 +35,14 @@ export class AddressComponent implements OnInit {
   addressModel: Address = <Address>{};
   userModel: any = {};
 
+  // features
+  loginEnabled: boolean;
+
   constructor(private p: PaymentService) { }
 
   ngOnInit() {
+    this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
+    this.isActiveNewForm = !this.loginEnabled;
   }
 
   showNewForm(checked: string) {

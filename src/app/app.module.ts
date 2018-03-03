@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -63,6 +63,7 @@ import { RewardProgramComponent } from './components/reward-program/reward-progr
 import { ChoicesComponent } from './components/offers/choices/choices.component';
 import { ToastsComponent } from './components/shared/toasts/toasts.component';
 import { ErrorComponent } from './components/shared/error/error.component';
+import { GenericErrorHandler } from './core/errors/generic-error-handler';
 
 // Payment
 
@@ -129,7 +130,8 @@ import { ErrorComponent } from './components/shared/error/error.component';
     OfferErrorMessageService,
     AlertInvoker,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+    { provide: ErrorHandler, useClass: GenericErrorHandler }
   ],
   bootstrap: [AppComponent]
 })

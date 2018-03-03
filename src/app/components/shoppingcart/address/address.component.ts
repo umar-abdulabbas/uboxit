@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Address } from '../../../core/domain/address';
+import { PaymentService } from '../../payment/services/payment-service';
 
 export class AddressList {
     id: string;
@@ -28,7 +30,11 @@ export class AddressComponent implements OnInit {
   addressList = ADDRESSLIST;
   public isActiveNewForm = false;
   public isActiveRadio;
-  constructor() { }
+
+  addressModel: Address = <Address>{};
+  userModel: any = {};
+
+  constructor(private p: PaymentService) { }
 
   ngOnInit() {
   }
@@ -45,5 +51,14 @@ export class AddressComponent implements OnInit {
     this.addressList.filter(i => i.id !== id).forEach(i => i.checked = '');
     const addressCheck = this.addressList.find(i => i.id === id );
     addressCheck.checked = 'checked';
+  }
+
+  addAddress() {
+    console.log('added address');
+    console.log(this.addressModel);
+    console.log(this.userModel);
+
+    this.p.enrichAddress(this.addressModel);
+    this.p.enrichUserDetails(this.userModel);
   }
 }

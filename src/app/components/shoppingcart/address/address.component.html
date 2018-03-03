@@ -1,97 +1,103 @@
 <section class="uboxitLayout">
-        <div class="address-repeat" *ngFor="let address of addressList">
-            <div class="addressInner" (click)="radioSelect(address.id)">
-                <div class="address-left">
-                <div class="radioarea"><input type="radio" id="{{address.id}}" name="address" value="{{address.name}}" checked="{{address.checked}}"/></div>
-                </div>
-                <div class="address-right">
-                        <div class="address-name">{{address.name}}</div>
-                        <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
-                        <div>{{address.postalcode}}, {{address.city}}, {{address.email}}</div>
-                        <div>{{address.phone}}</div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+  <div class="address-repeat" *ngFor="let address of addressList">
+    <div class="addressInner" (click)="radioSelect(address.id)">
+      <div class="address-left">
+        <div class="radioarea"><input type="radio" id="{{address.id}}" name="address" value="{{address.name}}"
+                                      checked="{{address.checked}}"/></div>
+      </div>
+      <div class="address-right">
+        <div class="address-name">{{address.name}}</div>
+        <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
+        <div>{{address.postalcode}}, {{address.city}}, {{address.email}}</div>
+        <div>{{address.phone}}</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- New Adress Section -->
+  <form (ngSubmit)="addAddress()">
+    <div class="address-repeat" [ngClass]="{'address-repeat-w':'isActiveNewForm'}">
+      <div class="addressInner" (click)="showNewForm(addradio.checked)">
+        <div class="address-left">
+          <div class="radioarea"><input #addradio type="radio" name="address" value="Add a New Address"
+                                        checked="{{isActiveRadio}}"/></div>
         </div>
-        <!-- New Adress Section --> 
-        <div class="address-repeat" [ngClass]="{'address-repeat-w':'isActiveNewForm'}">
-                <div class="addressInner" (click)="showNewForm(addradio.checked)">
-                    <div class="address-left">
-                    <div class="radioarea"><input #addradio type="radio" name="address" value="Add a New Address" checked="{{isActiveRadio}}" /></div>
-                    </div>
-                    <div class="address-right">
-                            <div class="address-name"> Add a New Address</div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="addressNewForm" *ngIf="isActiveNewForm">
-                       
-                        <div class="addressNewFormInner">
-                            <div class="group">
-                                    <table style="width:100%">
-                                            <tr>
-                                                <td> 
-                                                    <div class="group">
-                                                    <input type="text" required name="fname">
-                                                    <span class="highlight"></span>
-                                                    <span class="bar"></span><label>First Name</label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="group">
-                                                    <input type="text" required name="lname">
-                                                    <span class="highlight"></span>
-                                                    <span class="bar"></span><label>Last Name</label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table> 
-                            </div>
-                            <div class="group">
-                                <table style="width:100%">
-                                    <tr>
-                                        <td> 
-                                            <div class="group">
-                                            <input type="text" required name="housenumber">
-                                            <span class="highlight"></span>
-                                            <span class="bar"></span><label>House Number</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="group">
-                                            <input type="text" required name="streetname">
-                                            <span class="highlight"></span>
-                                            <span class="bar"></span><label>Street Name</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>                                
-                            </div>
-                            <div class="group">
-                                    <input type="text" required name="postcode">
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span><label>Postcode</label>
-                            </div>
-                            <div class="group">
-                                    <input type="text" required name="cityarea">
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span><label>City/Area</label>
-                            </div>
-                            <div class="group">
-                                    <span style="position:absolute; top:10px;">(+31)</span>
-                                    <input type="text" required name="phone" style="padding-left:38px">
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span><label style="padding-left:35px">Phone Number</label>
-                            </div>
-                            <div class="group">
-                                    <input type="text" required name="email">
-                                    <span class="highlight"></span>
-                                    <span class="bar"></span><label>Email Address</label>
-                            </div>
-                            <div><button  class="btn btn-primary" >Save & Deliver</button></div>
-                        </div>
-                        
-                </div>
+        <div class="address-right">
+          <div class="address-name"> Add a New Address</div>
         </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="addressNewForm" *ngIf="isActiveNewForm">
+
+        <div class="addressNewFormInner">
+          <div class="group">
+            <table style="width:100%">
+              <tr>
+                <td>
+                  <div class="group">
+                    <input type="text" required name="fname" [(ngModel)]="addressModel.firstName">
+                    <span class="highlight"></span>
+                    <span class="bar"></span><label>First Name</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="group">
+                    <input type="text" required name="lname" [(ngModel)]="addressModel.lastName">
+                    <span class="highlight"></span>
+                    <span class="bar"></span><label>Last Name</label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="group">
+            <table style="width:100%">
+              <tr>
+                <td>
+                  <div class="group">
+                    <input type="text" required name="housenumber" [(ngModel)]="addressModel.houseNumber">
+                    <span class="highlight"></span>
+                    <span class="bar"></span><label>House Number</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="group">
+                    <input type="text" required name="streetname" [(ngModel)]="addressModel.street">
+                    <span class="highlight"></span>
+                    <span class="bar"></span><label>Street Name</label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="group">
+            <input type="text" required name="postcode" [(ngModel)]="addressModel.postalCode">
+            <span class="highlight"></span>
+            <span class="bar"></span><label>Postcode</label>
+          </div>
+          <div class="group">
+            <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
+            <span class="highlight"></span>
+            <span class="bar"></span><label>City/Area</label>
+          </div>
+          <div class="group">
+            <span style="position:absolute; top:10px;">(+31)</span>
+            <input type="text" required name="phone" style="padding-left:38px" [(ngModel)]="userModel.phone">
+            <span class="highlight"></span>
+            <span class="bar"></span><label style="padding-left:35px">Phone Number</label>
+          </div>
+          <div class="group">
+            <input type="text" required name="email" [(ngModel)]="userModel.email">
+            <span class="highlight"></span>
+            <span class="bar"></span><label>Email Address</label>
+          </div>
+          <div>
+            <button class="btn btn-primary">Save & Deliver</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
 </section>
 

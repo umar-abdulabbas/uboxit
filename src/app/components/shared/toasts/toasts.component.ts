@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertInvoker } from '../../../core/services/alert-invoker.service';
 
 @Component({
   selector: 'app-toasts',
@@ -6,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toasts.component.scss']
 })
 export class ToastsComponent implements OnInit {
-  public showToasts = true;
-  constructor() { }
+  showToasts = true;
+  message: string;
+
+  constructor(private alertInvoker: AlertInvoker) { }
 
   ngOnInit() {
+   this.alertInvoker.message.subscribe(m => {
+     if (!!m) {
+       console.log(m);
+       this.showToasts = true;
+       this.message = m;
+     }
+   });
   }
+
   close() {
       this.showToasts = false;
   }

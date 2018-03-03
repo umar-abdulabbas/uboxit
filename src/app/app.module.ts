@@ -64,6 +64,7 @@ import { ChoicesComponent } from './components/offers/choices/choices.component'
 import { ToastsComponent } from './components/shared/toasts/toasts.component';
 import { ErrorComponent } from './components/shared/error/error.component';
 import { GenericErrorHandler } from './core/errors/generic-error-handler';
+import { ErrorsAggregator } from './core/errors/errors-aggregator';
 
 // Payment
 
@@ -129,6 +130,7 @@ import { GenericErrorHandler } from './core/errors/generic-error-handler';
     UserExpStyleService,
     OfferErrorMessageService,
     AlertInvoker,
+    ErrorsAggregator,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: ErrorHandler, useClass: GenericErrorHandler }

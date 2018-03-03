@@ -5,18 +5,21 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AlertInvoker } from '../services/alert-invoker.service';
+import { ErrorsAggregator } from '../errors/errors-aggregator';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private  alertInvoker: AlertInvoker) {}
+  constructor(private alertInvoker: AlertInvoker,
+              private errorsAggregator: ErrorsAggregator) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req)
       .do(ev => {
-        if (ev instanceof HttpResponse && ev.body && ev.body.errorCode) {
-          console.log(ev.body.errorCode);
-          console.log(ev.body.errorMessage);
+        if (ev instanceof HttpResponse && ev.body && ev.body.notification) {
+          console.log(ev.body.notification.code + ev.body.notification.description);
+          this.errorsAggregator.push(ev.body.notification.description);
+          // this.alertInvoker.invokeNotification(ev.body.notification.description);
         } else if (ev instanceof HttpErrorResponse) {
           console.log(ev.status);
         }
@@ -29,6 +32,5 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
         return Observable.throw(err);
       });
-    // return next.handle(req);
   }
 }

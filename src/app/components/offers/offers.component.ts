@@ -3,6 +3,8 @@ import { Combo } from '../../core/domain/offer';
 import { OfferService } from './services/offer.service';
 import { CartService } from '../shoppingcart/services/cart.service';
 import { Cart } from '../../core/domain/cart';
+import { ErrorsAggregator } from '../../core/errors/errors-aggregator';
+import { AlertInvoker } from '../../core/services/alert-invoker.service';
 
 
 @Component({
@@ -22,7 +24,8 @@ export class OffersComponent implements OnInit {
   selectedOffer: Combo;
   availableTypes: string[] = [];
   selectedType: string;
-  constructor(private offerService: OfferService, private cartService: CartService) {
+  constructor(private offerService: OfferService, private cartService: CartService,
+              private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker) {
 
   }
 
@@ -35,6 +38,10 @@ export class OffersComponent implements OnInit {
       });
     } else {
       this.initialize();
+    }
+    const error = this.errorsAggregator.pop();
+    if (!!error) {
+      this.alertInvoker.invokeNotification(error);
     }
   }
 

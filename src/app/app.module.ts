@@ -25,7 +25,6 @@ import { ModelCloseOverlayDirective } from './directives/modelCloseonOverlay.dir
 // Material Componets Added
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { NgxCarouselModule } from 'ngx-carousel';
 import { MakeyourcomboOfferComponent } from './components/offers/makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './components/shared/add-to-cart-counter/add-to-cart-counter.component';
 
@@ -111,7 +110,6 @@ import { ErrorsAggregator } from './core/errors/errors-aggregator';
     AppRoutingModule,
     MatExpansionModule,
     // Material Import
-    NgxCarouselModule,
     LocalStorageModule.withConfig({
       prefix: 'uboxit',
       storageType: 'localStorage'

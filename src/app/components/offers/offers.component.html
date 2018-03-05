@@ -32,7 +32,7 @@
                   </div>
                   <div class="card-body"><span class="chip">{{offer.category}}</span></div>
                   <div class="card-footer">
-                  <div class="float-left text-bold"><i class="material-icons">favorite_border</i></div>
+                  <div class="float-left text-bold"><!-- <i class="material-icons">favorite_border</i>--></div>
                     <div class="float-right">
                         <app-add-to-cart-counter [counterValue]="!!offer.count ? offer.count : 0" (updatedCount)="addProductToCart(offer.id, $event)"></app-add-to-cart-counter>
 

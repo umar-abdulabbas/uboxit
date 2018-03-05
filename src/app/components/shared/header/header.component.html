@@ -1,5 +1,5 @@
-<div class="header-top"></div>
-<div class="container grid-lg" style="margin-top:-50px">
+<div class="header-top">
+<div class="container grid-lg">
     <div class="header">
         <div class="header-menu"><app-hamburger></app-hamburger></div>
         <div class="header-logo c-hand"  (click)="goToHomePage();">
@@ -7,8 +7,10 @@
         </div>
         <div class="header-rightLogo">
           <app-location></app-location>
-          <button class="btn btn-link c-hand" *ngIf="loginEnabled && !(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
+          <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
 
+          <button class="btn btn-link c-hand" *ngIf="loginEnabled && !(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
+ 
           <button class="btn btn-link c-hand" *ngIf="(loggedIn | async)" (click)="logoutPanel()"><i class="material-icons">lock </i></button>
 
           <div appModelCloseOnOverlay (modelClose)="modelclose($event)" *ngIf="showLoggedIn" class="showLoggedInPanelOverLay"></div>
@@ -21,12 +23,10 @@
                   </ul>
               </div>
           </div>
-
-          <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
         </div>
     </div>
 </div>
-
+</div>
 
 <div class="modal" [ngClass]="{'active':headerActive}">
     <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>

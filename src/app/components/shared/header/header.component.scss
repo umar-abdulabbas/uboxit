@@ -1,6 +1,14 @@
 @import "../../../../assets/css/variables";
 //Header Start
-
+.header-menu { -webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 42px; }
+.header-logo { -webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 79%; text-align: center;
+    @include breakpoint(smart-phone){
+        flex-basis: 43%;
+        text-align: left;
+        padding-left: 10px;
+    }
+}
+.header-rightLogo{-webkit-flex-basis: 42px;  flex-grow: 0;  flex-shrink: 0;  flex-basis: 152px; text-align: right; }
 .container.grid-lg.header { margin-top:-50px;}
 .uboxitBadge{ font-size: 11px;  height: 16px; line-height: 1; min-width: .9rem;  padding: .1rem .2rem; text-align: center;
     white-space: nowrap; position: relative; top: -15px;  right: 4px; color:$uboxit-primary-color;  background: #fff;

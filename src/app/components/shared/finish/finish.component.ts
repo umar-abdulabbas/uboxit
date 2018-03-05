@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { PaymentService } from '../../payment/services/payment-service';
+import { StorageService } from '../../../shared/services/storage-service';
 
 // export enum PaymentResultCode {
 //   Authorised = 'authorised',
@@ -20,9 +21,12 @@ export class FinishComponent implements OnInit {
   orderConfirmation: string;
 
   constructor(private route: ActivatedRoute,
-              private paymentService: PaymentService) { }
+              private paymentService: PaymentService,
+              private storageService: StorageService) {
+  }
 
   ngOnInit() {
+    console.log('finish loaded');
     this.routerParamSubscription = this.route.queryParams.subscribe(params => {
       const payLoad = params.payload;
       console.log(payLoad);
@@ -32,6 +36,7 @@ export class FinishComponent implements OnInit {
         this.paymentService.finalizePayment(payLoad)
           .subscribe((res: any) => {
             console.log(res);
+            this.storageService.clearCart();
             this.orderConfirmation = res.orderConfirmation;
           });
       } else {

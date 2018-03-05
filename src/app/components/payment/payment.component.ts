@@ -32,7 +32,6 @@ export class PaymentComponent implements OnInit {
 
     adyenSdk['hooks']['beforeRedirect'] = () => {
       console.log('before redirect');
-      this.storageService.clearCart();
       return true;
     };
 

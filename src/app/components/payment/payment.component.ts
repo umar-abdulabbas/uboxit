@@ -3,6 +3,8 @@ import { PaymentService } from './services/payment-service';
 import { Observable } from 'rxjs/Observable';
 import { Cart } from '../../core/domain/cart';
 import { StorageService } from '../../shared/services/storage-service';
+import { Router } from '@angular/router';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-payment',
@@ -18,7 +20,8 @@ export class PaymentComponent implements OnInit {
   };
 
   constructor(private paymentService: PaymentService,
-              private storageService: StorageService) {
+              private router: Router,
+              public zone: NgZone) {
   }
 
   ngOnInit() {
@@ -40,8 +43,9 @@ export class PaymentComponent implements OnInit {
       console.log(node);
       console.log(paymentData);
       if (paymentData.resultCode === 'authorised') {
-        this.paymentService.finalizePayment(paymentData.payload)
-          .subscribe(res => console.log(res));
+        // hack as we have browseranimation module
+        // https://github.com/angular/angular/issues/20290
+        this.zone.run(() => { this.router.navigate(['finish'], { queryParams: { payload: paymentData.payload, resultCode: paymentData.resultCode} }); });
       } else {
         console.error('payment not success');
       }

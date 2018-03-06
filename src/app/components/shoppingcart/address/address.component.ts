@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Address } from '../../../core/domain/address';
 import { PaymentService } from '../../payment/services/payment-service';
-import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
+import { StorageService } from '../../../shared/services/storage-service';
 
 export class AddressList {
     id: string;
@@ -44,9 +44,12 @@ export class AddressComponent implements OnInit {
   @Output() existingAddressSelected = new EventEmitter<boolean>();
   @Output() previousStepRequested = new EventEmitter<boolean>();
 
-  constructor(private p: PaymentService) { }
+  constructor(private paymentService: PaymentService,
+              private storageService: StorageService) { }
 
   ngOnInit() {
+    this.addressModel = this.storageService.getDeliveryAddress();
+    this.userModel = this.storageService.getDeliveryContact();
   }
 
   showNewForm(checked: string) {
@@ -74,8 +77,11 @@ export class AddressComponent implements OnInit {
     console.log(this.addressModel);
     console.log(this.userModel);
 
-    this.p.enrichAddress(this.addressModel);
-    this.p.enrichUserDetails(this.userModel);
+    this.storageService.storeDeliveryAddress(this.addressModel);
+    this.storageService.storeDeliveryContact(this.userModel);
+
+    this.paymentService.enrichAddress(this.addressModel);
+    this.paymentService.enrichUserDetails(this.userModel);
 
     this.addressUpdated.emit(true);
   }

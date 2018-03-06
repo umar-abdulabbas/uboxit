@@ -5,10 +5,11 @@ import { PaymentService } from '../../payment/services/payment-service';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { OfferService } from '../../offers/services/offer.service';
 
-// export enum PaymentResultCode {
-//   Authorised = 'authorised',
-//   Pending = 'pending'
-// }
+export enum OrderStatus {
+  Authorised = 'authorised',
+  Received = 'received',
+  Pending = 'pending'
+}
 
 @Component({
   selector: 'app-finish',
@@ -20,6 +21,9 @@ export class FinishComponent implements OnInit {
   routerParamSubscription: Subscription = new Subscription();
 
   orderConfirmation: string;
+  orderStatus: OrderStatus;
+
+  OrderStatus = OrderStatus;
 
   constructor(private route: ActivatedRoute,
               private paymentService: PaymentService,
@@ -32,19 +36,20 @@ export class FinishComponent implements OnInit {
     this.routerParamSubscription = this.route.queryParams.subscribe(params => {
       const payLoad = params.payload;
       console.log(payLoad);
-      const resultCode = params.resultCode;
-      console.log(resultCode);
-      if (resultCode === 'authorised') {
-        this.paymentService.finalizePayment(payLoad)
-          .subscribe((res: any) => {
-            console.log(res);
-            this.offerService.clearSelection();
-            this.cartService.clearStoredCart();
-            this.orderConfirmation = res.orderConfirmation;
-          });
-      } else {
-        console.error('payment not success');
-      }
+      // const resultCode = params.resultCode;
+      // console.log(resultCode);
+      // if (resultCode === 'authorised') {
+      this.paymentService.finalizePayment(payLoad)
+        .subscribe((res: any) => {
+          console.log(res);
+          this.offerService.clearSelection();
+          this.cartService.clearStoredCart();
+          this.orderConfirmation = res.orderConfirmation;
+          this.orderStatus = res.authResponse;
+        });
+      // } else {
+      //   console.error('payment not success');
+      // }
     });
   }
 

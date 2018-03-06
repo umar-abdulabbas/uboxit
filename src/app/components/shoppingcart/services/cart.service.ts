@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cart, Combo } from '../../../core/domain/cart';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { StorageService } from '../../../shared/services/storage-service';
 
 @Injectable()
 export class CartService {
-
-  totalCount = 0;
-  totalCountSubject = new BehaviorSubject<number>(this.totalCount);
 
   cartId: string;
 
@@ -72,8 +68,11 @@ export class CartService {
     const cachedCart: Cart = this.storageService.getStoredCart();
     if (!!cachedCart) {
       this.cartRequest = cachedCart;
-      this.addAllCountAndEmitValue();
     }
+  }
+
+  clearStoredCart() {
+    this.storageService.clearCart();
   }
 
   addComboToCart(productId: string, count: number) {
@@ -93,7 +92,6 @@ export class CartService {
     }
     console.log(combo);
     this.storageService.storeCart(this.cartRequest);
-    this.addAllCountAndEmitValue();
   }
 
   prepareCustomisedCombo(itemIds: string[], count: number) {
@@ -117,7 +115,6 @@ export class CartService {
       this.cartRequest.combos.push(combo);
     }
     this.storageService.storeCart(this.cartRequest);
-    this.addAllCountAndEmitValue();
   }
 
   isCustomComboAlreadySelected(itemIds: string[]) {
@@ -130,19 +127,6 @@ export class CartService {
 
   private isProductAlreadyPresent(productList: any[], id: string) {
     return !!productList && !!productList.find(p => p.id === id);
-  }
-
-  private addAllCountAndEmitValue() {
-    let itemCount = 0;
-    let comboCount = 0;
-    if (this.cartRequest.items.length > 0) {
-      itemCount = this.cartRequest.items.map(i => i.count).reduce((accumulator, currentValue) => accumulator + currentValue);
-    }
-    if (this.cartRequest.combos.length > 0) {
-      comboCount = this.cartRequest.combos.map(c => c.count).reduce((accumulator, currentValue) => accumulator + currentValue);
-    }
-    this.totalCount = itemCount + comboCount;
-    this.totalCountSubject.next(this.totalCount);
   }
 
   private isCustomisedComboAlreadyPresent(productList: any[], itemIds: string[]) {

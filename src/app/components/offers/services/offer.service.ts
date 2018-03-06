@@ -64,9 +64,16 @@ export class OfferService {
     return this.items.find(item => item.id === itemId);
   }
 
-  // just for UI purpose - this count will not be used to process the cart
+  // just for UI purpose (to show the count between - & + (counter component)
+  // - this count will not be used to process the cart
   updateCountForCombo(id: string, count: number) {
     this.combos.find(c => c.id === id).count = count;
+  }
+
+  // to clear the value displayed in counter component
+  clearSelection() {
+    this.combos.forEach(c => c.count = 0);
+    this.items.forEach(i => i.count = 0);
   }
 
   private getItems(itemType: string) {

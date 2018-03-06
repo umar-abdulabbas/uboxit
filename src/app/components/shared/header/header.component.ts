@@ -2,10 +2,10 @@ import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
 import { Router } from '@angular/router';
-import { CartService } from '../../shoppingcart/services/cart.service';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../../personal/services/login-service';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
+import { StorageService } from '../../../shared/services/storage-service';
 
 @Component({
   selector: 'app-header',
@@ -27,8 +27,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loginEnabled: boolean;
 
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
-              private cartService: CartService,
-              private loginService: LoginService) {
+              private loginService: LoginService,
+              private storageService: StorageService) {
 
   }
 
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
-    this.totalCount = this.cartService.totalCountSubject;
+    this.totalCount = this.storageService.totalCountSubject;
     this.loggedIn = this.loginService.loggedIn;
     this.loginService.loggedIn.subscribe(v => {
       if (v) {

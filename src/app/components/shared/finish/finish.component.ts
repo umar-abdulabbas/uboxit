@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { PaymentService } from '../../payment/services/payment-service';
-import { StorageService } from '../../../shared/services/storage-service';
+import { CartService } from '../../shoppingcart/services/cart.service';
+import { OfferService } from '../../offers/services/offer.service';
 
 // export enum PaymentResultCode {
 //   Authorised = 'authorised',
@@ -22,7 +23,8 @@ export class FinishComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private paymentService: PaymentService,
-              private storageService: StorageService) {
+              private cartService: CartService,
+              private offerService: OfferService) {
   }
 
   ngOnInit() {
@@ -36,7 +38,8 @@ export class FinishComponent implements OnInit {
         this.paymentService.finalizePayment(payLoad)
           .subscribe((res: any) => {
             console.log(res);
-            this.storageService.clearCart();
+            this.offerService.clearSelection();
+            this.cartService.clearStoredCart();
             this.orderConfirmation = res.orderConfirmation;
           });
       } else {

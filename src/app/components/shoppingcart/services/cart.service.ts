@@ -73,6 +73,9 @@ export class CartService {
 
   clearStoredCart() {
     this.storageService.clearCart();
+    this.cartRequest = undefined;
+    this.cartId = undefined;
+    this.cart = undefined;
   }
 
   addComboToCart(productId: string, count: number) {

@@ -16,12 +16,13 @@
             <button class="btn" (click)="linkToHomePage()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue
               Shopping
             </button>&nbsp;
-            <button class="btn btn-primary" (click)="loginEnabled ? nextStep() : skipLoginStep()">Place Order</button>
+            <button class="btn btn-primary" (click)="loginEnabled ? nextStep() : forwardWithoutLoginStep()">Place Order</button>
           </mat-action-row>
         </mat-expansion-panel>
 
         <!-- login -->
-        <mat-expansion-panel *ngIf="loginEnabled && !loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel *ngIf="loginEnabled && !loggedIn" [expanded]="step === 1" (opened)="setStep(1)"
+                             hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Login or SignUp</mat-panel-title>
           </mat-expansion-panel-header>
@@ -34,7 +35,8 @@
         </mat-expansion-panel>
 
         <!-- logged in user -->
-        <mat-expansion-panel *ngIf="loginEnabled && loggedIn" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel *ngIf="loginEnabled && loggedIn" [expanded]="step === 1" (opened)="setStep(1)"
+                             hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Welcome Customer1036!</mat-panel-title>
           </mat-expansion-panel-header>
@@ -48,23 +50,30 @@
         </mat-expansion-panel>
 
         <!-- address -->
-        <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true" class="addressPanel">
+        <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 2" (opened)="setStep(2)"
+                             hideToggle="true" class="addressPanel">
           <mat-expansion-panel-header>
             <mat-panel-title>Delivery Address</mat-panel-title>
 
           </mat-expansion-panel-header>
 
-          <div><app-address (addressUpdated)="nextStep()"></app-address></div>
+          <div>
+            <app-address
+              (existingAddressSelected)="displayActionRowForAddress = true;"
+              (newAddressSelected)="displayActionRowForAddress = false;"
+              (addressUpdated)="nextStep()"
+              (previousStepRequested)="loginEnabled ? prevStep() : backwardWithoutLoginStep()"></app-address>
+          </div>
 
-
-          <mat-action-row>
-            <button class="btn btn-primary" (click)="prevStep()">Previous</button>&nbsp;
+          <mat-action-row *ngIf="displayActionRowForAddress">
+            <button class="btn btn-primary" (click)="loginEnabled ? prevStep() : backwardWithoutLoginStep()">Previous</button>&nbsp;
             <button class="btn btn-primary" (click)="nextStep()">Next</button>
           </mat-action-row>
         </mat-expansion-panel>
 
         <!-- payment -->
-        <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 3" (opened)="setStep(3)" hideToggle="true">
+        <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 3" (opened)="setStep(3)"
+                             hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Payment Options</mat-panel-title>
 
@@ -74,7 +83,10 @@
 
 
           <mat-action-row>
-              <mat-panel-title><div class="secure3d"><span class="secure3dTxt">Payment secured by : </span><img src="../assets/images/3dsecure.png" height="40px"/></div></mat-panel-title>
+            <mat-panel-title>
+              <div class="secure3d"><span class="secure3dTxt">Payment secured by : </span><img
+                src="../assets/images/3dsecure.png" height="40px"/></div>
+            </mat-panel-title>
 
             <button class="btn btn-primary" (click)="prevStep()">Previous</button>&nbsp;
 

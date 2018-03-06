@@ -23,6 +23,9 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   // features
   loginEnabled: boolean;
 
+  // hack
+  displayActionRowForAddress = true;
+
   constructor(private cartService: CartService, private router: Router,
               private storageService: StorageService,
               private offerService: OfferService,
@@ -60,8 +63,12 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     this.step++;
   }
 
-  skipLoginStep() {
+  forwardWithoutLoginStep() {
     this.step += 2;
+  }
+
+  backwardWithoutLoginStep() {
+    this.step -= 2;
   }
 
   prevStep() {

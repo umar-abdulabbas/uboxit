@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // features
   loginEnabled: boolean;
+  locationEnabled: boolean;
 
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private loginService: LoginService,
@@ -43,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.closeLoginWindow();
       }
     });
-    this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
+    this.decideFeatures();
   }
 
   ngOnDestroy() {
@@ -84,5 +85,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   modelclose(event): void {
     this.headerActive = event;
     this.showLoggedIn = event;
+  }
+
+  private decideFeatures() {
+    this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
+    this.locationEnabled = FeatureSwitch.isLocationFeatureEnabled();
   }
 }

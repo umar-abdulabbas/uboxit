@@ -1,0 +1,36 @@
+
+@import "../../../../assets/css/variables";
+.card-dummy {
+  box-shadow:0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  background-color:#fff;
+  margin:20px 20px 20px 20px;
+  font-family: $uboxit-font;
+  @include breakpoint(smart-phone){
+    margin-top:20px;
+    margin:20px 0px 0px 0px;
+} 
+
+}
+.cartLayout { padding: 0px; }
+.cartHeader { height:50px; background: #454d5d; padding:0 24px; color:#fff; margin-bottom: 10px; font-family: $uboxit-font; line-height: 50px; font-size: 15px;}
+.cardinner { padding:0 24px 16px;}
+.card-txt-title {  height:25px; padding:5px 10px;  overflow: hidden; text-overflow: ellipsis;  white-space: nowrap}
+.card-txt-item { height:25px; padding:5px 10px; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap}
+.card-priceDetails { padding:0 24px 16px; font-weight: bold; }
+.card-flex { display: flex; }
+.card-flex .img { background: #ccc; width: 40%; height: 100px; overflow: hidden; }
+.img img{ object-fit:cover; max-height:100%;  border-radius: 10px;}
+.card-flex .txt{ width: 60%;}
+.cart-divider { margin:5px 0px; border-top:1px solid #ccc; }
+.card-flex-rowDir { display: flex; flex-direction: row-reverse; padding: 0 40px 10px; }
+.card-price { width:100px; text-align: right; font-weight: bold; font-family: $uboxit-font;}
+.card-promo{ border:1px solid #ccc; border-radius:5px; padding:5px; margin: 20px; padding-left: 15px;}
+.card-input{
+    border:0px; padding:0px; width:200px;display:inline; background:none; height:30px; font-size: 13px; font-family: $uboxit-font;
+}
+.card-counter-layout{height:50px; display:flex;padding-top:5px; padding-bottom:5px; padding-left:10px }
+.card-id-price{width:30%; text-align:right; line-height:30px; font-weight: bold; font-family: $uboxit-font; }
+.card-counter{width:70%;}
+.card-shop-btn{ margin: 20px;}
+.card-shop-btn > button { width:100%;}
+.veg{ width: 20px; vertical-align: bottom;  margin-right: 5px;}

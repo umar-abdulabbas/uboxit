@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-ordered-items',
   templateUrl: './ordered-items.component.html',
-  styleUrls: ['./ordered-items.component.css']
+  styleUrls: ['./ordered-items.component.scss']
 })
 export class OrderedItemsComponent implements OnInit {
 
@@ -37,6 +37,9 @@ export class OrderedItemsComponent implements OnInit {
 
   removeOrder(productId: string) {
     this.updateOrder(productId, 0);
+  }
+  linkToHomePage() {
+    this.router.navigateByUrl('/home');
   }
 
 }

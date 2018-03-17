@@ -15,12 +15,6 @@ export class AddressList {
     checked: string;
 }
 
-// const ADDRESSLIST: AddressList[] = [
-//   { id: '001', name: 'Umar Abbas', address: 'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode: '1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked: 'checked' },
-//   { id: '002', name: 'Prabhu', address: 'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode: '1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked: '' },
-//   { id: '003', name: 'Malai', address: 'Populierenlaan', housenumber: '219', city: 'Amstelveen', postalcode: '1185SK', email: 'umar432@gmail.com', phone: '0649668445', checked: '' },
-//   { id: '004', name: 'Pickup at Store', address: 'Augustinuspark ', housenumber: '14', city: 'Amstelveen', postalcode: '1185CN', email: 'connect@uboxit.com', phone: '0645433592', checked: '' }
-// ];
 
 const ADDRESSLIST: AddressList[] = [
   { id: '004', name: 'Pickup at Store', address: 'Augustinuspark ', housenumber: '14', city: 'Amstelveen', postalcode: '1185CN', email: 'connect@uboxit.com', phone: '0645433592', checked: '' }

@@ -11,7 +11,18 @@
     padding-right:15px; float:left;
 }
 .address-right{
-    xwidth:95%; float:left;
+    width:85%; float:left;
+}
+.input-color{
+    background: $uboxit-background-color;
+}
+.dropInfo{
+    border-top: 1px dotted #ccc;
+    margin-top: 10px;
+}
+.drop-info-title{
+    padding: 10px 0px 20px 0px;
+    font-weight: bold;
 }
 .address-name{
     position:relative; top:-3px; font-weight: bold;

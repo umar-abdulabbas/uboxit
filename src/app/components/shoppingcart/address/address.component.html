@@ -1,3 +1,4 @@
+<form>
 <section class="uboxitLayout">
   <div class="address-repeat" *ngFor="let address of addressList">
     <div class="addressInner" (click)="radioSelect(address.id)">
@@ -8,15 +9,27 @@
       <div class="address-right">
         <div class="address-name">{{address.name}}</div>
         <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
-        <div>{{address.postalcode}}, {{address.city}}, {{address.email}}</div>
-        <div>{{address.phone}}</div>
+        <div>{{address.postalcode}}, {{address.city}}</div>
+        <div class="dropInfo">
+            <div class="drop-info-title">Please drop Infromation:</div>
+            <div class="group">
+                <input type="text" required name="email" [(ngModel)]="userModel.email" class="input-color">
+                <span class="highlight"></span>
+                <span class="bar"></span><label>Email Address</label>
+            </div>
+            <div class="group">
+                <input type="text" required name="phone" [(ngModel)]="userModel.phone" class="input-color">
+                <span class="highlight"></span>
+                <span class="bar"></span><label >Phone Number</label>
+              </div>
+        </div>
       </div>
       <div class="clearfix"></div>
     </div>
   </div>
 
   <!-- New Adress Section -->
-  <form>
+  
     <div class="address-repeat" [ngClass]="{'address-repeat-w':'isActiveNewForm'}">
       <div class="addressInner" (click)="showNewForm(addradio.checked)">
         <div class="address-left">
@@ -92,15 +105,17 @@
             <span class="highlight"></span>
             <span class="bar"></span><label>Email Address</label>
           </div>
-          <div>
+          <div class="float-right">
             <button class="btn btn-primary" (click)="showPreviousStep()">Previous</button>
             <button class="btn btn-primary" (click)="addAddress()">Next</button>
-            Bring this to right side @Umar
+           
           </div>
+          <div class="clearfix"></div>
         </div>
 
       </div>
     </div>
-  </form>
+  
 </section>
+</form>
 

@@ -4,6 +4,34 @@ xpadding-top: 60px;
 
 }
 
+.shop-layout{
+    padding: 0px;
+    width:100%;
+ }
+ .shop-inner{
+     display: flex;
+     flex-wrap: wrap;
+     @include breakpoint(smart-phone){
+        flex-direction: column;
+    } 
+ }
+ .shop-left{
+     width:60%; 
+     @include breakpoint(smart-phone){
+        width:100%;  
+        order:2;
+    } 
+ }
+ .shop-right{
+    width:40%; 
+    @include breakpoint(smart-phone){
+        width:100%;  
+        order:1;
+    }
+ }
+
+
+
 .uboxit-expansion{
     width: 100%;
     margin: 10px 20px;

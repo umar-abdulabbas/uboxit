@@ -22,15 +22,18 @@
                   <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header" >
                           <div class="float-left ">
-                          <div class="card-title h5">{{offer.title}}</div>
-                          <div class="card-subtitle text-gray">{{offer.itemNames}}</div>
+                          <div class="card-title h5"><img src="../../assets/images/veg.png" class="veg"/>{{offer.title}}</div>
+                         
                           </div>
                           <div class="float-right text-bold">
                               <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
                               <span *ngIf="!offer.discountedPrice">&euro;{{offer.normalPrice}}</span>
                          </div>
                   </div>
-                  <div class="card-body"><span class="chip">{{offer.category}}</span></div>
+                  <div class="card-body">
+                      <div class="card-subtitle text-gray">{{offer.itemNames}}</div>
+                      <span class="chip">{{offer.category}}</span>
+                  </div>
                   <div class="card-footer">
                   <div class="float-left text-bold"><!-- <i class="material-icons">favorite_border</i>--></div>
                     <div class="float-right">
@@ -62,11 +65,11 @@
                 </div>
                 <div class="modal-header">
                 <button class="btn btn-clear float-right" (click)="close();"></button>
-                <div class="modal-title h5">{{selectedOffer.title}}</div>
+                <div class="modal-title h5"><img src="../../assets/images/veg.png" class="veg"/>{{selectedOffer.title}}</div>
                   <div class="card-subtitle text-gray">{{selectedOffer.itemNames}}</div>
                       <div>
                             <div class="float-left"><span class="chip">{{selectedOffer.category}}</span></div>
-                            <div class="float-right"><i class="material-icons">favorite_border</i></div>
+                            <div class="float-right"> <!--<i class="material-icons">favorite_border</i> --></div>
                             <div class="clearfix"></div>
                       </div>
                       <div class="divider"></div>

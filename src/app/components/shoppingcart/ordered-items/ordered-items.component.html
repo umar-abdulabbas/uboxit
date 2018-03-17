@@ -1,50 +1,56 @@
-<div *ngIf="cart" class="orderedItemsLayout">
-  <div *ngFor="let order of cart.combos">
-    <div *ngIf="order.count > 0">
-      <div style="padding-right:10px">
-        <button class="btn btn-clear float-right" (click)="removeOrder(order.id)"></button>
-      </div>
-      <div class="clearfix"></div>
-      <div class="columns">
+<div class="card-dummy" *ngIf="cart">
+        <div class="cartLayout">
+            <div class="cartHeader">Your Cart</div>
+            <div class="cardinner" *ngFor="let order of cart.combos">
+            <div *ngIf="order.count > 0">
+                <div><button class="btn btn-clear float-right" (click)="removeOrder(order.id)"></button></div>
+                
+                <div class="card-flex">
+                    <div class="img"><img src="{{order.imageUrls[0]}}"/></div>
+                    <div class="txt">
+                        <div class="card-txt-title"><img src="../../assets/images/veg.png" class="veg"/>{{order.name}}</div>
+                        <div class="card-txt-item">({{order.itemNames}})</div>
+                        <div class="card-counter-layout">
+                            <div class="card-counter">
+                                <app-add-to-cart-counter [showAddToCartWhenZero]="false" [counterValue]="order.count"
+                                (updatedCount)="updateOrder(order.id, $event)"></app-add-to-cart-counter>
+                            </div>
+                            <div class="card-id-price">&euro;  {{order.price.amount | number:'1.2-2'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--// ngIF -->   
+            </div> <!--// ngFor-->
 
-        <div class="column col-xs-3 img"><img src="{{order.imageUrls[0]}}" class="img-responsive"/></div>
-        <div class="column col-xs-3">{{order.name}} <br> ({{order.itemNames}})</div>
-        <div class="column col-xs-3 count">
-          <app-add-to-cart-counter [showAddToCartWhenZero]="false" [counterValue]="order.count"
-                                   (updatedCount)="updateOrder(order.id, $event)"></app-add-to-cart-counter>
+            <div class="cart-divider"></div>
+            <div class="card-priceDetails">Price Details</div>
+            <div class="card-flex-rowDir">
+                <div class="card-price">&euro; {{cart.price.amount | number:'1.2-2'}}</div>
+                <div>Total:</div>
+            </div>
+            <div class="card-flex-rowDir">
+                    <div class="card-price">&euro; {{cart.vatPrice.amount | number:'1.2-2'}}</div>
+                    <div>Vat in %:</div>
+            </div>
+            <div class="card-flex-rowDir">
+                    <div class="card-price">&euro; {{cart.totalPrice.amount | number:'1.2-2'}}</div>
+                    <div>Amount Payable:</div>
+            </div>
+            <div class="cart-divider"></div>
+            <div class="card-promo">
+                <input type="input" placeholder="Enter Promo Code" class="card-input"/>
+                <span style="float:right">
+                    <button class="btn btn-primary">Apply</button>
+                </span>
+            </div>
+            <div class="card-shop-btn">
+                <button class="btn" (click)="linkToHomePage()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue
+                  Shopping
+                </button>
+            </div>
+            <div>&nbsp;</div>
         </div>
-        <div class="column col-xs-3 text-left priceList-top">&euro; {{order.price.amount | number:'1.2-2'}}</div>
+        </div>
 
-      </div>
-      <div style="border-bottom:1px solid #ccc; margin-bottom:10px;margin-top:10px"></div>
-    </div>
-  </div>
-  <div class="columns">
+<!-- New Style -->
 
-    <div class="column col-xs-3 text-bold"></div>
-    <div class="column col-xs-3 text-bold">PRICE DETAILS</div>
-    <div class="column col-xs-3 count text-bold">Total</div>
-    <div class="column col-xs-3 text-left text-bold">&euro; {{cart.price.amount | number:'1.2-2'}}</div>
-
-  </div>  <!-- Total Area -->
-
-  <div class="columns">
-
-    <div class="column col-xs-3 text-bold"></div>
-    <div class="column col-xs-3 text-bold"></div>
-    <div class="column col-xs-3 count ">Vat %</div>
-    <div class="column col-xs-3 text-left">&euro; {{cart.vatPrice.amount | number:'1.2-2'}}</div>
-
-  </div>  <!-- Vat Area -->
-
-  <div class="columns">
-
-    <div class="column col-xs-3 text-bold"></div>
-    <div class="column col-xs-3 text-bold"></div>
-    <div class="column col-xs-3 count text-bold">Amount Payable</div>
-    <div class="column col-xs-3 text-left text-bold">&euro; {{cart.totalPrice.amount | number:'1.2-2'}}</div>
-
-  </div>  <!-- Vat Area -->
-
-  <div></div>
-</div>

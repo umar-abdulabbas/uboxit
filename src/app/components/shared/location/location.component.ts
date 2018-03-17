@@ -30,7 +30,13 @@ export class LocationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showLocationPanel = true;
+    const findcurrentpath = location.pathname.split('/').pop();
+    if(findcurrentpath === 'home') {
+      this.showLocationPanel = true;
+      setTimeout( () => {
+        this.showLocationPanel = false;
+      }, 3000);
+    }     
   }
 
   onChangeLoaction() {

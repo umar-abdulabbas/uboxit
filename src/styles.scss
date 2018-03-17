@@ -68,7 +68,7 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
 
 //Header End
 //Footer Start 
-.container.grid-lg.footer { background: $uboxit-footer-bg; border-radius: 25px 25px 0px 0px; padding: 20px 10px 10px 10px; color: $uboxit-white; margin-top: -50px; }
+.container.grid-lg.footer { background: $uboxit-footer-bg; padding: 20px 10px 10px 10px; color: $uboxit-white; }
 .uboxitFooter{ border-top:1px solid #f7f7f7; background: $uboxit-footer-bg; color: $uboxit-white;  }
 .uboxitRouter{    min-height: 700px; margin-bottom:60px;  
      @include breakpoint(smart-phone){

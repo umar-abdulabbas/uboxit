@@ -13,7 +13,7 @@
 .btn-active-border{border-bottom:2px solid $uboxit-primary-color;}
 
 .uboxitDropDown {  position:relative; z-index:10; margin-left:10px;}
-.uboxitdropDownBox{  position:absolute; border-radius:0px 0px 25px 25px; background:$uboxit-background-color; width: 50%;  }
+.uboxitdropDownBox{  position:absolute; background:$uboxit-background-color; width: 35%; min-width: 200px; box-shadow:0px 3px 10px rgba(0, 0, 0, 0.1); margin-left:-10px; }
 .uboxitdropDownBox div {padding-top: 10px;}
 .uboxitdropDownBox div button{ position: relative;  right: 10px; }
 .uboxitdropDownBox ul li{ list-style: none;}
@@ -27,26 +27,3 @@
 
 
 
-@media only screen and (max-width: 480px) {
-    .uboxitMenuContainer{
-        border:0px;
-    }
-    .uboxitMenuSecond{
-        width: 40%;
-    }
-    .uboxitMenuFirst{
-        width: 40%;
-    }
-    .uboxitMenuFilter{ 
-        width: 20%;
-    }   
-    .column.col-xs-4.c-hand.btn-common.btn-orange.btn-active.active{
-        width:33.33%;
-    }
-    .column.col-xs-4.c-hand.btn-common.btn-orange{
-        width: 50%;
-    }
-    .column.col-xs-4.c-hand.btn-common.btn-uboxit.btn-active.active{
-        width: 50%;
-    }
-}

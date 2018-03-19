@@ -7,8 +7,16 @@
         </div>
         <div class="header-rightLogo">
           <app-location *ngIf="locationEnabled"></app-location>
-          <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span *ngFor="let count of [(totalCount | async)]" class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
-
+                <span class="hide-xs c-hand">
+                    <span *ngFor="let count of [(totalCount | async)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'shop-icon-desktop':shopFloat}">
+                    <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
+                    </span>
+                </span> <!--//DEsktop -->
+                <span class="show-xs hide-xs c-hand">
+                    <span *ngFor="let count of [(totalCount | async)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'shop-icon-mobile':shopFloat}">
+                    <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
+                    </span>
+                </span> <!--//Mobile -->
           <button class="btn btn-link c-hand" *ngIf="loginEnabled && !(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
 
           <button class="btn btn-link c-hand" *ngIf="(loggedIn | async)" (click)="logoutPanel()"><i class="material-icons">lock </i></button>

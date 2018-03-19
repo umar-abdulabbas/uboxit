@@ -58,3 +58,33 @@ input:focus ~ label, input:valid ~ label{ top:-10px; }
 .showLoggedInPanelOverLay{
     position:fixed; top:0px; left:0px; height:100%; width:100%; background:#fff; z-index:10; opacity:0;
 }
+.shop-icon-desktop{
+    display: inline-block;
+    position: fixed;
+    z-index: 299;
+    height: 50px;
+    top: 0px;
+    background:$uboxit-primary-color;
+    padding-top: 6px;
+    width: 50px;
+}
+.shop-icon-mobile{
+    display: inline-block;
+    position: fixed;
+    z-index: 299;
+    border-radius: 50px;
+    height: 50px;
+    background: $uboxit-primary-color;
+    padding-top: 6px;
+    width: 50px;
+    bottom: 50px;
+    left: 20px;
+    box-shadow:0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.show-xs{
+    @include breakpoint(smart-phone){
+        display: inline!important;
+    }
+   
+
+}

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PaymentService } from '../../payment/services/payment-service';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { OfferService } from '../../offers/services/offer.service';
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 
 export enum OrderStatus {
   Authorised = 'authorised',
@@ -28,10 +29,12 @@ export class FinishComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private paymentService: PaymentService,
               private cartService: CartService,
-              private offerService: OfferService) {
+              private offerService: OfferService,
+              private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
+    this.uistyleservice.scrollToTop();
     console.log('finish loaded');
     this.routerParamSubscription = this.route.queryParams.subscribe(params => {
       const payLoad = params.payload;

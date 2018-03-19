@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   totalCount: Observable<number>;
   loggedIn: Observable<boolean>;
   showLoggedIn = false;
+  shopFloat = false;
 
   // features
   loginEnabled: boolean;
@@ -45,6 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     });
     this.decideFeatures();
+  
   }
 
   ngOnDestroy() {
@@ -90,5 +92,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private decideFeatures() {
     this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
     this.locationEnabled = FeatureSwitch.isLocationFeatureEnabled();
+  }
+
+  stickyHeaderValue(scrolValue) {
+    if (scrolValue > 250) {
+      this.shopFloat = true;
+    } else if (this.shopFloat && scrolValue < 250) {
+      this.shopFloat = false;
+    }
   }
 }

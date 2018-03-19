@@ -26,6 +26,9 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
         background-size: 100px 47px; margin-top: -47px; margin-left: -50px;
     }
 }
+//Menu
+.uboxitMenu{ position: fixed;  width: 100%; xtop:55px; top:0px; box-shadow: 0 8px 6px -6px #ccc;z-index: 289; border-bottom:0px !important; }
+.uboxitMenuBar{ background:$uboxit-background-color;}
 .chckt-button{
     background: $uboxit-primary-color !important;
 }

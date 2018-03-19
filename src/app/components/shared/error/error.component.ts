@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 
 @Component({
   selector: 'app-error',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private uistyleservice: UserExpStyleService) { }
 
   ngOnInit() {
+    this.uistyleservice.scrollToTop();
   }
 
 }

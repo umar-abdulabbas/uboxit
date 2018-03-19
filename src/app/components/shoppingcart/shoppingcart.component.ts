@@ -7,7 +7,7 @@ import { StorageService } from '../../shared/services/storage-service';
 import { OfferService } from '../offers/services/offer.service';
 import { LoginService } from '../personal/services/login-service';
 import { FeatureSwitch } from '../../core/feature-switch/feature-switch';
-
+import { UserExpStyleService } from '../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-shoppingcart',
   templateUrl: './shoppingcart.component.html',
@@ -29,10 +29,12 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   constructor(private cartService: CartService, private router: Router,
               private storageService: StorageService,
               private offerService: OfferService,
-              private loginService: LoginService) {
+              private loginService: LoginService,
+              private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
+    this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     // this.headerColor.classList.add('headerFixedShoppingCard');
     if (!this.cartService.cartId) {

@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 
 export enum Features {
   Login = 'LOGIN',
-  Location = 'LOCATION'
+  Location = 'LOCATION',
+  Adyen = 'ADYEN'
 }
 
 @Injectable()
 export class FeatureSwitch {
   static DISABLED_FEATURES = [
     Features.Login,
-    Features.Location
+    Features.Location,
+    Features.Adyen
   ];
 
   static isLoginFeatureEnabled() {
@@ -18,5 +20,9 @@ export class FeatureSwitch {
 
   static isLocationFeatureEnabled() {
     return !FeatureSwitch.DISABLED_FEATURES.includes(Features.Location);
+  }
+
+  static isAdyenPaymentEnabled() {
+    return !FeatureSwitch.DISABLED_FEATURES.includes(Features.Adyen);
   }
 }

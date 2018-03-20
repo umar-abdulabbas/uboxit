@@ -22,6 +22,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   // features
   loginEnabled: boolean;
+  adyenPaymentSupported: boolean;
 
   // hack
   displayActionRowForAddress = true;
@@ -34,6 +35,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.adyenPaymentSupported = FeatureSwitch.isAdyenPaymentEnabled();
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     // this.headerColor.classList.add('headerFixedShoppingCard');

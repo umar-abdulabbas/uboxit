@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 export class PlaceList {
   id: string;
   name: string;
@@ -7,12 +8,12 @@ export class PlaceList {
 }
 
 const PLACELIST: PlaceList[] = [
-  {id: '001', name: 'Amstelveen',  menuActive: true},
-  {id: '002', name: 'Hoofdorp',  menuActive: false},
-  {id: '003', name: 'Aalsmeer',  menuActive: false},
-  {id: '004', name: 'Amsterdam Bijlmer',  menuActive: false},
-  {id: '005', name: 'Amsterdam',  menuActive: false},
-  {id: '006', name: 'Amsterdam Zuid',  menuActive: false},
+  {id: '001', name: 'Amstelveen', menuActive: true},
+  {id: '002', name: 'Hoofdorp', menuActive: false},
+  {id: '003', name: 'Aalsmeer', menuActive: false},
+  {id: '004', name: 'Amsterdam Bijlmer', menuActive: false},
+  {id: '005', name: 'Amsterdam', menuActive: false},
+  {id: '006', name: 'Amsterdam Zuid', menuActive: false},
 ];
 
 @Component({
@@ -31,12 +32,12 @@ export class LocationComponent implements OnInit {
 
   ngOnInit() {
     const findcurrentpath = location.pathname.split('/').pop();
-    if(findcurrentpath === 'home') {
+    if (findcurrentpath === 'home') {
       this.showLocationPanel = true;
-      setTimeout( () => {
+      setTimeout(() => {
         this.showLocationPanel = false;
       }, 3000);
-    }     
+    }
   }
 
   onChangeLoaction() {

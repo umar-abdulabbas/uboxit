@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     });
     this.decideFeatures();
-  
+
   }
 
   ngOnDestroy() {

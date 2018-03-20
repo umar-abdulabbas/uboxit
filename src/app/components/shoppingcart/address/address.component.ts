@@ -67,7 +67,6 @@ export class AddressComponent implements OnInit {
   addAddress() {
     // validation to be done
     console.log('added address');
-    this.userModel.phone = `+31${this.userModel.phone}`;
     console.log(this.addressModel);
     console.log(this.userModel);
 

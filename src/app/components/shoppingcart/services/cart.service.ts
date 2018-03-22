@@ -52,10 +52,26 @@ export class CartService {
 
   // to update custom combo - request will be prepare here - as it is complex
   // only to update make your own combo section if cart is already crated
-  updateCartWithCustomisedCombo() {
-    this.http.put<Cart>(`shop-api/shop/${this.cartId}`, this.cartRequest)
-      .subscribe(res => console.log(res));
+  updateCartWithCustomisedCombo(): Observable<Cart> {
+    const updateCartObservable = this.http.put<Cart>(`shop-api/shop/${this.cartId}`, this.cartRequest)
+      .publishReplay()
+      .refCount();
+    updateCartObservable.subscribe((result: any) => {
+      this.enrichDomainCart(result);
+    });
+    return updateCartObservable;
   }
+
+  applyPromoCode(promoCode: string) {
+    const updateCartObservable = this.http.put<Cart>(`shop-api/shop/${this.cartId}`, {promoCode: promoCode})
+      .publishReplay()
+      .refCount();
+    updateCartObservable.subscribe((result: any) => {
+      this.enrichDomainCart(result);
+    });
+    return updateCartObservable;
+  }
+
 
   initializeCart(offerId: string) {
     if (!this.cartRequest) { // without this old cart will be reset

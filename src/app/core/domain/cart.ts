@@ -35,11 +35,11 @@ export interface Cart {
   items?: Item[];
   combos?: Combo[];
   offerId?: string;
-  discountedPrice?: Price;
   normalPrice?: Price;
 
   // from response
   price?: Price;
   totalPrice?: Price;
   vatPrice?: Price;
+  discountedTotalPrice?: Price;
 }

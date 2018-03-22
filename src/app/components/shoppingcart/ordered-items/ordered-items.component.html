@@ -50,6 +50,7 @@
                     <button class="btn btn-primary" (click)="applyPromoCode()">Apply</button>
                 </span>
             </div>
+            <span *ngIf="cart.notification && cart.notification.name === 'PROMO_CODE'">{{cart.notification.description}}</span>
             <div class="card-shop-btn">
                 <button class="btn" (click)="linkToHomePage()"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;Continue
                   Shopping

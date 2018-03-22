@@ -3,6 +3,12 @@ export interface Price {
   currencyCode: string;
 }
 
+export interface Notification {
+  code: string;
+  name: string;
+  description: string;
+}
+
 export interface Combo {
   id?: string; // customised combo will not have id
   count: number;
@@ -42,4 +48,5 @@ export interface Cart {
   totalPrice?: Price;
   vatPrice?: Price;
   discountedTotalPrice?: Price;
+  notification?: Notification;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { Header } from './header';
 import { HeaderService } from './header.service';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../../personal/services/login-service';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
@@ -64,6 +64,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.findSlideID.style.width = '0px';
         this.findparentId.style.marginRight = '0px';
         this.shopFloat = false;
+      }
+    });
+
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url.includes('shoppingcart')) {
+          // TODO @UMAR
+          // I though of reusing this closing logic but we already have closeSideDiv with diff logic, lets try to create one method with common logic - Malai
+          this.findSlideID.style.width = '0px';
+          this.findparentId.style.marginRight = '0px';
+          this.shopFloat = false;
+        }
       }
     });
   }

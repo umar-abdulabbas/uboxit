@@ -64,6 +64,8 @@ import { ToastsComponent } from './components/shared/toasts/toasts.component';
 import { ErrorComponent } from './components/shared/error/error.component';
 import { GenericErrorHandler } from './core/errors/generic-error-handler';
 import { ErrorsAggregator } from './core/errors/errors-aggregator';
+import { PrivacyComponent } from './components/shared/privacy/privacy.component';
+import { TermsComponent } from './components/shared/terms/terms.component';
 
 // Payment
 
@@ -100,12 +102,14 @@ import { ErrorsAggregator } from './core/errors/errors-aggregator';
     RewardProgramComponent,
     ChoicesComponent,
     ToastsComponent,
-    ErrorComponent ],
+    ErrorComponent,
+    PrivacyComponent,
+    TermsComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
+   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

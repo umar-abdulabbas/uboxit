@@ -1,5 +1,5 @@
 @import "../../../../assets/css/variables";
-.header-Layout { background: $uboxit-primary-color; height: 70px;  line-height: 70px; }
+.header-Layout { background: $uboxit-primary-color; height: 70px;  line-height: 70px; box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);}
 .container.grid-lg.header-inner { padding: 0px; }
 .header-content { display: flex;  flex-direction: row; }
 .header-content > div { width: 33.33%; }
@@ -10,7 +10,7 @@
     }
 }
 .slideRightNav { height: 100%; width: 0px; position: fixed; z-index: 302;  top: 0; right: 0; overflow-x: hidden;  transition: 0.5s;
-    border-left:1px solid #ccc;  background: $uboxit-body-bg;
+    border-left:1px solid #ccc;  background: $uboxit-white;
     @include breakpoint(smart-phone){
       display: none;
       

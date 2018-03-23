@@ -10,6 +10,8 @@ import { FinishComponent } from './components/shared/finish/finish.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { ChoicesComponent } from './components/offers/choices/choices.component';
 import { ErrorComponent } from './components/shared/error/error.component';
+import { PrivacyComponent } from './components/shared/privacy/privacy.component';
+import { TermsComponent } from './components/shared/terms/terms.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path: 'finish', component: FinishComponent},
   {path: 'myprofile', component: MyprofileComponent},
   {path: 'choices', component: ChoicesComponent},
-  {path: 'error', component: ErrorComponent}
+  {path: 'error', component: ErrorComponent},
+  {path: 'privacy', component: PrivacyComponent},
+  {path: 'terms', component: TermsComponent},
 ];
 
 @NgModule({

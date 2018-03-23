@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef } from '@angular/core';
 import { Cart } from '../../../core/domain/cart';
 import { OfferService } from '../../offers/services/offer.service';
 import { CartService } from '../services/cart.service';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -14,15 +14,27 @@ export class OrderedItemsComponent implements OnInit {
 
   @Input() cart: Cart;
   promoCode: string;
-
+  showCheckout = false;
+  showContinueShopping = false; 
   constructor(private offerService: OfferService,
               private cartService: CartService,
+              private _eref: ElementRef,
               private router: Router) {
   }
 
   ngOnInit() {
     this.cartService.cartObservable.subscribe(cart => {
       this.cart = cart;
+    });
+
+      this.router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url.includes('shoppingcart')) {
+          this.showContinueShopping = true; 
+        } else {
+          this.showCheckout = true;
+        }
+      }
     });
   }
 
@@ -53,6 +65,9 @@ export class OrderedItemsComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
+  proceedToCheckOut() {
+    this.router.navigateByUrl('/shoppingcart');
+  }
   private processUpdateResponse(updateObservalbe: Observable<Cart>) {
     updateObservalbe.subscribe((updatedCart) => {
       this.cart = updatedCart;

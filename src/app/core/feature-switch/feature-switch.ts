@@ -11,7 +11,7 @@ export class FeatureSwitch {
   static DISABLED_FEATURES = [
     Features.Login,
     // Features.Location,
-    Features.Adyen
+   // Features.Adyen
   ];
 
   static isLoginFeatureEnabled() {

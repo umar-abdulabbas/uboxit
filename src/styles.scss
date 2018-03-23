@@ -70,6 +70,32 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
         line-height: 150px;
     } 
 }
+.gen-layout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background:url(assets/images/banner2.jpg) no-repeat fixed;
+    background-size: cover;
+    background-position: 50% 65%; 
+    @include breakpoint(smart-phone){
+      height: 150px;
+      background-position:50% 10px;
+     }
+     margin-bottom: 30px;
+  }
+  
+  
+  .gen-layout > div{
+        font-family: $uboxit-font;
+        color: $uboxit-white;
+        font-size: 2rem;
+        text-align: center;
+        xtext-shadow: 2px 2px 8px $uboxit-white;
+        @include breakpoint(smart-phone){
+          font-size: 0.9rem;
+         }
+  }
 .container.grid-lg.genLayoutInner{
     padding: 0px 20px 0px 20px; margin-top: -20px;
 }
@@ -78,7 +104,31 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
         padding: 0px;
     }
 }
-
+.advert-layout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background:url("assets/images/ad1.jpg") no-repeat fixed;
+    background-size: cover;
+    background-position: 50% 65%; 
+    @include breakpoint(smart-phone){
+      height: 170px;
+      background-position:50% 10px;
+     }
+  }
+  
+  
+  .advert-layout > div{
+        font-family: $uboxit-font;
+        color: $uboxit-white;
+        font-size: 2rem;
+        text-align: center;
+        xtext-shadow: 2px 2px 8px $uboxit-white;
+        @include breakpoint(smart-phone){
+          font-size: 0.9rem;
+         }
+  }
 
 //Header End
 //Footer Start 

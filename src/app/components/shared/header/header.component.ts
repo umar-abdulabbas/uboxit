@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loggedIn: Observable<boolean>;
   showLoggedIn = false;
   shopFloat = false;
-
+  findparentId;
+  findSlideID;
   // features
   loginEnabled: boolean;
   locationEnabled: boolean;
@@ -38,6 +39,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
+    this.findparentId = document.getElementById('uboxitwrapper');
+    this.findSlideID = document.getElementById('slideRightNav');
     this.totalCount = this.storageService.totalCountSubject;
     this.loggedIn = this.loginService.loggedIn;
     this.loginService.loggedIn.subscribe(v => {
@@ -46,7 +49,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     });
     this.decideFeatures();
+    this.totalCount.subscribe(c => {
+      if (c > 0 ){
+        this.findSlideID.style.width = "375px";
+        this.findparentId.style.marginRight = "375px";
+        this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
+      } else {
+        this.findSlideID.style.width = "0px";
+        this.findparentId.style.marginRight = "0px";
+        this.shopFloat = false;
+      }
 
+    });
+    
   }
 
   ngOnDestroy() {
@@ -96,9 +111,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   stickyHeaderValue(scrolValue) {
     if (scrolValue > 250) {
-      this.shopFloat = true;
+      //this.shopFloat = true;
     } else if (this.shopFloat && scrolValue < 250) {
-      this.shopFloat = false;
+      //this.shopFloat = false;
     }
   }
+
+  closeSlideNav() {
+    document.getElementById("slideRightNav").style.width = "0px";
+    document.getElementById("uboxitwrapper").style.marginRight = "0px";
+  }
+
 }

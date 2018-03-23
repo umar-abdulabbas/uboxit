@@ -1,58 +1,23 @@
 
 @import "../../../assets/css/variables";
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
-}
-.offerTitle{
-  padding-top:15px; 
-}
-.offerTitle div{
-  font-size: 1.4rem;
-  color: #acb3c2;
-  padding-bottom: 15px;
-}
-.card{
-  height: 350px;
-  box-shadow: 0px 3px 10px rgba(0,0,0,.1);
-  }
-  .card-subtitle.text-gray{
-    margin-bottom: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
-.modal.active .modal-container, .modal:target .modal-container{
-  max-width:500px;
-}
-.card-footer{
-	border-top:1px solid #f7f7f7;
-}
-.card-body{
-	padding-bottom: 10px;
-}
-.line::before{
-	position:absolute;
-	right:calc(100% + 25px);
-}
-.line::after{
-	    position: absolute;
-    left: calc(100% + 25px);
-}
-.veg{
-    width: 24px;
-    vertical-align: bottom;
-    margin-right: 5px;
-}
+
+.slideNavTitle { height: 70px; line-height: 70px; font-family: $uboxit-font; border-bottom: 1px solid $uboxit-primary-color;}
+.section { clear: both; padding: 0px; margin: 0px;}
+.offerTitle{ padding-top:15px; }
+.offerTitle div{ font-size: 1.4rem;  color: #acb3c2;  padding-bottom: 15px; }
+.card{ height: 350px; box-shadow: 0px 3px 10px rgba(0,0,0,.1);  }
+  .card-subtitle.text-gray{ margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis;  }
+  .modal.active .modal-container, .modal:target .modal-container{  max-width:500px; }
+  .card-footer { border-top:1px solid #f7f7f7; }
+  .card-body {	padding-bottom: 10px;}
+  .line::before { position:absolute; right:calc(100% + 25px); }
+  .line::after{ position: absolute; left: calc(100% + 25px); }
+  .veg{ width: 24px; vertical-align: bottom; margin-right: 5px; }
 /*  COLUMN SETUP  */
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
+  .col { display: block; float:left; margin: 1% 0 1% 1.6%;}
 /*.col:first-child { margin-left: 0; }*/
-.col { margin-left: 0; }
+  .col { margin-left: 0; }
 /*  GROUPING  */
 .group:before,
 .group:after { content:""; display:table; }

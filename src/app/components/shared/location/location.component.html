@@ -1,7 +1,7 @@
-
+<!-- 
 <button class="btn btn-link" ><i class="material-icons pulse" (click)="openChangeLocation()">place</i></button>
 <span class="areaTitlePos">
-        <span class="areaTitleLayout">{{placeTitle}}</span>
+        <span class="areaTitleLayout">{{placeTitle}}, The Netherlands</span>
 </span>
 <div class="locationPos" *ngIf="showLocationPanel">
 <div class="default-location" >
@@ -12,7 +12,7 @@
         <button  class="btn btn-primary" (click)="openChangeLocation()" style="width:100%;">Change Location</button>
 </div>
 </div>
-  <!-- Model Window -->
+  
   <div class="modal modal-lg active" id="modal-id" *ngIf="isModelActive">
       <a href="#close" class="modal-overlay" aria-label="Close"></a>
       <div class="modal-container">
@@ -30,14 +30,41 @@
                 
               </div>
               <div style="padding-top:20px; padding-bottom:20px;">
-                  <!-- <div class="has-icon-left">
-                      <input type="text" class="form-input" placeholder="Search your Loaction.. ">
-                      <i class="form-icon icon icon-search"></i>
-                    </div> -->
+                 
               </div>
               
           </div>
         </div>
-      
-      </div>
+      <button class="btn btn-link" ><i class="material-icons pulse" >place</i></button>
+        <span class="locationTxt"><span>{{placeTitle}}, the Netherlands</span> <span class="edit-txt">Edit</span></span>
+      </div> c-hand
+    </div> -->
+    <div class="loactionNewLayout c-hand" (click)="openChangeLocation()">
+        <div class="locationTxt">
+                <button class="btn btn-link" ><i class="material-icons pulse" >place</i></button>
+                <span>{{placeTitle}}, the Netherlands <b>EDIT</b></span>
+        </div>
     </div>
+
+    <div class="modal modal-lg active" id="modal-id" *ngIf="isModelActive">
+        <a href="#close" class="modal-overlay" aria-label="Close"></a>
+        <div class="modal-container">
+          <div class="modal-header header-color">
+            <button href="#close" class="btn btn-clear uboxitLogo float-right" (click)="closeModel();" ></button>
+            <div class="modal-title h5"><img src="assets/images/Uboxitlogo.png" width="80px" style="border-radius:0px"/></div>
+          </div>
+          <div class="modal-body location">
+            <div class="content">
+                <div><strong> View Menu For:</strong></div>
+                <div>
+                    <span class="chip c-hand" *ngFor="let place of placeList" [ngClass]="{'selected':place.menuActive}" (click)="goToHome(place.name, place.id)">{{place.name}}</span>
+                </div>
+                <div style="padding-top:20px; padding-bottom:20px;">
+                   
+                </div>
+                
+            </div>
+          </div>
+        
+        </div>
+        </div>

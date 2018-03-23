@@ -1,8 +1,10 @@
 @import "../../../../assets/css/variables";
-.locationPos{
-  position: absolute;
-  z-index: 313;
-}
+.loactionNewLayout { font-family: $uboxit-font; }
+.locationTxt { color:$uboxit-white; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+.locationTxt span {position: relative; top: 2px; }
+.locationPos { position: absolute;  z-index: 313;}
+.modal-body.location { line-height: 0px;}
+.content > div { padding: 10px;}
 .pulse {
   display: block;
   border-radius: 50%;
@@ -31,6 +33,7 @@
 }
 .header-color{
   background: $uboxit-primary-color;
+  height: 70px;
 }
 .default-location:after {
   bottom: 100%;
@@ -71,16 +74,3 @@
       box-shadow: 0 0 0 0 rgba(255,255,255, 0);
   }
 }
-@media only screen and (max-width: 480px) {
-  .uboxitLogo.c-hand{
-      position: relative;
-      left: -70px;
-  }
-}
-  @media only screen and (max-width: 480px) {
-    .forMobileView{
-      margin:10px;
-    }
-   
-  }
-  

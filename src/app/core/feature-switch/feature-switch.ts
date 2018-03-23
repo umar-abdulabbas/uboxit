@@ -10,7 +10,7 @@ export enum Features {
 export class FeatureSwitch {
   static DISABLED_FEATURES = [
     Features.Login,
-    //Features.Location,
+    // Features.Location,
     Features.Adyen
   ];
 

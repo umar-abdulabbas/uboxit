@@ -111,6 +111,4 @@ export class OffersComponent implements OnInit {
       this.uboxitMenu = false;
     }
   }
-
- 
 }

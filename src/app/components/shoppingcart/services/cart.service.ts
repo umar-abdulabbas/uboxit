@@ -3,15 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { Cart, Combo } from '../../../core/domain/cart';
 import { Observable } from 'rxjs/Observable';
 import { StorageService } from '../../../shared/services/storage-service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class CartService {
 
+  private cartRequest: Cart;
+
   cartId: string;
 
   cart: Cart;
+  private cartSubject = new Subject<Cart>();
 
-  private cartRequest: Cart;
+  get cartObservable() {
+    return this.cartSubject.asObservable();
+  }
 
   constructor(private http: HttpClient,
               private storageService: StorageService) {
@@ -179,5 +185,6 @@ export class CartService {
     } else {
       this.cart = {};
     }
+    this.cartSubject.next(cartRes);
   }
 }

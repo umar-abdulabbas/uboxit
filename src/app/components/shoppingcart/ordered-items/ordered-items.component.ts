@@ -21,6 +21,9 @@ export class OrderedItemsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cartService.cartObservable.subscribe(cart => {
+      this.cart = cart;
+    });
   }
 
   updateOrder(productId: string, count: number) {

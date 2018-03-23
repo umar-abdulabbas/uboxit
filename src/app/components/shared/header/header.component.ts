@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../../personal/services/login-service';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
 import { StorageService } from '../../../shared/services/storage-service';
+import { CartService } from '../../shoppingcart/services/cart.service';
+import { Cart } from '../../../core/domain/cart';
 
 @Component({
   selector: 'app-header',
@@ -29,9 +31,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loginEnabled: boolean;
   locationEnabled: boolean;
 
+  cart: Cart;
+
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private loginService: LoginService,
-              private storageService: StorageService) {
+              private storageService: StorageService,
+              private cartService: CartService) {
 
   }
 
@@ -50,22 +55,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.decideFeatures();
     this.totalCount.subscribe(c => {
-      if (c > 0 ){
-        this.findSlideID.style.width = "375px";
-        this.findparentId.style.marginRight = "375px";
+      if (c > 0) {
+        this.findSlideID.style.width = '375px';
+        this.findparentId.style.marginRight = '375px';
         this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
+        this.prepareCart();
       } else {
-        this.findSlideID.style.width = "0px";
-        this.findparentId.style.marginRight = "0px";
+        this.findSlideID.style.width = '0px';
+        this.findparentId.style.marginRight = '0px';
         this.shopFloat = false;
       }
-
     });
-    
   }
 
   ngOnDestroy() {
 
+  }
+
+  prepareCart() {
+    if (!this.cartService.cartId) {
+      this.cartService.createCart().subscribe(res => {
+        this.cart = this.cartService.cart;
+      });
+    }
   }
 
   getHeaders(): void {
@@ -111,15 +123,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   stickyHeaderValue(scrolValue) {
     if (scrolValue > 250) {
-      //this.shopFloat = true;
+      // this.shopFloat = true;
     } else if (this.shopFloat && scrolValue < 250) {
-      //this.shopFloat = false;
+      // this.shopFloat = false;
     }
   }
 
   closeSlideNav() {
-    document.getElementById("slideRightNav").style.width = "0px";
-    document.getElementById("uboxitwrapper").style.marginRight = "0px";
+    document.getElementById('slideRightNav').style.width = '0px';
+    document.getElementById('uboxitwrapper').style.marginRight = '0px';
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="card-dummy" *ngIf="cart">
+<div class="card-dummy" *ngIf="cart && cart.combos">
         <div class="cartLayout">
             <div class="cartHeader">Your Cart</div>
             <div class="cardinner" *ngFor="let order of cart.combos">

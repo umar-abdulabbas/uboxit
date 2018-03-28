@@ -16,8 +16,7 @@ const CART_VALIDITY_TIME_IN_MINS = 1;
 @Injectable()
 export class StorageService {
 
-  totalCount = 0;
-  totalCountSubject = new BehaviorSubject<number>(this.totalCount);
+  totalCountSubject = new BehaviorSubject<number>(this.getTotalCount());
 
   constructor(private localStorageService: LocalStorageService) {
 
@@ -80,7 +79,7 @@ export class StorageService {
 
   clearCart() {
     this.localStorageService.remove(CART_KEY, CART_UPDATED_TIME_KEY, CART_ID_KEY);
-    this.totalCountSubject.next(0);
+    // this.totalCountSubject.next(0); // TODO malai - bcoz of recursive call does not work - to be checked
   }
 
   clearUser() {
@@ -92,6 +91,10 @@ export class StorageService {
   }
 
   private addAllCountAndEmitValue() {
+    this.totalCountSubject.next(this.getTotalCount());
+  }
+
+  private getTotalCount() {
     let itemCount = 0;
     let comboCount = 0;
     const cart = this.getStoredCart();
@@ -103,7 +106,6 @@ export class StorageService {
         comboCount = cart.combos.map(c => c.count).reduce((accumulator, currentValue) => accumulator + currentValue);
       }
     }
-    this.totalCount = itemCount + comboCount;
-    this.totalCountSubject.next(this.totalCount);
+    return itemCount + comboCount;
   }
 }

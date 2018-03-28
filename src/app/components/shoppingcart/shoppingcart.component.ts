@@ -39,7 +39,9 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
     // this.headerColor.classList.add('headerFixedShoppingCard');
-    this.cart = this.cartService.cart;
+    this.cartService.getCart().subscribe(res => {
+      this.cart = this.cartService.cart;
+    });
 
     this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
     this.loginService.loggedIn.subscribe(val => this.loggedIn = val);

@@ -15,7 +15,8 @@ export class OrderedItemsComponent implements OnInit {
   @Input() cart: Cart;
   promoCode: string;
   showCheckout = false;
-  showContinueShopping = false; 
+  showContinueShopping = false;
+
   constructor(private offerService: OfferService,
               private cartService: CartService,
               private _eref: ElementRef,
@@ -24,13 +25,15 @@ export class OrderedItemsComponent implements OnInit {
 
   ngOnInit() {
     this.cartService.cartObservable.subscribe(cart => {
-      this.cart = cart;
+      if (cart.id) {
+        this.cart = cart;
+      }
     });
 
-      this.router.events.forEach((event) => {
+    this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event.url.includes('shoppingcart')) {
-          this.showContinueShopping = true; 
+          this.showContinueShopping = true;
         } else {
           this.showCheckout = true;
         }
@@ -68,6 +71,7 @@ export class OrderedItemsComponent implements OnInit {
   proceedToCheckOut() {
     this.router.navigateByUrl('/shoppingcart');
   }
+
   private processUpdateResponse(updateObservalbe: Observable<Cart>) {
     updateObservalbe.subscribe((updatedCart) => {
       this.cart = updatedCart;

@@ -5,7 +5,7 @@
       </div>
       <button class="btnCounter round-right" (click)="increment()"><i class="icon icon-plus"></i></button>
 </div>
-<button class="btn btn-primary" [ngClass]="{'btnCounterBigScreen':'isActiveCart'}" (click)="increment()" *ngIf="showAddToCartWhenZero && isActiveCart">Add to Cart</button>
+<button class="btn btn-primary" [ngClass]="{'btnCounterBigScreen':'isActiveCart'}" (click)="increment()" *ngIf="isActiveCart">Add to Cart</button>
 <!-- <button class="btn btn-success animated slideInRight" [ngClass]="{'btn-successBigScreen':findCurrentMCPath}" *ngIf="isActiveCounter && findCurrentShopPath" routerLinkActive="active" [routerLink]="['/shoppingcart']">
     <i class="fa fa-shopping-basket show-xs" aria-hidden="true"></i>
     <span class="hide-xs">Buy</span>

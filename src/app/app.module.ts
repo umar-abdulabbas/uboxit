@@ -18,6 +18,8 @@ import { OrderedItemsComponent } from './components/shoppingcart/ordered-items/o
 import { MakeyourcomboComponent } from './components/offers/makeyourcombo/makeyourcombo.component';
 import { OfferService } from './components/offers/services/offer.service';
 import { AdvertisementComponent } from './components/shared/advertisement/advertisement.component';
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 // Directives
 
 import { StickyHeaderDirective } from './directives/sticky-header.directive';
@@ -109,6 +111,7 @@ import { TermsComponent } from './components/shared/terms/terms.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgxCarouselModule,
    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
     AppRoutingModule,

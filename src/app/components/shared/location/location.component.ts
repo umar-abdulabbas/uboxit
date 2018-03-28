@@ -9,11 +9,9 @@ export class PlaceList {
 
 const PLACELIST: PlaceList[] = [
   {id: '001', name: 'Amstelveen', menuActive: true},
-  {id: '002', name: 'Hoofdorp', menuActive: false},
-  {id: '003', name: 'Aalsmeer', menuActive: false},
   {id: '004', name: 'Amsterdam Bijlmer', menuActive: false},
-  {id: '005', name: 'Amsterdam', menuActive: false},
   {id: '006', name: 'Amsterdam Zuid', menuActive: false},
+  {id: '006', name: 'Schiphol', menuActive: false},
 ];
 
 @Component({

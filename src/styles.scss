@@ -84,8 +84,10 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
      }
      margin-bottom: 30px;
   }
-  
-  
+  .gen-layout.contact{
+    background:url(assets/images/contact-us-banner.jpg) no-repeat fixed;
+  }
+
   .gen-layout > div{
         font-family: $uboxit-font;
         color: $uboxit-white;
@@ -109,7 +111,7 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
     justify-content: center;
     align-items: center;
     height: 300px;
-    background:url("assets/images/ad1.jpg") no-repeat fixed;
+    background:url("assets/images/Banner2.png") no-repeat fixed;
     background-size: cover;
     background-position: 50% 65%; 
     @include breakpoint(smart-phone){
@@ -129,7 +131,19 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
           font-size: 0.9rem;
          }
   }
-
+.new-adv-banner{
+    display: flex; justify-content: center; align-items: center; margin-top:20px;margin-bottom:20px;
+}
+.new-adv-banner > div{
+    width:1140px; height:400px;
+    @include breakpoint(smart-phone){
+        height: 132px;
+    }
+}
+.new-adv-banner > div > img {
+   max-width: 100%;
+        max-height: 100%;
+}
 //Header End
 //Footer Start 
 .container.grid-lg.footer { background: $uboxit-footer-bg; padding: 20px 10px 10px 10px; color: $uboxit-white; }

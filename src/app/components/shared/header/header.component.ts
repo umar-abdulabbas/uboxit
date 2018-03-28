@@ -42,6 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    let shoppingCartPage: boolean;
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.findparentId = document.getElementById('uboxitwrapper');
@@ -55,7 +56,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.decideFeatures();
     this.totalCount.subscribe(c => {
-      if (c > 0) {
+      if (c > 0 && !shoppingCartPage) {
         this.findSlideID.style.width = '375px';
         this.findparentId.style.marginRight = '375px';
         this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
@@ -70,11 +71,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event.url.includes('shoppingcart')) {
+          shoppingCartPage = true;
           // TODO @UMAR
           // I though of reusing this closing logic but we already have closeSideDiv with diff logic, lets try to create one method with common logic - Malai
           this.findSlideID.style.width = '0px';
           this.findparentId.style.marginRight = '0px';
           this.shopFloat = false;
+        } else {
+          shoppingCartPage = false;
         }
       }
     });

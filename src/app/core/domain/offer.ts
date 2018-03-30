@@ -25,6 +25,14 @@ export interface Item extends Product {
   type: string; // starter, main-course, dessert
 }
 
+export interface Offer {
+  offerId: string;
+  combos: Combo[];
+  items: Item[];
+  availableItemsForCustomCombo: boolean;
+  availableItemsForIndividualSale: boolean;
+}
+
 export enum ItemType {
   Starters = 1,
   MainDish,

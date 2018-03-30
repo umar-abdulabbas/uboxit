@@ -30,9 +30,12 @@ export class BarMenuComponent implements OnInit {
   public pathFinder: string;
   public isActiveDropDown = false;
   public menuActive: boolean;
-  menuList = MENULIST;
+  menuList: MenuList[] = [];
   totalCount: Observable<any>;
+
   @Input() availableTypes: string[] = [];
+  @Input() customComboAvailable: Observable<boolean>;
+  @Input() individualItemsAvailable: Observable<boolean>;
   @Output() filterType = new EventEmitter<string>();
 
   constructor(private offerServie: OfferService, private router: Router) {
@@ -40,15 +43,28 @@ export class BarMenuComponent implements OnInit {
 
   ngOnInit() {
     const findPathUrl = window.location.href.split('/').pop();
+
+    this.menuList.push(Object.assign({}, MENULIST[0]));
     if (findPathUrl === 'home') {
-        this.updateMenuList('001', true);
+      this.updateMenuList('001', true);
     }
-    if (findPathUrl === 'makeyourcombo') {
-      this.updateMenuList('002', true);
-    }
-    if (findPathUrl === 'choices') {
-      this.updateMenuList('003', true);
-    }
+
+    this.customComboAvailable.subscribe(v => {
+      if (v) {
+        this.menuList.push(Object.assign({}, MENULIST[1]));
+        if (findPathUrl === 'makeyourcombo') {
+          this.updateMenuList('002', true);
+        }
+      }
+    });
+    this.individualItemsAvailable.subscribe(v => {
+      if (v) {
+        this.menuList.push(Object.assign({}, MENULIST[2]));
+        if (findPathUrl === 'choices') {
+          this.updateMenuList('003', true);
+        }
+      }
+    });
   }
 
   selectType(type: string): void {

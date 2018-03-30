@@ -1,7 +1,9 @@
 
-<section> 
+<section>
 <section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}" >
-    <app-bar-menu [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
+    <app-bar-menu [availableTypes]="availableTypes"
+                  [customComboAvailable]="availableItemsForCustomCombo"
+                  [individualItemsAvailable]="availableItemsForIndividualSale" (filterType)="filterOffers($event)"></app-bar-menu>
 </section>
 
 <div class="container grid-lg" id="isActiveForDestop" >
@@ -18,13 +20,13 @@
 
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
-            <div class="equalHMV eq" *ngFor="let offer of offersToDisplay;">
+            <div class="equalHMV eq" *ngFor="let offer of combosToDisplay;">
              <div class="card animated fadeInDown" >
                   <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header" >
                           <div class="float-left ">
                           <div class="card-title h5"><img src="../../assets/images/veg.png" class="veg"/>{{offer.title}}</div>
-                         
+
                           </div>
                           <div class="float-right text-bold">
                               <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>

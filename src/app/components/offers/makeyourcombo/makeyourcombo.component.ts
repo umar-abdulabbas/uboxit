@@ -7,6 +7,7 @@ import { CartService } from '../../shoppingcart/services/cart.service';
 
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 import { AlertInvoker } from '../../../core/services/alert-invoker.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 const EMPTY_BOX_TEXT = 'Eager to know your box !';
 const CLEAR_COMBO_TEXT = 'Clear your box';
@@ -50,6 +51,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   comboCount = 0;
 
+  availableItemsForIndividualSale = new BehaviorSubject(false);
+  availableItemsForCustomCombo = new BehaviorSubject(false);
+
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,
               private cartService: CartService, private uistyleservice: UserExpStyleService,
               private alertInvoker: AlertInvoker) {
@@ -59,6 +63,11 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
    // this.headerColor.classList.add('headerFixedShoppingCard');
+
+    const offer = this.offerService.offer;
+    this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
+    this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
+
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
       const selectedItemId = this.msgFromMakeYourOwnCombo.itemId;

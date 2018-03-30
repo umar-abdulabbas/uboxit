@@ -2,7 +2,8 @@
   <section style="background:#f8f9fa; margin-bottom:5px; " stickyHeader
            (stickyHeaderValue)="stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu}">
     <!--Menu -->
-    <app-bar-menu></app-bar-menu>
+    <app-bar-menu [customComboAvailable]="availableItemsForCustomCombo"
+                  [individualItemsAvailable]="availableItemsForIndividualSale" ></app-bar-menu>
     <!-- // Menu End -->
   </section>
 

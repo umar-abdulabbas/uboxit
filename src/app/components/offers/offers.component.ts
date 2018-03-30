@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Combo } from '../../core/domain/offer';
+import { Combo, Offer } from '../../core/domain/offer';
 import { OfferService } from './services/offer.service';
 import { CartService } from '../shoppingcart/services/cart.service';
 import { Cart } from '../../core/domain/cart';
 import { ErrorsAggregator } from '../../core/errors/errors-aggregator';
 import { AlertInvoker } from '../../core/services/alert-invoker.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Component({
@@ -13,8 +14,9 @@ import { AlertInvoker } from '../../core/services/alert-invoker.service';
   styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
-  offers: Combo[];
-  offersToDisplay: Combo[];
+  offer: Offer;
+  combos: Combo[];
+  combosToDisplay: Combo[];
   uboxitMenu = false;
   active = true;
   body;
@@ -24,6 +26,9 @@ export class OffersComponent implements OnInit {
   selectedOffer: Combo;
   availableTypes: string[] = [];
   selectedType: string;
+  availableItemsForIndividualSale = new BehaviorSubject(false);
+  availableItemsForCustomCombo = new BehaviorSubject(false);
+
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker) {
 
@@ -31,8 +36,9 @@ export class OffersComponent implements OnInit {
 
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
+    this.offer = this.offerService.offer;
     // only if not has data, make http call
-    if (this.offerService.combos.length === 0) {
+    if (!this.offer) {
       this.offerService.getOffers().subscribe(res => {
         this.initialize();
       });
@@ -46,15 +52,18 @@ export class OffersComponent implements OnInit {
   }
 
   initialize(): void {
-    this.offers = this.offerService.combos;
+    this.offer = this.offerService.offer;
+    this.combos = this.offer.combos;
     this.getAvailableTypes();
-    this.offersToDisplay = this.offers;
-    this.cartService.initializeCart(this.offerService.offerId);
+    this.combosToDisplay = this.combos;
+    this.cartService.initializeCart(this.offer.offerId);
+    this.availableItemsForCustomCombo.next(this.offer.availableItemsForCustomCombo);
+    this.availableItemsForIndividualSale.next(this.offer.availableItemsForIndividualSale);
   }
 
   filterOffers(typeToFilter: string) {
     this.selectedType = typeToFilter;
-    this.offersToDisplay = this.offers.filter(offer => offer.category === typeToFilter);
+    this.combosToDisplay = this.combos.filter(offer => offer.category === typeToFilter);
   }
 
   onSelect(offer: Combo): void {
@@ -96,7 +105,7 @@ export class OffersComponent implements OnInit {
   }
 
   private getAvailableTypes() {
-    this.offers.forEach(offer => {
+    this.combos.forEach(offer => {
       if (!this.availableTypes.some(type => type === offer.category)) {
         this.availableTypes.push(offer.category);
       }

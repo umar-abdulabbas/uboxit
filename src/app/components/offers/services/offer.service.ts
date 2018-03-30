@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item, Combo } from '../../../core/domain/offer';
+import { Item, Combo, Offer } from '../../../core/domain/offer';
 import { HttpClient } from '@angular/common/http';
 import { Cart } from '../../../core/domain/cart';
 import { StorageService } from '../../../shared/services/storage-service';
@@ -10,9 +10,11 @@ const ITEM_TYPE_NAME_MAP = new Map([['STARTERS', 'Starters'], ['MAIN_COURSE', 'M
 @Injectable()
 export class OfferService {
 
-  offerId: string;
-  combos: Combo[] = [];
-  items: Item[] = [];
+  offer: Offer;
+
+  private combos: Combo[] = [];
+  private items: Item[] = [];
+  private offerId: string;
 
   constructor(private http: HttpClient,
               private storageService: StorageService) {
@@ -41,6 +43,13 @@ export class OfferService {
           this.combos.push(res);
         });
       });
+      this.offer = {
+        offerId: result.id,
+        availableItemsForCustomCombo: result.availableItemsForCustomCombo,
+        availableItemsForIndividualSale: result.availableItemsForIndividualSale,
+        combos: this.combos,
+        items: this.items
+      };
     });
     return offerObservable;
   }

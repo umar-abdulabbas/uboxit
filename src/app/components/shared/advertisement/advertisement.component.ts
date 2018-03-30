@@ -56,7 +56,7 @@ export class AdvertisementComponent implements OnInit {
       touch: true,
       loop: true,
       custom: 'banner'
-    }
+    };
   }
   public myfunc(event: Event) {
     // carouselLoad will trigger this funnction when your load value reaches

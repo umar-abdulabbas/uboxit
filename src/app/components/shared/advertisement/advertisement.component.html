@@ -1,15 +1,5 @@
-<!-- <div class="advert-layout">
-        <div class="animated slideInDown">First time in The Netherlands <br/><span>Make your own combo</span></div>
-        
-</div> -->
-
-<!-- <div class="new-adv-banner">
-      <div>
-        <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Tamil_New_Year_Discount.png" />
-        </div>  
-</div> -->
-<div class="xc">
-        <div class="vb">
+<!-- <div class="banner-outer">
+        <div class="banner-inner">
 <ngx-carousel
 [inputs]="carouselOne"
 (carouselLoad)="myfunc($event)">
@@ -30,4 +20,27 @@
 
 </ngx-carousel>
 </div>
+</div> -->
+<div class="banner-outer">
+      <div class="banner-inner">
+                  <ngx-carousel
+                  [inputs]="carouselOne"
+                  (carouselLoad)="myfunc($event)">
+                    <ngx-item NgxCarouselItem>
+                          <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner1.png" />
+                    </ngx-item>
+                    <ngx-item NgxCarouselItem>
+                          <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner2.png" />
+                    </ngx-item>
+                    <ngx-item NgxCarouselItem>
+                          <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner3.png" />
+                    </ngx-item>
+                    <ngx-item NgxCarouselItem>
+                                  <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner4.png" />
+                  </ngx-item>
+                    <button NgxCarouselPrev class='leftRs'>&lt;</button>
+                    <button NgxCarouselNext class='rightRs'>&gt;</button>
+                  
+                  </ngx-carousel>
+      </div>
 </div>

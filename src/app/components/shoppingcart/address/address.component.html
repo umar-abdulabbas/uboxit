@@ -1,156 +1,140 @@
-<form>
-<section class="uboxitLayout">
-  <div class="address-repeat" *ngFor="let address of addressList">
-    <div class="addressInner" (click)="radioSelect(address.id)">
-      <div class="address-left">
-        <div class="radioarea"><input type="radio" id="{{address.id}}" name="address" value="{{address.name}}"
-                                      checked="{{address.checked}}"/></div>
-      </div>
-      <div class="address-right">
-        <div class="address-name">{{address.name}}</div>
-        <div class="address-text">{{address.address}}, {{address.housenumber}}</div>
-        <div>{{address.postalcode}}, {{address.city}}</div>
-        <div class="dropInfo">
-            <div class="drop-info-title">Please drop Infromation:</div>
-            <div class="group">
-                <input type="text" required name="email" [(ngModel)]="userModel.email" class="input-color">
-                <span class="highlight"></span>
-                <span class="bar"></span><label>Email Address</label>
-            </div>
-            <div class="group">
-                <input type="text" required name="phone" [(ngModel)]="userModel.phone" class="input-color">
-                <span class="highlight"></span>
-                <span class="bar"></span><label >Phone Number</label>
+
+
+<section class="">
+    <div>
+        <mat-radio-group [(ngModel)]="valueSelcted">
+            <div class="radioDiv"><mat-radio-button value="1">Pick up at store</mat-radio-button></div>
+            <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
+              <address>
+                Augustinuspark , 14. 1185CN, Amstelveen
+              </address>
+            <div class="addressfields">
+              <div class="group">
+                  <input type="text" required name="email" class="input-color">
+                  <span class="highlight"></span>
+                  <span class="bar"></span><label>Enter your Email Address</label>
               </div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-
-  <!-- New Adress Section -->
-  
-    <div class="address-repeat" [ngClass]="{'address-repeat-w':'isActiveNewForm'}">
-      <div class="addressInner" (click)="showNewForm(addradio.checked)">
-        <div class="address-left">
-          <div class="radioarea"><input #addradio type="radio" name="address" value="Add a New Address"
-                                        checked="{{isActiveRadio}}"/></div>
-        </div>
-        <div class="address-right">
-          <div class="address-name"> Add a New Address</div>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div class="addressNewForm" *ngIf="isActiveNewForm">
-
-        <div class="addressNewFormInner">
-          <div class="group">
-            <table style="width:100%">
-              <tr>
-                <td>
-                  <div class="group">
-                    <input type="text"id="fname" required name="fname" [(ngModel)]="addressModel.firstName" minlength="4" #fname="ngModel">
-                    <span class="highlight"></span>
-                    <span class="bar"></span><label>First Name</label>
-                  </div>
-                
-                </td>
-                <td>
-                  <div class="group">
-                    <input type="text" required name="lname" [(ngModel)]="addressModel.lastName">
-                    <span class="highlight"></span>
-                    <span class="bar"></span><label>Last Name</label>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-            <!-- Validation Name-->
-            <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
-                <div *ngIf="fname.errors.required">First Name is required. </div>
-                <div *ngIf="fname.errors.minlength">Name must be at least 4 characters long.</div>
+              <div class="group">
+                  <input type="text" required name="phone" class="input-color">
+                  <span class="highlight"></span>
+                  <span class="bar"></span><label>Enter your Phone Number</label>
+              </div>
+            </div>          
             </div>
-              <!-- Validation End Name -->
-          <div class="group">
-            <input type="text" id="postcode" required name="postcode" [(ngModel)]="addressModel.postalCode"  minlength="6" #postcode="ngModel">
-            <span class="highlight"></span>
-            <span class="bar"></span><label>Postcode</label>
-          </div>
-             <!-- Validation PostCode-->
-             <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="toast toast-error space1">
-                <div *ngIf="postcode.errors.required">Postcode is required. </div>
-                <div *ngIf="postcode.errors.minlength">PostCode must be at least 6 characters long.</div>
-            </div>
-              <!-- Validation End PostCode -->
-          <div class="group">
-              <table style="width:100%">
-                <tr>
-                  <td>
-                    <div class="group">
-                      <input type="text" required name="housenumber" [(ngModel)]="addressModel.houseNumber">
-                      <span class="highlight"></span>
-                      <span class="bar"></span><label>House Number</label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="group">
-                      <input type="text" required name="streetname" [(ngModel)]="addressModel.street">
-                      <span class="highlight"></span>
-                      <span class="bar"></span><label>Street Name</label>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          <div class="group">
-              <table style="width:100%">
-                  <tr>
-                    <td>
-                        <div class="group">
-                        <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
+            <div class="radioDiv"><mat-radio-button value="2">Add new Address</mat-radio-button></div>
+            <div *ngIf="valueSelcted == 2" class="">
+                <div class="addressNewForm">
+                    <form>
+                    <div class="addressNewFormInner">
+                      <div class="group">
+                        <table style="width:100%">
+                          <tr>
+                            <td>
+                              <div class="group">
+                                <input type="text"id="fname" required name="fname" [(ngModel)]="addressModel.firstName" minlength="4" #fname="ngModel">
+                                <span class="highlight"></span>
+                                <span class="bar"></span><label>First Name</label>
+                              </div>
+                            
+                            </td>
+                            <td>
+                              <div class="group">
+                                <input type="text" required name="lname" [(ngModel)]="addressModel.lastName">
+                                <span class="highlight"></span>
+                                <span class="bar"></span><label>Last Name</label>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                        <!-- Validation Name-->
+                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
+                            <div *ngIf="fname.errors.required">First Name is required. </div>
+                            <div *ngIf="fname.errors.minlength">Name must be at least 4 characters long.</div>
+                        </div>
+                          <!-- Validation End Name -->
+                      <div class="group">
+                        <input type="text" id="postcode" required name="postcode" [(ngModel)]="addressModel.postalCode"  minlength="6" #postcode="ngModel">
                         <span class="highlight"></span>
-                        <span class="bar"></span><label>City/Area</label>
+                        <span class="bar"></span><label>Postcode</label>
+                      </div>
+                         <!-- Validation PostCode-->
+                         <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="toast toast-error space1">
+                            <div *ngIf="postcode.errors.required">Postcode is required. </div>
+                            <div *ngIf="postcode.errors.minlength">PostCode must be at least 6 characters long.</div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="group">
-                            <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
-                            <span class="highlight"></span>
-                            <span class="bar"></span><label>Location/LandMark</label>
+                          <!-- Validation End PostCode -->
+                      <div class="group">
+                          <table style="width:100%">
+                            <tr>
+                              <td>
+                                <div class="group">
+                                  <input type="text" required name="housenumber" [(ngModel)]="addressModel.houseNumber">
+                                  <span class="highlight"></span>
+                                  <span class="bar"></span><label>House Number</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="group">
+                                  <input type="text" required name="streetname" [(ngModel)]="addressModel.street">
+                                  <span class="highlight"></span>
+                                  <span class="bar"></span><label>Street Name</label>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
                         </div>
-                      </td>
-                    </tr>
-                  </table>
-          </div>
-          <div class="group">
-            
-            <input type="text" required name="phone" [(ngModel)]="userModel.phone">
-            <span class="highlight"></span>
-            <span class="bar"></span><label>Phone Number</label>
-          </div>
-          <div class="group">
-            <input type="email" id="email" required name="email" [(ngModel)]="userModel.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-            <span class="highlight"></span>
-            <span class="bar"></span><label>Email Address</label>
-          </div>
-           <!-- Validation Email-->
-           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
-              <div *ngIf="email.errors.required">Email Name is required. </div>
-              <div *ngIf="email.errors.pattern">Email is Invalid</div>
-             
-          </div>
-            <!-- Validation End Email -->
+                      <div class="group">
+                          <table style="width:100%">
+                              <tr>
+                                <td>
+                                    <div class="group">
+                                    <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span><label>City/Area</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="group">
+                                        <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span><label>Location/LandMark</label>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                      </div>
+                      <div class="group">
+                        
+                        <input type="text" required name="phone" [(ngModel)]="userModel.phone">
+                        <span class="highlight"></span>
+                        <span class="bar"></span><label>Phone Number</label>
+                      </div>
+                      <div class="group">
+                        <input type="email" id="email" required name="email" [(ngModel)]="userModel.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                        <span class="highlight"></span>
+                        <span class="bar"></span><label>Email Address</label>
+                      </div>
+                       <!-- Validation Email-->
+                       <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
+                          <div *ngIf="email.errors.required">Email Name is required. </div>
+                          <div *ngIf="email.errors.pattern">Email is Invalid</div>
+                         
+                      </div>
+                        <!-- Validation End Email -->
+                 
+                    </div>
+                  </form>
+
+                  </div>
+            </div>
+          </mat-radio-group>
+          <div class="actionRow">
           <div class="float-right">
-            <button class="btn btn-primary" (click)="showPreviousStep()">Previous</button>
-            <button class="btn btn-primary" (click)="addAddress()">Next</button>
-           
+            <button class="btn btn-primary" (click)="addAddress()">Go to Payment</button>
           </div>
           <div class="clearfix"></div>
         </div>
-
-      </div>
     </div>
-  
 </section>
-</form>
 

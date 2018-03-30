@@ -1,109 +1,37 @@
 @import "../../../../assets/css/variables";
 //https://github.com/sheikalthaf/ngx-carousel/blob/master/demo/src/app/app.component.css
 .banner {
-    xbackground-color: #ccc;
-    xbackground-size: cover !important;
-    xheight: 400px;
+
   
 }
-.xc{
-    height:400px; margin-top:20px; margin-bottom:40px;
-    @include breakpoint(smart-phone){
-        height: 170px;
-        
-       }
+.banner-outer{
+    height:400px; width:100%; display:flex; justify-content:center; overflow:hidden;
+    @include breakpoint(ExtraSmallMobile){
+       height: 130px;  margin-top:0px;
+    }
+    @include breakpoint(ExtraLargeMobile){
+        height: 240px;  margin-top:0px;
+     }
+    @include breakpoint(MediumDevice){
+        height: 364px;  margin-top:0px;
+     }
+     @include breakpoint(LargeDevice){
+        height: 390px;  margin-top:0px;
+     }
+     @include breakpoint(ExtraDevice){
+        height:400px; margin:20px 0px 20px 0px;
+     }
 }
-.vb{ 
-    margin:0px auto;text-align:center;width:1140px; 
-    @include breakpoint(smart-phone){
-        width:100%; 
-        
-       }
+.banner-inner{ 
+    width:1140px; background:#fff; 
 }
 .banner img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.banner h1 {
-    text-align: center;
-    line-height: 400px;
-    background: rgba(0, 0, 0, 0.32);
-    color: white;
-    margin: 0;
-}
 
-.tile {
-    min-height: 200px;
-    background-color: #ccc;
-    background-size: cover !important;
-}
 
-.tile h1 {
-    text-align: center;
-    line-height: 200px;
-    background: rgba(0, 0, 0, 0.32);
-    color: white;
-    margin: 0;
-}
-
-h4 {
-    margin: 0;
-    padding: 10px 15px;
-    text-align: center;
-}
-
-p {
-    margin: 0;
-    padding: 0 15px 10px;
-    text-align: center;
-}
-
-.wBg {
-    background: white;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-nav {
-    border-bottom: 1px solid #ccc;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: white;
-    z-index: 12;
-}
-
-nav h1 {
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-}
-
-.carBtn {
-    border:1px solid #000;
-    position: absolute;
-    margin: auto;
-    top: -50px;
-    bottom: 0;
-    width: 50px;
-    height: 50px;
-    box-shadow: 1px 2px 10px -1px $uboxit-primary-color;
-}
-.ngxcarouselPointDefault{
-    position: absolute;
-    top: -50px;
-    box-shadow: 1px 2px 10px -1px $uboxit-primary-color;
-
-}
-.banner ul{
-    position: absolute;
-    top: -50px;
-    box-shadow: 1px 2px 10px -1px $uboxit-primary-color;
-}
 .leftRs {
     position: absolute;
     margin: auto;

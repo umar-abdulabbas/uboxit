@@ -20,7 +20,37 @@ export class AdvertisementComponent implements OnInit {
       speed: 400,
       interval: 4000,
       point: {
-        visible: true
+        visible: true,
+        pointStyles:`
+        .ngxcarouselPoint {
+          list-style-type: none;
+          text-align: center;
+          padding: 12px;
+          margin: 0;
+          white-space: nowrap;
+          overflow: auto;
+          position: absolute;
+          width: 100%;
+          bottom: 20px;
+          left: 0;
+          box-sizing: border-box;
+          position: relative!important;
+          top: -50px;
+        }
+        .ngxcarouselPoint li {
+          display: inline-block;
+          border-radius: 999px;
+          background:#fff;
+          padding: 5px;
+          margin: 0 3px;
+          transition: .4s ease all;
+        }
+        .ngxcarouselPoint li.active {
+            background:#FF655A;
+            width: 10px;
+            transform:scale(1.8);
+        }
+        `
       },
       load: 2,
       touch: true,

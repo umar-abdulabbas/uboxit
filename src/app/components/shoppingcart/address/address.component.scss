@@ -1,73 +1,9 @@
 @import "../../../../assets/css/variables";
-.address-repeat{
-    background: #f8f9fa;
-    border:1px solid #f0f1f4;
-    padding: 10px;
-}
-.address-repeat-w{
-    background: #fff;
-}
-.address-left{
-    padding-right:15px; float:left;
-}
-.address-right{
-    width:85%; float:left;
-}
-.input-color{
-    background: $uboxit-background-color;
-}
-.dropInfo{
-    border-top: 1px dotted #ccc;
-    margin-top: 10px;
-}
-.drop-info-title{
-    padding: 10px 0px 20px 0px;
-    font-weight: bold;
-}
+
 .address-name{
     position:relative; top:-3px; font-weight: bold;
 }
-.radioarea input{
-    width:20px;
-    display: inline;
-    height: 20px;
-}
-.radioarea span{
-    display: inline-block;
-    top: -5px;
-    position: relative;
-    font-size: 18px;
-    padding-left: 10px;
-}
 
-
-.radioarea input[type='radio']:after {
-    width: 20px;
-    height: 20px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    xposition: relative;
-    background-color: #d1d3d1;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid #acb3c2;
-}
-
-.radioarea input[type='radio']:checked:after {
-    width: 20px;
-    height: 20px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    xposition: relative;
-    background-color: $uboxit-primary-color;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid #acb3c2;
-}
 input{
     width: 100%;
     font-size: 12px !important;
@@ -97,4 +33,46 @@ input:focus ~ label, input:valid ~ label{
 }
 .toast.toast-error.space1{
     margin-top:-19px; margin-bottom: 20px;
+}
+
+//new
+/deep/.mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color:$uboxit-primary-color;
+}
+/deep/.mat-radio-label-content{
+    font-family: $uboxit-font;
+}
+.radioDiv{
+    padding:10px;
+    @include breakpoint(smart-phone){
+    padding:20px;  
+    } 
+}
+.showSelectedRadio{
+    transition: visibility 0s, opacity 0.5s linear;
+
+}
+.showSelectedRadio > address{
+    font-family: $uboxit-font;
+    background:$uboxit-background-color;
+    margin-left: 36px;
+    margin-right: 36px;
+    padding: 10px;
+    border-left: 5px solid $uboxit-primary-color;
+}
+.addressfields{
+    padding:36px;
+    padding-bottom: 0px;
+}
+.group input{
+    background: #fff;
+}
+.actionRow{   
+    border-top-style: solid;
+    border-top-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 16px 8px 16px 24px;
+    border-top-color:rgba(0,0,0,.12);
 }

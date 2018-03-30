@@ -37,6 +37,7 @@ export class AddressComponent implements OnInit {
   @Output() newAddressSelected = new EventEmitter<boolean>();
   @Output() existingAddressSelected = new EventEmitter<boolean>();
   @Output() previousStepRequested = new EventEmitter<boolean>();
+ 
 
   constructor(private paymentService: PaymentService,
               private storageService: StorageService) { }

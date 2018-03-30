@@ -26,7 +26,7 @@ import { StickyHeaderDirective } from './directives/sticky-header.directive';
 import { ModelCloseOverlayDirective } from './directives/modelCloseonOverlay.directive';
 // Material Componets Added
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatRadioModule } from '@angular/material/radio';
 import { MakeyourcomboOfferComponent } from './components/offers/makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './components/shared/add-to-cart-counter/add-to-cart-counter.component';
 
@@ -112,10 +112,11 @@ import { TermsComponent } from './components/shared/terms/terms.component';
     HttpClientModule,
     FormsModule,
     NgxCarouselModule,
-   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,
+    MatRadioModule,
     // Material Import
     LocalStorageModule.withConfig({
       prefix: 'uboxit',

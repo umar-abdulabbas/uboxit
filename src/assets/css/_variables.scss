@@ -21,11 +21,40 @@ $break-tablet-L: 961px; /* tablet, landscape iPad, lo-res laptops ands desktops 
 $break-tablet-screen: 1025px; /* big landscape tablets, laptops, and desktops */ 
 $break-tablet-hscreen: 1281px; /* hi-res laptops and desktops */
 
+$break-extraSmall:600px;
+$break-extraLarge:600px;
+$break-medium:768px;
+$break-large:992px;
+$break-extraLargeDesktop:1200px;
 @mixin breakpoint($name){
     @if $name == smart-phone {
       @media only screen and (max-width: $break-smartPhone) {
         @content;
       }
     }
-   
+    @if $name == ExtraSmallMobile{
+      @media only screen and (max-width: $break-extraSmall){
+        @content;
+      }          
+    }
+    @if $name == ExtraLargeMobile{
+      @media only screen and (min-width: $break-extraSmall){
+        @content;
+      }          
+    }
+    @if $name == MediumDevice {
+      @media only screen and (min-width: $break-medium){
+        @content;
+      }          
+    }
+    @if $name == LargeDevice {
+      @media only screen and (min-width: $break-large){
+        @content;
+      }          
+    }
+    @if $name == ExtraDevice {
+      @media only screen and (min-width: $break-extraLargeDesktop){
+        @content;
+      }          
+    }
   }

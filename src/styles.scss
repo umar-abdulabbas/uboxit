@@ -111,7 +111,6 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
     justify-content: center;
     align-items: center;
     height: 300px;
-    background:url("assets/images/Banner2.png") no-repeat fixed;
     background-size: cover;
     background-position: 50% 65%; 
     @include breakpoint(smart-phone){

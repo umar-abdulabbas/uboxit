@@ -2,12 +2,13 @@ import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/co
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../../../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { OfferService } from '../services/offer.service';
-import { Item, ItemType } from '../../../core/domain/offer';
+import { Item, ItemType, Offer } from '../../../core/domain/offer';
 import { CartService } from '../../shoppingcart/services/cart.service';
 
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 import { AlertInvoker } from '../../../core/services/alert-invoker.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Router } from '@angular/router';
 
 const EMPTY_BOX_TEXT = 'Eager to know your box !';
 const CLEAR_COMBO_TEXT = 'Clear your box';
@@ -56,7 +57,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,
               private cartService: CartService, private uistyleservice: UserExpStyleService,
-              private alertInvoker: AlertInvoker) {
+              private router: Router, private alertInvoker: AlertInvoker) {
   }
 
   ngOnInit() {
@@ -64,7 +65,24 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
    // this.headerColor.classList.add('headerFixedShoppingCard');
 
-    const offer = this.offerService.offer;
+    let offer = this.offerService.offer;
+
+    if (offer) {
+      this.initialize(offer);
+    } else {
+      this.offerService.getOffers().subscribe(res => {
+        offer = this.offerService.offer;
+        this.initialize(offer);
+
+        this.cartService.initializeCart(offer.offerId);
+        this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
+        this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
+      });
+    }
+  }
+
+  initialize(offer: Offer) {
+
     this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
     this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
 
@@ -146,7 +164,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // this.headerColor.classList.remove('headerFixedShoppingCard');
-    this.subFromMakeYourOwnCombo.unsubscribe();
+    if (this.subFromMakeYourOwnCombo) {
+      this.subFromMakeYourOwnCombo.unsubscribe();
+    }
   }
 
   stickyHeaderValue(scrolValue) {

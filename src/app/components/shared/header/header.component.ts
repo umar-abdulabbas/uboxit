@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.findparentId = document.getElementById('uboxitwrapper');
     this.findSlideID = document.getElementById('slideRightNav');
-    this.totalCount = this.cartService.totalCountSubject;
+    this.totalCount = this.cartService.totalCountObservable;
     this.loggedIn = this.loginService.loggedIn;
     this.loginService.loggedIn.subscribe(v => {
       if (v) {
@@ -53,30 +53,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     });
     this.decideFeatures();
-    this.totalCount.subscribe(c => {
-      if (c > 0 && !shoppingCartPage) {
-        this.findSlideID.style.width = '375px';
-        this.findparentId.style.marginRight = '375px';
-        this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
-        this.prepareCart();
-      } else {
-        this.findSlideID.style.width = '0px';
-        this.findparentId.style.marginRight = '0px';
-        this.shopFloat = false;
-      }
-    });
 
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event.url.includes('shoppingcart')) {
+          this.closeSlideNav();
           shoppingCartPage = true;
-          // TODO @UMAR
-          // I though of reusing this closing logic but we already have closeSideDiv with diff logic, lets try to create one method with common logic - Malai
-          this.findSlideID.style.width = '0px';
-          this.findparentId.style.marginRight = '0px';
           this.shopFloat = false;
         } else {
           shoppingCartPage = false;
+          this.totalCount.subscribe(c => {
+            if (c > 0 && !shoppingCartPage) {
+              this.showSlideNav();
+              this.prepareCart();
+            } else {
+              this.closeSlideNav();
+              this.shopFloat = false;
+            }
+          });
         }
       }
     });
@@ -84,14 +78,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
 
-  }
-
-  prepareCart() {
-    if (!this.cartService.cartId) {
-      this.cartService.createCart().subscribe(res => {
-        this.cart = this.cartService.cart;
-      });
-    }
   }
 
   getHeaders(): void {
@@ -130,6 +116,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.showLoggedIn = event;
   }
 
+  closeSlideNav() {
+    this.findSlideID.style.width = '0px';
+    this.findparentId.style.marginRight = '0px';
+  }
+
   private decideFeatures() {
     this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
     this.locationEnabled = FeatureSwitch.isLocationFeatureEnabled();
@@ -143,9 +134,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  closeSlideNav() {
-    document.getElementById('slideRightNav').style.width = '0px';
-    document.getElementById('uboxitwrapper').style.marginRight = '0px';
+  private prepareCart() {
+    if (!this.cartService.cartId) {
+      this.cartService.createCart().subscribe(res => {
+        this.cart = this.cartService.cart;
+      });
+    }
+  }
+
+  private showSlideNav() {
+    this.findSlideID.style.width = '375px';
+    this.findparentId.style.marginRight = '375px';
+    this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
   }
 
 }

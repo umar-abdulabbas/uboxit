@@ -9,15 +9,22 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class CartService {
 
   private cartRequest: Cart;
-  totalCountSubject = new BehaviorSubject<number>(this.getTotalCount());
+  private totalCountSubject = new BehaviorSubject<number>(this.getTotalCount());
+
+  private cartSubject = new Subject<Cart>();
 
   cartId: string;
 
   cart: Cart;
-  private cartSubject = new Subject<Cart>();
 
   get cartObservable() {
     return this.cartSubject.asObservable();
+  }
+
+  get totalCountObservable() {
+    return this.totalCountSubject.asObservable()
+      .publishReplay()
+      .refCount();
   }
 
   constructor(private http: HttpClient) {

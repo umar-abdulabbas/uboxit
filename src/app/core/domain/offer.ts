@@ -23,6 +23,9 @@ export interface Combo extends Product {
 
 export interface Item extends Product {
   type: string; // starter, main-course, dessert
+
+  allowedForCustomCombo: boolean;
+  allowedForIndividualSale: boolean;
 }
 
 export interface Offer {

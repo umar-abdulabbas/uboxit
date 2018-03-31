@@ -55,15 +55,19 @@ export class OfferService {
   }
 
   getStarters() {
-    return this.getItems('STARTERS');
+    return this.getItemsForCustomCombo('STARTERS');
   }
 
   getMainDishes() {
-    return this.getItems('MAIN_COURSE');
+    return this.getItemsForCustomCombo('MAIN_COURSE');
   }
 
   getDeserts() {
-    return this.getItems('DESERT');
+    return this.getItemsForCustomCombo('DESERT');
+  }
+
+  getItemsForIndividualSale() {
+    return this.items.filter(item => item.allowedForIndividualSale);
   }
 
   getItemById(itemId: string) {
@@ -85,11 +89,11 @@ export class OfferService {
     this.items.forEach(i => i.count = 0);
   }
 
-  private getItems(itemType: string) {
+  private getItemsForCustomCombo(itemType: string) {
     if (!this.items) {
       throw new Error('please wait.. offer not ready');
     }
-    return this.items.filter(item => item.type === itemType);
+    return this.items.filter(item => item.allowedForCustomCombo && item.type === itemType);
   }
 
   private prepareDomainCombos(combo: any, categoryType: string) {
@@ -121,7 +125,9 @@ export class OfferService {
       image: apiItem.imageUrls[0],
       // type: this.getItemTypeName(apiItem.itemType),
       type: apiItem.itemType,
-      category: this.getCategoryTypeName(categoryType)
+      category: this.getCategoryTypeName(categoryType),
+      allowedForCustomCombo: apiItem.allowedForCustomCombo,
+      allowedForIndividualSale: apiItem.allowedForIndividualSale
     };
   }
 

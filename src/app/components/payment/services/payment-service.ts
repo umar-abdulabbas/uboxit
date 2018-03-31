@@ -4,12 +4,14 @@ import { LoginService } from '../../personal/services/login-service';
 import { PlatformLocation } from '@angular/common';
 import { Address } from '../../../core/domain/address';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class PaymentService {
 
   private readonly origin: string;
   private address: Address;
+  private pickupAtStore: boolean;
   private userDetails: any;
 
   constructor(private http: HttpClient,
@@ -23,12 +25,16 @@ export class PaymentService {
       'shopId': cartId,
       'returnurl': `${this.origin}/finish?cartId=${cartId}`,
       'origin': this.origin,
-      'deliveryAddress': this.address,
       'emailId': this.userDetails.email,
       'mobileNumber': this.userDetails.phone
     };
     if (FeatureSwitch.isLoginFeatureEnabled()) {
       request['individualId'] = this.loginService.individual.customerId;
+    }
+    if (this.pickupAtStore) {
+      request['pickupAtStore'] = this.pickupAtStore;
+    } else {
+      request['deliveryAddress'] = this.address;
     }
     return this.http.post('/order-api/order', request);
   }
@@ -40,8 +46,9 @@ export class PaymentService {
     });
   }
 
-  enrichAddress(address: Address) {
+  enrichAddress(address: Address, pickupAtStore?: boolean) {
     this.address = address;
+    this.pickupAtStore = pickupAtStore;
   }
 
   enrichUserDetails(userDetails: any) {

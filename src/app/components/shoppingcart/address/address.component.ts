@@ -15,7 +15,6 @@ export class AddressList {
     checked: string;
 }
 
-
 const ADDRESSLIST: AddressList[] = [
   { id: '004', name: 'Pickup at Store', address: 'Augustinuspark ', housenumber: '14', city: 'Amstelveen', postalcode: '1185CN', email: 'connect@uboxit.com', phone: '0645433592', checked: '' }
 ];
@@ -37,7 +36,6 @@ export class AddressComponent implements OnInit {
   @Output() newAddressSelected = new EventEmitter<boolean>();
   @Output() existingAddressSelected = new EventEmitter<boolean>();
   @Output() previousStepRequested = new EventEmitter<boolean>();
- 
 
   constructor(private paymentService: PaymentService,
               private storageService: StorageService) { }

@@ -21,7 +21,7 @@ export class AdvertisementComponent implements OnInit {
       interval: 4000,
       point: {
         visible: true,
-        pointStyles:`
+        pointStyles: `
         .ngxcarouselPoint {
           list-style-type: none;
           text-align: center;

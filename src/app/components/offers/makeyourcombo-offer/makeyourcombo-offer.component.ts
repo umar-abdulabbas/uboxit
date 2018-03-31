@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../../../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { OfferService } from '../services/offer.service';
@@ -25,9 +25,9 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   isActiveMainDish: boolean;
   isActiveDessert: boolean;
 
-  starters: Item[];
-  mainCourses: Item[];
-  deserts: Item[];
+  @Input() starters: Item[];
+  @Input() mainCourses: Item[];
+  @Input() deserts: Item[];
 
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService, private uistyleservice: UserExpStyleService) {
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
@@ -36,9 +36,6 @@ export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.starters = this.offerService.getStarters();
-    this.mainCourses = this.offerService.getMainDishes();
-    this.deserts = this.offerService.getDeserts();
   }
 
   ngOnDestroy() {

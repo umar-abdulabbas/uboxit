@@ -46,6 +46,10 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   clearOrAddNewText = EMPTY_BOX_TEXT;
 
+  starters: Item[];
+  mainCourses: Item[];
+  deserts: Item[];
+
   selectedStarter: Item;
   selectedMainDish: Item;
   selectedDessert: Item;
@@ -73,10 +77,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
       this.offerService.getOffers().subscribe(res => {
         offer = this.offerService.offer;
         this.initialize(offer);
-
         this.cartService.initializeCart(offer.offerId);
-        this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
-        this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
       });
     }
   }
@@ -85,6 +86,10 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
     this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
     this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
+
+    this.starters = this.offerService.getStarters();
+    this.mainCourses = this.offerService.getMainDishes();
+    this.deserts = this.offerService.getDeserts();
 
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;

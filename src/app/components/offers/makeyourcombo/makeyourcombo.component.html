@@ -81,7 +81,7 @@
                 <div class="dropdown dropdown-right" style="width:100%">
                     <a class="btn btn-primary dropdown-toggle" tabindex="0" style="width:100%">
                      Filter<i class="icon icon-caret"></i>
-                    </a>
+                    </a>1
                     <!-- menu component -->
                     <ul class="menu">
                         <li>South Indian Combo</li>
@@ -98,7 +98,9 @@
   <app-toasts></app-toasts>
   <section #scrollMe style="overflow: auto; height:auto;">
     <!-- Offer Area -->
-    <app-makeyourcombo-offer></app-makeyourcombo-offer>
+    <app-makeyourcombo-offer [starters]="starters"
+                              [mainCourses]="mainCourses"
+                              [deserts]="deserts"></app-makeyourcombo-offer>
     <!-- Offer Area End -->
 
   </section>

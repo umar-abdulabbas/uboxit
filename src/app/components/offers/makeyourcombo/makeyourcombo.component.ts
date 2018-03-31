@@ -14,7 +14,7 @@ const EMPTY_BOX_TEXT = 'Eager to know your box !';
 const CLEAR_COMBO_TEXT = 'Clear your box';
 const START_NEW_COMBO_TEXT = 'Start your next box !';
 
-const DUPLICATE_BOX_NOTIFICATION = `You've made this box already, Just add as much as you want.                                   PS: Umar will fix styling & close button ;)`;
+const DUPLICATE_BOX_NOTIFICATION = `You've made this box already)`;
 
 @Component({
   selector: 'app-makeyourcombo',

@@ -3,25 +3,8 @@
 <section class="">
     <div>
         <mat-radio-group [(ngModel)]="valueSelcted">
-            <div class="radioDiv"><mat-radio-button value="1">Pick up at store</mat-radio-button></div>
-            <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
-              <address>
-                Augustinuspark , 14. 1185CN, Amstelveen
-              </address>
-            <div class="addressfields">
-              <div class="group">
-                  <input type="text" required name="email" class="input-color">
-                  <span class="highlight"></span>
-                  <span class="bar"></span><label>Enter your Email Address</label>
-              </div>
-              <div class="group">
-                  <input type="text" required name="phone" class="input-color">
-                  <span class="highlight"></span>
-                  <span class="bar"></span><label>Enter your Phone Number</label>
-              </div>
-            </div>          
-            </div>
-            <div class="radioDiv"><mat-radio-button value="2">Add new Address</mat-radio-button></div>
+         
+            <div class="radioDiv"><mat-radio-button value="2">Add your Delivery Address</mat-radio-button></div>
             <div *ngIf="valueSelcted == 2" class="">
                 <div class="addressNewForm">
                     <form>
@@ -127,6 +110,24 @@
                   </form>
 
                   </div>
+            </div>
+               <div class="radioDiv"><mat-radio-button value="1">Pick up at store</mat-radio-button></div>
+            <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
+              <address>
+                Augustinuspark , 14. 1185CN, Amstelveen
+              </address>
+            <div class="addressfields">
+              <div class="group">
+                  <input type="text" required name="email" class="input-color">
+                  <span class="highlight"></span>
+                  <span class="bar"></span><label>Enter your Email Address</label>
+              </div>
+              <div class="group">
+                  <input type="text" required name="phone" class="input-color">
+                  <span class="highlight"></span>
+                  <span class="bar"></span><label>Enter your Phone Number</label>
+              </div>
+            </div>          
             </div>
           </mat-radio-group>
           <div class="actionRow">

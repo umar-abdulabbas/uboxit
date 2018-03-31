@@ -57,7 +57,7 @@
                       <mat-expansion-panel [disabled]="loginEnabled && !loggedIn" [expanded]="step === 0" (opened)="setStep(0)"
                                            hideToggle="true" class="addressPanel">
                         <mat-expansion-panel-header>
-                          <mat-panel-title>Delivery Address</mat-panel-title>
+                          <mat-panel-title>Address</mat-panel-title>
 
                         </mat-expansion-panel-header>
 
@@ -91,8 +91,7 @@
                             <div class="secure3d"><span class="secure3dTxt">Payment secured by : </span><img
                               src="../assets/images/3dsecure.png" height="40px"/></div>
                           </mat-panel-title>
-
-                          <button class="btn btn-primary" (click)="prevStep()">Previous</button>&nbsp;
+                          
                           <button *ngIf="!adyenPaymentSupported" class="btn btn-primary" routerLinkActive="active" [routerLink]="['/finish']">Order now</button>
 
                         </mat-action-row>

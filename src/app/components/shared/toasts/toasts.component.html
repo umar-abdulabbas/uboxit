@@ -1,5 +1,12 @@
 <div class="h-2x" *ngIf="showToasts"></div>
-<div class="toast toast-error" *ngIf="showToasts">
+<div class="container grid-lg">
+  <div class="columns">
+    <div class="toast-space">
+    <div class="toast toast-warning" *ngIf="showToasts">
     <button class="btn btn-clear float-right" (click)="close()"></button>
     {{message}}
+    </div>
+    </div>
+  </div>
 </div>
+

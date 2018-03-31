@@ -9,8 +9,8 @@
        margin-left: 10px;
     }
 }
-.slideRightNav { height: 100%; width: 0px; position: fixed; z-index: 302;  top: 0; right: 0; overflow-x: hidden;  transition: 0.5s;
-    border-left:1px solid #ccc;  background: $uboxit-white;
+.slideRightNav { height: 100%; width: 0px; position: fixed; z-index: 318;  top: 0; right: 0; overflow-x: hidden;  transition: 0.5s;
+    border-left:1px solid #ccc;  background: $uboxit-white; 
     @include breakpoint(smart-phone){
       display: none;
       
@@ -99,7 +99,8 @@ input:focus ~ label, input:valid ~ label{ top:-10px; }
     padding-top: 6px;
     width: 70px;
     bottom: 50px;
-    left: 20px;
+    left: 40%;
+    right: 40%;
     box-shadow:0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 .shop-icon-mobile > button{

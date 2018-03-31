@@ -29,7 +29,7 @@ export class AddressComponent implements OnInit {
   addressList = ADDRESSLIST;
   public isActiveNewForm = false;
   public isActiveRadio;
-
+  public valueSelcted;
   addressModel: Address = <Address>{};
   userModel: any = {};
 

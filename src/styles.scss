@@ -38,9 +38,7 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
 
 .uboxitMenu{ position: fixed;  width: 100%; xtop:55px; top:0px; box-shadow: 0 8px 6px -6px #ccc;z-index: 289; border-bottom:0px !important; }
 .uboxitMenuBar{ background:$uboxit-background-color;}
-.chckt-button{
-    background: $uboxit-primary-color !important;
-}
+
 //common
 .h-2x{ height: 20px;}
 .modal.active .modal-container, .modal:target .modal-container{ border-radius: $uboxit-radius; }

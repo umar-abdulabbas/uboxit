@@ -10,13 +10,22 @@ input {
 }
 
 .chckt-button--disabled{
-  background:#ccc;
+  
 }
 .chckt-button{
-  background:$uboxit-primary-color; 
+  
 }
 .chckt-pm__radio-button{
 
+}
+.chckt-button--disabled{
+  background-color:#ccc;
+}
+.chckt-button{
+  background-color:$uboxit-primary-color; 
+}
+.chckt-pm-list__button--loading{
+  background-color:$uboxit-primary-color; 
 }
 
 @keyframes ripple {
@@ -80,3 +89,24 @@ span:after {
 
 
 
+
+//new
+/deep/.mat-expansion-panel-body{
+  padding: 0px;
+}
+/deep/.mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color:$uboxit-primary-color;
+}
+/deep/.mat-radio-label-content{
+    font-family: $uboxit-font;
+}
+.radioDiv{
+    padding:10px;
+    @include breakpoint(smart-phone){
+    padding:20px;  
+    } 
+}
+.showSelectedRadio{
+    transition: visibility 0s, opacity 0.5s linear;
+
+}

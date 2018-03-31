@@ -9,12 +9,12 @@ import { FeatureSwitch } from '../../core/feature-switch/feature-switch';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-
+  public valueSelcted = 0;
   @Input() cart: Observable<Cart>;
-
+  @Input() checked: boolean;
   adyenPaymentSupported: boolean;
 
   sdkConfigObj = {

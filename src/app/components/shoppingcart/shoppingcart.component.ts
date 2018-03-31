@@ -33,16 +33,20 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.adyenPaymentSupported = FeatureSwitch.isAdyenPaymentEnabled();
-    this.uistyleservice.scrollToTop();
-    this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
-    // this.headerColor.classList.add('headerFixedShoppingCard');
-    this.cartService.getCart().subscribe(res => {
-      this.cart = this.cartService.cart;
-    });
+    if (this.cartService.cartId) {
+      this.adyenPaymentSupported = FeatureSwitch.isAdyenPaymentEnabled();
+      this.uistyleservice.scrollToTop();
+      this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
+      // this.headerColor.classList.add('headerFixedShoppingCard');
+      this.cartService.getCart().subscribe(res => {
+        this.cart = this.cartService.cart;
+      });
 
-    this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
-    this.loginService.loggedIn.subscribe(val => this.loggedIn = val);
+      this.loginEnabled = FeatureSwitch.isLoginFeatureEnabled();
+      this.loginService.loggedIn.subscribe(val => this.loggedIn = val);
+    } else {
+      this.linkToHomePage();
+    }
   }
 
   ngOnDestroy() {

@@ -5,7 +5,6 @@ import { NavigationStart, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../../personal/services/login-service';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
-import { StorageService } from '../../../shared/services/storage-service';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { Cart } from '../../../core/domain/cart';
 
@@ -35,7 +34,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private loginService: LoginService,
-              private storageService: StorageService,
               private cartService: CartService) {
 
   }
@@ -47,7 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.findparentId = document.getElementById('uboxitwrapper');
     this.findSlideID = document.getElementById('slideRightNav');
-    this.totalCount = this.storageService.totalCountSubject;
+    this.totalCount = this.cartService.totalCountSubject;
     this.loggedIn = this.loginService.loggedIn;
     this.loginService.loggedIn.subscribe(v => {
       if (v) {

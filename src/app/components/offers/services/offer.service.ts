@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item, Combo, Offer } from '../../../core/domain/offer';
 import { HttpClient } from '@angular/common/http';
-import { Cart } from '../../../core/domain/cart';
-import { StorageService } from '../../../shared/services/storage-service';
 
 const CATEGORY_TYPE_NAME_MAP = new Map([['NORTH_INDIAN', 'North Indian'], ['SOUTH_INDIAN', 'South Indian'], ['CONTINENTAL', 'Continental']]);
 const ITEM_TYPE_NAME_MAP = new Map([['STARTERS', 'Starters'], ['MAIN_COURSE', 'Main Course'], ['DESERT', 'Desert']]);
@@ -16,8 +14,7 @@ export class OfferService {
   private items: Item[] = [];
   private offerId: string;
 
-  constructor(private http: HttpClient,
-              private storageService: StorageService) {
+  constructor(private http: HttpClient) {
   }
 
   getOffers() {
@@ -106,7 +103,7 @@ export class OfferService {
       discountedPrice: combo.discountedPrice.amount,
       image: combo.imageUrls[0],
       category: this.getCategoryTypeName(categoryType),
-      count: this.getCountIfPresentInLocalStorage(combo.id),
+      count: 0,
       items: combo.items.map(i => this.prepareDomainItem(i, categoryType)),
       itemNames: combo.items.map(i => i.name).join(' + '),
       itemDescriptions: combo.items.map(i => i.description).join(' '),
@@ -137,16 +134,5 @@ export class OfferService {
 
   private getItemTypeName(typeFromApi: string) {
     return ITEM_TYPE_NAME_MAP.get(typeFromApi);
-  }
-
-  private getCountIfPresentInLocalStorage(id: string) {
-    const cart: Cart = this.storageService.getStoredCart();
-    if (!!cart) {
-      const cachedCombo = cart.combos.find(c => c.id === id);
-      if (!!cachedCombo) {
-        return cachedCombo.count;
-      }
-    }
-    return 0;
   }
 }

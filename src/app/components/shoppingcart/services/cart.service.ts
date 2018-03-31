@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cart, Combo } from '../../../core/domain/cart';
 import { Observable } from 'rxjs/Observable';
-import { StorageService } from '../../../shared/services/storage-service';
 import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class CartService {
 
   private cartRequest: Cart;
+  totalCountSubject = new BehaviorSubject<number>(this.getTotalCount());
 
   cartId: string;
 
@@ -19,8 +20,7 @@ export class CartService {
     return this.cartSubject.asObservable();
   }
 
-  constructor(private http: HttpClient,
-              private storageService: StorageService) {
+  constructor(private http: HttpClient) {
   }
 
   getCart(): Observable<Cart> {
@@ -87,14 +87,9 @@ export class CartService {
         items: []
       };
     }
-    const cachedCart: Cart = this.storageService.getStoredCart();
-    if (!!cachedCart) {
-      this.cartRequest = cachedCart;
-    }
   }
 
   clearStoredCart() {
-    this.storageService.clearCart();
     this.cartRequest = undefined;
     this.cartId = undefined;
     this.cart = undefined;
@@ -116,7 +111,7 @@ export class CartService {
       this.cartRequest.combos.push(combo);
     }
     console.log(combo);
-    this.storageService.storeCart(this.cartRequest);
+    this.addAllCountAndEmitValue();
   }
 
   prepareCustomisedCombo(itemIds: string[], count: number) {
@@ -139,7 +134,7 @@ export class CartService {
       };
       this.cartRequest.combos.push(combo);
     }
-    this.storageService.storeCart(this.cartRequest);
+    this.addAllCountAndEmitValue();
   }
 
   isCustomComboAlreadySelected(itemIds: string[]) {
@@ -186,5 +181,23 @@ export class CartService {
       this.cart = {};
     }
     this.cartSubject.next(cartRes);
+  }
+
+  private addAllCountAndEmitValue() {
+    this.totalCountSubject.next(this.getTotalCount());
+  }
+
+  private getTotalCount() {
+    let itemCount = 0;
+    let comboCount = 0;
+    if (this.cartRequest) {
+      if (this.cartRequest.items.length > 0) {
+        itemCount = this.cartRequest.items.map(i => i.count).reduce((accumulator, currentValue) => accumulator + currentValue);
+      }
+      if (this.cartRequest.combos.length > 0) {
+        comboCount = this.cartRequest.combos.map(c => c.count).reduce((accumulator, currentValue) => accumulator + currentValue);
+      }
+    }
+    return itemCount + comboCount;
   }
 }

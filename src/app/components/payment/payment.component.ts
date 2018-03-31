@@ -5,6 +5,7 @@ import { Cart } from '../../core/domain/cart';
 import { Router } from '@angular/router';
 import { NgZone } from '@angular/core';
 import { FeatureSwitch } from '../../core/feature-switch/feature-switch';
+import { CartService } from '../shoppingcart/services/cart.service';
 
 @Component({
   selector: 'app-payment',
@@ -22,6 +23,7 @@ export class PaymentComponent implements OnInit {
   };
 
   constructor(private paymentService: PaymentService,
+              private cartService: CartService,
               private router: Router,
               private zone: NgZone) {
   }
@@ -33,7 +35,7 @@ export class PaymentComponent implements OnInit {
 
       const adyenSdk = window['chckt'];
 
-      this.paymentService.initiatePayment()
+      this.paymentService.initiatePayment(this.cartService.cartId)
         .subscribe(res => {
           adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
         });
@@ -50,7 +52,12 @@ export class PaymentComponent implements OnInit {
         if (paymentData.resultCode === 'authorised') {
           // hack as we have browseranimation module
           // https://github.com/angular/angular/issues/20290
-          this.zone.run(() => { this.router.navigate(['finish'], { queryParams: { payload: paymentData.payload, resultCode: paymentData.resultCode} }); });
+          const queryParams = {
+            payload: paymentData.payload,
+            resultCode: paymentData.resultCode,
+            cartId: this.cartService.cartId
+          };
+          this.zone.run(() => { this.router.navigate(['finish'], { queryParams: queryParams }); });
         } else {
           console.error('payment not success');
         }

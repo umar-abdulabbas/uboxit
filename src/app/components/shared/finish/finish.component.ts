@@ -40,11 +40,12 @@ export class FinishComponent implements OnInit {
     if (FeatureSwitch.isAdyenPaymentEnabled()) {
       this.routerParamSubscription = this.route.queryParams.subscribe(params => {
         const payLoad = params.payload;
+        const cartId = params.cartId;
         console.log(payLoad);
         // const resultCode = params.resultCode;
         // console.log(resultCode);
         // if (resultCode === 'authorised') {
-        this.paymentService.finalizePayment(payLoad)
+        this.paymentService.finalizePayment(payLoad, cartId)
           .subscribe((res: any) => {
             console.log(res);
             this.offerService.clearSelection();

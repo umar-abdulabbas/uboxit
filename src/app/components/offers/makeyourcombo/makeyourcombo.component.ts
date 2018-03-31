@@ -76,8 +76,12 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     } else {
       this.offerService.getOffers().subscribe(res => {
         offer = this.offerService.offer;
-        this.initialize(offer);
-        this.cartService.initializeCart(offer.offerId);
+        if (offer.availableItemsForCustomCombo) {
+          this.initialize(offer);
+          this.cartService.initializeCart(offer.offerId);
+        } else {
+          this.router.navigate(['/home']);
+        }
       });
     }
   }

@@ -1,9 +1,9 @@
 $uboxit-font: 'Open Sans', sans-serif;
-$uboxit-primary-color:#FF655A;/* #fdc631;*/
+$uboxit-primary-color:#FF655A;/* #fdc631;*/ /*don't forget to change the theme-color meta tag in index.html*/
 $uboxit-black-color: #2a2a2a;
 $uboxit-background-color: #f8f9fa; /* #041340;*/
 $uboxit-barMenuFont: #78909c;
-$uboxit-barMenuBg:linear-gradient(to bottom,#cfd8dc, #dde3e6); 
+$uboxit-barMenuBg:linear-gradient(to bottom,#cfd8dc, #dde3e6);
 $uboxit-boxshadow:0px 3px 10px rgba(0,0,0,.4);
 $uboxit-white:#fff;
 $uboxit-footer-bg:#454d5d;
@@ -18,7 +18,7 @@ $break-phone: 320px; /* smartphones, iPhone, portrait 480x320 phones */
 $break-smartPhone: 481px; /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 $break-tablet: 641px; /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 $break-tablet-L: 961px; /* tablet, landscape iPad, lo-res laptops ands desktops */
-$break-tablet-screen: 1025px; /* big landscape tablets, laptops, and desktops */ 
+$break-tablet-screen: 1025px; /* big landscape tablets, laptops, and desktops */
 $break-tablet-hscreen: 1281px; /* hi-res laptops and desktops */
 
 $break-extraSmall:600px;
@@ -35,26 +35,26 @@ $break-extraLargeDesktop:1200px;
     @if $name == ExtraSmallMobile{
       @media only screen and (max-width: $break-extraSmall){
         @content;
-      }          
+      }
     }
     @if $name == ExtraLargeMobile{
       @media only screen and (min-width: $break-extraSmall){
         @content;
-      }          
+      }
     }
     @if $name == MediumDevice {
       @media only screen and (min-width: $break-medium){
         @content;
-      }          
+      }
     }
     @if $name == LargeDevice {
       @media only screen and (min-width: $break-large){
         @content;
-      }          
+      }
     }
     @if $name == ExtraDevice {
       @media only screen and (min-width: $break-extraLargeDesktop){
         @content;
-      }          
+      }
     }
   }

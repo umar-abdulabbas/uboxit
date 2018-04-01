@@ -4,7 +4,6 @@ import { LoginService } from '../../personal/services/login-service';
 import { PlatformLocation } from '@angular/common';
 import { Address } from '../../../core/domain/address';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class PaymentService {

@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (event.url.includes('shoppingcart')) {
+        if (event.url.includes('shoppingcart') || event.url.includes('finish')) {
           this.closeSlideNav();
           shoppingCartPage = true;
           this.shopFloat = false;

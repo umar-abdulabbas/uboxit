@@ -100,6 +100,7 @@ export class CartService {
     this.cartRequest = undefined;
     this.cartId = undefined;
     this.cart = undefined;
+    this.totalCountSubject.next(0);
   }
 
   addComboToCart(productId: string, count: number) {

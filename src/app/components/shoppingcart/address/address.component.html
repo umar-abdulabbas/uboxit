@@ -3,7 +3,7 @@
 <section class="">
     <div>
         <mat-radio-group [(ngModel)]="valueSelcted">
-         
+
             <div class="radioDiv"><mat-radio-button value="2">Add your Delivery Address</mat-radio-button></div>
             <div *ngIf="valueSelcted == 2" class="">
                 <div class="addressNewForm">
@@ -18,7 +18,7 @@
                                 <span class="highlight"></span>
                                 <span class="bar"></span><label>First Name</label>
                               </div>
-                            
+
                             </td>
                             <td>
                               <div class="group">
@@ -88,7 +88,7 @@
                               </table>
                       </div>
                       <div class="group">
-                        
+
                         <input type="text" required name="phone" [(ngModel)]="userModel.phone">
                         <span class="highlight"></span>
                         <span class="bar"></span><label>Phone Number</label>
@@ -102,10 +102,10 @@
                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
                           <div *ngIf="email.errors.required">Email Name is required. </div>
                           <div *ngIf="email.errors.pattern">Email is Invalid</div>
-                         
+
                       </div>
                         <!-- Validation End Email -->
-                 
+
                     </div>
                   </form>
 
@@ -118,16 +118,16 @@
               </address>
             <div class="addressfields">
               <div class="group">
-                  <input type="text" required name="email" class="input-color">
+                  <input type="text" required name="email" class="input-color" [(ngModel)]="userModel.email">
                   <span class="highlight"></span>
                   <span class="bar"></span><label>Enter your Email Address</label>
               </div>
               <div class="group">
-                  <input type="text" required name="phone" class="input-color">
+                  <input type="text" required name="phone" class="input-color" [(ngModel)]="userModel.phone">
                   <span class="highlight"></span>
                   <span class="bar"></span><label>Enter your Phone Number</label>
               </div>
-            </div>          
+            </div>
             </div>
           </mat-radio-group>
           <div class="actionRow">

@@ -72,7 +72,7 @@ export class AddressComponent implements OnInit {
     this.storageService.storeDeliveryAddress(this.addressModel);
     this.storageService.storeDeliveryContact(this.userModel);
 
-    this.paymentService.enrichAddress(this.addressModel, this.valueSelcted === 1);
+    this.paymentService.enrichAddress(this.addressModel, this.valueSelcted === '1');
     this.paymentService.enrichUserDetails(this.userModel);
 
     this.addressUpdated.emit(true);

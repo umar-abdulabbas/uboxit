@@ -162,7 +162,7 @@ export class CartService {
       if (!!p.items) { // there will be products without items, ready made combos
         const existingIdKey = p.items.map(item => item.id).join('-');
         const newIdKey = itemIds.join('-');
-        return existingIdKey === newIdKey;
+        return existingIdKey === newIdKey && p.count > 0;
       }
       return false;
     });

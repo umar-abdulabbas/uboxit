@@ -41,11 +41,12 @@ export class FinishComponent implements OnInit {
       this.routerParamSubscription = this.route.queryParams.subscribe(params => {
         const payLoad = params.payload;
         const cartId = params.cartId;
+        const payInPerson = params.payInPerson;
         console.log(payLoad);
         // const resultCode = params.resultCode;
         // console.log(resultCode);
         // if (resultCode === 'authorised') {
-        this.paymentService.finalizePayment(payLoad, cartId)
+        this.paymentService.finalizePayment(payLoad, cartId, payInPerson)
           .subscribe((res: any) => {
             console.log(res);
             this.offerService.clearSelection();

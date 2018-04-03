@@ -92,7 +92,7 @@
                               src="../assets/images/3dsecure.png" height="40px"/></div>
                           </mat-panel-title>
 
-                          <button *ngIf="paymentOnDelivery" class="btn btn-primary" routerLinkActive="active" [routerLink]="['/finish']">Order now</button>
+                          <button *ngIf="paymentOnDelivery" class="btn btn-primary" routerLinkActive="active" (click)="navigateToFinish()">Order now</button>
 
                         </mat-action-row>
                       </mat-expansion-panel>

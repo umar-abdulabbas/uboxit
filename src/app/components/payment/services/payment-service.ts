@@ -38,11 +38,14 @@ export class PaymentService {
     return this.http.post('/order-api/order', request);
   }
 
-  finalizePayment(paymentPayload: string, cartId: string) {
-    return this.http.post('/order-api/order/finalizeTransaction', {
-      shopId: cartId,
-      paymentPayload: paymentPayload
-    });
+  finalizePayment(paymentPayload: string, cartId: string, payInPerson: boolean) {
+    const request = {shopId: cartId};
+    if (paymentPayload) {
+      request['paymentPayload'] = paymentPayload;
+    } else if (payInPerson) {
+      request['payInPerson'] = payInPerson;
+    }
+    return this.http.post('/order-api/order/finalizeTransaction', request);
   }
 
   enrichAddress(address: Address, pickupAtStore?: boolean) {

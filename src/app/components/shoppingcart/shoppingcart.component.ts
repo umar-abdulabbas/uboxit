@@ -94,4 +94,12 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   payOnDelivery(event: boolean) {
     this.paymentOnDelivery = event;
   }
+
+  navigateToFinish() {
+    const queryParams = {
+      cartId: this.cartService.cartId,
+      payInPerson: true
+    };
+    this.router.navigate(['finish'], {queryParams: queryParams});
+  }
 }

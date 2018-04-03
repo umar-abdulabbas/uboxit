@@ -53,4 +53,8 @@ export class PaymentService {
   enrichUserDetails(userDetails: any) {
     this.userDetails = userDetails;
   }
+
+  isValidForPayment() {
+    return this.address && this.userDetails;
+  }
 }

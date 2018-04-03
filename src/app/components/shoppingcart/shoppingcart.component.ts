@@ -7,6 +7,8 @@ import { OfferService } from '../offers/services/offer.service';
 import { LoginService } from '../personal/services/login-service';
 import { FeatureSwitch } from '../../core/feature-switch/feature-switch';
 import { UserExpStyleService } from '../../shared/UI/globalUI.service';
+import { PaymentService } from '../payment/services/payment-service';
+
 @Component({
   selector: 'app-shoppingcart',
   templateUrl: './shoppingcart.component.html',
@@ -28,6 +30,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   constructor(private cartService: CartService, private router: Router,
               private offerService: OfferService,
+              private paymentService: PaymentService,
               private loginService: LoginService,
               private uistyleservice: UserExpStyleService) {
   }
@@ -61,6 +64,11 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     this.step++;
   }
 
+  isValidForPayment() {
+    return this.paymentService.isValidForPayment();
+  }
+
+  // will be used once login feature is enabled
   forwardWithoutLoginStep() {
     this.step += 2;
   }

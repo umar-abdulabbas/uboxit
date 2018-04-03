@@ -132,7 +132,7 @@
           </mat-radio-group>
           <div class="actionRow">
           <div class="float-right">
-            <button class="btn btn-primary" (click)="addAddress()">Go to Payment</button>
+            <button class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone)}" (click)="addAddress()">Go to Payment</button>
           </div>
           <div class="clearfix"></div>
         </div>

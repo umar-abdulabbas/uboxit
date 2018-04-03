@@ -1,14 +1,14 @@
 
 <section class="">
     <div>
-        <mat-radio-group [(ngModel)]="valueSelcted"> 
-             <div class="radioDiv"><mat-radio-button value="0" [checked]="true">Other payment options</mat-radio-button></div>
+        <mat-radio-group [(ngModel)]="valueSelcted">
+             <div class="radioDiv"><mat-radio-button value="0" [checked]="true" (change)="loadPaymentWidget()">Other payment options</mat-radio-button></div>
              <div *ngIf="valueSelcted == 0" class="showSelectedRadio">
                <div *ngIf="adyenPaymentSupported" id="checkout-div" class="checkout-div"></div>
                <div class="clearfix"></div>
                <div class="m-1"></div>
              </div>
-             <div class="radioDiv"><mat-radio-button value="1">Pay on delivery </mat-radio-button></div>
+             <div class="radioDiv"><mat-radio-button value="1" (change)="paymentOnDelivery()">Pay on delivery </mat-radio-button></div>
              <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
                 You can pay by cash or card to our delivery boy!
              </div>

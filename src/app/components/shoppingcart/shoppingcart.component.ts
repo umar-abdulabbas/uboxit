@@ -20,6 +20,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   cart: Cart;
   loggedIn: boolean;
+  paymentOnDelivery: boolean;
 
   // features
   loginEnabled: boolean;
@@ -88,5 +89,9 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   linkToHomePage() {
     this.router.navigateByUrl('/home');
+  }
+
+  payOnDelivery(event: boolean) {
+    this.paymentOnDelivery = event;
   }
 }

@@ -83,7 +83,7 @@
 
                         </mat-expansion-panel-header>
 
-                        <app-payment *ngIf="step === 1" [cart]="cart"></app-payment>
+                        <app-payment *ngIf="step === 1" [cart]="cart" (payOnDelivery)="payOnDelivery($event)"></app-payment>
 
 
                         <mat-action-row>
@@ -92,7 +92,7 @@
                               src="../assets/images/3dsecure.png" height="40px"/></div>
                           </mat-panel-title>
 
-                          <button *ngIf="!adyenPaymentSupported" class="btn btn-primary" routerLinkActive="active" [routerLink]="['/finish']">Order now</button>
+                          <button *ngIf="paymentOnDelivery" class="btn btn-primary" routerLinkActive="active" [routerLink]="['/finish']">Order now</button>
 
                         </mat-action-row>
                       </mat-expansion-panel>

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -124,6 +124,7 @@ import { TermsComponent } from './components/shared/terms/terms.component';
     })
   ],
   providers: [
+    Title,
     AuthGuard,
     AppInitializerService,
     OfferService,

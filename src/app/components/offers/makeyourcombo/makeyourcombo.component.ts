@@ -9,6 +9,7 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 import { AlertInvoker } from '../../../core/services/alert-invoker.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 const EMPTY_BOX_TEXT = 'Eager to know your box !';
 const CLEAR_COMBO_TEXT = 'Clear your box';
@@ -61,10 +62,11 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,
               private cartService: CartService, private uistyleservice: UserExpStyleService,
-              private router: Router, private alertInvoker: AlertInvoker) {
+              private router: Router, private alertInvoker: AlertInvoker, private titleService: Title) {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("Want to make your own combo from a different category? Then choose custom combo.");
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
    // this.headerColor.classList.add('headerFixedShoppingCard');

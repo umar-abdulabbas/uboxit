@@ -3,6 +3,7 @@ import { OfferService } from '../../offers/services/offer.service';
 import { Observable } from 'rxjs/Observable';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
+
 /* Menu Start */
 export class MenuList {
   id: string;
@@ -33,13 +34,13 @@ export class BarMenuComponent implements OnInit {
   public menuActive: boolean;
   menuList: MenuList[] = [];
   totalCount: Observable<any>;
-  public showMobile:boolean;
+  public showMobile: boolean;
   @Input() availableTypes: string[] = [];
   @Input() customComboAvailable: Observable<boolean>;
   @Input() individualItemsAvailable: Observable<boolean>;
   @Output() filterType = new EventEmitter<string>();
 
-  constructor(private offerServie: OfferService, private router: Router, private uistyleservice: UserExpStyleService ) {
+  constructor(private offerServie: OfferService, private router: Router, private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
@@ -73,9 +74,11 @@ export class BarMenuComponent implements OnInit {
     this.filterType.emit(type);
     this.isActiveDropDown = false;
   }
+
   openMenu(link: string): void {
     this.router.navigate([link]);
   }
+
   closeDropDown(): void {
     this.isActiveDropDown = false;
   }
@@ -85,6 +88,7 @@ export class BarMenuComponent implements OnInit {
     this.updateMenuList(id, mActive);
 
   }
+
   updateMenuList(id: string, menuActive: boolean): void {
     const menuItem = this.menuList.find(item => item.id === id);
     menuItem.menuActive = menuActive;

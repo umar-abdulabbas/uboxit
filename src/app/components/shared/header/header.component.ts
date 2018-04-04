@@ -32,7 +32,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   locationEnabled: boolean;
 
   cart: Cart;
-  public showMobile:boolean;
+  public showMobile: boolean;
+
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private loginService: LoginService,
               private cartService: CartService, private uistyleservice: UserExpStyleService) {
@@ -67,7 +68,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           shoppingCartPage = false;
           // TODO malai - SUBSCRIBING TWICE
           this.totalCount.distinctUntilChanged().subscribe(c => {
-            console.log('total count changed' + c)
+            console.log('total count changed' + c);
             if (c > 0 && !shoppingCartPage) {
               this.showSlideNav();
               this.prepareCart();

@@ -67,7 +67,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Want to make your own combo from a different category? Then choose custom combo.");
+    this.titleService.setTitle('Want to make your own combo from a different category? Then choose custom combo.');
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
    // this.headerColor.classList.add('headerFixedShoppingCard');

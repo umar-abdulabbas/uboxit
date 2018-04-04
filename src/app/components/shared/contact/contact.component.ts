@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Event and Party Order, Contact us to get a better deal for events and party orders");
+    this.titleService.setTitle('Event and Party Order, Contact us to get a better deal for events and party orders');
     this.uistyleservice.scrollToTop();
   }
 

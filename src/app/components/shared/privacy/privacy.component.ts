@@ -13,7 +13,7 @@ export class PrivacyComponent implements OnInit {
 
   ngOnInit() {
     this.uistyleservice.scrollToTop();
-    this.titleService.setTitle("UBoxIT - Privacy Policies");
+    this.titleService.setTitle('UBoxIT - Privacy Policies');
   }
 
 }

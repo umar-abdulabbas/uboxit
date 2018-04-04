@@ -11,7 +11,7 @@ export class TermsComponent implements OnInit {
   constructor(private uistyleservice: UserExpStyleService, private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle("UBoxIT - Terms and Conditions");
+    this.titleService.setTitle('UBoxIT - Terms and Conditions');
     this.uistyleservice.scrollToTop();
   }
 

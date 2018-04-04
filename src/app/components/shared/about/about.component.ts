@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.uistyleservice.scrollToTop();
-    this.titleService.setTitle("Good food is good Mood!! We believe in providing tradition, aromatic food at your desk in innovative design of boxes.");
+    this.titleService.setTitle('Good food is good Mood!! We believe in providing tradition, aromatic food at your desk in innovative design of boxes.');
   }
 
 }

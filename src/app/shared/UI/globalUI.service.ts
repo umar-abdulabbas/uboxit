@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 
 @Injectable()
@@ -12,11 +12,7 @@ export class UserExpStyleService {
   }
 
   getDeviceInformation() {
-    var userAgent = navigator.userAgent || navigator.vendor || navigator.platform;
-    if(/android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent)) {
-      return true; 
-    } else {
-      return false; 
-    }
+    const userAgent = navigator.userAgent || navigator.vendor || navigator.platform;
+    return /android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent);
   }
 }

@@ -16,10 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.uistyleservice.scrollToTop();
-    this.titleService.setTitle("UBoxIT - Food delivery | Order food online in The Netherlands, Amsterdam, Amstelveen, Schiphol");
-    
+    this.titleService.setTitle('UBoxIT - Food delivery | Order food online in The Netherlands, Amsterdam, Amstelveen, Schiphol');
+
   }
-
-
-
 }

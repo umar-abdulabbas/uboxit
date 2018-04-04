@@ -11,5 +11,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
+  }
 }

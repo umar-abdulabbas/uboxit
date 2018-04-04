@@ -44,10 +44,18 @@ export class OrderedItemsComponent implements OnInit {
   updateOrder(productId: string, count: number) {
     // another hack
     if (!productId.toLowerCase().startsWith('c')) {
-      this.cartService.addComboToCart(productId, count); // for cart @ header top right
-      this.offerService.updateCountForCombo(productId, count); // just for UI - will not be used for processing cart - for couter with value
-      const request: Cart = {combos: [{id: productId, count: count}]};
-      this.processUpdateResponse(this.cartService.updateCart(this.cart.id, request));
+      const productType = this.cartService.getProductType(productId);
+      if (productType === 'COMBO') {
+        this.cartService.addComboToCart(productId, count); // for cart @ header top right
+        this.offerService.updateCountForCombo(productId, count); // just for UI - will not be used for processing cart - for couter with value
+        const request: Cart = {combos: [{id: productId, count: count}]};
+        this.processUpdateResponse(this.cartService.updateCart(this.cart.id, request));
+      } else if (productType === 'ITEM') {
+        this.cartService.addItemToCart(productId, count); // for cart @ header top right
+        this.offerService.updateCountForItem(productId, count); // just for UI - will not be used for processing cart - for couter with value
+        const request: Cart = {items: [{id: productId, count: count}]};
+        this.processUpdateResponse(this.cartService.updateCart(this.cart.id, request));
+      }
     } else {
       const combo = this.cart.combos.find(c => c.id === productId);
       const itemIds = combo.items.map(i => i.id);

@@ -6,6 +6,7 @@ export interface Product {
   category: string;
   discountedPrice: string;
   normalPrice: string;
+  ingredients: string;
 
   count: number; // taken from the cart (while loading the page, need to show the selected count on the combo/item)
 }
@@ -17,8 +18,6 @@ export interface Combo extends Product {
 
   // ui related
   itemNames: string;
-  itemDescriptions: string[];
-  itemIngredients: string[];
 }
 
 export interface Item extends Product {

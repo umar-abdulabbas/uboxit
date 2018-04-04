@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cart, Combo } from '../../../core/domain/cart';
+import { Cart, Combo, Item } from '../../../core/domain/cart';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class CartService {
@@ -23,8 +24,9 @@ export class CartService {
 
   get totalCountObservable() {
     return this.totalCountSubject.asObservable()
-      .publishReplay()
-      .refCount();
+      .distinctUntilChanged();
+      // .publishReplay(1)
+      // .refCount();
   }
 
   constructor(private http: HttpClient) {
@@ -122,6 +124,25 @@ export class CartService {
     this.addAllCountAndEmitValue();
   }
 
+  addItemToCart(productId: string, count: number) {
+    // this.localStorageService.set(`product_${productId}`, count);
+    let item: Item;
+    if (!this.cartRequest) {
+      throw new Error('please initialize cart');
+    } else if (!!this.cartRequest && this.isProductAlreadyPresent(this.cartRequest.items, productId)) {
+      item = this.cartRequest.items.find(c => c.id === productId);
+      item.count = count;
+    } else {
+      item = {
+        id: productId,
+        count: count
+      };
+      this.cartRequest.items.push(item);
+    }
+    console.log(item);
+    this.addAllCountAndEmitValue();
+  }
+
   prepareCustomisedCombo(itemIds: string[], count: number) {
     let combo: Combo;
     if (!this.cartRequest) {
@@ -151,6 +172,18 @@ export class CartService {
 
   getCustomeComboCountIfAlreadySelected(itemIds: string[]) {
     return this.getCustomisedComboIfAlreadyPresent(this.cartRequest.combos, itemIds).count;
+  }
+
+  getProductType(productId: string) {
+    let productType: string;
+    if (this.cartRequest.combos.find(c => c.id === productId)) {
+      productType = 'COMBO';
+    } else if (this.cartRequest.items.find(c => c.id === productId)) {
+      productType = 'ITEM';
+    } else {
+      throw new Error('Unknown product');
+    }
+    return productType;
   }
 
   private isProductAlreadyPresent(productList: any[], id: string) {

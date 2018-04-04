@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   body;
   showLocationPanel = false;
   loginTitle = 'Login';
-  totalCount: Observable<number>;
+  totalCount = this.cartService.totalCountObservable;
   loggedIn: Observable<boolean>;
   showLoggedIn = false;
   shopFloat = false;
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.findparentId = document.getElementById('uboxitwrapper');
     this.findSlideID = document.getElementById('slideRightNav');
-    this.totalCount = this.cartService.totalCountObservable;
+    // this.totalCount = this.cartService.totalCountObservable;
     this.loggedIn = this.loginService.loggedIn;
     this.loginService.loggedIn.subscribe(v => {
       if (v) {
@@ -65,7 +65,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.showMobile = false;
         } else {
           shoppingCartPage = false;
-          this.totalCount.subscribe(c => {
+          // TODO malai - SUBSCRIBING TWICE
+          this.totalCount.distinctUntilChanged().subscribe(c => {
+            console.log('total count changed' + c)
             if (c > 0 && !shoppingCartPage) {
               this.showSlideNav();
               this.prepareCart();

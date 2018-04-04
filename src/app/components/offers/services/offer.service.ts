@@ -79,6 +79,11 @@ export class OfferService {
   updateCountForCombo(id: string, count: number) {
     this.combos.find(c => c.id === id).count = count;
   }
+  // just for UI purpose (to show the count between - & + (counter component)
+  // - this count will not be used to process the cart
+  updateCountForItem(id: string, count: number) {
+    this.items.find(c => c.id === id).count = count;
+  }
 
   // to clear the value displayed in counter component
   clearSelection() {
@@ -98,7 +103,6 @@ export class OfferService {
     return <Combo> {
       id: combo.id,
       title: combo.name,
-      description: combo.description,
       normalPrice: combo.normalPrice.amount,
       discountedPrice: combo.discountedPrice.amount,
       image: combo.imageUrls[0],
@@ -106,8 +110,8 @@ export class OfferService {
       count: 0,
       items: combo.items.map(i => this.prepareDomainItem(i, categoryType)),
       itemNames: combo.items.map(i => i.name).join(' + '),
-      itemDescriptions: combo.items.map(i => i.description).join(' '),
-      itemIngredients: combo.items.map(i => i.ingredients.map(ing => ing.name))[0].join(', ')
+      description: combo.items.map(i => i.description).join(' '),
+      ingredients: combo.items.map(i => i.ingredients.map(ing => ing.name))[0].join(', ')
     };
   }
 
@@ -117,6 +121,7 @@ export class OfferService {
       id: apiItem.id,
       title: apiItem.name,
       description: apiItem.description,
+      ingredients: apiItem.ingredients.map(ing => ing.name).join(', '),
       normalPrice: apiItem.normalPrice.amount,
       discountedPrice: apiItem.discountedPrice.amount,
       image: apiItem.imageUrls[0],

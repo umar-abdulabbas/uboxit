@@ -6,7 +6,7 @@
                <div ><section><app-location *ngIf="locationEnabled"></app-location></section></div>
                <div>
                     <section class="header-rightLogo">
-                  
+
                             <span class="hide-xs c-hand">
                                 <span *ngFor="let count of [(totalCount | async)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" >
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
@@ -18,11 +18,11 @@
                                 </span>
                             </span> <!--//Mobile -->
                       <button class="btn btn-link c-hand" *ngIf="loginEnabled && !(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
-            
+
                       <button class="btn btn-link c-hand" *ngIf="(loggedIn | async)" (click)="logoutPanel()"><i class="material-icons">lock </i></button>
-            
+
                       <div appModelCloseOnOverlay (modelClose)="modelclose($event)" *ngIf="showLoggedIn" class="showLoggedInPanelOverLay"></div>
-            
+
                       <div class="showLoggedInPanel animated" [ngClass]="{'flipInX':showLoggedIn}" *ngIf="showLoggedIn">
                           <div class="showLoggedInPanelInner">
                               <ul>
@@ -35,7 +35,7 @@
                </div>
            </div>
         </div>
-    </div>      
+    </div>
 </section>
 
 <div class="modal" [ngClass]="{'active':headerActive}">
@@ -50,14 +50,14 @@
       </div>
 </div>
 </div>
-<!-- Slide Nav --> 
+<!-- Slide Nav -->
 
 <div >
 <div id="slideRightNav" class="slideRightNav">
     <div class="slideNavTitle">
     <button href="#close" class="btn btn-clear float-right" (click)="closeSlideNav();" style="position: relative; top: 30px; right: 25px;"></button>
-    </div>        
-    <app-ordered-items [cart]="cart"></app-ordered-items>
+    </div>
+    <app-ordered-items></app-ordered-items>
 </div>
 </div>
 

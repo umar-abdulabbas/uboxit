@@ -27,8 +27,9 @@ export interface Combo {
 
 export interface Item {
   id: string;
-  name: string;
+  name?: string;
   count: number;
+  imageUrls?: string[];
   discountedPrice?: Price;
   normalPrice?: Price;
 

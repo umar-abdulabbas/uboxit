@@ -35,6 +35,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   };
 
   subFromMakeYourOwnCombo: Subscription;
+  totalCountSubscription: Subscription;
 
   public headerColor;
   public uboxitMenu = false;
@@ -137,7 +138,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     // if + or - done at left slide nave, then that needs to be updated
     // but only if that combo is selected
     // & also change the text
-    this.cartService.totalCountObservable.subscribe(() => {
+    this.totalCountSubscription = this.cartService.totalCountObservable.subscribe(() => {
       if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
         this.comboCount = this.cartService.getCustomeComboCountIfAlreadySelected([this.selectedStarter.id, this.selectedMainDish.id, this.selectedDessert.id]);
         this.clearOrAddNewText = START_NEW_COMBO_TEXT;
@@ -188,6 +189,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     if (this.subFromMakeYourOwnCombo) {
       this.subFromMakeYourOwnCombo.unsubscribe();
     }
+    this.totalCountSubscription.unsubscribe();
   }
 
   stickyHeaderValue(scrolValue) {

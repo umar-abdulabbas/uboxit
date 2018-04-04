@@ -25,8 +25,6 @@ export class CartService {
   get totalCountObservable() {
     return this.totalCountSubject.asObservable()
       .distinctUntilChanged();
-      // .publishReplay(1)
-      // .refCount();
   }
 
   constructor(private http: HttpClient) {

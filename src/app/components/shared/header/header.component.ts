@@ -7,6 +7,7 @@ import { LoginService } from '../../personal/services/login-service';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { Cart } from '../../../core/domain/cart';
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 
 @Component({
   selector: 'app-header',
@@ -31,15 +32,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   locationEnabled: boolean;
 
   cart: Cart;
-
+  public showMobile:boolean;
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private loginService: LoginService,
-              private cartService: CartService) {
+              private cartService: CartService, private uistyleservice: UserExpStyleService) {
 
   }
 
 
   ngOnInit() {
+    this.showMobile = this.uistyleservice.getDeviceInformation();
     let shoppingCartPage: boolean;
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window

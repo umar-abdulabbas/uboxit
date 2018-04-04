@@ -21,9 +21,13 @@
 
 
 //Bar Menu End //
+.uboxit-footer { position: fixed;  bottom: 0px; height: 56px; background: $uboxit-background-color;
+    border-top: 1px solid #ccc;  width: 100%;  z-index: 302; box-shadow: -3px -12px 40px -13px rgba(204,204,204,1);
+    display: flex; 
+}
 
-
-
-
-
+.uboxit-footer-cell { padding-top:8px; padding-bottom: 10px; width: 25%; text-align: center; color: $uboxit-barMenuFont; }
+.uboxit-footer-icon { height: 24px;}
+.uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px;}
+.uboxit-footer-btn-active { color:$uboxit-primary-color }
 

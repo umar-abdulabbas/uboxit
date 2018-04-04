@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { OfferService } from '../../offers/services/offer.service';
 import { Observable } from 'rxjs/Observable';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 /* Menu Start */
 export class MenuList {
   id: string;
@@ -32,16 +33,17 @@ export class BarMenuComponent implements OnInit {
   public menuActive: boolean;
   menuList: MenuList[] = [];
   totalCount: Observable<any>;
-
+  public showMobile:boolean;
   @Input() availableTypes: string[] = [];
   @Input() customComboAvailable: Observable<boolean>;
   @Input() individualItemsAvailable: Observable<boolean>;
   @Output() filterType = new EventEmitter<string>();
 
-  constructor(private offerServie: OfferService, private router: Router) {
+  constructor(private offerServie: OfferService, private router: Router, private uistyleservice: UserExpStyleService ) {
   }
 
   ngOnInit() {
+    this.showMobile = this.uistyleservice.getDeviceInformation();
     const findPathUrl = window.location.href.split('/').pop();
 
     this.menuList.push(Object.assign({}, MENULIST[0]));

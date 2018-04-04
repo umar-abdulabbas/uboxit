@@ -1,4 +1,4 @@
-<div [ngClass]="{'bar-layout':isBtnActive}">
+<div [ngClass]="{'bar-layout':isBtnActive}" *ngIf="!showMobile">
 <div class="container grid-lg">
     <div class="barMenu-layout">
         <div *ngFor="let menu of menuList" [ngClass]="{'btn-active':menu.menuActive}" (click)="openMenu(menu.link);">
@@ -22,3 +22,13 @@
     </div> 
 </div>
 </div>
+
+<!-- Mobile Version --> 
+<section *ngIf="showMobile">
+    <div class="uboxit-footer" >
+            <div *ngFor="let menu of menuList" class="uboxit-footer-cell" [ngClass]="{'uboxit-footer-btn-active':menu.menuActive}" (click)="openMenu(menu.link);">
+                <div class="uboxit-footer-icon"><i class="material-icons">{{menu.icon}}</i></div>
+                <div class="uboxit-footer-txt">{{menu.name}}</div>
+            </div>                   
+    </div>  
+</section>

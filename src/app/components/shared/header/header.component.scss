@@ -113,3 +113,12 @@ input:focus ~ label, input:valid ~ label{ top:-10px; }
    
 
 }
+
+// Mobile View 
+.uboxit-footer { position: fixed;  bottom: 0px; height: 56px; width: 25%; z-index: 312; 
+    display: flex; right: 0px; color: $uboxit-barMenuFont;
+}
+.uboxit-footer-cell { padding-top:8px; padding-bottom: 10px; width: 100%; text-align: center; }
+.uboxit-footer-icon { height: 24px;}
+.uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px;}
+.uboxitBadge.uboxit-footer-badge {  background: $uboxit-barMenuFont;}

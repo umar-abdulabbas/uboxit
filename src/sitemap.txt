@@ -1,8 +1,7 @@
 https://www.uboxit.nl/home
-https://www.uboxit.nl/makeyourcombo
-https://www.uboxit.nl/choices
-https://www.uboxit.nl/shoppingcart
 https://www.uboxit.nl/about
 https://www.uboxit.nl/contact
+https://www.uboxit.nl/makeyourcombo
+https://www.uboxit.nl/choices
 https://www.uboxit.nl/terms
 https://www.uboxit.nl/privacy

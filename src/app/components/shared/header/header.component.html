@@ -1,4 +1,4 @@
-<section class="header-Layout">
+<section class="header-Layout" >
     <div class="container grid-lg header-inner">
         <div class="column">
            <div class="header-content">
@@ -12,7 +12,7 @@
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
                                 </span>
                             </span> <!--//DEsktop -->
-                            <span class="show-xs hide-xs c-hand">
+                            <span class="show-xs hide-xs c-hand" >
                                 <span *ngFor="let count of [(totalCount | async)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'shop-icon-mobile':shopFloat}">
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
                                 </span>
@@ -52,7 +52,7 @@
 </div>
 <!-- Slide Nav --> 
 
-<div>
+<div >
 <div id="slideRightNav" class="slideRightNav">
     <div class="slideNavTitle">
     <button href="#close" class="btn btn-clear float-right" (click)="closeSlideNav();" style="position: relative; top: 30px; right: 25px;"></button>
@@ -61,3 +61,10 @@
 </div>
 </div>
 
+<!--Mobile View --> 
+<div class="uboxit-footer" *ngIf="showMobile">
+    <div *ngFor="let count of [(totalCount | async)]" class="uboxit-footer-cell" (click)="openShoppingCart()">
+        <div class="uboxit-footer-icon"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge uboxit-footer-badge animated" [ngClass]="{'flash':count}">{{count}}</span></div>
+        <div class="uboxit-footer-txt">Your Basket</div>       
+    </div>
+</div>

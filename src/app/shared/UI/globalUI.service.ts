@@ -10,4 +10,12 @@ export class UserExpStyleService {
     body.scrollTop = 0;
     html.scrollTop = 0;
   }
+
+  getDeviceInformation() {
+    if(/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.platform)) {
+      return true; 
+    } else {
+      return false; 
+    }
+  }
 }

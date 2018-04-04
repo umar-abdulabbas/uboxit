@@ -8,12 +8,12 @@
                     <section class="header-rightLogo">
 
                             <span class="hide-xs c-hand">
-                                <span *ngFor="let count of [(totalCount | async)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" >
+                                <span *ngFor="let count of [(totalCount)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" >
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
                                 </span>
                             </span> <!--//DEsktop -->
                             <span class="show-xs hide-xs c-hand" *ngIf="!showMobile">
-                                <span *ngFor="let count of [(totalCount | async)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'shop-icon-mobile':shopFloat}">
+                                <span *ngFor="let count of [(totalCount)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'shop-icon-mobile':shopFloat}">
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
                                 </span>
                             </span> <!--//Mobile -->
@@ -61,10 +61,10 @@
 </div>
 </div>
 
-<!--Mobile View --> 
+<!--Mobile View -->
 <div class="uboxit-footer" *ngIf="showMobile">
-    <div *ngFor="let count of [(totalCount | async)]" class="uboxit-footer-cell" (click)="openShoppingCart()">
+    <div *ngFor="let count of [(totalCount)]" class="uboxit-footer-cell" (click)="openShoppingCart()">
         <div class="uboxit-footer-icon"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge uboxit-footer-badge animated" [ngClass]="{'flash':count}">{{count}}</span></div>
-        <div class="uboxit-footer-txt">Your Basket</div>       
+        <div class="uboxit-footer-txt">Your Basket</div>
     </div>
 </div>

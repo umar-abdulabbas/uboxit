@@ -8,6 +8,7 @@ import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { Cart } from '../../../core/domain/cart';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   body;
   showLocationPanel = false;
   loginTitle = 'Login';
-  totalCount = this.cartService.totalCountObservable;
+  // totalCount = this.cartService.totalCountObservable.distinctUntilChanged();
+  totalCount: number;
   loggedIn: Observable<boolean>;
   showLoggedIn = false;
   shopFloat = false;
@@ -43,12 +45,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
-    let shoppingCartPage: boolean;
+    const shoppingCartPage = new BehaviorSubject(false);
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.findparentId = document.getElementById('uboxitwrapper');
     this.findSlideID = document.getElementById('slideRightNav');
-    // this.totalCount = this.cartService.totalCountObservable;
     this.loggedIn = this.loginService.loggedIn;
     this.loginService.loggedIn.subscribe(v => {
       if (v) {
@@ -57,26 +58,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.decideFeatures();
 
+    Observable.combineLatest(this.cartService.totalCountObservable, shoppingCartPage).subscribe(params => {
+      console.log('total count changed ' + params[0]);
+      this.totalCount = params[0];
+      if (this.totalCount > 0 && !params[1]) {
+        this.showSlideNav();
+        this.prepareCart();
+      } else {
+        this.closeSlideNav();
+        this.shopFloat = false;
+      }
+    });
+
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event.url.includes('shoppingcart') || event.url.includes('finish')) {
           this.closeSlideNav();
-          shoppingCartPage = true;
+          shoppingCartPage.next(true);
           this.shopFloat = false;
           this.showMobile = false;
         } else {
-          shoppingCartPage = false;
-          // TODO malai - SUBSCRIBING TWICE
-          this.totalCount.distinctUntilChanged().subscribe(c => {
-            console.log('total count changed' + c);
-            if (c > 0 && !shoppingCartPage) {
-              this.showSlideNav();
-              this.prepareCart();
-            } else {
-              this.closeSlideNav();
-              this.shopFloat = false;
-            }
-          });
+          shoppingCartPage.next(false);
         }
       }
     });

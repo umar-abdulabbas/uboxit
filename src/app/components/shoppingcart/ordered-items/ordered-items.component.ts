@@ -1,21 +1,24 @@
-import { Component, Input, OnInit, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { Cart } from '../../../core/domain/cart';
 import { OfferService } from '../../offers/services/offer.service';
 import { CartService } from '../services/cart.service';
 import { NavigationStart, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-ordered-items',
   templateUrl: './ordered-items.component.html',
   styleUrls: ['./ordered-items.component.scss']
 })
-export class OrderedItemsComponent implements OnInit {
+export class OrderedItemsComponent implements OnInit, OnDestroy {
 
   @Input() cart: Cart;
   promoCode: string;
   showCheckout = false;
   showContinueShopping = false;
+
+  subscriptions: Subscription[] = [];
 
   constructor(private offerService: OfferService,
               private cartService: CartService,
@@ -24,11 +27,13 @@ export class OrderedItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cartService.cartObservable.subscribe(cart => {
+    const cartSubscription = this.cartService.cartObservable.subscribe(cart => {
       if (cart.id) {
         this.cart = cart;
       }
     });
+
+    this.subscriptions.push(cartSubscription);
 
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
@@ -39,6 +44,10 @@ export class OrderedItemsComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   updateOrder(productId: string, count: number) {
@@ -81,16 +90,18 @@ export class OrderedItemsComponent implements OnInit {
   }
 
   private processUpdateResponse(updateObservalbe: Observable<Cart>) {
-    updateObservalbe.subscribe((updatedCart) => {
+    const updateSubscription = updateObservalbe.subscribe((updatedCart) => {
       this.cart = updatedCart;
     });
+    this.subscriptions.push(updateSubscription);
 
-    this.cartService.totalCountObservable.subscribe((totalCount) => {
+    const countSubscription = this.cartService.totalCountObservable.subscribe((totalCount) => {
       if (totalCount === 0) {
         console.log('All your orders are cancelled, you can start over again!!');
         this.router.navigate(['/home']);
       }
     });
+    this.subscriptions.push(countSubscription);
   }
 
 }

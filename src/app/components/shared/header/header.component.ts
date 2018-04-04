@@ -9,6 +9,7 @@ import { CartService } from '../../shoppingcart/services/cart.service';
 import { Cart } from '../../../core/domain/cart';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-header',
@@ -36,6 +37,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cart: Cart;
   public showMobile: boolean;
 
+  subscriptions: Subscription[] = [];
+
   constructor(private headerservice: HeaderService, private _eref: ElementRef, private router: Router,
               private loginService: LoginService,
               private cartService: CartService, private uistyleservice: UserExpStyleService) {
@@ -51,14 +54,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.findparentId = document.getElementById('uboxitwrapper');
     this.findSlideID = document.getElementById('slideRightNav');
     this.loggedIn = this.loginService.loggedIn;
-    this.loginService.loggedIn.subscribe(v => {
+    const loginSubscription = this.loginService.loggedIn.subscribe(v => {
       if (v) {
         this.closeLoginWindow();
       }
     });
     this.decideFeatures();
 
-    Observable.combineLatest(this.cartService.totalCountObservable, shoppingCartPage).subscribe(params => {
+    const routerCountSubscription = Observable.combineLatest(this.cartService.totalCountObservable, shoppingCartPage).subscribe(params => {
       console.log('total count changed ' + params[0]);
       this.totalCount = params[0];
       if (this.totalCount > 0 && !params[1]) {
@@ -82,10 +85,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
     });
+
+    this.subscriptions.push(...[loginSubscription, routerCountSubscription]);
   }
 
   ngOnDestroy() {
-
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   getHeaders(): void {
@@ -144,9 +149,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private prepareCart() {
     if (!this.cartService.cartId) {
-      this.cartService.createCart().subscribe(res => {
+      const cartSubscription = this.cartService.createCart().subscribe(res => {
         this.cart = this.cartService.cart;
       });
+      this.subscriptions.push(cartSubscription);
     }
   }
 

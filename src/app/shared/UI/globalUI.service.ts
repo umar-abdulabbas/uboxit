@@ -12,7 +12,8 @@ export class UserExpStyleService {
   }
 
   getDeviceInformation() {
-    if(/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.platform)) {
+    var userAgent = navigator.userAgent || navigator.vendor || navigator.platform;
+    if(/android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent)) {
       return true; 
     } else {
       return false; 

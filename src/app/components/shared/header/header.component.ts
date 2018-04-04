@@ -62,6 +62,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.closeSlideNav();
           shoppingCartPage = true;
           this.shopFloat = false;
+          this.showMobile = false;
         } else {
           shoppingCartPage = false;
           this.totalCount.subscribe(c => {

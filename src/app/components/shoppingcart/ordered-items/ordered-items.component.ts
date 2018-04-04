@@ -83,7 +83,9 @@ export class OrderedItemsComponent implements OnInit {
   private processUpdateResponse(updateObservalbe: Observable<Cart>) {
     updateObservalbe.subscribe((updatedCart) => {
       this.cart = updatedCart;
-      const totalCount = this.cart.combos ? this.cart.combos.map(c => c.count).reduce((prev, cur) => prev + cur, 0) : 0;
+    });
+
+    this.cartService.totalCountObservable.subscribe((totalCount) => {
       if (totalCount === 0) {
         console.log('All your orders are cancelled, you can start over again!!');
         this.router.navigate(['/home']);

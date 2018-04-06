@@ -15,8 +15,6 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class OffersComponent implements OnInit {
   offer: Offer;
-  combos: Combo[];
-  combosToDisplay: Combo[];
   uboxitMenu = false;
   active = true;
   body;
@@ -28,6 +26,9 @@ export class OffersComponent implements OnInit {
   selectedType: string;
   availableItemsForIndividualSale = new BehaviorSubject(false);
   availableItemsForCustomCombo = new BehaviorSubject(false);
+
+  combosToDisplay: Combo[];
+  private combos: Combo[];
 
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker) {

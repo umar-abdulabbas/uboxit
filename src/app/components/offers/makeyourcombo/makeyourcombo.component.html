@@ -84,8 +84,7 @@
                     </a>
                     <!-- menu component -->
                     <ul class="menu">
-                        <li>South Indian Combo</li>
-                        <li>North Indian Combo</li>
+                        <li *ngFor="let type of availableTypes" (click)="filterByType(type)">{{type}}</li>
                     </ul>
                   </div>
             </div>
@@ -98,9 +97,9 @@
   <app-toasts></app-toasts>
   <section #scrollMe style="overflow: auto; height:auto;">
     <!-- Offer Area -->
-    <app-makeyourcombo-offer [starters]="starters"
-                              [mainCourses]="mainCourses"
-                              [deserts]="deserts"></app-makeyourcombo-offer>
+    <app-makeyourcombo-offer [starters]="startersToDisplay"
+                              [mainCourses]="mainCoursesToDisplay"
+                              [deserts]="desertsToDisplay"></app-makeyourcombo-offer>
     <!-- Offer Area End -->
 
   </section>

@@ -43,14 +43,20 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   public mainDishCaption = 'Main Dish';
   public dessertCaption = 'Dessert';
 
+  availableTypes: string[] = [];
+
   public comboComplete: boolean;
   public comboHasMinimumContent: boolean;
 
   clearOrAddNewText = EMPTY_BOX_TEXT;
 
-  starters: Item[];
-  mainCourses: Item[];
-  deserts: Item[];
+  private starters: Item[];
+  private mainCourses: Item[];
+  private deserts: Item[];
+
+  startersToDisplay: Item[];
+  mainCoursesToDisplay: Item[];
+  desertsToDisplay: Item[];
 
   selectedStarter: Item;
   selectedMainDish: Item;
@@ -91,12 +97,14 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   initialize(offer: Offer) {
 
+    this.getAvailableTypes(offer);
+
     this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
     this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
 
-    this.starters = this.offerService.getStarters();
-    this.mainCourses = this.offerService.getMainDishes();
-    this.deserts = this.offerService.getDeserts();
+    this.starters = this.startersToDisplay = this.offerService.getStarters();
+    this.mainCourses = this.mainCoursesToDisplay =  this.offerService.getMainDishes();
+    this.deserts = this.desertsToDisplay = this.offerService.getDeserts();
 
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
@@ -184,6 +192,20 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     }
   }
 
+  stickyHeaderValue(scrolValue) {
+    if (scrolValue > 50) {
+      this.uboxitMenu = true;
+    } else if (this.uboxitMenu && scrolValue < 5) {
+      this.uboxitMenu = false;
+    }
+  }
+
+  filterByType(type: string) {
+    this.startersToDisplay = this.starters.filter(offer => offer.category === type);
+    this.mainCoursesToDisplay = this.mainCourses.filter(offer => offer.category === type);
+    this.desertsToDisplay = this.deserts.filter(offer => offer.category === type);
+  }
+
   ngOnDestroy() {
     // this.headerColor.classList.remove('headerFixedShoppingCard');
     if (this.subFromMakeYourOwnCombo) {
@@ -192,11 +214,12 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     this.totalCountSubscription.unsubscribe();
   }
 
-  stickyHeaderValue(scrolValue) {
-    if (scrolValue > 50) {
-      this.uboxitMenu = true;
-    } else if (this.uboxitMenu && scrolValue < 5) {
-      this.uboxitMenu = false;
-    }
+  private getAvailableTypes(offer) {
+    offer.combos.forEach(combo => {
+      if (!this.availableTypes.some(type => type === combo.category)) {
+        this.availableTypes.push(combo.category);
+      }
+    });
+    console.log(this.availableTypes);
   }
 }

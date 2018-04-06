@@ -18,6 +18,8 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
   showCheckout = false;
   showContinueShopping = false;
 
+  finishPage: boolean; // if finish page, dont do anything total count = 0 redirection
+
   subscriptions: Subscription[] = [];
 
   constructor(private offerService: OfferService,
@@ -41,6 +43,9 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
           this.showContinueShopping = true;
         } else {
           this.showCheckout = true;
+        }
+        if (event.url.includes('finish')) {
+          this.finishPage = true;
         }
       }
     });
@@ -96,7 +101,7 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
     this.subscriptions.push(updateSubscription);
 
     const countSubscription = this.cartService.totalCountObservable.subscribe((totalCount) => {
-      if (totalCount === 0) {
+      if (totalCount === 0 && !this.finishPage) {
         console.log('All your orders are cancelled, you can start over again!!');
         this.router.navigate(['/home']);
       }

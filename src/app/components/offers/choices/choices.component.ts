@@ -33,8 +33,8 @@ export class ChoicesComponent implements OnInit {
   selectedOffer: Combo;
   availableTypes: string[] = [];
   selectedType: string;
-  availableItemsForIndividualSale = new BehaviorSubject(true);
-  availableItemsForCustomCombo = new BehaviorSubject(false);
+
+  loadMenu = new BehaviorSubject(false);
 
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker,
@@ -62,13 +62,12 @@ export class ChoicesComponent implements OnInit {
   }
 
   initialize(): void {
+    this.loadMenu.next(true);
     this.offer = this.offerService.offer;
     this.items = this.offer.items;
     this.getAvailableTypes();
     this.itemsToDisplay = this.items;
     this.cartService.initializeCart(this.offer.offerId);
-    this.availableItemsForCustomCombo.next(this.offer.availableItemsForCustomCombo);
-    this.availableItemsForIndividualSale.next(this.offer.availableItemsForIndividualSale);
   }
 
   filterOffers(typeToFilter: string) {

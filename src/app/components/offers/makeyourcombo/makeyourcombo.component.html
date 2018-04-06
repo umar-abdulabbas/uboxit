@@ -2,8 +2,7 @@
   <section style="background:#f8f9fa; margin-bottom:5px; " stickyHeader
            (stickyHeaderValue)="stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu}">
     <!--Menu -->
-    <app-bar-menu [customComboAvailable]="availableItemsForCustomCombo"
-                  [individualItemsAvailable]="availableItemsForIndividualSale" ></app-bar-menu>
+    <app-bar-menu *ngIf="loadMenu | async"></app-bar-menu>
     <!-- // Menu End -->
   </section>
 
@@ -85,6 +84,7 @@
                     <!-- menu component -->
                     <ul class="menu">
                         <li *ngFor="let type of availableTypes" (click)="filterByType(type)">{{type}}</li>
+                        <li (click)="clearFilter()">clear</li>
                     </ul>
                   </div>
             </div>

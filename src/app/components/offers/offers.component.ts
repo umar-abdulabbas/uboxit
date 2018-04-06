@@ -6,6 +6,7 @@ import { Cart } from '../../core/domain/cart';
 import { ErrorsAggregator } from '../../core/errors/errors-aggregator';
 import { AlertInvoker } from '../../core/services/alert-invoker.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,14 +25,15 @@ export class OffersComponent implements OnInit {
   selectedOffer: Combo;
   availableTypes: string[] = [];
   selectedType: string;
-  availableItemsForIndividualSale = new BehaviorSubject(false);
-  availableItemsForCustomCombo = new BehaviorSubject(false);
+
+  loadMenu = new BehaviorSubject(false);
 
   combosToDisplay: Combo[];
   private combos: Combo[];
 
   constructor(private offerService: OfferService, private cartService: CartService,
-              private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker) {
+              private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker,
+              private router: Router) {
 
   }
 
@@ -53,13 +55,18 @@ export class OffersComponent implements OnInit {
   }
 
   initialize(): void {
+    this.loadMenu.next(true);
     this.offer = this.offerService.offer;
     this.combos = this.offer.combos;
-    this.getAvailableTypes();
-    this.combosToDisplay = this.combos;
-    this.cartService.initializeCart(this.offer.offerId);
-    this.availableItemsForCustomCombo.next(this.offer.availableItemsForCustomCombo);
-    this.availableItemsForIndividualSale.next(this.offer.availableItemsForIndividualSale);
+    if (this.combos.length > 0) {
+      this.getAvailableTypes();
+      this.combosToDisplay = this.combos;
+      this.cartService.initializeCart(this.offer.offerId);
+    } else if (this.offer.availableItemsForIndividualSale) {
+      this.router.navigate(['choices']);
+    } else {
+      this.errorsAggregator.push('error');
+    }
   }
 
   filterOffers(typeToFilter: string) {
@@ -100,7 +107,7 @@ export class OffersComponent implements OnInit {
     this.cartService.addComboToCart(productId, count);
     this.offerService.updateCountForCombo(productId, count); // just for UI - will not be used for processing cart
     if (!!this.cartService.cartId) {
-      const request: Cart = { combos: [ { id: productId, count: count } ] };
+      const request: Cart = {combos: [{id: productId, count: count}]};
       this.cartService.updateCart(this.cartService.cartId, request);
     }
   }

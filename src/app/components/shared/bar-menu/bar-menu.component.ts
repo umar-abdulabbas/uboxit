@@ -36,8 +36,6 @@ export class BarMenuComponent implements OnInit {
   totalCount: Observable<any>;
   public showMobile: boolean;
   @Input() availableTypes: string[] = [];
-  @Input() customComboAvailable: Observable<boolean>;
-  @Input() individualItemsAvailable: Observable<boolean>;
   @Output() filterType = new EventEmitter<string>();
 
   constructor(private offerServie: OfferService, private router: Router, private uistyleservice: UserExpStyleService) {
@@ -47,27 +45,26 @@ export class BarMenuComponent implements OnInit {
     this.showMobile = this.uistyleservice.getDeviceInformation();
     const findPathUrl = window.location.href.split('/').pop();
 
-    this.menuList.push(Object.assign({}, MENULIST[0]));
-    if (findPathUrl === 'home') {
-      this.updateMenuList('001', true);
-    }
+    const offer = this.offerServie.offer;
 
-    this.customComboAvailable.subscribe(v => {
-      if (v) {
-        this.menuList.push(Object.assign({}, MENULIST[1]));
-        if (findPathUrl === 'makeyourcombo') {
-          this.updateMenuList('002', true);
-        }
+    if (offer.combos.length > 0) {
+      this.menuList.push(Object.assign({}, MENULIST[0]));
+      if (findPathUrl === 'home') {
+        this.updateMenuList('001', true);
       }
-    });
-    this.individualItemsAvailable.subscribe(v => {
-      if (v) {
-        this.menuList.push(Object.assign({}, MENULIST[2]));
-        if (findPathUrl === 'choices') {
-          this.updateMenuList('003', true);
-        }
+    }
+    if (offer.availableItemsForCustomCombo) {
+      this.menuList.push(Object.assign({}, MENULIST[1]));
+      if (findPathUrl === 'makeyourcombo') {
+        this.updateMenuList('002', true);
       }
-    });
+    }
+    if (offer.availableItemsForIndividualSale) {
+      this.menuList.push(Object.assign({}, MENULIST[2]));
+      if (findPathUrl === 'choices') {
+        this.updateMenuList('003', true);
+      }
+    }
   }
 
   selectType(type: string): void {

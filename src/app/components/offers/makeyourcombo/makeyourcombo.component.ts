@@ -50,6 +50,8 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   clearOrAddNewText = EMPTY_BOX_TEXT;
 
+  loadMenu = new BehaviorSubject(false);
+
   private starters: Item[];
   private mainCourses: Item[];
   private deserts: Item[];
@@ -62,10 +64,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   selectedMainDish: Item;
   selectedDessert: Item;
 
-  comboCount = 0;
+  currentVisibleType: ItemType;
 
-  availableItemsForIndividualSale = new BehaviorSubject(false);
-  availableItemsForCustomCombo = new BehaviorSubject(false);
+  comboCount = 0;
 
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,
               private cartService: CartService, private uistyleservice: UserExpStyleService,
@@ -96,11 +97,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   }
 
   initialize(offer: Offer) {
+    this.loadMenu.next(true);
 
     this.getAvailableTypes(offer);
-
-    this.availableItemsForCustomCombo.next(offer.availableItemsForCustomCombo);
-    this.availableItemsForIndividualSale.next(offer.availableItemsForIndividualSale);
 
     this.starters = this.startersToDisplay = this.offerService.getStarters();
     this.mainCourses = this.mainCoursesToDisplay =  this.offerService.getMainDishes();
@@ -115,10 +114,13 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
         const selectedItem = this.offerService.getItemById(selectedItemId);
         if (selectedItemType === ItemType.Starters) {
           this.selectedStarter = selectedItem;
+          this.currentVisibleType = ItemType.MainDish;
         } else if (selectedItemType === ItemType.MainDish) {
           this.selectedMainDish = selectedItem;
+          this.currentVisibleType = ItemType.Dessert;
         } else if (selectedItemType === ItemType.Dessert) {
           this.selectedDessert = selectedItem;
+          this.currentVisibleType = ItemType.Dessert;
         }
         console.log(selectedItem.id);
         console.log(selectedItem.description);
@@ -156,17 +158,20 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   starterPress(): void {
     this.makeyourowncomboservice.updateFields(true, false, false, '', ItemType.Starters);
+    this.currentVisibleType = ItemType.Starters;
     this.uistyleservice.scrollToTop();
 
   }
 
   mainDishPress(): void {
     this.makeyourowncomboservice.updateFields(false, true, false, '', ItemType.MainDish);
+    this.currentVisibleType = ItemType.MainDish;
     this.uistyleservice.scrollToTop();
   }
 
   dessertPress(): void {
     this.makeyourowncomboservice.updateFields(false, false, true, '', ItemType.Dessert);
+    this.currentVisibleType = ItemType.Dessert;
     this.uistyleservice.scrollToTop();
   }
 
@@ -201,9 +206,23 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   }
 
   filterByType(type: string) {
-    this.startersToDisplay = this.starters.filter(offer => offer.category === type);
-    this.mainCoursesToDisplay = this.mainCourses.filter(offer => offer.category === type);
-    this.desertsToDisplay = this.deserts.filter(offer => offer.category === type);
+    if (this.currentVisibleType === ItemType.Starters) {
+      this.startersToDisplay = this.starters.filter(offer => offer.category === type);
+    } else if (this.currentVisibleType === ItemType.MainDish) {
+      this.mainCoursesToDisplay = this.mainCourses.filter(offer => offer.category === type);
+    } else if (this.currentVisibleType === ItemType.Dessert) {
+      this.desertsToDisplay = this.deserts.filter(offer => offer.category === type);
+    }
+  }
+
+  clearFilter() {
+    if (this.currentVisibleType === ItemType.Starters) {
+      this.startersToDisplay = this.starters;
+    } else if (this.currentVisibleType === ItemType.MainDish) {
+      this.mainCoursesToDisplay = this.mainCourses;
+    } else if (this.currentVisibleType === ItemType.Dessert) {
+      this.desertsToDisplay = this.deserts;
+    }
   }
 
   ngOnDestroy() {

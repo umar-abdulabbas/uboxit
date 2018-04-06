@@ -1,9 +1,7 @@
 
 <section>
 <section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}" >
-    <app-bar-menu [availableTypes]="availableTypes"
-                  [customComboAvailable]="availableItemsForCustomCombo"
-                  [individualItemsAvailable]="availableItemsForIndividualSale" (filterType)="filterOffers($event)"></app-bar-menu>
+    <app-bar-menu *ngIf="loadMenu | async" [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
 </section>
 
 <div class="container grid-lg" id="isActiveForDestop" >

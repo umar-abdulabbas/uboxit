@@ -1,4 +1,4 @@
-<section class="uboxitwrapper" id="uboxitwrapper">
+<section class="uboxitwrapper" id="uboxitwrapper" *ngIf="!showMobile">
 
   <!-- <section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" id="uboxitTopHeader" class="uboxitTopHeader" [ngClass]="{'headerFixed':headerFixed}">
          <app-header></app-header>
@@ -14,3 +14,24 @@
     <app-footer></app-footer>
   </section>
 </section> <!-- //.uboxitwrapper -->
+
+<!-- Mobile View -->
+<div *ngIf="showMobile"  class="uboxit-m-home">
+    <div class="uboxit-m-logo">
+        <img src="../assets/images/Uboxitlogo.png"/>
+        <div class="uboxit-m-logo-txt">Make Your Own Traditional Indian Food Box</div>
+    </div>
+    <div class="uboxit-m-conainer-1" (click)="madeforyou()" >
+        <img src="../assets/images/madeforyou.jpg"  style="width:100%"/>
+    </div>
+    <div class="uboxit-m-conainer-2" routerLinkActive="active" (click)="madeforyou()">
+        <img src="../assets/images/myc.jpg"  style="width:100%" [routerLink]="['/makeyourcombo']"/>
+    </div>
+    <div class="uboxit-m-conainer-3" routerLinkActive="active" (click)="madeforyou()">
+        <img src="../assets/images/choice.jpg"  style="width:100%" [routerLink]="['/choices']"/>
+    </div>
+    <div class="uboxit-m-footer">
+      We are currently delivering in these locations, Amsterdam Zuid, Amsterdam Bijlmer, Amstelveen and Schiphol
+      And any locations with 15KM radius from us
+    </div>
+</div>

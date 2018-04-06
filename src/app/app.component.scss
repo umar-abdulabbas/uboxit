@@ -1,0 +1,75 @@
+.uboxitBanner{
+  padding-top:61px;
+}
+.uboxit-m-home{
+  background: url(../assets/images/MobileBg.jpg) no-repeat center center fixed;
+  height: 100vh;
+ 
+}
+.uboxit-m-logo {
+    padding-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+.uboxit-m-logo-txt{
+  color: #fff;
+  margin-bottom: 10px;
+}
+.uboxit-m-conainer-1{
+  background: rgba(255,101,90, 0.8); 
+  height: 100px;
+  position: relative;
+  width: 50%;
+  left: 50%;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.uboxit-m-conainer-1 img {
+  vertical-align: middle;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.uboxit-m-conainer-2{
+  background: rgba(255,101,90, 0.8); 
+  height: 100px;
+  position: relative;
+  width: 50%;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.uboxit-m-conainer-2 img {
+  vertical-align: middle;
+  border-radius: 0px 10px 10px 0px;
+}
+
+
+.uboxit-m-conainer-3{
+  background: rgba(255,101,90, 0.8); 
+  height: 100px;
+  position: relative;
+  width: 50%;
+  left:50%;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.uboxit-m-conainer-3 img {
+  vertical-align: middle;
+  border-radius: 10px 0px 0px 10px;
+}
+
+
+
+.uboxit-m-footer{
+   position: fixed;
+   bottom: 50px;
+   background: rgba(255,101,90, 0.8); 
+   margin:20px;
+   padding: 10px;
+   border-radius: 10px;
+   color:#fff;
+}

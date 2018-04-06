@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,11 +8,12 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
-  constructor(private titleService: Title) {
+  public showMobile: boolean;
+  constructor(private titleService: Title, private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
+    this.showMobile = this.uistyleservice.getDeviceInformation();
   }
 
   public setTitle(newTitle: string) {

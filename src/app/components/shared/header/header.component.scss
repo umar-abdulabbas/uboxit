@@ -122,3 +122,5 @@ input:focus ~ label, input:valid ~ label{ top:-10px; }
 .uboxit-footer-icon { height: 24px;}
 .uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px;}
 .uboxitBadge.uboxit-footer-badge {  background: $uboxit-barMenuFont;}
+.uboxitBadge.uboxit-footer-badge.uboxitBadge-active{ background:#fff; }
+.uboxit-footer-btn-active { color:$uboxit-primary-color }

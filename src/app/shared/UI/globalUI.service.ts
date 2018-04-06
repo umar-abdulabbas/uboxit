@@ -12,7 +12,8 @@ export class UserExpStyleService {
   }
 
   getDeviceInformation() {
-    const userAgent = navigator.userAgent || navigator.vendor || navigator.platform;
-    return /android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent);
+    const userAgent = navigator.userAgent || navigator.vendor || navigator.platform.toLowerCase();
+    return /android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent);    
   }
-}
+
+  }

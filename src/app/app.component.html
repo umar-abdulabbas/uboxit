@@ -21,17 +21,34 @@
         <img src="../assets/images/Uboxitlogo.png"/>
         <div class="uboxit-m-logo-txt">Make Your Own Traditional Indian Food Box</div>
     </div>
-    <div class="uboxit-m-conainer-1" (click)="madeforyou()" >
-        <img src="../assets/images/madeforyou.jpg"  style="width:100%"/>
-    </div>
+    <!-- <div class="uboxit-m-conainer-1" (click)="madeforyou()" >
+        <img src="../assets/images/madeforyou.jpgz"  style="width:100%"/>
+    </div> -->
     <div class="uboxit-m-conainer-2" routerLinkActive="active" (click)="madeforyou()">
-        <img src="../assets/images/myc.jpg"  style="width:100%" [routerLink]="['/makeyourcombo']"/>
+        <!-- <img src="../assets/images/myc.jpg"  style="width:100%" [routerLink]="['/makeyourcombo']"/> -->
+        <section class="social">
+        <ul>
+            <li (click)="madeforyou()">
+                <a class="bubble"  [routerLink]="['/home']" title="Youtube"><i class="material-icons">restaurant_menu</i></a>
+                
+            </li>
+            <li (click)="madeforyou()">
+                <a class="bubble" [routerLink]="['/makeyourcombo']" title="Youtube"><i class="material-icons">room_service</i></a>
+                
+            </li>
+            <li (click)="madeforyou()">
+                <a class="bubble" [routerLink]="['/choices']" title="Youtube"><i class="material-icons">restaurant</i></a>
+                
+            </li>
+        </ul>
+      </section>
     </div>
-    <div class="uboxit-m-conainer-3" routerLinkActive="active" (click)="madeforyou()">
+    <!-- <div class="uboxit-m-conainer-3" routerLinkActive="active" (click)="madeforyou()">
         <img src="../assets/images/choice.jpg"  style="width:100%" [routerLink]="['/choices']"/>
-    </div>
+    </div> -->
     <div class="uboxit-m-footer">
       We are currently delivering in these locations, Amsterdam Zuid, Amsterdam Bijlmer, Amstelveen and Schiphol
       And any locations with 15KM radius from us
     </div>
 </div>
+

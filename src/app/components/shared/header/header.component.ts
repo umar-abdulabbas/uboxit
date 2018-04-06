@@ -84,10 +84,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           shoppingCartPage.next(false);
             if (event.url.includes('about') || event.url.includes('terms') || event.url.includes('privacy') || event.url.includes('contact') )  {
               this.showMobile = false;
-            } else {
-              this.showMobile = true;
-            }
-         
+            } 
         }
       }
     });

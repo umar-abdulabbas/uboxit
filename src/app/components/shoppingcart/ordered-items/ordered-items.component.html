@@ -50,7 +50,7 @@
                 <div class="card-price">&euro; {{cart.price.amount | number:'1.2-2'}}</div>
                 <div>Total:</div>
             </div>
-            <div class="card-flex-rowDir">
+            <div class="card-flex-rowDir" *ngIf="cart.vatPrice">
                     <div class="card-price">&euro; {{cart.vatPrice.amount | number:'1.2-2'}}</div>
                     <div>Vat in %:</div>
             </div>
@@ -59,7 +59,7 @@
                       <span style="text-decoration: line-through">{{cart.totalPrice.amount | number:'1.2-2'}}</span>
                       <span>{{cart.discountedTotalPrice.amount | number:'1.2-2'}}</span>
                     </div>
-                    <!--<div *ngIf="!cart.discountedTotalPrice" class="card-price">&euro; {{cart.price.amount | number:'1.2-2'}}</div>-->
+                    <div *ngIf="!cart.discountedTotalPrice" class="card-price">&euro; {{cart.totalPrice.amount | number:'1.2-2'}}</div>
                     <div>Amount Payable:</div>
             </div>
             <div class="cart-divider"></div>

@@ -12,11 +12,12 @@
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
                                 </span>
                             </span> <!--//DEsktop -->
-                            <span class="show-xs hide-xs c-hand" *ngIf="!showMobile">
+                            <!--<span class="show-xs hide-xs c-hand" *ngIf="!showMobile">
                                 <span *ngFor="let count of [(totalCount)]"  stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" [ngClass]="{'shop-icon-mobile':shopFloat}">
                                 <button class="btn btn-link c-hand" (click)="openShoppingCart()"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge animated" [ngClass]="{'flash':count}">{{count}}</span></button>
                                 </span>
-                            </span> <!--//Mobile -->
+                            </span>-->
+                             <!--//Mobile -->
                       <button class="btn btn-link c-hand" *ngIf="loginEnabled && !(loggedIn | async)" (click)="openLoginWindow()"><i class="material-icons">lock_open</i></button>
 
                       <button class="btn btn-link c-hand" *ngIf="(loggedIn | async)" (click)="logoutPanel()"><i class="material-icons">lock </i></button>

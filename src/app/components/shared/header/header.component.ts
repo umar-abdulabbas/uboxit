@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
+    console.log("this.showMobile", this.showMobile );
     const shoppingCartPage = new BehaviorSubject(false);
     this.getHeaders();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
@@ -82,9 +83,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.showMobile = false;
         } else {
           shoppingCartPage.next(false);
-            if (event.url.includes('about') || event.url.includes('terms') || event.url.includes('privacy') || event.url.includes('contact') )  {
+            if (event.url.includes('about') || event.url.includes('terms') || event.url.includes('privacy') || event.url.includes('contact') || event.url.includes('error')  )  {
               this.showMobile = false;
+              console.log("x");
             } 
+            
         }
       }
     });
@@ -94,6 +97,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
+    this.showMobile;
   }
 
   getHeaders(): void {

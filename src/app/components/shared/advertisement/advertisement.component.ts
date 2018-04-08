@@ -1,19 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 
 @Component({
   selector: 'app-advertisement',
   templateUrl: './advertisement.component.html',
-  styleUrls: ['./advertisement.component.scss']
+  styleUrls: ['./advertisement.component.scss'],
+  outputs: ['directlink']
 })
-export class AdvertisementComponent implements OnInit {
+export class AdvertisementComponent implements OnInit, OnDestroy {
+  public carouselTileTwo: NgxCarousel;
   public carouselOne: NgxCarousel;
+  public showMobile:boolean;
+   @Output() directlink = new EventEmitter<string>();
   constructor(private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
-    this.uistyleservice.scrollToTop();
+    this.showMobile = this.uistyleservice.getDeviceInformation();
+    this.uistyleservice.scrollToTop(); 
+    if( ['terms', 'privacy', 'about', 'contact'].includes(this.uistyleservice.getPathURL())){
+      this.showMobile;
+    }  
     this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
       slide: 1,
@@ -48,7 +56,7 @@ export class AdvertisementComponent implements OnInit {
         .ngxcarouselPoint li.active {
             background:#FF655A;
             width: 10px;
-            transform:scale(1.8);
+            transform:scale(1.2);
         }
         `
       },
@@ -57,11 +65,34 @@ export class AdvertisementComponent implements OnInit {
       loop: true,
       custom: 'banner'
     };
+
+       this.carouselTileTwo = {
+      grid: { xs: 1, sm: 3, md: 4, lg: 6, all: 230 },
+      speed: 600,
+      interval: 3000,
+      point: {
+        visible: false
+      },
+      load: 2,
+      touch: true
+    };
+
   }
   public myfunc(event: Event) {
     // carouselLoad will trigger this funnction when your load value reaches
     // it is helps to load the data by parts to increase the performance of the app
     // must use feature to all carousel
  }
-
+onmoveFn(data) {
+    // console.log(data);
+  }
+  showMenu(name:string) {
+    //this.showMobile = false;
+    console.log(name);
+    this.showMobile = false;
+    this.directlink.emit(name);
+  }
+  ngOnDestroy() {
+    this.showMobile;
+  }
 }

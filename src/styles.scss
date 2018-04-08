@@ -109,7 +109,7 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
 }
 .container{
     @include breakpoint(smart-phone){
-        padding: 0px;
+        xpadding: 0px;
     }
 }
 .advert-layout{

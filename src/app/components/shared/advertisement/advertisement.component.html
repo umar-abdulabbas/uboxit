@@ -1,27 +1,5 @@
-<!-- <div class="banner-outer">
-        <div class="banner-inner">
-<ngx-carousel
-[inputs]="carouselOne"
-(carouselLoad)="myfunc($event)">
-  <ngx-item NgxCarouselItem>
-        <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner1.png" />
-  </ngx-item>
-  <ngx-item NgxCarouselItem>
-        <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner2.png" />
-  </ngx-item>
-  <ngx-item NgxCarouselItem>
-        <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner3.png" />
-  </ngx-item>
-  <ngx-item NgxCarouselItem>
-                <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner4.png" />
-</ngx-item>
-  <button NgxCarouselPrev class='leftRs'>&lt;</button>
-  <button NgxCarouselNext class='rightRs'>&gt;</button>
 
-</ngx-carousel>
-</div>
-</div> -->
-<div class="banner-outer">
+<div class="banner-outer" *ngIf="!showMobile">
       <div class="banner-inner">
                   <ngx-carousel
                   [inputs]="carouselOne"
@@ -44,3 +22,71 @@
                   </ngx-carousel>
       </div>
 </div>
+<!-- Mobile -->
+  
+      <div class="uboxit-m-avert-cont" *ngIf="showMobile">
+      <div class="uboxit-m-container-1">
+      <div class="uboxit-m-advert-title"><i class="fa fa-play-circle"></i> Our Features</div>
+      <div class="uboxit-m-advert-ban1">
+            <div class="uboxit-m-ban-inner">
+            <div class="banner-outer">
+            <div class="banner-inner">
+                  <ngx-carousel
+                  [inputs]="carouselOne"
+                  (carouselLoad)="myfunc($event)">
+                    <ngx-item NgxCarouselItem>
+                          <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner1.png" />
+                    </ngx-item>
+                    <ngx-item NgxCarouselItem>
+                          <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner2.png" />
+                    </ngx-item>
+                    <ngx-item NgxCarouselItem>
+                          <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner3.png" />
+                    </ngx-item>
+                    <ngx-item NgxCarouselItem>
+                                  <img src="https://res.cloudinary.com/your-delicacy-bv/image/upload/Banner4.png" />
+                  </ngx-item>
+                    <button NgxCarouselPrev class='leftRs'>&lt;</button>
+                    <button NgxCarouselNext class='rightRs'>&gt;</button>
+                  
+                  </ngx-carousel>
+            </div>
+            </div>
+            </div>
+      </div>
+      </div>
+
+      <div class="uboxit-m-container-2">
+      <div class="uboxit-m-advert-title"><i class="fa fa-arrow-right"></i> Made For You </div>
+      <div class="uboxit-m-advert-ban1">
+            <div class="uboxit-m-ban-inner">
+                  <ngx-carousel [inputs]="carouselTileTwo" (carouselLoad)="myfunc($event)">
+                   <ngx-tile NgxCarouselItem >
+                      <div class="uboxit-scroll"> 
+                            <div (click)="showMenu('Combo')">
+                                  <i class="material-icons">restaurant_menu</i>
+                                  <br/>Combo
+                            </div>
+                      </div>
+                  </ngx-tile>
+                  <ngx-tile NgxCarouselItem >
+                      <div class="uboxit-scroll">
+                            <div (click)="showMenu('Make Your Combo')">
+                                  <i class="material-icons">room_service</i><br/>Make Your Combo
+                            </div>
+                      </div>
+                  </ngx-tile>
+                  <ngx-tile NgxCarouselItem >
+                      <div class="uboxit-scroll">
+                            <div (click)="showMenu('Choices')">
+                                  <i class="material-icons">restaurant</i><br/>Choices
+                            </div>
+                      </div>
+                  </ngx-tile>
+        <button NgxCarouselPrev class="leftRs">&lt;</button>
+        <button NgxCarouselNext class="rightRs">&gt;</button>
+    </ngx-carousel>
+            </div>
+      </div>
+      </div>
+</div>    

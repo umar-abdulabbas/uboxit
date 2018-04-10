@@ -10,13 +10,13 @@ import { Title } from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
   public uboxitMenu = false;
   public updateCounter;
-
+  public showMobile:boolean;
   constructor(private uistyleservice: UserExpStyleService, private titleService: Title) {
   }
 
   ngOnInit() {
     this.uistyleservice.scrollToTop();
     this.titleService.setTitle('UBoxIT - Food delivery | Order food online in The Netherlands, Amsterdam, Amstelveen, Schiphol');
-
+    this.showMobile = this.uistyleservice.getDeviceInformation();
   }
 }

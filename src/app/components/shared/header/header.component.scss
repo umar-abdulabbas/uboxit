@@ -34,7 +34,7 @@
 .uboxitBadge{ font-size: 11px;  height: 16px; line-height: 1; min-width: .9rem;  padding: .1rem .2rem; text-align: center;
     white-space: nowrap; position: relative; top: -15px;  right: 4px; color:$uboxit-primary-color;  background: #fff;
     -webkit-transform: translate(50%,-50%); transform: translate(-.1rem, -.5rem);  border-radius: .5rem;
-    background-clip: padding-box;   box-shadow:0 0 0 0.1rem $uboxit-primary-color;
+    background-clip: padding-box;   xbox-shadow:0 0 0 0.1rem  $uboxit-barMenuFont; 
 }
 
 .loginLayout{ width: 340px }
@@ -122,5 +122,5 @@ input:focus ~ label, input:valid ~ label{ top:-10px; }
 .uboxit-footer-icon { height: 24px;}
 .uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px;}
 .uboxitBadge.uboxit-footer-badge {  background: $uboxit-barMenuFont; }
-.uboxitBadge.uboxit-footer-badge.uboxitBadge-active{ background:#fff; }
+.uboxitBadge.uboxit-footer-badge.uboxitBadge-active{ background:#fff; box-shadow: 0 0 0 0.1rem $uboxit-primary-color;}
 .uboxit-footer-btn-active { color:$uboxit-primary-color; }

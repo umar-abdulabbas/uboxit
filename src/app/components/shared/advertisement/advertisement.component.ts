@@ -11,7 +11,8 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 export class AdvertisementComponent implements OnInit, OnDestroy {
   public carouselTileTwo: NgxCarousel;
   public carouselOne: NgxCarousel;
-  public showMobile:boolean;
+  public showMobile = true;
+  public showOnlyForDesktopPath: boolean; 
    @Output() directlink = new EventEmitter<string>();
   constructor(private uistyleservice: UserExpStyleService) {
   }
@@ -19,9 +20,6 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
     this.uistyleservice.scrollToTop(); 
-    if( ['terms', 'privacy', 'about', 'contact'].includes(this.uistyleservice.getPathURL())){
-      this.showMobile;
-    }  
     this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
       slide: 1,
@@ -94,5 +92,6 @@ onmoveFn(data) {
   }
   ngOnDestroy() {
     this.showMobile;
+    this.showOnlyForDesktopPath;
   }
 }

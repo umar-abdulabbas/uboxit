@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Cart } from '../../../core/domain/cart';
 import { OfferService } from '../services/offer.service';
 import { AlertInvoker } from '../../../core/services/alert-invoker.service';
-
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-choices',
   templateUrl: './choices.component.html',
@@ -20,7 +20,7 @@ export class ChoicesComponent implements OnInit {
   // ngOnInit() {
   //   this.titleService.setTitle("Choose various items-choices of different types like Starters, Gravies, Main course, Dessert, Soft Drinks and Snacks");
   // }
-
+  public showMobile:boolean;
   offer: Offer;
   items: Item[];
   itemsToDisplay: Item[];
@@ -38,13 +38,13 @@ export class ChoicesComponent implements OnInit {
 
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker,
-              private titleService: Title) {
+              private titleService: Title, private uistyleservice: UserExpStyleService) {
 
   }
 
   ngOnInit() {
     this.titleService.setTitle('Choose various items-choices of different types like Starters, Gravies, Main course, Dessert, Soft Drinks and Snacks');
-
+    this.showMobile = this.uistyleservice.getDeviceInformation();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.offer = this.offerService.offer;
     // only if not has data, make http call

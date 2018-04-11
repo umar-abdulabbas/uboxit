@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MakeYourOwnComboService } from '../../../shared/services/InteractionOfMakeYourOwnCombo/makeyourowncombo';
 import { OfferService } from '../services/offer.service';
-import { Item, ItemType } from '../../../core/domain/offer';
+import { DietType, Item, ItemType } from '../../../core/domain/offer';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 
 @Component({
@@ -11,6 +11,8 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
   styleUrls: ['./makeyourcombo-offer.component.scss'],
 })
 export class MakeyourcomboOfferComponent implements OnInit, OnDestroy {
+
+  DietType = DietType;
 
   msgFromMakeYourOwnCombo: any = {
     starter: true,

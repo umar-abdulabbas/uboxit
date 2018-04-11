@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Combo, Offer } from '../../core/domain/offer';
+import { Combo, DietType, Offer } from '../../core/domain/offer';
 import { OfferService } from './services/offer.service';
 import { CartService } from '../shoppingcart/services/cart.service';
 import { Cart } from '../../core/domain/cart';
@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
+
+  DietType = DietType;
+
   offer: Offer;
   uboxitMenu = false;
   active = true;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ErrorsAggregator } from '../../../core/errors/errors-aggregator';
 import { CartService } from '../../shoppingcart/services/cart.service';
-import { Combo, Item, Offer } from '../../../core/domain/offer';
+import { Combo, DietType, Item, Offer } from '../../../core/domain/offer';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Cart } from '../../../core/domain/cart';
 import { OfferService } from '../services/offer.service';
@@ -15,12 +15,9 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 })
 export class ChoicesComponent implements OnInit {
 
-  // constructor(private titleService: Title) { }
-  //
-  // ngOnInit() {
-  //   this.titleService.setTitle("Choose various items-choices of different types like Starters, Gravies, Main course, Dessert, Soft Drinks and Snacks");
-  // }
-  public showMobile:boolean;
+  DietType = DietType;
+
+  public showMobile: boolean;
   offer: Offer;
   items: Item[];
   itemsToDisplay: Item[];

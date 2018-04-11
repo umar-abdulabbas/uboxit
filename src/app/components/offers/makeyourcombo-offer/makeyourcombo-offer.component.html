@@ -12,6 +12,7 @@
                         <div class="tinyCardContainer">
                               <div class="tinyCardLeftImage"><img src="{{starter.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                               <div class="tinyCardRightText">
+                                <img *ngIf="starter.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                               <h6>{{starter.title}}</h6>
                               <p>{{starter.category}}</p>
 
@@ -19,9 +20,9 @@
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
                                   <div class="tinyCardPrice">
-                                     
+
                                       <span *ngIf="starter.discountedPrice"><s>&euro;{{starter.normalPrice}}</s>&nbsp;&euro;{{starter.discountedPrice}}</span>
-                                      <span *ngIf="!starter.discountedPrice">&euro;{{starter.normalPrice}</span>
+                                      <span *ngIf="!starter.discountedPrice">&euro;{{starter.normalPrice}}</span>
                                  </div>
                                   <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedStarter(starter.id)">Add to Combo</button></div>
                             </div>
@@ -49,15 +50,15 @@
                         <div class="tinyCardContainer">
                               <div class="tinyCardLeftImage"><img src="{{mainCourse.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                               <div class="tinyCardRightText">
+                                <img *ngIf="mainCourse.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                               <h6>{{mainCourse.title}}</h6>
                               <p>{{mainCourse.category}}</p>
-
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
                                   <div class="tinyCardPrice">
                                         <span *ngIf="mainCourse.discountedPrice"><s>&euro;{{mainCourse.normalPrice}}</s>&nbsp;&euro;{{mainCourse.discountedPrice}}</span>
-                                        <span *ngIf="!mainCourse.discountedPrice">&euro;{{mainCourse.normalPrice}</span>
+                                        <span *ngIf="!mainCourse.discountedPrice">&euro;{{mainCourse.normalPrice}}</span>
                                   </div>
                                   <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedMainDish(mainCourse.id)">Add to Combo</button></div>
                             </div>
@@ -81,15 +82,15 @@
                         <div class="tinyCardContainer">
                               <div class="tinyCardLeftImage"><img src="{{desert.image}}" onError="this.src='assets/images/banner1.jpg'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                               <div class="tinyCardRightText">
+                                <img *ngIf="desert.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                               <h6>{{desert.title}}</h6>
                               <p>{{desert.category}}</p>
-
                               </div>
                               <div class="clearfix"></div>
                               <div class="tinyCardNextSec">
                                   <div class="tinyCardPrice">
                                         <span *ngIf="desert.discountedPrice"><s>&euro;{{desert.normalPrice}}</s>&nbsp;&euro;{{desert.discountedPrice}}</span>
-                                        <span *ngIf="!desert.discountedPrice">&euro;{{desert.normalPrice}</span>
+                                        <span *ngIf="!desert.discountedPrice">&euro;{{desert.normalPrice}}</span>
                                   </div>
                                   <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedDessert(desert.id)">Add to Combo</button></div>
                             </div>

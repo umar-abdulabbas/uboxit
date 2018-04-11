@@ -5,6 +5,7 @@ import { CartService } from '../services/cart.service';
 import { NavigationStart, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-ordered-items',
@@ -14,11 +15,11 @@ import { Subscription } from 'rxjs/Subscription';
 export class OrderedItemsComponent implements OnInit, OnDestroy {
 
   @Input() cart: Cart;
-  promoCode: string;
-  showCheckout = false;
-  showContinueShopping = false;
+  @Input() showCheckout = false;
+  @Input() showContinueShopping = false;
 
-  finishPage: boolean; // if finish page, dont do anything total count = 0 redirection
+  promoCode: string;
+  finishPage: boolean; // if finish page, dont do anything for (total count = 0) redirection
 
   subscriptions: Subscription[] = [];
 
@@ -39,11 +40,6 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
 
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (event.url.includes('shoppingcart')) {
-          this.showContinueShopping = true;
-        } else {
-          this.showCheckout = true;
-        }
         if (event.url.includes('finish')) {
           this.finishPage = true;
         }

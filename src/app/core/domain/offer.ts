@@ -7,6 +7,7 @@ export interface Product {
   discountedPrice: string;
   normalPrice: string;
   ingredients: string;
+  dietType: DietType;
 
   count: number; // taken from the cart (while loading the page, need to show the selected count on the combo/item)
 }
@@ -33,6 +34,11 @@ export interface Offer {
   items: Item[];
   availableItemsForCustomCombo: boolean;
   availableItemsForIndividualSale: boolean;
+}
+
+export enum DietType {
+  Veg = 'VEGETARIAN',
+  NonVeg = 'NON_VEGETARIAN'
 }
 
 export enum ItemType {

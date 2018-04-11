@@ -107,6 +107,7 @@ export class OfferService {
       discountedPrice: combo.discountedPrice.amount,
       image: combo.imageUrls[0],
       category: this.getCategoryTypeName(categoryType),
+      dietType: combo.dietType,
       count: 0,
       items: combo.items.map(i => this.prepareDomainItem(i, categoryType)),
       itemNames: combo.items.map(i => i.name).join(' + '),
@@ -128,6 +129,7 @@ export class OfferService {
       // type: this.getItemTypeName(apiItem.itemType),
       type: apiItem.itemType,
       category: this.getCategoryTypeName(categoryType),
+      dietType: apiItem.dietType,
       allowedForCustomCombo: apiItem.allowedForCustomCombo,
       allowedForIndividualSale: apiItem.allowedForIndividualSale
     };

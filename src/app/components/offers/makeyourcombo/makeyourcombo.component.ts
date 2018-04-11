@@ -39,9 +39,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
   public headerColor;
   public uboxitMenu = false;
-  public startersCaption = 'Starters';
-  public mainDishCaption = 'Main Dish';
-  public dessertCaption = 'Dessert';
+  public startersCaption = 'Appetizers';
+  public mainDishCaption = 'Main Course';
+  public dessertCaption = 'Desserts, Salads & Drinks';
 
   availableTypes: string[] = [];
 
@@ -103,7 +103,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
 
     this.starters = this.startersToDisplay = this.offerService.getStarters();
     this.mainCourses = this.mainCoursesToDisplay =  this.offerService.getMainDishes();
-    this.deserts = this.desertsToDisplay = this.offerService.getDeserts();
+    this.deserts = this.desertsToDisplay = this.offerService.getDessertsAndOthers();
 
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;

@@ -52,15 +52,15 @@ export class OfferService {
   }
 
   getStarters() {
-    return this.getItemsForCustomCombo('STARTERS');
+    return [...this.getItemsForCustomCombo('STARTERS'), ...this.getItemsForCustomCombo('SOUP')];
   }
 
   getMainDishes() {
     return this.getItemsForCustomCombo('MAIN_COURSE');
   }
 
-  getDeserts() {
-    return this.getItemsForCustomCombo('DESERT');
+  getDessertsAndOthers() {
+    return [...this.getItemsForCustomCombo('DESERT'), ...this.getItemsForCustomCombo('DRINKS'), ...this.getItemsForCustomCombo('SALAD')];
   }
 
   getItemsForIndividualSale() {

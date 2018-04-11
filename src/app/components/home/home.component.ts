@@ -10,7 +10,8 @@ import { Title } from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
   public uboxitMenu = false;
   public updateCounter;
-  public showMobile:boolean;
+  public showMobile: boolean;
+
   constructor(private uistyleservice: UserExpStyleService, private titleService: Title) {
   }
 

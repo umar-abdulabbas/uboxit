@@ -10,15 +10,16 @@ export class UserExpStyleService {
     body.scrollTop = 0;
     html.scrollTop = 0;
   }
-  //Find Device
+
+  // Find Device
   getDeviceInformation() {
     const userAgent = navigator.userAgent || navigator.vendor || navigator.platform.toLowerCase();
-    return /android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent);    
+    return /android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(userAgent);
   }
-  //Find URL Path
-  getPathURL(){
+
+  // Find URL Path
+  getPathURL() {
     const findPathUrl = window.location.href.split('/').pop();
     return findPathUrl;
   }
-
 }

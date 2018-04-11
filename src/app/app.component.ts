@@ -4,6 +4,7 @@ import { LoginService } from './components/personal/services/login-service';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
 import { NgxCarousel } from 'ngx-carousel';
 import { Router, NavigationStart } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,21 +17,21 @@ export class AppComponent implements OnInit, OnDestroy {
   public carouselTileTwo: NgxCarousel;
   public carouselOne: NgxCarousel;
 
-  constructor(private storageService: StorageService, private loginService: LoginService, 
-              private uistyleservice: UserExpStyleService, private router:Router) {  
-              router.events
-              .filter(event => event instanceof NavigationStart)
-              .subscribe((val) => {
-                this.checkNavigationStart = val;
-                if(['/terms', '/privacy', '/about', '/contact', '/makeyourcombo', '/choices', '/shoppingcart', '/error', '/finish'].includes( this.checkNavigationStart.url)){
-                  this.showMobile = false;                
-                }
-              });
-      }
+  constructor(private storageService: StorageService, private loginService: LoginService,
+              private uistyleservice: UserExpStyleService, private router: Router) {
+    router.events
+      .filter(event => event instanceof NavigationStart)
+      .subscribe((val) => {
+        this.checkNavigationStart = val;
+        if (['/terms', '/privacy', '/about', '/contact', '/makeyourcombo', '/choices', '/shoppingcart', '/error', '/finish'].includes(this.checkNavigationStart.url)) {
+          this.showMobile = false;
+        }
+      });
+  }
 
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
-  
+
     this.loginService.getUser(this.storageService.getUser());
     this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
@@ -76,8 +77,8 @@ export class AppComponent implements OnInit, OnDestroy {
       custom: 'banner'
     };
 
-       this.carouselTileTwo = {
-      grid: { xs: 1, sm: 3, md: 4, lg: 6, all: 230 },
+    this.carouselTileTwo = {
+      grid: {xs: 1, sm: 3, md: 4, lg: 6, all: 230},
       speed: 600,
       interval: 3000,
       point: {
@@ -86,7 +87,7 @@ export class AppComponent implements OnInit, OnDestroy {
       load: 2,
       touch: true
     };
-    
+
   }
 
   stickyHeaderValue(scrolValue) {
@@ -99,26 +100,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.storageService.clearUser();
-    
-  
   }
 
- 
   public myfunc(event: Event) {
     // carouselLoad will trigger this funnction when your load value reaches
     // it is helps to load the data by parts to increase the performance of the app
     // must use feature to all carousel
- }
-onmoveFn(data) {
+  }
+
+  onmoveFn(data) {
     // console.log(data);
   }
-  showMenu(url:string) {
-    if ( url === 'home'){
+
+  showMenu(url: string) {
+    if (url === 'home') {
       this.showMobile = false;
+    } else {
+      this.router.navigateByUrl('/' + url);
     }
-    else {
-    this.router.navigateByUrl('/'+ url);
-  }
   }
 
 }

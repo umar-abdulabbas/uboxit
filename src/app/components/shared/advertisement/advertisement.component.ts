@@ -6,20 +6,20 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
   selector: 'app-advertisement',
   templateUrl: './advertisement.component.html',
   styleUrls: ['./advertisement.component.scss'],
-  outputs: ['directlink']
 })
 export class AdvertisementComponent implements OnInit, OnDestroy {
   public carouselTileTwo: NgxCarousel;
   public carouselOne: NgxCarousel;
   public showMobile = true;
-  public showOnlyForDesktopPath: boolean; 
-   @Output() directlink = new EventEmitter<string>();
+  public showOnlyForDesktopPath: boolean;
+  @Output() directlink = new EventEmitter<string>();
+
   constructor(private uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
-    this.uistyleservice.scrollToTop(); 
+    this.uistyleservice.scrollToTop();
     this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
       slide: 1,
@@ -64,8 +64,8 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
       custom: 'banner'
     };
 
-       this.carouselTileTwo = {
-      grid: { xs: 1, sm: 3, md: 4, lg: 6, all: 230 },
+    this.carouselTileTwo = {
+      grid: {xs: 1, sm: 3, md: 4, lg: 6, all: 230},
       speed: 600,
       interval: 3000,
       point: {
@@ -76,22 +76,26 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
     };
 
   }
+
   public myfunc(event: Event) {
     // carouselLoad will trigger this funnction when your load value reaches
     // it is helps to load the data by parts to increase the performance of the app
     // must use feature to all carousel
- }
-onmoveFn(data) {
+  }
+
+  onmoveFn(data) {
     // console.log(data);
   }
-  showMenu(name:string) {
-    //this.showMobile = false;
+
+  showMenu(name: string) {
+    // this.showMobile = false;
     console.log(name);
     this.showMobile = false;
     this.directlink.emit(name);
   }
+
   ngOnDestroy() {
-    this.showMobile;
-    this.showOnlyForDesktopPath;
+    // this.showMobile;
+    // this.showOnlyForDesktopPath;
   }
 }

@@ -116,11 +116,17 @@ input:focus ~ label, input:valid ~ label{ top:-10px; }
 
 // Mobile View 
 .uboxit-footer { position: fixed;  bottom: 0px; height: 56px; width: 25%; z-index: 312; 
-    display: flex; right: 0px; color: $uboxit-barMenuFont;
-}
-.uboxit-footer-cell { padding-top:8px; padding-bottom: 10px; width: 100%; text-align: center; }
+    display: flex; right: 0px; color: $uboxit-barMenuFont;  }
+.uboxit-footer-cell { padding-top:10px; padding-bottom: 10px; width: 100%; text-align: center; width: 100%; }
 .uboxit-footer-icon { height: 24px;}
 .uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px;}
 .uboxitBadge.uboxit-footer-badge {  background: $uboxit-barMenuFont; }
 .uboxitBadge.uboxit-footer-badge.uboxitBadge-active{ background:#fff; box-shadow: 0 0 0 0.1rem $uboxit-primary-color;}
 .uboxit-footer-btn-active { color:$uboxit-primary-color; }
+:host /deep/ .mat-button{
+    line-height: inherit;
+
+}
+:host /deep/ .mat-button.mat-accent{
+    color: inherit;
+}

@@ -3,7 +3,6 @@ import { OfferService } from '../../offers/services/offer.service';
 import { Observable } from 'rxjs/Observable';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
-
 /* Menu Start */
 export class MenuList {
   id: string;
@@ -12,12 +11,13 @@ export class MenuList {
   icon: string;
   filter: boolean;
   menuActive: boolean;
+  disabled:boolean;
 }
 
 const MENULIST: MenuList[] = [
-  {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: false},
-  {id: '002', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false},
-  {id: '003', name: 'Choices', link: '/choices', icon: 'restaurant', filter: false, menuActive: false}
+  {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: false, disabled:true},
+  {id: '002', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false, disabled:true},
+  {id: '003', name: 'Choices', link: '/choices', icon: 'restaurant', filter: false, menuActive: false, disabled:true}
 ];
 
 /* Menu End */
@@ -44,27 +44,37 @@ export class BarMenuComponent implements OnInit {
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
     const findPathUrl = window.location.href.split('/').pop();
-
     const offer = this.offerServie.offer;
 
+    this.menuList.push(Object.assign({}, MENULIST[0]));
+    this.menuList.push(Object.assign({}, MENULIST[1]));
+    this.menuList.push(Object.assign({}, MENULIST[2]));
+
     if (offer.combos.length > 0) {
-      this.menuList.push(Object.assign({}, MENULIST[0]));
+      // this.menuList.push(Object.assign({}, MENULIST[0]));
+      this.updateMenuDisabled('001', false);
       if (findPathUrl === 'home') {
         this.updateMenuList('001', true);
+       
       }
     }
-    if (offer.availableItemsForCustomCombo) {
-      this.menuList.push(Object.assign({}, MENULIST[1]));
+    if (offer.availableItemsForCustomCombo) { 
+      //this.menuList.push(Object.assign({}, MENULIST[1]));
+      this.updateMenuDisabled('002', false);
       if (findPathUrl === 'makeyourcombo') {
         this.updateMenuList('002', true);
+        
       }
     }
-    if (offer.availableItemsForIndividualSale) {
-      this.menuList.push(Object.assign({}, MENULIST[2]));
+    if (offer.availableItemsForIndividualSale) {  
+      //this.menuList.push(Object.assign({}, MENULIST[2]));
+      this.updateMenuDisabled('003', false);
       if (findPathUrl === 'choices') {
         this.updateMenuList('003', true);
+     
       }
     }
+   
   }
 
   selectType(type: string): void {
@@ -73,6 +83,7 @@ export class BarMenuComponent implements OnInit {
   }
 
   openMenu(link: string): void {
+    console.log("ssss")
     this.router.navigate([link]);
   }
 
@@ -91,4 +102,11 @@ export class BarMenuComponent implements OnInit {
     menuItem.menuActive = menuActive;
     this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = false);
   }
+
+  updateMenuDisabled(id: string, disabled:boolean) {
+    const menuItem = this.menuList.find(item => item.id === id);
+    menuItem.disabled = disabled;
+  }
+
+
 }

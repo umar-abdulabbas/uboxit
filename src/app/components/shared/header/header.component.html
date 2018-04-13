@@ -65,8 +65,12 @@
 
 <!--Mobile View -->
 <div class="uboxit-footer show-xs hide-xs c-hand" *ngIf="showMobile">
-    <div *ngFor="let count of [(totalCount)]" class="uboxit-footer-cell" [ngClass]="{'uboxit-footer-btn-active':count > 0}" (click)="openShoppingCart()">
+    <div *ngFor="let count of [(totalCount)]">
+        <a mat-button color="accent">
+        <div class="uboxit-footer-cell" [ngClass]="{'uboxit-footer-btn-active':count > 0}" (click)="openShoppingCart()">
         <div class="uboxit-footer-icon"><i class="material-icons" >shopping_basket</i><span  class="uboxitBadge uboxit-footer-badge animated" [ngClass]="{'flash':count, 'uboxitBadge-active':count > 0}">{{count}}</span></div>
-        <div class="uboxit-footer-txt">Your Basket</div>
-    </div>
+        <div class="uboxit-footer-txt">Your Basket</div>      
+        </div>
+        </a>
+    </div>  
 </div>

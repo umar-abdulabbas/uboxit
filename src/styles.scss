@@ -1,5 +1,6 @@
 
 @import "assets/css/variables";
+@import '~@angular/material/theming';
 
 
 // *End Media Queries
@@ -11,6 +12,9 @@ body::-webkit-scrollbar{  width: 6px; height: 6px; } //scrollbar
        margin-right: 0px !important;
        transition: margin-right .5s;
     }
+}
+a.active, a:active, a:focus, a:hover{
+    text-decoration: none !important;
 }
 
 //Button Start 

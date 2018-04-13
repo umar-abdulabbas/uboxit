@@ -17,8 +17,7 @@
 .uboxitdropDownBox div {padding-top: 10px;}
 .uboxitdropDownBox div button{ position: relative;  right: 10px; }
 .uboxitdropDownBox ul li{ list-style: none;}
-
-
+.barMenuMobile { position: relative;}
 
 //Bar Menu End //
 .uboxit-footer { position: fixed;  bottom: 0px; height: 56px; background: $uboxit-background-color;
@@ -26,8 +25,34 @@
     display: flex; 
 }
 
-.uboxit-footer-cell { padding-top:8px; padding-bottom: 10px; width: 25%; text-align: center; color: $uboxit-barMenuFont; }
-.uboxit-footer-icon { height: 24px;}
-.uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px;}
-.uboxit-footer-btn-active { color:$uboxit-primary-color }
+.uboxit-footer-cell { padding-top:8px; padding-bottom: 10px; width: 25%; text-align: center; color: $uboxit-barMenuFont; width: 100%;}
+.uboxit-footer-icon { height: 24px; }
+.uboxit-footer-txt { font-family: $uboxit-font; font-size: 12px; }
+.uboxit-footer-btn-active { color:$uboxit-primary-color;  }
 
+:host /deep/ .mat-button{ line-height: inherit; }
+:host /deep/ .mat-button.mat-accent { color: inherit; }
+
+.uboxit-footer-active::before {
+    content:"";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url('../../../../assets/images/disable_pattern1.png');
+    background-repeat: repeat;
+}
+
+.uboxit-footer-active-mobile::before {
+    content:"";
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    xbackground-color: rgba(248,249,250, 0.8);
+    background-image: url('../../../../assets/images/disable_pattern1.png');
+}

@@ -27,7 +27,8 @@ import { ModelCloseOverlayDirective } from './directives/modelCloseonOverlay.dir
 // Material Componets Added
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 import { MakeyourcomboOfferComponent } from './components/offers/makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './components/shared/add-to-cart-counter/add-to-cart-counter.component';
 
@@ -119,6 +120,7 @@ import { TermsComponent } from './components/shared/terms/terms.component';
     MatExpansionModule,
     MatStepperModule,
     MatRadioModule,
+    MatButtonModule,
     // Material Import
     LocalStorageModule.withConfig({
       prefix: 'uboxit',

@@ -4,7 +4,8 @@
 }
 
 .uboxit-m-home{
-  background: url(../assets/images/MobileBg.jpg) no-repeat ;
+  //background: url(../assets/images/MobileBg.jpg) no-repeat ;
+  background: $uboxit-primary-color;
   height: 100vh;
   background-position: center top;
     background-size: cover;

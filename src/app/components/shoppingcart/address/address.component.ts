@@ -1,7 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Address } from '../../../core/domain/address';
 import { PaymentService } from '../../payment/services/payment-service';
 import { StorageService } from '../../../shared/services/storage-service';
+import { } from '@types/googlemaps';
+import Animation = google.maps.Animation;
 
 export class AddressList {
     id: string;
@@ -32,6 +34,10 @@ export class AddressComponent implements OnInit {
   addressModel: Address = <Address>{};
   userModel: any = {};
 
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
+  displayMap: boolean;
+
   @Output() addressUpdated = new EventEmitter<boolean>();
   @Output() newAddressSelected = new EventEmitter<boolean>();
   @Output() existingAddressSelected = new EventEmitter<boolean>();
@@ -43,6 +49,7 @@ export class AddressComponent implements OnInit {
   ngOnInit() {
     this.addressModel = this.storageService.getDeliveryAddress();
     this.userModel = this.storageService.getDeliveryContact();
+
   }
 
   showNewForm(checked: string) {
@@ -61,6 +68,24 @@ export class AddressComponent implements OnInit {
     addressCheck.checked = 'checked';
 
     this.existingAddressSelected.emit(true);
+  }
+
+  loadMap() {
+    this.displayMap = !this.displayMap;
+    const mapProp = {
+      center: new google.maps.LatLng(52.2924628, 4.8586759),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+
+    const location = new google.maps.LatLng(52.2924628, 4.8586759);
+
+    const marker = new google.maps.Marker({
+      position: location,
+      animation: Animation.DROP,
+      map: this.map
+    });
   }
 
   addAddress() {

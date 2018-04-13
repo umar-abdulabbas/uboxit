@@ -113,10 +113,12 @@
             </div>
                <div class="radioDiv"><mat-radio-button value="1">Pick up at store</mat-radio-button></div>
             <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
-              <address>
+              <address (click)="loadMap()">
                 Augustinuspark , 14. 1185CN, Amstelveen
+                <button class="btn btn-link" ><i class="material-icons pulse" style="color:#FF655A">place</i></button>
               </address>
             <div class="addressfields">
+              <div class="group map" [hidden]="!displayMap" #gmap></div>
               <div class="group">
                   <input type="text" required name="email" class="input-color" [(ngModel)]="userModel.email">
                   <span class="highlight"></span>

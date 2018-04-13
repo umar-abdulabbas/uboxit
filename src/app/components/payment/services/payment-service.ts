@@ -22,6 +22,7 @@ export class PaymentService {
   initiatePayment(cartId: string) {
     const request = {
       'shopId': cartId,
+      'customerName': this.userDetails.name,
       'returnurl': `${this.origin}/finish?cartId=${cartId}`,
       'origin': this.origin,
       'emailId': this.userDetails.email,

@@ -10,25 +10,9 @@
                     <form>
                     <div class="addressNewFormInner">
                       <div class="group">
-                        <table style="width:100%">
-                          <tr>
-                            <td>
-                              <div class="group">
-                                <input type="text"id="fname" required name="fname" [(ngModel)]="addressModel.firstName" minlength="4" #fname="ngModel">
-                                <span class="highlight"></span>
-                                <span class="bar"></span><label>First Name</label>
-                              </div>
-
-                            </td>
-                            <td>
-                              <div class="group">
-                                <input type="text" required name="lname" [(ngModel)]="addressModel.lastName">
-                                <span class="highlight"></span>
-                                <span class="bar"></span><label>Last Name</label>
-                              </div>
-                            </td>
-                          </tr>
-                        </table>
+                        <input type="text"id="fname" required name="fname" [(ngModel)]="userModel.name" minlength="4" #fname="ngModel">
+                        <span class="highlight"></span>
+                        <span class="bar"></span><label>First Name</label>
                       </div>
                         <!-- Validation Name-->
                         <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
@@ -79,7 +63,7 @@
                                 </td>
                                 <td>
                                     <div class="group">
-                                        <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
+                                        <input type="text" required name="cityarea" [(ngModel)]="addressModel.landMark">
                                         <span class="highlight"></span>
                                         <span class="bar"></span><label>Location/LandMark</label>
                                     </div>
@@ -120,6 +104,11 @@
             <div class="addressfields">
               <div class="group map" [hidden]="!displayMap" #gmap></div>
               <div class="group">
+                  <input type="text" required name="name" class="input-color" [(ngModel)]="userModel.name">
+                  <span class="highlight"></span>
+                  <span class="bar"></span><label>Enter your Name</label>
+              </div>
+              <div class="group">
                   <input type="text" required name="email" class="input-color" [(ngModel)]="userModel.email">
                   <span class="highlight"></span>
                   <span class="bar"></span><label>Enter your Email Address</label>
@@ -134,7 +123,7 @@
           </mat-radio-group>
           <div class="actionRow">
           <div class="float-right">
-            <button class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone)}" (click)="addAddress()">Go to Payment</button>
+            <button class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone && userModel.name)}" (click)="addAddress()">Go to Payment</button>
           </div>
           <div class="clearfix"></div>
         </div>

@@ -6,6 +6,7 @@ import { Address } from '../../core/domain/address';
 
 const USER_KEY = 'username';
 const DELIVERY_ADDRESS_KEY = 'delivery_address';
+const DELIVERY_ADDRESS_TYPE_KEY = 'delivery_address_type';
 const DELIVERY_CONTACT_KEY = 'delivery_contact';
 
 @Injectable()
@@ -17,8 +18,9 @@ export class StorageService {
     this.set(USER_KEY, username);
   }
 
-  storeDeliveryAddress(deliveryAddress: Address) {
+  storeDeliveryAddress(deliveryAddress: Address, addressType: string) {
     this.set(DELIVERY_ADDRESS_KEY, deliveryAddress);
+    this.set(DELIVERY_ADDRESS_TYPE_KEY, addressType);
   }
 
   storeDeliveryContact(deliveryContact: any) {
@@ -32,6 +34,11 @@ export class StorageService {
   getDeliveryAddress(): Address {
     const address = <Address>this.localStorageService.get(DELIVERY_ADDRESS_KEY);
     return address ? address : <Address>{};
+  }
+
+  getDeliveryAddressType(): string {
+    const addressType = <string>this.localStorageService.get(DELIVERY_ADDRESS_TYPE_KEY);
+    return addressType ? addressType : '0';
   }
 
   getDeliveryContact() {

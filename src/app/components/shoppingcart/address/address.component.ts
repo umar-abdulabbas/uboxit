@@ -49,7 +49,7 @@ export class AddressComponent implements OnInit {
   ngOnInit() {
     this.addressModel = this.storageService.getDeliveryAddress();
     this.userModel = this.storageService.getDeliveryContact();
-
+    this.valueSelcted = this.storageService.getDeliveryAddressType();
   }
 
   showNewForm(checked: string) {
@@ -94,7 +94,7 @@ export class AddressComponent implements OnInit {
     console.log(this.addressModel);
     console.log(this.userModel);
 
-    this.storageService.storeDeliveryAddress(this.addressModel);
+    this.storageService.storeDeliveryAddress(this.addressModel, this.valueSelcted);
     this.storageService.storeDeliveryContact(this.userModel);
 
     this.paymentService.enrichAddress(this.addressModel, this.valueSelcted === '1');

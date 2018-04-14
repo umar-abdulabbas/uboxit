@@ -2,7 +2,7 @@
 @import "../../../../assets/css/variables";
 
 .cartLayout { padding: 0px; }
-.cartHeader { height:70px; background: #454d5d; padding:0 24px; color:#fff; margin-bottom: 10px; font-family: $uboxit-font; line-height: 70px; font-size: 15px;}
+.cartHeader { height:70px; background: #454d5d; padding:0 24px; color:#fff; margin-bottom: 10px; font-family: $uboxit-font; line-height: 70px; font-size: 15px; cursor: pointer;}
 .cardinner { padding:0 24px 16px;}
 .card-txt-title {  height:25px; padding:5px 10px;  overflow: hidden; text-overflow: ellipsis;  white-space: nowrap}
 .card-txt-item { height:25px; padding:5px 10px; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap}
@@ -24,3 +24,13 @@
 .card-shop-btn{ margin: 20px;}
 .card-shop-btn > button { width:100%;}
 .veg{ width: 20px; vertical-align: bottom;  margin-right: 5px;}
+.disabledCart {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.editCart {
+  cursor: pointer;
+  float: right;
+  padding-top: 25px;
+}

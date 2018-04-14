@@ -76,7 +76,7 @@
                       </mat-expansion-panel>
 
                       <!-- payment -->
-                      <mat-expansion-panel [disabled]="(loginEnabled && !loggedIn) || !isValidForPayment()" [expanded]="step === 1" (opened)="setStep(1)"
+                      <mat-expansion-panel [disabled]="(loginEnabled && !loggedIn) || !isValidForPayment()" [expanded]="step === 1" (opened)="setStep(1);disableCart();"
                                            hideToggle="true">
                         <mat-expansion-panel-header>
                           <mat-panel-title>Payment Options</mat-panel-title>
@@ -102,7 +102,7 @@
               </div>
               <div class="shop-right">
                   <div class="card-dummy">
-                  <app-ordered-items [showCheckout]="false" [showContinueShopping]="true"></app-ordered-items>
+                  <app-ordered-items [showCheckout]="false" [showContinueShopping]="true" [disableFullCart]="disableFullCart" (madeEditable)="disablePayment()"></app-ordered-items>
                  </div>
               </div>
           </div>

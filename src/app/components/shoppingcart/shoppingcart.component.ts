@@ -21,6 +21,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   cart: Cart;
   loggedIn: boolean;
   paymentOnDelivery: boolean;
+  disableFullCart: boolean;
 
   // features
   loginEnabled: boolean;
@@ -80,6 +81,19 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
 
   prevStep() {
     this.step--;
+  }
+
+  disableCart() {
+    console.log('disableCart');
+    this.disableFullCart = true;
+  }
+
+  disablePayment() {
+    this.disableFullCart = false;
+    console.log('disablePayment');
+    if (this.step === 1) {
+      this.prevStep();
+    }
   }
 
   goToPayment() {

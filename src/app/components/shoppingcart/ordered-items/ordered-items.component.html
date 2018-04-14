@@ -1,6 +1,8 @@
 <div class="card-dummyx" *ngIf="cart && cart.price">
         <div class="cartLayout">
-            <div class="cartHeader">Your Cart</div>
+            <div class="cartHeader" (click)="makeEditable()">{{disableFullCart ? 'Open your box again' : 'Your Cart'}}
+              <i *ngIf="disableFullCart" class="material-icons editCart">mode_edit</i></div>
+          <div [ngClass]="{'disabledCart':disableFullCart}">
             <div class="cardinner" *ngFor="let order of cart.combos">
             <div *ngIf="order.count > 0">
                 <div><button class="btn btn-clear float-right" (click)="removeOrder(order.id)"></button></div>
@@ -80,6 +82,7 @@
                     <button class="btn btn-primary" (click)="proceedToCheckOut()">Proceed To Checkout</button>
                 </div>
             <div>&nbsp;</div>
+        </div>
         </div>
         </div>
 

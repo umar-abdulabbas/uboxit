@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Cart } from '../../../core/domain/cart';
 import { OfferService } from '../../offers/services/offer.service';
 import { CartService } from '../services/cart.service';
@@ -17,6 +17,9 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
   @Input() cart: Cart;
   @Input() showCheckout = false;
   @Input() showContinueShopping = false;
+  @Input() disableFullCart = false;
+
+  @Output() madeEditable = new EventEmitter(false);
 
   promoCode: string;
   finishPage: boolean; // if finish page, dont do anything for (total count = 0) redirection
@@ -88,6 +91,11 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
 
   proceedToCheckOut() {
     this.router.navigateByUrl('/shoppingcart');
+  }
+
+  makeEditable() {
+    this.disableFullCart = false;
+    this.madeEditable.emit(true);
   }
 
   private processUpdateResponse(updateObservalbe: Observable<Cart>) {

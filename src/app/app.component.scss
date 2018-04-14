@@ -4,15 +4,31 @@
 }
 
 .uboxit-m-home{
-  //background: url(../assets/images/MobileBg.jpg) no-repeat ;
-  background: $uboxit-primary-color;
-  height: 100vh;
+  background: url(../assets/images/mobile_bg.jpg) no-repeat ;
+  //background: $uboxit-primary-color;
+  height: 50vh;
   background-position: center top;
     background-size: cover;
     background-repeat: no-repeat; 
+    //box-shadow: inset 3px 3px 10px 0 #000000;
+    box-shadow:inset 0 7000px 9000px -7000px rgba(255, 101, 90, 1)
 }
-.uboxit-m-logo { padding-top:20px;height: 100px; width: 100%; text-align: center; }
-.uboxit-m-logo-txt { color: #fff; height: 20px; font-family: $uboxit-font; text-align: center;}
+.uboxit-m-home::before{
+  
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.62);
+    padding: 25px;
+    cursor: default; height: 50vh;
+    //z-index: ;
+    box-shadow:0 20px 50px -20px rgba(0, 0, 0, 0.7);
+}
+.uboxit-m-logo { padding-top:20px;height: 100px; width: 100%; text-align: center; position: relative }
+.uboxit-m-logo-txt { color: #fff; height: 20px; font-family: $uboxit-font; text-align: center; position: relative}
 .uboxit-content{ height:85vh; width: 100%; position: relative;
     @include breakpoint(ExtraSmallMobile){
        height:80vh; 
@@ -25,9 +41,13 @@
      }
     
 }
-.uboxit-m-footer { position: absolute; height: 70px; width: 100%; border-top:1px solid $uboxit-primary-color; bottom: 0px;
-   color:#2a2a2a;
-   text-align: center; padding-top:10px;  box-shadow: inset 0px 11px 8px -10px $uboxit-primary-color;
+.uboxit-m-footer { position: fixed; height: 80px; width: 100%; 
+  //border-top:1px solid $uboxit-primary-color; 
+  bottom: 0px;
+  color:#fff;
+  text-align: center; padding-top:10px;  
+   //box-shadow: inset 0px 11px 8px -10px $uboxit-primary-color; 
+  background: #2a2a2a; padding-bottom: 10px;
 }
 
 
@@ -87,8 +107,11 @@
 
 .uboxit-m-avert-cont { xpadding: 40px; }
 .uboxit-m-container-1 { padding: 40px 40px 0px 40px}
-.uboxit-m-container-2 { padding: 10px 0px 40px 40px}
-.uboxit-m-advert-title { font-family: $uboxit-font; font-size: 15px; color:#fff; margin-bottom: 10px; }
+.uboxit-m-container-1 h1, .uboxit-m-container-1 p{
+  color:#FFF;
+}
+.uboxit-m-container-2 { padding: 10px 0px 40px 40px; }
+.uboxit-m-advert-title { font-family: $uboxit-font; font-size: 15px; color:#2a2a2a; margin-bottom: 10px; padding-top: 10px;}
 .uboxit-m-advert-ban1 { position: relative; width: 100%; padding-top: 55.5%;}
 .uboxit-m-ban-inner { position:  absolute;  top: 0; left: 0;bottom: 0; right: 0; text-align: center; font-size: 20px;
  color: white;
@@ -96,14 +119,30 @@
 }
 .uboxit-scroll{
   position: relative; width: 100%; padding-top: 55.5%;
+  background: url(../assets/images/combo.jpg) no-repeat ;
+   background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+.uboxit-scroll::before {
+  content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.2);
+    padding: 25px;
+    cursor: default; 
+   
 }
 .uboxit-scroll > div{
   position:  absolute;  top: 20px; left: 0;bottom: 0; right: 0; text-align: center; font-size: 15px;
-  color: white;
+  color:$uboxit-primary-color
  
 }
 .uboxit-scroll > div > i {
-  font-size:50px; color: #fff;
+  font-size:50px; color:$uboxit-primary-color
 }
 .ubooxit-scroll-txt{background: #000; height: 30px; position: absolute; bottom: 0px;}
 .tile{

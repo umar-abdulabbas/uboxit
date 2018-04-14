@@ -11,7 +11,7 @@ import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-choices',
   templateUrl: './choices.component.html',
-  styleUrls: ['./choices.component.scss']
+  styleUrls: ['./choices.component.scss', '../offers.component.scss']
 })
 export class ChoicesComponent implements OnInit {
 

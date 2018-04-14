@@ -16,14 +16,18 @@ export class AppComponent implements OnInit, OnDestroy {
   public showMobile: boolean;
   public carouselTileTwo: NgxCarousel;
   public carouselOne: NgxCarousel;
-
+  public greet;
   constructor(private storageService: StorageService, private loginService: LoginService,
               private uistyleservice: UserExpStyleService, private router: Router) {
     router.events
       .filter(event => event instanceof NavigationStart)
       .subscribe((val) => {
         this.checkNavigationStart = val;
-        if (['/terms', '/privacy', '/about', '/contact', '/makeyourcombo', '/choices', '/shoppingcart', '/error', '/finish'].includes(this.checkNavigationStart.url)) {
+        //if (['/terms', '/privacy', '/about', '/contact', '/makeyourcombo', '/choices', '/shoppingcart', '/error', '/finish'].includes(this.checkNavigationStart.url)) {
+          if (['/home', '/choices', '/makeyourcombo'].includes(this.checkNavigationStart.url) && this.showMobile){
+          this.showMobile = true;
+          console.log(this.checkNavigationStart.url);
+        }  else {
           this.showMobile = false;
         }
       });
@@ -31,7 +35,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.showMobile = this.uistyleservice.getDeviceInformation();
-
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+    if (hrs < 12)
+        this.greet = 'Good Morning';
+    else if (hrs >= 12 && hrs <= 17)
+        this.greet = 'Good Afternoon';
+    else if (hrs >= 17 && hrs <= 24)
+        this.greet = 'Good Evening';
     this.loginService.getUser(this.storageService.getUser());
     this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},

@@ -11,13 +11,12 @@ export class MenuList {
   icon: string;
   filter: boolean;
   menuActive: boolean;
-  disabled:boolean;
 }
 
 const MENULIST: MenuList[] = [
-  {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: false, disabled:true},
-  {id: '002', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false, disabled:true},
-  {id: '003', name: 'Choices', link: '/choices', icon: 'restaurant', filter: false, menuActive: false, disabled:true}
+  {id: '001', name: 'Combo', link: '/home', icon: 'restaurant_menu', filter: true, menuActive: false},
+  {id: '002', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false},
+  {id: '003', name: 'Choices', link: '/choices', icon: 'restaurant', filter: false, menuActive: false}
 ];
 
 /* Menu End */
@@ -35,6 +34,8 @@ export class BarMenuComponent implements OnInit {
   menuList: MenuList[] = [];
   totalCount: Observable<any>;
   public showMobile: boolean;
+  public celloneFooter = false;
+  public celltwoFooter = false;
   @Input() availableTypes: string[] = [];
   @Output() filterType = new EventEmitter<string>();
 
@@ -46,35 +47,36 @@ export class BarMenuComponent implements OnInit {
     const findPathUrl = window.location.href.split('/').pop();
     const offer = this.offerServie.offer;
 
-    this.menuList.push(Object.assign({}, MENULIST[0]));
-    this.menuList.push(Object.assign({}, MENULIST[1]));
-    this.menuList.push(Object.assign({}, MENULIST[2]));
-
     if (offer.combos.length > 0) {
-      // this.menuList.push(Object.assign({}, MENULIST[0]));
-      this.updateMenuDisabled('001', false);
+      this.menuList.push(Object.assign({}, MENULIST[0]));
       if (findPathUrl === 'home') {
         this.updateMenuList('001', true);
        
       }
     }
     if (offer.availableItemsForCustomCombo) { 
-      //this.menuList.push(Object.assign({}, MENULIST[1]));
-      this.updateMenuDisabled('002', false);
+      this.menuList.push(Object.assign({}, MENULIST[1]));
       if (findPathUrl === 'makeyourcombo') {
         this.updateMenuList('002', true);
         
       }
     }
     if (offer.availableItemsForIndividualSale) {  
-      //this.menuList.push(Object.assign({}, MENULIST[2]));
-      this.updateMenuDisabled('003', false);
+      this.menuList.push(Object.assign({}, MENULIST[2]));
       if (findPathUrl === 'choices') {
         this.updateMenuList('003', true);
      
       }
     }
-   
+    if(this.menuList.length === 1) {
+        this.celloneFooter = true;
+    }
+    else if(this.menuList.length === 2) {
+      this.celltwoFooter = true; 
+    }
+    else{
+      this.celloneFooter && this.celltwoFooter == false;
+    }
   }
 
   selectType(type: string): void {
@@ -103,10 +105,7 @@ export class BarMenuComponent implements OnInit {
     this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = false);
   }
 
-  updateMenuDisabled(id: string, disabled:boolean) {
-    const menuItem = this.menuList.find(item => item.id === id);
-    menuItem.disabled = disabled;
-  }
+  
 
 
 }

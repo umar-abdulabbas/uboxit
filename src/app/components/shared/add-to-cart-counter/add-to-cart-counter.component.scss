@@ -4,7 +4,7 @@
     display:inline-block; border:1px solid $uboxit-primary-color; height:29px; padding:1px; border-radius: $uboxit-radius;
 }
 .btnCounter{
-    display:inline-block; background: $uboxit-primary-color; height:25px; padding:0px 10px; position:relative; border:0px; padding-bottom:3px; color: $uboxit-white;
+    display:inline-block; background: $uboxit-primary-color; height:25px; xpadding:0px 10px; xposition:relative; border:0px; padding-bottom:3px; color: $uboxit-white;
 }
 .inputCounter{
     border:0px; box-shadow:none; border-radius:0px; padding:0px; width:30px; font-size:14px; text-align:center;    height: 20px;     line-height: 14px;
@@ -12,7 +12,7 @@
 .round-right { border-radius: 0px $uboxit-radius $uboxit-radius  0px}
 .round-left{ border-radius: $uboxit-radius 0px  0px  $uboxit-radius}
 .btnCounterBigScreen{
-    width: 100%;
+    //width: 100%;
 }
 .btn-successBigScreen{
     width:62%;
@@ -41,4 +41,3 @@
     //     width:0.8em;
     // }
 }
-

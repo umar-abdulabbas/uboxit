@@ -50,8 +50,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.showMobile = this.uistyleservice.getDeviceInformation();
     var findurl = this.uistyleservice.getPathURL();
     console.log(findurl);
-    if(['about','terms','contact','privacy','error'].includes(findurl)){
-      this.showMobile = false; console.log("um");
+    if(['about','terms','contact','privacy','error', 'finish'].includes(findurl)){
+      this.showMobile = false; 
     }
     const shoppingCartPage = new BehaviorSubject(false);
     this.getHeaders();

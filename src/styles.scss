@@ -38,6 +38,14 @@ a.active, a:active, a:focus, a:hover{
         background-size: 100px 47px; margin-top: -47px; margin-left: -50px;
     }
 }
+//Title
+.uboxit-title{ padding-top: 10px }
+.uboxit-title h3 { color: $uboxit-footer-bg; text-align: center;
+@include breakpoint(smart-phone){
+        font-size:20px; 
+    } }
+.uboxit-title p { color:#ccc; font-style: italic; text-align: center}
+
 //Menu
 
 .uboxitMenu{ position: fixed;  width: 100%; xtop:55px; top:0px; box-shadow: 0 8px 6px -6px #ccc;z-index: 289; border-bottom:0px !important; }

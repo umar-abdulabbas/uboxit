@@ -21,14 +21,14 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,.62);
+    background: rgba(0, 0, 0, 0.4);
     padding: 25px;
     cursor: default; height: 50vh;
     //z-index: ;
-    box-shadow:0 20px 50px -20px rgba(0, 0, 0, 0.7);
+    box-shadow:0 20px 50px -20px rgba(255, 101, 90, 0.7);
 }
-.uboxit-m-logo { padding-top:20px;height: 100px; width: 100%; text-align: center; position: relative }
-.uboxit-m-logo-txt { color: #fff; height: 20px; font-family: $uboxit-font; text-align: center; position: relative}
+.uboxit-m-logo { padding-top:20px;height: 152px; width: 100%; text-align: center; position: relative }
+.uboxit-m-logo-txt { color:#fff; height: 20px; font-family: $uboxit-font; text-align: center; position: relative}
 .uboxit-content{ height:85vh; width: 100%; position: relative;
     @include breakpoint(ExtraSmallMobile){
        height:80vh; 
@@ -47,7 +47,7 @@
   color:#fff;
   text-align: center; padding-top:10px;  
    //box-shadow: inset 0px 11px 8px -10px $uboxit-primary-color; 
-  background: #2a2a2a; padding-bottom: 10px;
+  background:$uboxit-footer-bg; padding-bottom: 10px;
 }
 
 
@@ -107,11 +107,11 @@
 
 .uboxit-m-avert-cont { xpadding: 40px; }
 .uboxit-m-container-1 { padding: 40px 40px 0px 40px}
-.uboxit-m-container-1 h1, .uboxit-m-container-1 p{
-  color:#FFF;
+.uboxit-m-container-1 h2, .uboxit-m-container-1 p{
+  color:#efefef
 }
 .uboxit-m-container-2 { padding: 10px 0px 40px 40px; }
-.uboxit-m-advert-title { font-family: $uboxit-font; font-size: 15px; color:#2a2a2a; margin-bottom: 10px; padding-top: 10px;}
+.uboxit-m-advert-title { font-family: $uboxit-font; font-size: 15px; color:#2a2a2a; margin-bottom: 10px; padding-top: 20px;}
 .uboxit-m-advert-ban1 { position: relative; width: 100%; padding-top: 55.5%;}
 .uboxit-m-ban-inner { position:  absolute;  top: 0; left: 0;bottom: 0; right: 0; text-align: center; font-size: 20px;
  color: white;
@@ -131,18 +131,18 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,.2);
+    background:rgba(0, 0, 0, 0.4);
     padding: 25px;
     cursor: default; 
    
 }
 .uboxit-scroll > div{
   position:  absolute;  top: 20px; left: 0;bottom: 0; right: 0; text-align: center; font-size: 15px;
-  color:$uboxit-primary-color
+  color:#fff
  
 }
 .uboxit-scroll > div > i {
-  font-size:50px; color:$uboxit-primary-color
+  font-size:50px; color:#fff
 }
 .ubooxit-scroll-txt{background: #000; height: 30px; position: absolute; bottom: 0px;}
 .tile{

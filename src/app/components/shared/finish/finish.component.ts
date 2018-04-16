@@ -22,10 +22,9 @@ export class FinishComponent implements OnInit {
 
   routerParamSubscription: Subscription = new Subscription();
 
-  orderConfirmation: string;
-  orderStatus: OrderStatus;
-
-  OrderStatus = OrderStatus;
+  pageTitle: string;
+  mainMessage: string;
+  nextActionMessage: string;
 
   constructor(private route: ActivatedRoute,
               private paymentService: PaymentService,
@@ -36,33 +35,35 @@ export class FinishComponent implements OnInit {
 
   ngOnInit() {
     this.uistyleservice.scrollToTop();
-    console.log('finish loaded');
     if (FeatureSwitch.isAdyenPaymentEnabled()) {
       this.routerParamSubscription = this.route.queryParams.subscribe(params => {
         const payLoad = params.payload;
         const cartId = params.cartId;
         const payInPerson = params.payInPerson;
         console.log(payLoad);
-        // const resultCode = params.resultCode;
-        // console.log(resultCode);
-        // if (resultCode === 'authorised') {
         this.paymentService.finalizePayment(payLoad, cartId, payInPerson)
           .subscribe((res: any) => {
             console.log(res);
-            this.offerService.clearSelection();
-            this.cartService.clearStoredCart();
-            this.orderConfirmation = res.orderConfirmation;
-            this.orderStatus = res.authResponse;
+            if (res.authResponse.toLowerCase() === OrderStatus.Authorised || res.authResponse.toLowerCase() === OrderStatus.Received) {
+              this.offerService.clearSelection();
+              this.cartService.clearStoredCart();
+              this.pageTitle = 'Thank you for your purchase !!!';
+              this.mainMessage = `Thanks for ordering with UBoxIT, Your Order confirmation is: ${res.orderConfirmation}.`;
+              this.nextActionMessage = `We are processing the order and will be delivered shortly.`;
+            } else {
+              console.error('payment not success');
+              this.pageTitle = 'Sorry!! something went wrong, Please contact our help desk with the below order number.';
+              this.mainMessage = `Thanks for trying UBoxIT, Unfortunately the payment is failed or unknown.`;
+              this.nextActionMessage = `Please use Order confirmation: ${res.orderConfirmation} for further queries.`;
+            }
           });
-        // } else {
-        //   console.error('payment not success');
-        // }
       });
     } else {
       this.offerService.clearSelection();
       this.cartService.clearStoredCart();
-      this.orderStatus = OrderStatus.Authorised;
-      this.orderConfirmation = '2BC0RECTD';
+      this.pageTitle = 'Thank you for your purchase !!!';
+      this.mainMessage = `Thanks for ordering with UBoxIT, Your Order confirmation is: 2BC0RECTD.`;
+      this.nextActionMessage = `We are processing the order and will be delivered shortly.`;
     }
   }
 

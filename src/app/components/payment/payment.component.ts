@@ -48,18 +48,16 @@ export class PaymentComponent implements OnInit {
         console.log('before complete');
         console.log(node);
         console.log(paymentData);
-        if (paymentData.resultCode === 'authorised') {
-          // hack as we have browseranimation module
-          // https://github.com/angular/angular/issues/20290
-          const queryParams = {
-            payload: paymentData.payload,
-            resultCode: paymentData.resultCode,
-            cartId: this.cartService.cartId
-          };
-          this.zone.run(() => { this.router.navigate(['finish'], { queryParams: queryParams }); });
-        } else {
-          console.error('payment not success');
-        }
+        // hack as we have browseranimation module
+        // https://github.com/angular/angular/issues/20290
+        const queryParams = {
+          payload: paymentData.payload,
+          resultCode: paymentData.resultCode,
+          cartId: this.cartService.cartId
+        };
+        this.zone.run(() => {
+          this.router.navigate(['finish'], {queryParams: queryParams});
+        });
         return true;
       };
     }

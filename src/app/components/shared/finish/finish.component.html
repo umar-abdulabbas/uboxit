@@ -2,15 +2,14 @@
   <div class="container grid-lg">
     <div class="columns">
       <div class="finish-caption">
-        <h3>{{orderStatus === OrderStatus.Authorised || OrderStatus.Received ? 'THANK YOU FOR YOUR PURCHASE!' :
-          'Sorry!! something went wrong, Please contact our help desk with the below order number'}}</h3>
+        <h3>{{pageTitle}}</h3>
         <div>
-          <p>Your order # is: {{orderConfirmation}}</p>
-          <p>We'll email you an order confirmation with details and tracking info.</p>
-
+          <p>{{mainMessage}}</p>
+          <p>{{nextActionMessage}}</p>
         </div>
         <div>
-          <button class="btn btn-primary" routerLinkActive="active" [routerLink]="['/home']">CONTINUE SHOPPING</button>
+          <button class="btn btn-primary" *ngIf="paymentSuccess" routerLinkActive="active" [routerLink]="['/home']">CONTINUE SHOPPING</button>
+          <button class="btn btn-primary" *ngIf="!paymentSuccess" (click)="retryPayment()">Retry another option</button>
         </div>
       </div>
     </div>

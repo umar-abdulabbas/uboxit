@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CartService } from './services/cart.service';
 import { Cart } from '../../core/domain/cart';
@@ -31,6 +31,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   displayActionRowForAddress = true;
 
   constructor(private cartService: CartService, private router: Router,
+              private route: ActivatedRoute,
               private offerService: OfferService,
               private paymentService: PaymentService,
               private loginService: LoginService,
@@ -38,6 +39,13 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+    this.route.queryParams.subscribe(params => {
+      if (params.retryPayment) {
+        this.step = 1;
+        this.disableFullCart = true;
+      }
+    });
     if (this.cartService.cartId) {
       this.adyenPaymentSupported = FeatureSwitch.isAdyenPaymentEnabled();
       this.uistyleservice.scrollToTop();

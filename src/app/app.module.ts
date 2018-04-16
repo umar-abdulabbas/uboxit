@@ -114,7 +114,7 @@ import { TermsComponent } from './components/shared/terms/terms.component';
     HttpClientModule,
     FormsModule,
     NgxCarouselModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatExpansionModule,

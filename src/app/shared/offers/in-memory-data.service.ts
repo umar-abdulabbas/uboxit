@@ -37,7 +37,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                     }
                                 ],
                                 "normalPrice": {
-                                    "amount": 20,
+                                    "amount": 21,
                                     "currencyCode": "EUR"
                                 },
                                 "discountedPrice": {
@@ -71,8 +71,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 "quantity": {
                                     "unit": "NULL"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
@@ -127,8 +127,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "STARTERS",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -182,7 +182,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                 "imageUrls": [
                                     "https://res.cloudinary.com/your-delicacy-bv/image/upload/Cocktail%20Kebab"
                                 ],
-                                "caption": "Chunky pieces of Sheekh Kebab made with a thick creamy sauce.",
+                                "caption": "Chunky pieces of Sheekh Kebab made with a thick creamy sauce. ",
                                 "ingredients": [
                                     {
                                         "name": "Chutney"
@@ -227,8 +227,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "STARTERS",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
@@ -292,8 +292,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "STARTERS",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -363,7 +363,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -397,8 +397,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -427,7 +427,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -461,8 +461,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -491,7 +491,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -525,8 +525,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -555,7 +555,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -589,8 +589,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -645,8 +645,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "STARTERS",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -710,16 +710,16 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
                     {
                         "id": "60001",
-                        "name": "Kheer",
+                        "name": "Kheer ",
                         "imageUrls": [
-                            "https://res.cloudinary.com/your-delicacy-bv/image/upload/Kheer"
+                            "https://res.cloudinary.com/your-delicacy-bv/image/upload/Kheer%20"
                         ],
                         "caption": "Indian rice pudding.",
                         "ingredients": [
@@ -775,8 +775,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "DESERT",
                         "deliveryOptionType": "TAKE_AWAY"
                     }
@@ -850,8 +850,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "STARTERS",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
@@ -915,8 +915,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "STARTERS",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -996,7 +996,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "amount": 10,
                                     "currencyCode": "EUR"
                                 },
-                                "description": "Popular in the courts of Nawabs. Chicken cooked in a mild curry sauce with cream, cashewnuts and saffron.",
+                                "description": "Popular in the courts of Nawabs. Chicken cooked in a mild curry sauce with cream, cashewnuts and saffron. ",
                                 "dietType": "NON_VEGETARIAN",
                                 "availabilities": [
                                     {
@@ -1024,8 +1024,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
@@ -1089,8 +1089,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -1198,8 +1198,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
@@ -1263,8 +1263,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -1334,7 +1334,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -1368,8 +1368,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1398,7 +1398,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -1432,8 +1432,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1462,7 +1462,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -1496,8 +1496,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1526,7 +1526,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -1560,8 +1560,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1590,7 +1590,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -1624,8 +1624,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1635,7 +1635,7 @@ export class InMemoryDataService implements InMemoryDbService {
                         "imageUrls": [
                             "https://res.cloudinary.com/your-delicacy-bv/image/upload/Cocktail%20Kebab"
                         ],
-                        "caption": "Chunky pieces of Sheekh Kebab made with a thick creamy sauce.",
+                        "caption": "Chunky pieces of Sheekh Kebab made with a thick creamy sauce. ",
                         "ingredients": [
                             {
                                 "name": "Chutney"
@@ -1680,8 +1680,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "STARTERS",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1745,8 +1745,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "STARTERS",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1782,7 +1782,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             "amount": 10,
                             "currencyCode": "EUR"
                         },
-                        "description": "Popular in the courts of Nawabs. Chicken cooked in a mild curry sauce with cream, cashewnuts and saffron.",
+                        "description": "Popular in the courts of Nawabs. Chicken cooked in a mild curry sauce with cream, cashewnuts and saffron. ",
                         "dietType": "NON_VEGETARIAN",
                         "availabilities": [
                             {
@@ -1810,8 +1810,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1875,8 +1875,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -1886,7 +1886,7 @@ export class InMemoryDataService implements InMemoryDbService {
                         "imageUrls": [
                             "https://res.cloudinary.com/your-delicacy-bv/image/upload/Gulab%20Jamun"
                         ],
-                        "caption": "Sweet dumpling in a sugar syrup.",
+                        "caption": "Sweet dumpling in a sugar syrup. ",
                         "ingredients": [
                             {
                                 "name": "Chutney"
@@ -1940,8 +1940,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "DESERT",
                         "deliveryOptionType": "TAKE_AWAY"
                     }
@@ -2015,8 +2015,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
@@ -2041,7 +2041,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                         "name": "Milk Cream"
                                     },
                                     {
-                                        "name": "Honey"
+                                        "name": "Honey "
                                     }
                                 ],
                                 "normalPrice": {
@@ -2052,7 +2052,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "amount": 12,
                                     "currencyCode": "EUR"
                                 },
-                                "description": "Butter Chicken is one of our highly selling chicken dish in our menu.Almost every table and customer orders it. ",
+                                "description": "Butter Chicken is one of our highly selling chicken dish in our menu.Almost every table and customer orders it.",
                                 "dietType": "NON_VEGETARIAN",
                                 "availabilities": [
                                     {
@@ -2080,8 +2080,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "MAIN_COURSE",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -2135,7 +2135,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                 "imageUrls": [
                                     "https://res.cloudinary.com/your-delicacy-bv/image/upload/Gulab%20Jamun"
                                 ],
-                                "caption": "Sweet dumpling in a sugar syrup.",
+                                "caption": "Sweet dumpling in a sugar syrup. ",
                                 "ingredients": [
                                     {
                                         "name": "Chutney"
@@ -2189,16 +2189,16 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "DESERT",
                                 "deliveryOptionType": "TAKE_AWAY"
                             },
                             {
                                 "id": "60001",
-                                "name": "Kheer",
+                                "name": "Kheer ",
                                 "imageUrls": [
-                                    "https://res.cloudinary.com/your-delicacy-bv/image/upload/Kheer"
+                                    "https://res.cloudinary.com/your-delicacy-bv/image/upload/Kheer%20"
                                 ],
                                 "caption": "Indian rice pudding.",
                                 "ingredients": [
@@ -2254,8 +2254,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                     "value": "175",
                                     "unit": "gram"
                                 },
-                                "allowedForCustomCombo": false,
-                                "allowedForIndividualSale": false,
+                                "allowedForCustomCombo": true,
+                                "allowedForIndividualSale": true,
                                 "itemType": "DESERT",
                                 "deliveryOptionType": "TAKE_AWAY"
                             }
@@ -2325,7 +2325,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -2359,8 +2359,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -2389,7 +2389,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -2423,8 +2423,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -2453,7 +2453,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             }
                         ],
                         "normalPrice": {
-                            "amount": 20,
+                            "amount": 21,
                             "currencyCode": "EUR"
                         },
                         "discountedPrice": {
@@ -2487,8 +2487,8 @@ export class InMemoryDataService implements InMemoryDbService {
                         "quantity": {
                             "unit": "NULL"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -2552,8 +2552,8 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "STARTERS",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
@@ -2578,7 +2578,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                 "name": "Milk Cream"
                             },
                             {
-                                "name": "Honey"
+                                "name": "Honey "
                             }
                         ],
                         "normalPrice": {
@@ -2589,7 +2589,7 @@ export class InMemoryDataService implements InMemoryDbService {
                             "amount": 12,
                             "currencyCode": "EUR"
                         },
-                        "description": "Butter Chicken is one of our highly selling chicken dish in our menu.Almost every table and customer orders it. ",
+                        "description": "Butter Chicken is one of our highly selling chicken dish in our menu.Almost every table and customer orders it.",
                         "dietType": "NON_VEGETARIAN",
                         "availabilities": [
                             {
@@ -2617,16 +2617,16 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "MAIN_COURSE",
                         "deliveryOptionType": "TAKE_AWAY"
                     },
                     {
                         "id": "60002",
-                        "name": "Rasmalai",
+                        "name": "Rasmalai ",
                         "imageUrls": [
-                            "https://res.cloudinary.com/your-delicacy-bv/image/upload/Rasmalai"
+                            "https://res.cloudinary.com/your-delicacy-bv/image/upload/Rasmalai%20"
                         ],
                         "caption": "A Bengal specialty made with cottage cheese balls soaked in sweetened cream.",
                         "ingredients": [
@@ -2682,18 +2682,18 @@ export class InMemoryDataService implements InMemoryDbService {
                             "value": "175",
                             "unit": "gram"
                         },
-                        "allowedForCustomCombo": false,
-                        "allowedForIndividualSale": false,
+                        "allowedForCustomCombo": true,
+                        "allowedForIndividualSale": true,
                         "itemType": "DESERT",
                         "deliveryOptionType": "TAKE_AWAY"
                     }
                 ]
             }
         ],
-        "createdDateTime": "2018-04-06@17:42:27",
-        "availableItemsForCustomCombo": false,
-        "availableItemsForIndividualSale": false,
-        "id": "a6bdbe11-fb41-4468-b191-b21c7cc7958b"
+        "createdDateTime": "2018-04-06@17:35:53",
+        "availableItemsForCustomCombo": true,
+        "availableItemsForIndividualSale": true,
+        "id": "0fa83d6f-5725-416f-8163-29b107d9a784"
     }
     return {offer};
   }

@@ -53,10 +53,9 @@ a.active, a:active, a:focus, a:hover{
 
 //common
 .h-2x{ height: 20px;}
-.modal.active .modal-container, .modal:target .modal-container{ border-radius: $uboxit-radius; }
-.modal-container .modal-header { border-radius: $uboxit-radius $uboxit-radius 0px 0px; }
-.modal-container img {border-radius: $uboxit-radius $uboxit-radius 0px 0px; }
-
+.modal.active .modal-container, .modal:target .modal-container {
+    border-radius: 10px;
+}
 
 a{ color:$uboxit-primary-color;}
 a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decoration: underline; }
@@ -191,3 +190,47 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
     } 
 }
 
+//RWD 
+
+
+.uboxit-column { float: left; width: 33.33%; padding: 10px;
+    @include breakpoint(ExtraSmallMobile){
+      width: 100%; border-bottom: 1px solid #ccc;
+    }
+    @include breakpoint(ExtraLargeMobile){
+       width: 100%; 
+     }
+    @include breakpoint(MediumDevice){
+       width: 33.33%;
+     }
+     @include breakpoint(LargeDevice){
+       width: 33.33%;
+     }
+     @include breakpoint(ExtraDevice){
+        width: 33.33%;
+     }
+}
+.uboxit-row:after { content: ""; display: table; clear: both; }
+.container, .column{ @include breakpoint(smart-phone){
+         padding: 0px;
+    } 
+}
+.uboxit-card{ padding: 10px; width: 100%; border:1px solid $uboxit-border-color; box-shadow: -1px 0px 16px 0px rgba(204,204,204,0.5); border-radius: 5px;
+    @include breakpoint(smart-phone){
+        box-shadow: none; border: none; padding: 0px;
+    }
+}
+   
+.uboxit-card-flex { display: flex; width: 100%}
+    .uboxit-card-flex-left{ width: 40%; height: 100px; }
+        .uboxit-card-flex-left img { border-radius:10px; position: relative; width: 100%; background-position: center top; background-size: cover; background-repeat: no-repeat; height: 100%;}
+    .uboxit-card-flex-right{ width: 60%; padding-left:10px; }
+        .uboxit-card-flex-head { position: relative; padding-bottom: 10px; }
+        .uboxit-card-title { font-size: 14px;  text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        .icon-pos{ position: absolute; right: 0px; top:2px; color: $uboxit-primary-color;}
+        .uboxit-card-content { padding-bottom:10px;}
+        .uboxit-card-content img { position: relative; top:-2px }
+        .uboxit-card-footer { display: flex}
+            .uboxit-card-footer-euro { width: 30%; line-height: 30px; }
+            .uboxit-card-footer-btn { width: 70%;  text-align:right;}
+.veg{ width: 24px; vertical-align: bottom; margin-right: 5px; }

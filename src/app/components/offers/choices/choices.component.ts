@@ -10,8 +10,8 @@ import { AlertInvoker } from '../../../core/services/alert-invoker.service';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 @Component({
   selector: 'app-choices',
-  templateUrl: './choices_new.component.html',
-  styleUrls: ['./choices.component.scss', '../offers.component.scss']
+  templateUrl: './choices.component.html',
+  styleUrls: ['./choices.component.scss']
 })
 export class ChoicesComponent implements OnInit {
 

@@ -8,9 +8,9 @@
                 <div><button class="btn btn-clear float-right" (click)="removeOrder(order.id)"></button></div>
 
                 <div class="card-flex">
-                    <div class="img"><img src="{{order.imageUrls[0]}}"/></div>
+                    <div class="img"><img src="{{order.imageUrls[0]}}" onError="this.src='assets/images/no_image.png'"/></div>
                     <div class="txt">
-                        <div class="card-txt-title"><img src="../../assets/images/veg.png" class="veg"/>{{order.name}}</div>
+                        <div class="card-txt-title"><img *ngIf="order.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>{{order.name}}</div>
                         <div class="card-txt-item">({{order.itemNames}})</div>
                         <div class="card-counter-layout">
                             <div class="card-counter">

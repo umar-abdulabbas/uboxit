@@ -40,7 +40,11 @@
      }
 }
 
-.uboxit-m-title { background:#e7e9ed;padding: 0px 20px 0px 20px; font-family:$uboxit-font; font-size: 15px; height: 50px;  line-height: 50px; font-weight:400;  }
+.uboxit-m-title { background:#e7e9ed;padding: 0px 20px 0px 20px; font-family:$uboxit-font; font-size: 15px;
+ height: 50px;  line-height: 50px; font-weight:400;  display: flex;
+ }
+ .uboxit-m-title-cap { width: 70%; text-overflow: ellipsis; overflow: hidden;white-space: nowrap; }
+ .uboxit-m-title-rate { width: 30%;  text-align: right;}
 .uboxit-m-action { padding-left:20px; background:#f0f1f4; height: 50px;border-bottom: 1px solid #ccc; position: relative; padding-top:10px}
 .uboxit-m-actio img { position: relative; top:-2px}
 .uboxit-m-counter { position: absolute; right: 20px;  }

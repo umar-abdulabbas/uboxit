@@ -54,14 +54,16 @@
         <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div> 
         <div class="uboxit-m-body">
               <div class="uboxit-m-img"><img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"/></div>
-              <div class="uboxit-m-title">{{selectedOffer.title}}</div>
+              <div class="uboxit-m-title">
+                  <div class="uboxit-m-title-cap">{{selectedOffer.title}}</div>
+                  <div class="uboxit-m-title-rate">
+                        <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
+                        <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
+                  </div>
+              </div>
               <div class="uboxit-m-action">
                   <img *ngIf="selectedOffer.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                   <span class="chip">{{selectedOffer.category}}</span>
-                  <span class="uboxit-m-rate">
-                    <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
-                    <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
-                </span>
                   <span class="uboxit-m-counter">
                     <app-add-to-cart-counter [counterValue]="selectedOffer.count" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
                   </span>

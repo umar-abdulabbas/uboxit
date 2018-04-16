@@ -18,9 +18,9 @@
 .card-input{
     border:0px; padding:0px; width:200px;display:inline; background:none; height:30px; font-size: 13px; font-family: $uboxit-font;
 }
-.card-counter-layout{height:50px; display:flex;padding-top:5px; padding-bottom:5px; padding-left:10px }
-.card-id-price{width:30%; text-align:right; line-height:30px; font-weight: bold; font-family: $uboxit-font; }
-.card-counter{width:70%;}
+.card-counter-layout{height:50px; padding-top:5px; padding-bottom:5px; padding-left:10px }
+.card-id-price{ text-align:right; line-height:30px; font-weight: bold; font-family: $uboxit-font; }
+.card-counter{}
 .card-shop-btn{ margin: 20px;}
 .card-shop-btn > button { width:100%;}
 .veg{ width: 20px; vertical-align: bottom;  margin-right: 5px;}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentService } from '../../payment/services/payment-service';
 import { CartService } from '../../shoppingcart/services/cart.service';
 import { OfferService } from '../../offers/services/offer.service';
@@ -27,6 +27,7 @@ export class FinishComponent implements OnInit {
   nextActionMessage: string;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private paymentService: PaymentService,
               private cartService: CartService,
               private offerService: OfferService,
@@ -67,4 +68,7 @@ export class FinishComponent implements OnInit {
     }
   }
 
+  retryPayment() {
+    this.router.navigate(['/shoppingcart'], {queryParams: {retryPayment: true}});
+  }
 }

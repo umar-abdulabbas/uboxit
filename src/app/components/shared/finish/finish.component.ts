@@ -26,6 +26,8 @@ export class FinishComponent implements OnInit {
   mainMessage: string;
   nextActionMessage: string;
 
+  paymentSuccess: boolean;
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private paymentService: PaymentService,
@@ -46,6 +48,7 @@ export class FinishComponent implements OnInit {
           .subscribe((res: any) => {
             console.log(res);
             if (res.authResponse.toLowerCase() === OrderStatus.Authorised || res.authResponse.toLowerCase() === OrderStatus.Received) {
+              this.paymentSuccess = true;
               this.offerService.clearSelection();
               this.cartService.clearStoredCart();
               this.pageTitle = 'Thank you for your purchase !!!';
@@ -53,6 +56,7 @@ export class FinishComponent implements OnInit {
               this.nextActionMessage = `We are processing the order and will be delivered shortly.`;
             } else {
               console.error('payment not success');
+              this.paymentSuccess = false;
               this.pageTitle = 'Sorry!! something went wrong, Please contact our help desk with the below order number.';
               this.mainMessage = `Thanks for trying UBoxIT, Unfortunately the payment is failed or unknown.`;
               this.nextActionMessage = `Please use Order confirmation: ${res.orderConfirmation} for further queries.`;

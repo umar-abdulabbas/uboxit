@@ -111,8 +111,8 @@ export class OfferService {
       count: 0,
       items: combo.items.map(i => this.prepareDomainItem(i, categoryType)),
       itemNames: combo.items.map(i => i.name).join(' + '),
-      description: combo.items.map(i => i.description).join(' '),
-      ingredients: combo.items.map(i => i.ingredients.map(ing => ing.name))[0].join(', ')
+      descriptions: combo.items.map(i => i.description),
+      ingredients: combo.items.map(i => i.ingredients.map(ing => ing.name)).join(', ')
     };
   }
 
@@ -121,7 +121,7 @@ export class OfferService {
     return <Item> {
       id: apiItem.id,
       title: apiItem.name,
-      description: apiItem.description,
+      descriptions: [apiItem.description],
       ingredients: apiItem.ingredients.map(ing => ing.name).join(', '),
       normalPrice: apiItem.normalPrice.amount,
       discountedPrice: apiItem.discountedPrice.amount,

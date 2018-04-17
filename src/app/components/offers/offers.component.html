@@ -15,7 +15,7 @@
             <h3 *ngIf="!selectedType">Royal Combo</h3>
             <p>Our Everyday Authentic Royal Indian Combo. Eet smakelijk!</p>
         </div>
-  
+
 
    <div class="paddingBlock">
       <div class="equalHMVWrap eqWrap">
@@ -46,7 +46,7 @@
             </div> <!-- // Card -->
 
             </div> <!-- Repeater End -->
-              
+
       </div> <!-- // equalHMVWrap eqWrap -->
   </div> <!--//paddingBlock-->
 
@@ -58,7 +58,7 @@
 <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
   <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
   <div class="modal-container">
-        <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div> 
+        <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div>
         <div class="uboxit-m-body">
               <div class="uboxit-m-img">
                   <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"/>
@@ -98,14 +98,14 @@
                            </ul>
                        </div>
                          <div class="detailContainer">
-                           <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}">{{selectedOffer.description}}</div>
+                           <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}"><div *ngFor="let description of selectedOffer.descriptions">* {{description}}</div></div>
                            <div class="text-justify ingredients" [ngClass]="{'nonactive animated zoomIn':isActiveingredients}">{{selectedOffer.ingredients}}</div>
                          </div>
                          <!-- content here -->
                   </div>
-              </div> 
+              </div>
         </div> <!-- Section Content End -->
 
   </div>
 </div>
-        
+

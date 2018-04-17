@@ -106,6 +106,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     this.deserts = this.desertsToDisplay = this.offerService.getDessertsAndOthers();
 
     this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
+      this.alertInvoker.invokeNotification('');
       this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
       const selectedItemId = this.msgFromMakeYourOwnCombo.itemId;
       const selectedItemType = this.msgFromMakeYourOwnCombo.itemType;
@@ -123,7 +124,6 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
           this.currentVisibleType = ItemType.Dessert;
         }
         console.log(selectedItem.id);
-        console.log(selectedItem.description);
       }
 
       if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {

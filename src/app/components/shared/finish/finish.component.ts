@@ -47,7 +47,7 @@ export class FinishComponent implements OnInit {
         this.paymentService.finalizePayment(payLoad, cartId, payInPerson)
           .subscribe((res: any) => {
             console.log(res);
-            if (res.authResponse.toLowerCase() === OrderStatus.Authorised || res.authResponse.toLowerCase() === OrderStatus.Received) {
+            if (payInPerson || res.authResponse.toLowerCase() === OrderStatus.Authorised || res.authResponse.toLowerCase() === OrderStatus.Received) {
               this.paymentSuccess = true;
               this.offerService.clearSelection();
               this.cartService.clearStoredCart();

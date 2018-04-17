@@ -20,6 +20,7 @@ export interface Combo {
 
   // from response
   price?: Price;
+  dietType?: string;
 
   // ui related
   itemNames?: string;
@@ -35,6 +36,7 @@ export interface Item {
 
   // from response
   price?: Price;
+  dietType?: string;
 }
 
 export interface Cart {

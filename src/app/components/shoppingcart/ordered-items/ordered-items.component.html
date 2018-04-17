@@ -49,20 +49,20 @@
             <div class="cart-divider"></div>
             <div class="card-priceDetails">Price Details</div>
             <div class="card-flex-rowDir">
-                <div class="card-price">&euro; {{cart.price.amount | number:'1.2-2'}}</div>
-                <div>Total:</div>
+              <div *ngIf="cart.discountedTotalPrice" class="card-price">&euro;
+                <span style="text-decoration: line-through">{{cart.totalPrice.amount | number:'1.2-2'}}</span>
+                <span>{{cart.discountedTotalPrice.amount | number:'1.2-2'}}</span>
+              </div>
+              <div *ngIf="!cart.discountedTotalPrice" class="card-price">&euro; {{cart.totalPrice.amount | number:'1.2-2'}}</div>
+              <div>Total (6% VAT inclusive):</div>
             </div>
-            <div class="card-flex-rowDir" *ngIf="cart.vatPrice">
-                    <div class="card-price">&euro; {{cart.vatPrice.amount | number:'1.2-2'}}</div>
-                    <div>Vat in %:</div>
+            <div class="card-flex-rowDir" *ngIf="cart.deliveryCharge">
+                    <div class="card-price">&euro; {{cart.deliveryCharge.amount | number:'1.2-2'}}</div>
+                    <div>Delivery charges:</div>
             </div>
             <div class="card-flex-rowDir">
-                    <div *ngIf="cart.discountedTotalPrice" class="card-price">&euro;
-                      <span style="text-decoration: line-through">{{cart.totalPrice.amount | number:'1.2-2'}}</span>
-                      <span>{{cart.discountedTotalPrice.amount | number:'1.2-2'}}</span>
-                    </div>
-                    <div *ngIf="!cart.discountedTotalPrice" class="card-price">&euro; {{cart.totalPrice.amount | number:'1.2-2'}}</div>
-                    <div>Amount Payable:</div>
+              <div class="card-price">&euro; {{cart.finalPrice.amount | number:'1.2-2'}}</div>
+              <div>Amount Payable:</div>
             </div>
             <div class="cart-divider"></div>
             <div *ngIf="cart.discountedTotalPrice" class="card-promo">

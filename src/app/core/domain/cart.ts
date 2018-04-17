@@ -49,5 +49,7 @@ export interface Cart {
   totalPrice?: Price;
   vatPrice?: Price;
   discountedTotalPrice?: Price;
+  deliveryCharge?: Price;
+  finalPrice?: Price;
   notification?: Notification;
 }

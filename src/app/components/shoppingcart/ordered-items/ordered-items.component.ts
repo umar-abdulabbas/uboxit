@@ -5,7 +5,7 @@ import { CartService } from '../services/cart.service';
 import { NavigationStart, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { DietType } from '../../../core/domain/offer';
 
 @Component({
   selector: 'app-ordered-items',
@@ -13,6 +13,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   styleUrls: ['./ordered-items.component.scss']
 })
 export class OrderedItemsComponent implements OnInit, OnDestroy {
+
+  DietType = DietType;
 
   @Input() cart: Cart;
   @Input() showCheckout = false;

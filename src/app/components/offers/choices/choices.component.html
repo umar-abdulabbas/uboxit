@@ -17,10 +17,10 @@
                             <div class="uboxit-card-flex">
                                 <div class="uboxit-card-flex-left c-hand" (click)="onSelect(offer); active = true"> <img src="{{offer.image}}" onError="this.src='assets/images/no_image.png'" [class.selected]="offer === selectedOffer"/></div>
                                 <div class="uboxit-card-flex-right">
-                                    <div class="uboxit-card-flex-head"> 
+                                    <div class="uboxit-card-flex-head">
                                         <div class="uboxit-card-title">{{offer.title}}</div>
                                     </div>
-                                    <div class="uboxit-card-content"> 
+                                    <div class="uboxit-card-content">
                                         <img *ngIf="offer.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                                         <span class="chip">{{offer.category}}</span>
                                     </div>
@@ -40,7 +40,7 @@
 
                 </div>
 
-           
+
                 <!-- Content End -->
             </div>
          </div>
@@ -51,7 +51,7 @@
 <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
   <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
   <div class="modal-container">
-        <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div> 
+        <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div>
         <div class="uboxit-m-body">
               <div class="uboxit-m-img"><img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"/></div>
               <div class="uboxit-m-title">
@@ -65,7 +65,7 @@
                   <img *ngIf="selectedOffer.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                   <span class="chip">{{selectedOffer.category}}</span>
                   <span class="uboxit-m-counter">
-                    <app-add-to-cart-counter [counterValue]="selectedOffer.count" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
+                    <app-add-to-cart-counter [counterValue]="!!selectedOffer.count ? selectedOffer.count : 0" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
                   </span>
               </div>
               <div class="uboxit-m-desc">
@@ -82,9 +82,8 @@
                          </div>
                          <!-- content here -->
                   </div>
-              </div> 
+              </div>
         </div> <!-- Section Content End -->
 
   </div>
 </div>
-        

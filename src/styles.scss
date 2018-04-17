@@ -211,10 +211,7 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
      }
 }
 .uboxit-row:after { content: ""; display: table; clear: both; }
-.container, .column{ @include breakpoint(smart-phone){
-         padding: 0px;
-    } 
-}
+
 .uboxit-card{ padding: 10px; width: 100%; border:1px solid $uboxit-border-color; box-shadow: -1px 0px 16px 0px rgba(204,204,204,0.5); border-radius: 5px;
     @include breakpoint(smart-phone){
         box-shadow: none; border: none; padding: 0px;
@@ -234,3 +231,159 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
             .uboxit-card-footer-euro { width: 30%; line-height: 30px; }
             .uboxit-card-footer-btn { width: 70%;  text-align:right;}
 .veg{ width: 24px; vertical-align: bottom; margin-right: 5px; }
+.uboxit-normalRate { font-size: 20px; font-family: $uboxit-font}
+.uboxit-normalRate  s { font-size: 15px; }
+
+.uboxit-m-body{ }
+.uboxit-m-close-btn { position: relative; }
+    .uboxit-m-close-btn i { position: absolute; top:10px; right: 10px; z-index: 2; font-size: 40px; color: $uboxit-primary-color; text-shadow:-1px -1px 12px #fff } 
+.uboxit-m-img { width: 500px; height: 300px; z-index: 1; overflow: hidden; position: relative;
+    @include breakpoint(ExtraSmallMobile){
+        width: 300px; height: 150px;
+      }
+      @include breakpoint(ExtraLargeMobile){
+        width: 300px; height: 150px;
+    }
+    @include breakpoint(MediumDevice){
+        width: 500px; height: 300px;
+     }
+     @include breakpoint(LargeDevice){
+        width: 500px; height: 300px;
+     }
+     @include breakpoint(ExtraDevice){
+        width: 500px; height: 300px;
+     }
+}
+.uboxit-m-img img{ border-radius:10px 10px 0px 0px; position: relative; background-position: center top; object-fit:cover; background-repeat: 
+    no-repeat; width:500px; height: 300px;
+    @include breakpoint(ExtraSmallMobile){
+        width: 300px; height: 150px;
+      }
+      @include breakpoint(ExtraLargeMobile){
+        width: 300px; height: 150px;
+    }
+    @include breakpoint(MediumDevice){
+        width: 500px; height: 300px;
+     }
+     @include breakpoint(LargeDevice){
+        width: 500px; height: 300px;
+     }
+     @include breakpoint(ExtraDevice){
+        width: 500px; height: 300px;
+     }
+}
+.uboxit-m-img-row {
+    position: absolute; bottom: 0px; height: 100px; float: left; width: 100%; padding: 5px 5px 5px 5px;
+    @include breakpoint(ExtraSmallMobile){
+      height: 50px;
+      }
+      @include breakpoint(ExtraLargeMobile){
+        height: 50px;
+    }
+    @include breakpoint(MediumDevice){
+        height: 100px;
+     }
+     @include breakpoint(LargeDevice){
+        height: 100px;
+     }
+     @include breakpoint(ExtraDevice){
+        height: 100px;
+     }
+}
+
+.uboxit-m-img-col { width: 160px; float: left; height: 90px; position: relative; border-radius: 10px; margin-left: 3px;
+    @include breakpoint(ExtraSmallMobile){
+            width: 93px;  height: 40px;
+        }
+        @include breakpoint(ExtraLargeMobile){
+            width: 93px;  height: 40px;
+      }
+      @include breakpoint(MediumDevice){
+        width: 160px; height: 90px;
+       }
+       @include breakpoint(LargeDevice){
+        width: 160px; height: 90px;
+       }
+       @include breakpoint(ExtraDevice){
+        width: 160px; height: 90px;
+       }
+}
+.uboxit-m-img-col > div > img {
+    border-radius:10px; position: relative; background-position: center top; object-fit:cover; background-repeat: 
+    no-repeat; width:160px; height: 90px;
+    @include breakpoint(ExtraSmallMobile){
+        width: 93px;  height: 40px;
+    }
+    @include breakpoint(ExtraLargeMobile){
+        width: 93px;  height: 40px;
+  }
+  @include breakpoint(MediumDevice){
+    width: 160px; height: 90px;
+   }
+   @include breakpoint(LargeDevice){
+    width: 160px; height: 90px;
+   }
+   @include breakpoint(ExtraDevice){
+    width: 160px; height: 90px;
+   }
+}
+
+.uboxit-m-img-cell-1::after, .uboxit-m-img-cell-2::after {
+    content: "";
+    width: 48px;
+    height: 48px;
+    background:url('assets/images/plus_add.png');
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+    top: 22px;
+    right: -22px;
+    @include breakpoint(ExtraSmallMobile){
+        background-size: 20px 20px; background-repeat: no-repeat; top: 9px; right: -36px;
+    }
+    @include breakpoint(ExtraLargeMobile){
+        background-size: 20px 20px; background-repeat: no-repeat; top: 9px; right: -36px;
+  }
+  @include breakpoint(MediumDevice){ 
+        background-size: 48px 48px; background-repeat: no-repeat; top: 22px; right: -22px;
+   }
+   @include breakpoint(LargeDevice){
+    background-size: 48px 48px; background-repeat: no-repeat; top: 22px; right: -22px;
+   }
+   @include breakpoint(ExtraDevice){
+    background-size: 48px 48px; background-repeat: no-repeat; top: 22px; right: -22px;;
+   }
+}
+.uboxit-m-img-row:after { content: ""; display: table; clear: both; }
+
+.uboxit-m-title { background:#e7e9ed;padding: 0px 20px 0px 20px; font-family:$uboxit-font; font-size: 15px;
+ height: 50px;  line-height: 50px; font-weight:400;  display: flex;
+ }
+ .uboxit-m-title-cap { width: 70%; text-overflow: ellipsis; overflow: hidden;white-space: nowrap; }
+ .uboxit-m-title-rate { width: 30%;  text-align: right;}
+ .uboxit-m-action { padding-left:20px; background:#f0f1f4; height: 50px;border-bottom: 1px solid #ccc; position: relative; padding-top:10px}
+ .uboxit-m-actio img { position: relative; top:-2px}
+    .uboxit-m-counter { position: absolute; right: 20px;  }
+.uboxit-m-desc { width: 500px;  padding: 20px; font-family:$uboxit-font;
+    @include breakpoint(ExtraSmallMobile){
+        width: 300px; 
+      }
+      @include breakpoint(ExtraLargeMobile){
+        width: 300px;
+       }
+       @include breakpoint(MediumDevice){
+        width: 500px; 
+     }
+     @include breakpoint(LargeDevice){
+        width: 500px;
+     }
+     @include breakpoint(ExtraDevice){
+        width: 500px; 
+     }
+}
+
+
+.details { display: none; padding: 10px; font-family:$uboxit-font;}
+.ingredients{ display: none; padding: 10px; font-family:$uboxit-font;}
+.nonactive { display: block; }
+.uboxit-m-rate { font-weight: 600;}

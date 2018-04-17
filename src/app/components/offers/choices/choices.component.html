@@ -12,10 +12,10 @@
             <div class="uboxit-content">
                 <!-- Content Start -->
                 <div class="uboxit-row">
-                    <div class="uboxit-column" *ngFor="let offer of itemsToDisplay;">
+                    <div class="uboxit-column" *ngFor="let offer of itemsToDisplay;" >
                         <div class="uboxit-card">
                             <div class="uboxit-card-flex">
-                                <div class="uboxit-card-flex-left" (click)="onSelect(offer); active = true"> <img src="{{offer.image}}" onError="this.src='assets/images/no_image.png'" [class.selected]="offer === selectedOffer"/></div>
+                                <div class="uboxit-card-flex-left c-hand" (click)="onSelect(offer); active = true"> <img src="{{offer.image}}" onError="this.src='assets/images/no_image.png'" [class.selected]="offer === selectedOffer"/></div>
                                 <div class="uboxit-card-flex-right">
                                     <div class="uboxit-card-flex-head"> 
                                         <div class="uboxit-card-title">{{offer.title}}</div>
@@ -26,8 +26,8 @@
                                     </div>
                                     <div class="uboxit-card-footer">
                                         <div class="uboxit-card-footer-euro">
-                                             <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
-                                             <span *ngIf="!offer.discountedPrice">&euro;{{offer.normalPrice}}</span>
+                                             <span *ngIf="offer.discountedPrice"  class="uboxit-normalRate"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
+                                             <span *ngIf="!offer.discountedPrice" class="uboxit-normalRate">&euro;{{offer.normalPrice}}</span>
                                         </div>
                                         <div class="uboxit-card-footer-btn ">
                                             <app-add-to-cart-counter [counterValue]="!!offer.count ? offer.count : 0" (updatedCount)="addProductToCart(offer.id, $event)"></app-add-to-cart-counter>

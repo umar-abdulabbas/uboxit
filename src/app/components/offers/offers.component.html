@@ -21,7 +21,7 @@
       <div class="equalHMVWrap eqWrap">
             <div class="equalHMV eq" *ngFor="let offer of combosToDisplay;">
              <div class="card animated fadeInDown" >
-                  <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
+                  <div class="card-image c-hand" (click)="onSelect(offer); active = true"><img src="{{offer.image}}" onError="this.src='assets/images/no_image.png'" class="img-responsive" [class.selected]="offer === selectedOffer"></div>
                   <div class="card-header" >
                           <div class="float-left ">
                           <div class="card-title h5"><img *ngIf="offer.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>{{offer.title}}</div>
@@ -46,79 +46,7 @@
             </div> <!-- // Card -->
 
             </div> <!-- Repeater End -->
-                <!-- Model Window Start -->
-         <div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
-            <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
-            <div class="modal-container">
-                <div class="relative">
-                  <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"  class="img-responsive">
-                  <span *ngIf="selectedOffer.items[0]" class="absolute" style="height:40px; width:166px; bottom:60px;">
-                        <img src="{{selectedOffer.items[0].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
-
-                  </span>
-                  <span *ngIf="selectedOffer.items[1]" class="absolute" style="height:40px; width:166px; bottom:60px; left:167px;">
-                      <img src="{{selectedOffer.items[1].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
-
-                </span>
-                <span *ngIf="selectedOffer.items[2]" class="absolute" style="height:40px; width:166px; bottom:60px; left:334px;">
-                    <img src="{{selectedOffer.items[2].image}}" onError="this.src='assets/images/no_image.png'"  width="166" height="105"/>
-
-              </span>
-                </div>
-                <div class="modal-header">
-                <button class="btn btn-clear float-right" (click)="close();"></button>
-                <div class="modal-title h5"><img src="../../assets/images/veg.png" class="veg"/>{{selectedOffer.title}}</div>
-                  <div class="card-subtitle text-gray">{{selectedOffer.itemNames}}</div>
-                      <div>
-                            <div class="float-left"><span class="chip">{{selectedOffer.category}}</span></div>
-                            <div class="float-right"> <!--<i class="material-icons">favorite_border</i> --></div>
-                            <div class="clearfix"></div>
-                      </div>
-                      <div class="divider"></div>
-                      <div>
-                            <div class="float-left text-bold">
-                              <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
-                              <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
-                            </div>
-                            <div class="float-right">
-                              <app-add-to-cart-counter [counterValue]="selectedOffer.count" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
-                            </div>
-                            <div class="clearfix"></div>
-                      </div>
-                </div>
-                <div class="divider"></div>
-                <div class="modal-body" >
-                  <div class="content" >
-                 <div>
-                      <ul class="tab tab-block">
-                      <li class="tab-item">
-                         <a [ngClass]="{'active':activeyes}" (click)="opendetails();">Details</a>
-                      </li>
-                      <li class="tab-item" >
-                        <a  [ngClass]="{'active': !activeyes}" (click)="openingredients();">Ingredients</a>
-                      </li>
-                      </ul>
-                  </div>
-                    <div class="detailContainer">
-                      <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}">
-                        {{selectedOffer.description}}
-                      </div>
-                      <div class="text-justify ingredients" [ngClass]="{'nonactive animated zoomIn':isActiveingredients}">
-                      {{selectedOffer.ingredients}}
-                      </div>
-                    </div>
-
-                 <!-- content here -->
-                </div>
-            </div>
-           <div class="modal-footer">
-
-    </div>
-      </div>
-    </div>
-      <!-- // Model Window -->
-        <!-- Model Window End -->
-
+              
       </div> <!-- // equalHMVWrap eqWrap -->
   </div> <!--//paddingBlock-->
 
@@ -126,3 +54,58 @@
 </div>
 </section> <!-- //Entire Layout For Desktop -->
 
+<!-- Model Window Start -->
+<div [ngClass]="{'modal':true, 'active':active}" *ngIf="selectedOffer" >
+  <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
+  <div class="modal-container">
+        <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div> 
+        <div class="uboxit-m-body">
+              <div class="uboxit-m-img">
+                  <img src="{{selectedOffer.image}}" onError="this.src='assets/images/no_image.png'"/>
+                  <div class="uboxit-m-img-row">
+                        <div class="uboxit-m-img-col">
+                            <div class="uboxit-m-img-cell-1" *ngIf="selectedOffer.items[0]"><img src="{{selectedOffer.items[0].image}}" onError="this.src='assets/images/no_image.png'"/></div>
+                        </div>
+                        <div class="uboxit-m-img-col">
+                            <div class="uboxit-m-img-cell-2" *ngIf="selectedOffer.items[1]"><img src="{{selectedOffer.items[1].image}}" onError="this.src='assets/images/no_image.png'"/></div>
+                        </div>
+                        <div class="uboxit-m-img-col">
+                          <div *ngIf="selectedOffer.items[2]"><img src="{{selectedOffer.items[2].image}}" onError="this.src='assets/images/no_image.png'"/></div>
+                        </div>
+                  </div>
+                </div>
+              <div class="uboxit-m-title">
+                  <div class="uboxit-m-title-cap">{{selectedOffer.title}}</div>
+                  <div class="uboxit-m-title-rate">
+                        <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
+                        <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
+                  </div>
+              </div>
+              <div class="uboxit-m-action">
+                  <img *ngIf="selectedOffer.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
+                  <span class="chip">{{selectedOffer.category}}</span>
+                  <span class="uboxit-m-counter">
+                    <app-add-to-cart-counter [counterValue]="selectedOffer.count" (updatedCount)="addProductToCart(selectedOffer.id, $event)"></app-add-to-cart-counter>
+                  </span>
+              </div>
+              <div class="uboxit-m-desc">
+                  <div class="content" >
+                      <div>{{selectedOffer.itemNames}}</div>
+                      <div>
+                           <ul class="tab tab-block">
+                             <li class="tab-item"><a [ngClass]="{'active':activeyes}" (click)="opendetails();">Details</a></li>
+                             <li class="tab-item"><a [ngClass]="{'active': !activeyes}" (click)="openingredients();">Ingredients</a></li>
+                           </ul>
+                       </div>
+                         <div class="detailContainer">
+                           <div class="text-justify details" [ngClass]="{'nonactive animated zoomIn':isActivedetails}">{{selectedOffer.description}}</div>
+                           <div class="text-justify ingredients" [ngClass]="{'nonactive animated zoomIn':isActiveingredients}">{{selectedOffer.ingredients}}</div>
+                         </div>
+                         <!-- content here -->
+                  </div>
+              </div> 
+        </div> <!-- Section Content End -->
+
+  </div>
+</div>
+        

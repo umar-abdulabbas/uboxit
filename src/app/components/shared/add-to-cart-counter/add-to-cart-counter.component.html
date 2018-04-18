@@ -5,7 +5,7 @@
       </div>
       <button class="btnCounter round-right" (click)="increment()"><i class="icon icon-plus"></i></button>
 </div>
-<button class="btn btn-primary" [ngClass]="{'btnCounterBigScreen':showEnlarged}" (click)="increment()" *ngIf="isActiveCart || counterValue === 0">
+<button class="btn btn-primary" [ngClass]="{'btnCounterBigScreen': showEnlarged}" (click)="increment()" *ngIf="isActiveCart || counterValue === 0">
   <span *ngIf="showEnlarged">Add to Cart</span>
   <i *ngIf="!showEnlarged" class="icon icon-plus"></i>
 </button>

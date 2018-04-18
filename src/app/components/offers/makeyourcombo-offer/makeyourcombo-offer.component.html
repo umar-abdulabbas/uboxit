@@ -9,17 +9,17 @@
                             <div class="uboxit-card-flex">
                                 <div class="uboxit-card-flex-left"> <img src="{{starter.image}}" onError="this.src='assets/images/no_image.png'" [class.selected]="offer === selectedOffer"/></div>
                                 <div class="uboxit-card-flex-right">
-                                    <div class="uboxit-card-flex-head"> 
+                                    <div class="uboxit-card-flex-head">
                                         <div class="uboxit-card-title">{{starter.title}}</div>
                                     </div>
-                                    <div class="uboxit-card-content"> 
+                                    <div class="uboxit-card-content">
                                         <img *ngIf="starter.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                                         <span class="chip">{{starter.category}}</span>
                                     </div>
                                     <div class="uboxit-card-footer">
                                         <div class="uboxit-card-footer-euro">
-                                             <span *ngIf="starter.discountedPrice" class="uboxit-normalRate"><s>&euro;{{starter.normalPrice}}</s>&nbsp;&euro;{{starter.discountedPrice}}</span>
-                                             <span *ngIf="!starter.discountedPrice" class="uboxit-normalRate">&euro;{{starter.normalPrice}}</span>
+                                             <span *ngIf="starter.discountedPriceForCombo" class="uboxit-normalRate"><s>&euro;{{starter.normalPriceForCombo.amount}}</s>&nbsp;&euro;{{starter.discountedPriceForCombo.amount}}</span>
+                                             <span *ngIf="!starter.discountedPriceForCombo" class="uboxit-normalRate">&euro;{{starter.normalPriceForCombo.amount}}</span>
                                         </div>
                                         <div class="uboxit-card-footer-btn ">
                                                 <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedStarter(starter.id)"><i class="icon icon-plus"></i></button></div>
@@ -41,17 +41,17 @@
                             <div class="uboxit-card-flex">
                                 <div class="uboxit-card-flex-left"> <img src="{{mainCourse.image}}" onError="this.src='assets/images/no_image.png'" [class.selected]="offer === selectedOffer"/></div>
                                 <div class="uboxit-card-flex-right">
-                                    <div class="uboxit-card-flex-head"> 
+                                    <div class="uboxit-card-flex-head">
                                         <div class="uboxit-card-title">{{mainCourse.title}}</div>
                                     </div>
-                                    <div class="uboxit-card-content"> 
+                                    <div class="uboxit-card-content">
                                         <img *ngIf="mainCourse.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                                         <span class="chip">{{mainCourse.category}}</span>
                                     </div>
                                     <div class="uboxit-card-footer">
                                         <div class="uboxit-card-footer-euro">
-                                             <span *ngIf="mainCourse.discountedPrice" class="uboxit-normalRate"><s>&euro;{{mainCourse.normalPrice}}</s>&nbsp;&euro;{{mainCourse.discountedPrice}}</span>
-                                             <span *ngIf="!mainCourse.discountedPrice" class="uboxit-normalRate">&euro;{{mainCourse.normalPrice}}</span>
+                                             <span *ngIf="mainCourse.discountedPriceForCombo" class="uboxit-normalRate"><s>&euro;{{mainCourse.normalPriceForCombo.amount}}</s>&nbsp;&euro;{{mainCourse.discountedPriceForCombo.amount}}</span>
+                                             <span *ngIf="!mainCourse.discountedPriceForCombo" class="uboxit-normalRate">&euro;{{mainCourse.normalPriceForCombo.amount}}</span>
                                         </div>
                                         <div class="uboxit-card-footer-btn ">
                                                 <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedMainDish(mainCourse.id)"><i class="icon icon-plus"></i></button></div>
@@ -73,17 +73,17 @@
                             <div class="uboxit-card-flex">
                                 <div class="uboxit-card-flex-left"> <img src="{{desert.image}}" onError="this.src='assets/images/no_image.png'" [class.selected]="offer === selectedOffer"/></div>
                                 <div class="uboxit-card-flex-right">
-                                    <div class="uboxit-card-flex-head"> 
+                                    <div class="uboxit-card-flex-head">
                                         <div class="uboxit-card-title">{{desert.title}}</div>
                                     </div>
-                                    <div class="uboxit-card-content"> 
+                                    <div class="uboxit-card-content">
                                         <img *ngIf="desert.dietType === DietType.Veg" src="../../assets/images/veg.png" class="veg"/>
                                         <span class="chip">{{desert.category}}</span>
                                     </div>
                                     <div class="uboxit-card-footer">
                                         <div class="uboxit-card-footer-euro">
-                                             <span *ngIf="desert.discountedPrice" class="uboxit-normalRate"><s>&euro;{{desert.normalPrice}}</s>&nbsp;&euro;{{desert.discountedPrice}}</span>
-                                             <span *ngIf="!desert.discountedPrice" class="uboxit-normalRate">&euro;{{desert.normalPrice}}</span>
+                                             <span *ngIf="desert.discountedPriceForCombo" class="uboxit-normalRate"><s>&euro;{{desert.normalPriceForCombo.amount}}</s>&nbsp;&euro;{{desert.discountedPriceForCombo.amount}}</span>
+                                             <span *ngIf="!desert.discountedPriceForCombo" class="uboxit-normalRate">&euro;{{desert.normalPriceForCombo.amount}}</span>
                                         </div>
                                         <div class="uboxit-card-footer-btn ">
                                                 <div class="tinycardBtn"><button class="btn btn-primary" (click)="onselectedDessert(desert.id)"><i class="icon icon-plus"></i></button></div>

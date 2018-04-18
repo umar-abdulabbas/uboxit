@@ -28,8 +28,8 @@
 
                           </div>
                           <div class="float-right text-bold">
-                              <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice}}</s>&nbsp;&euro;{{offer.discountedPrice}}</span>
-                              <span *ngIf="!offer.discountedPrice">&euro;{{offer.normalPrice}}</span>
+                              <span *ngIf="offer.discountedPrice"><s>&euro;{{offer.normalPrice.amount}}</s>&nbsp;&euro;{{offer.discountedPrice.amount}}</span>
+                              <span *ngIf="!offer.discountedPrice">&euro;{{offer.normalPrice.amount}}</span>
                          </div>
                   </div>
                   <div class="card-body">
@@ -77,8 +77,8 @@
               <div class="uboxit-m-title">
                   <div class="uboxit-m-title-cap">{{selectedOffer.title}}</div>
                   <div class="uboxit-m-title-rate">
-                        <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice}}</span>
-                        <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice}}</span>
+                        <span *ngIf="selectedOffer.discountedPrice"><s>&euro;{{selectedOffer.normalPrice.amount}}</s>&nbsp;&euro;{{selectedOffer.discountedPrice.amount}}</span>
+                        <span *ngIf="!selectedOffer.discountedPrice">&euro;{{selectedOffer.normalPrice.amount}}</span>
                   </div>
               </div>
               <div class="uboxit-m-action">

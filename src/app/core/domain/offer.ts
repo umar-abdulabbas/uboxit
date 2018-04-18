@@ -1,11 +1,18 @@
+export interface Price {
+  amount: number;
+  currencyCode: string;
+}
+
 export interface Product {
   id: string;
   image: string;
   title: string;
   descriptions?: string[];
   category: string;
-  discountedPrice: string;
-  normalPrice: string;
+  discountedPrice: Price;
+  normalPrice: Price;
+  discountedPriceForCombo: Price;
+  normalPriceForCombo: Price;
   ingredients: string;
   dietType: DietType;
 

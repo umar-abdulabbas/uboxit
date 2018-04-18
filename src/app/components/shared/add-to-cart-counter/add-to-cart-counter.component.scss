@@ -11,9 +11,11 @@
 }
 .round-right { border-radius: 0px $uboxit-radius $uboxit-radius  0px}
 .round-left{ border-radius: $uboxit-radius 0px  0px  $uboxit-radius}
+
 .btnCounterBigScreen{
-    //width: 100%;
+    width: 100%;
 }
+
 .btn-successBigScreen{
     width:62%;
 }
@@ -35,7 +37,7 @@
     //     width:20px
     // }
     // .inputCounter{
-    //     width:20px; 
+    //     width:20px;
     // }
     // .btnCounter .icon{
     //     width:0.8em;

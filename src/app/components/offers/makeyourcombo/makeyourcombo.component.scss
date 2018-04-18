@@ -79,6 +79,11 @@
     xbox-shadow: 0 8px 6px -6px #ccc;
 }
 
+.disabledCounterButton {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .menu {
   li {
     cursor: pointer;

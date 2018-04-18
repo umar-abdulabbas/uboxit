@@ -10,6 +10,7 @@ import { CounterService } from '../../../shared/services/InteractionCounter/coun
 })
 export class AddToCartCounterComponent implements OnInit, OnDestroy {
   @Input() counterValue = 0;
+  @Input() showEnlarged = false;
 
   @Output() updatedCount = new EventEmitter<number>();
 

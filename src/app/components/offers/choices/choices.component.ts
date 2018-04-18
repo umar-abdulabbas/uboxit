@@ -40,6 +40,7 @@ export class ChoicesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.uistyleservice.scrollToTop();
     this.titleService.setTitle('Choose various items-choices of different types like Starters, Gravies, Main course, Dessert, Soft Drinks and Snacks');
     this.showMobile = this.uistyleservice.getDeviceInformation();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window

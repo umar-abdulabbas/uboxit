@@ -6,14 +6,15 @@
 
 input{
     width: 100%;
-    font-size: 12px !important;
+    font-size: 14px !important;
     border-color: #e7e9ed;
+    font-family: $uboxit-font;
 }
 .bar{
     width: 100%;
 }
-.group label{
-font-size: 12px !important;
+.group label{ 
+font-size: 13px !important;  font-family: $uboxit-font;
 }
 input:focus ~ label, input:valid ~ label{
     top:-10px;
@@ -36,7 +37,7 @@ input:focus ~ label, input:valid ~ label{
 }
 
 .toast.toast-error.space{
-    margin-top:-30px; margin-bottom: 20px;
+    margin-top:-19px; margin-bottom: 20px;
 }
 .toast.toast-error.space1{
     margin-top:-19px; margin-bottom: 20px;

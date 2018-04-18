@@ -52,6 +52,7 @@ a.active, a:active, a:focus, a:hover{
 .uboxitMenuBar{ background:$uboxit-background-color;}
 
 //common
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px white inset;}
 .h-2x{ height: 20px;}
 .modal.active .modal-container, .modal:target .modal-container {
     border-radius: 10px;

@@ -10,14 +10,13 @@
                     <form>
                     <div class="addressNewFormInner">
                       <div class="group">
-                        <input type="text"id="fname" required name="fname" [(ngModel)]="userModel.name" minlength="4" #fname="ngModel">
+                        <input type="text"id="fname" required name="fname" [(ngModel)]="userModel.name" #fname="ngModel">
                         <span class="highlight"></span>
-                        <span class="bar"></span><label>First Name</label>
+                        <span class="bar"></span><label>Name</label>
                       </div>
                         <!-- Validation Name-->
                         <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
-                            <div *ngIf="fname.errors.required">First Name is required. </div>
-                            <div *ngIf="fname.errors.minlength">Name must be at least 4 characters long.</div>
+                            <div *ngIf="fname.errors.required">Name is required.</div>
                         </div>
                           <!-- Validation End Name -->
                       <div class="group">
@@ -36,17 +35,27 @@
                             <tr>
                               <td>
                                 <div class="group">
-                                  <input type="text" required name="housenumber" [(ngModel)]="addressModel.houseNumber">
+                                  <input type="text" required name="housenumber" [(ngModel)]="addressModel.houseNumber" #housenumber="ngModel">
                                   <span class="highlight"></span>
                                   <span class="bar"></span><label>House Number</label>
                                 </div>
+                                  <!-- Validation House Number-->
+                                  <div *ngIf="housenumber.invalid && (housenumber.dirty || housenumber.touched)" class="toast toast-error space1">
+                                  <div *ngIf="housenumber.errors.required">House Number is required. </div>
+                                   </div>
+                                  <!-- Validation End House Number-->
                               </td>
                               <td>
                                 <div class="group">
-                                  <input type="text" required name="streetname" [(ngModel)]="addressModel.street">
+                                  <input type="text" required name="streetname" [(ngModel)]="addressModel.street" #streetname="ngModel">
                                   <span class="highlight"></span>
                                   <span class="bar"></span><label>Street Name</label>
                                 </div>
+                                <!-- Validation Street Name-->
+                                <div *ngIf="streetname.invalid && (streetname.dirty || streetname.touched)" class="toast toast-error space1">
+                                    <div *ngIf="streetname.errors.required">Street Name is required. </div>
+                                </div>
+                                <!-- Validation End Street Name -->
                               </td>
                             </tr>
                           </table>
@@ -56,10 +65,15 @@
                               <tr>
                                 <td>
                                     <div class="group">
-                                    <input type="text" required name="cityarea" [(ngModel)]="addressModel.area">
+                                    <input type="text" required name="cityarea" [(ngModel)]="addressModel.area" #cityname="ngModel">
                                     <span class="highlight"></span>
                                     <span class="bar"></span><label>City/Area</label>
                                     </div>
+                                     <!-- Validation Street Name-->
+                                      <div *ngIf="cityname.invalid && (cityname.dirty || cityname.touched)" class="toast toast-error space1">
+                                        <div *ngIf="cityname.errors.required">City/Area is required. </div>
+                                      </div>
+                                <!-- Validation End Street Name -->
                                 </td>
                                 <td>
                                     <div class="group">
@@ -73,10 +87,16 @@
                       </div>
                       <div class="group">
 
-                        <input type="text" required name="phone" [(ngModel)]="userModel.phone">
+                        <input type="text" required name="phone" [(ngModel)]="userModel.phone" #phonenumber="ngModel">
                         <span class="highlight"></span>
                         <span class="bar"></span><label>Phone Number</label>
                       </div>
+                      <!-- Validation Phone Number-->
+                      <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1">
+                          <div *ngIf="phonenumber.errors.required">City/Area is required.</div>
+                      </div>
+                      <!-- Validation End Phone Number -->
+
                       <div class="group">
                         <input type="email" id="email" required name="email" [(ngModel)]="userModel.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                         <span class="highlight"></span>
@@ -104,26 +124,43 @@
             <div class="addressfields">
               <div class="group map" [hidden]="!displayMap" #gmap></div>
               <div class="group">
-                  <input type="text" required name="name" class="input-color" [(ngModel)]="userModel.name">
+                  <input type="text" required name="name" class="input-color" [(ngModel)]="userModel.name" #fname="ngModel">
                   <span class="highlight"></span>
                   <span class="bar"></span><label>Enter your Name</label>
               </div>
+                   <!-- Validation Name-->
+                   <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
+                      <div *ngIf="fname.errors.required">Name is required.</div>
+                  </div>
+                    <!-- Validation End Name -->
               <div class="group">
-                  <input type="text" required name="email" class="input-color" [(ngModel)]="userModel.email">
+                  <input type="text" required name="email" class="input-color" [(ngModel)]="userModel.email" #email="ngModel">
                   <span class="highlight"></span>
                   <span class="bar"></span><label>Enter your Email Address</label>
               </div>
+               <!-- Validation Email-->
+               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
+                  <div *ngIf="email.errors.required">Email Name is required. </div>
+                  <div *ngIf="email.errors.pattern">Email is Invalid</div>
+
+                </div>
+                <!-- Validation End Email -->
               <div class="group">
-                  <input type="text" required name="phone" class="input-color" [(ngModel)]="userModel.phone">
+                  <input type="text" required name="phone" class="input-color" [(ngModel)]="userModel.phone" #phonenumber="ngModel">
                   <span class="highlight"></span>
                   <span class="bar"></span><label>Enter your Phone Number</label>
               </div>
+              <!-- Validation Phone Number-->
+              <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1">
+                  <div *ngIf="phonenumber.errors.required">City/Area is required.</div>
+              </div>
+              <!-- Validation End Phone Number -->
             </div>
             </div>
           </mat-radio-group>
           <div class="actionRow">
           <div class="float-right">
-            <button class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone && userModel.name)}" (click)="addAddress()">Go to Payment</button>
+            <button class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone && userModel.name && addressModel.area && addressModel.houseNumber && addressModel.street)}" (click)="addAddress()">Go to Payment</button>
           </div>
           <div class="clearfix"></div>
         </div>

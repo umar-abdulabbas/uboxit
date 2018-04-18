@@ -53,7 +53,7 @@ export class FinishComponent implements OnInit {
               this.cartService.clearStoredCart();
               this.pageTitle = 'Thank you for your purchase !!!';
               this.mainMessage = `Thanks for ordering with UBoxIT, Your Order confirmation is: ${res.orderConfirmation}.`;
-              this.nextActionMessage = `We are processing the order and will be delivered shortly.`;
+              this.nextActionMessage = `We are preparing your box and will be delivered shortly. Burn calories till then...`;
             } else {
               console.error('payment not success');
               this.paymentSuccess = false;

@@ -20,6 +20,8 @@ export class PaymentComponent implements OnInit {
   @Output() payOnDelivery = new EventEmitter<boolean>();
   adyenPaymentSupported: boolean;
 
+  amount: number;
+
   sdkConfigObj = {
     context: 'test' // change it to `live` when going live.
   };
@@ -33,6 +35,8 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.amount = this.cartService.cart.finalPrice.amount;
 
     this.adyenPaymentSupported = FeatureSwitch.isAdyenPaymentEnabled();
     if (this.adyenPaymentSupported) {

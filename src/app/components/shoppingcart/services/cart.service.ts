@@ -70,6 +70,7 @@ export class CartService {
       .publishReplay()
       .refCount();
     updateCartObservable.subscribe((result: any) => {
+      this.cartId = result.id;
       this.enrichDomainCart(result);
     });
     return updateCartObservable;
@@ -80,6 +81,7 @@ export class CartService {
       .publishReplay()
       .refCount();
     updateCartObservable.subscribe((result: any) => {
+      this.cartId = result.id;
       this.enrichDomainCart(result);
     });
     return updateCartObservable;

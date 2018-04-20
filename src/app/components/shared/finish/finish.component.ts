@@ -28,6 +28,8 @@ export class FinishComponent implements OnInit {
 
   paymentSuccess: boolean;
 
+  cartId: string;
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private paymentService: PaymentService,
@@ -41,10 +43,10 @@ export class FinishComponent implements OnInit {
     if (FeatureSwitch.isAdyenPaymentEnabled()) {
       this.routerParamSubscription = this.route.queryParams.subscribe(params => {
         const payLoad = params.payload;
-        const cartId = params.cartId;
+        this.cartId = params.cartId;
         const payInPerson = params.payInPerson;
         console.log(payLoad);
-        this.paymentService.finalizePayment(payLoad, cartId, payInPerson)
+        this.paymentService.finalizePayment(payLoad, this.cartId, payInPerson)
           .subscribe((res: any) => {
             console.log(res);
             if (payInPerson || res.authResponse.toLowerCase() === OrderStatus.Authorised || res.authResponse.toLowerCase() === OrderStatus.Received) {
@@ -73,6 +75,14 @@ export class FinishComponent implements OnInit {
   }
 
   retryPayment() {
-    this.router.navigate(['/shoppingcart'], {queryParams: {retryPayment: true}});
+    // on failure, if option was redirected, new instance of app will be loaded
+    // so always get cart from server & then go to shopping cart for retry option
+    if (this.cartService.cartId) {
+      this.cartService.getCart().subscribe(res => {
+        this.router.navigate(['/shoppingcart'], {queryParams: {retryPayment: true}});
+      });
+    } else {
+      this.router.navigate((['/home']));
+    }
   }
 }

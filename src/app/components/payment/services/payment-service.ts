@@ -4,6 +4,7 @@ import { LoginService } from '../../personal/services/login-service';
 import { PlatformLocation } from '@angular/common';
 import { Address } from '../../../core/domain/address';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
+import { StorageService } from '../../../shared/services/storage-service';
 
 @Injectable()
 export class PaymentService {
@@ -15,11 +16,19 @@ export class PaymentService {
 
   constructor(private http: HttpClient,
               private loginService: LoginService, // LOGIN FEATURE
-              private platformLocation: PlatformLocation) {
+              private platformLocation: PlatformLocation,
+              private storageService: StorageService) {
     this.origin = (this.platformLocation as any).location.origin;
   }
 
   initiatePayment(cartId: string) {
+    // if shopping cart is loaded directly (in case of retry other payment during error), we can take it from local storage
+    if (!this.userDetails) {
+      this.userDetails = this.storageService.getDeliveryContact();
+    }
+    if (!this.address) {
+      this.address = this.storageService.getDeliveryAddress();
+    }
     const request = {
       'shopId': cartId,
       'customerName': this.userDetails.name,
@@ -59,6 +68,6 @@ export class PaymentService {
   }
 
   isValidForPayment() {
-    return this.address && this.userDetails;
+    return !!this.address && !!this.userDetails;
   }
 }

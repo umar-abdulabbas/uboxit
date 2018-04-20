@@ -10,7 +10,9 @@
              </div>
              <div class="radioDiv"><mat-radio-button value="1" (change)="paymentOnDelivery()">Pay on delivery</mat-radio-button></div>
              <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
-                You can pay by cash or card to our delivery boy!
+                You can pay by cash or card to our delivery person!!
+               <br>
+               <b>Amount : &euro; {{amount}}</b>
              </div>
         </mat-radio-group>
     </div>

@@ -16,7 +16,11 @@ input{
 .group label{ 
 font-size: 13px !important;  font-family: $uboxit-font;
 }
-input:focus ~ label, input:valid ~ label{
+input:focus ~ label{
+    top:-10px;
+    
+}
+input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
     top:-10px;
 }
 .group{
@@ -83,4 +87,18 @@ input:focus ~ label, input:valid ~ label{
     justify-content: flex-end;
     padding: 16px 8px 16px 24px;
     border-top-color:rgba(0,0,0,.12);
+}
+.uboxit-mobile-prefix{
+    position: relative;
+}
+.uboxit-mobile-prefix-elem{
+    position: absolute; top: 10px; left:5px;
+}
+.uboxit-mobile-prefix-elem-tel{
+    padding-left: 30px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

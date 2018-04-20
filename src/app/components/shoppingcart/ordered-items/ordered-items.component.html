@@ -17,7 +17,7 @@
                                 <app-add-to-cart-counter [counterValue]="order.count"
                                 (updatedCount)="updateOrder(order.id, $event)"></app-add-to-cart-counter>
                             </div>
-                            <div class="card-id-price">&euro;  {{order.price.amount | number:'1.2-2'}}</div>
+                            <div class="card-id-price">Price:&nbsp;&euro;  {{order.price.amount | number:'1.2-2'}}</div>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                                 <app-add-to-cart-counter [counterValue]="order.count"
                                 (updatedCount)="updateOrder(order.id, $event)"></app-add-to-cart-counter>
                             </div>
-                            <div class="card-id-price">&euro;  {{order.price.amount | number:'1.2-2'}}</div>
+                            <div class="card-id-price">Price:&nbsp; &euro;  {{order.price.amount | number:'1.2-2'}}</div>
                         </div>
                     </div>
                 </div>

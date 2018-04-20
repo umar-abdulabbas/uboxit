@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (event.url.includes('shoppingcart') || event.url.includes('finish')) {
+        if (event.url.includes('shoppingcart') || event.url.includes('finish') || event.url.includes('error')) {
           this.closeSlideNav();
           shoppingCartPage.next(true);
           this.shopFloat = false;
@@ -139,6 +139,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeSlideNav() {
     this.findSlideID.style.width = '0px';
     this.findparentId.style.marginRight = '0px';
+  
   }
 
   private decideFeatures() {
@@ -167,6 +168,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.findSlideID.style.width = '375px';
     this.findparentId.style.marginRight = '375px';
     this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
+ 
+
   }
 
 }

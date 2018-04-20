@@ -95,16 +95,16 @@ a.active, a:active, a:focus, a:hover { color:$uboxit-primary-color; text-decorat
      margin-bottom: 30px;
   }
   .gen-layout.about{
-    background:url(assets/images/about-us.jpg) no-repeat fixed;
+    background:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/aboutus) no-repeat fixed;
   }
   .gen-layout.contact{
-    background:url(assets/images/contact-us-banner.jpg) no-repeat fixed;
+    background:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/contactus) no-repeat fixed;
   }
   .gen-layout.privacy{
-    background:url(assets/images/privacy.jpg) no-repeat fixed;
+    background:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/privacy) no-repeat fixed;
   }
   .gen-layout.terms{
-    background:url(assets/images/terms.jpg) no-repeat fixed;
+    background:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/terms) no-repeat fixed;
   }
   .gen-layout > div{
         font-family: $uboxit-font;

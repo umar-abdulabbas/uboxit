@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserExpStyleService {
   // scroll top of the screen
+  slideNavMsg = false;
   scrollToTop() {
     const body = document.body; // For Safari
     const html = document.documentElement; // Chrome, Firefox, IE and Opera
@@ -22,4 +23,12 @@ export class UserExpStyleService {
     const findPathUrl = window.location.href.split('/').pop();
     return findPathUrl;
   }
+
+  //Check Wether Slide Nav Opend or Not 
+  checkSlideNav(slidenavMsg:boolean) {
+      this.slideNavMsg = slidenavMsg;
+      console.log(this.slideNavMsg);
+  }
+ 
+
 }

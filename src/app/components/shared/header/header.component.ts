@@ -139,7 +139,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   closeSlideNav() {
     this.findSlideID.style.width = '0px';
     this.findparentId.style.marginRight = '0px';
-  
+    this.uistyleservice.checkSlideNav(false);
   }
 
   private decideFeatures() {
@@ -168,8 +168,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.findSlideID.style.width = '375px';
     this.findparentId.style.marginRight = '375px';
     this.shopFloat = true; // this line help to float the Shopping Cart in Mobile
- 
-
+    this.uistyleservice.checkSlideNav(true);
   }
 
 }

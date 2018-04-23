@@ -65,7 +65,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   selectedDessert: Item;
 
   currentVisibleType: ItemType;
-
+  chkSlideNav;
   comboCount = 0;
 
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,
@@ -78,7 +78,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
    // this.headerColor.classList.add('headerFixedShoppingCard');
-
+   console.log("iicic",this.uistyleservice.slideNavMsg);
     let offer = this.offerService.offer;
 
     if (offer) {
@@ -200,8 +200,10 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   stickyHeaderValue(scrolValue) {
     if (scrolValue > 50) {
       this.uboxitMenu = true;
+     
     } else if (this.uboxitMenu && scrolValue < 5) {
       this.uboxitMenu = false;
+    
     }
   }
 
@@ -230,7 +232,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     if (this.subFromMakeYourOwnCombo) {
       this.subFromMakeYourOwnCombo.unsubscribe();
     }
-    this.totalCountSubscription.unsubscribe();
+      this.totalCountSubscription.unsubscribe();
   }
 
   private getAvailableTypes(offer) {

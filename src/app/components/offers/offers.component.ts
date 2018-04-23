@@ -6,6 +6,7 @@ import { Cart } from '../../core/domain/cart';
 import { ErrorsAggregator } from '../../core/errors/errors-aggregator';
 import { AlertInvoker } from '../../core/services/alert-invoker.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { UserExpStyleService } from '../../shared/UI/globalUI.service';
 import { Router } from '@angular/router';
 
 
@@ -36,7 +37,7 @@ export class OffersComponent implements OnInit {
 
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker,
-              private router: Router) {
+              private router: Router, private uistyleservice: UserExpStyleService) {
 
   }
 

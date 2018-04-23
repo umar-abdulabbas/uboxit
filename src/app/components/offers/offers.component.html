@@ -1,6 +1,6 @@
 
 <section>
-<section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu}" >
+<section stickyHeader (stickyHeaderValue) = "stickyHeaderValue($event)" class="uboxitMenuBar"  [ngClass]="{'uboxitMenu':uboxitMenu, 'slidenavOpen':uistyleservice.slideNavMsg}" >
     <app-bar-menu *ngIf="loadMenu | async" [availableTypes]="availableTypes" (filterType)="filterOffers($event)"></app-bar-menu>
 </section>
 

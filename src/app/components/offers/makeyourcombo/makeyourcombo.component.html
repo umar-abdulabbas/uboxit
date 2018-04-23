@@ -1,12 +1,12 @@
 <div style="margin-top:5px;">
   <section  style="background:#f8f9fa; margin-bottom:5px; " stickyHeader
-           (stickyHeaderValue)="stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu}">
+           (stickyHeaderValue)="stickyHeaderValue($event)" [ngClass]="{'uboxitMenuInMakeCombo':uboxitMenu, 'slidenavOpen':uistyleservice.slideNavMsg}">
     <!--Menu -->
     <app-bar-menu *ngIf="loadMenu | async"></app-bar-menu>
     <!-- // Menu End -->
   </section>
 
-  <section  class="uboxitSection" [ngClass]="{'uboxitMenuInMakeComboSelect':uboxitMenu}">
+  <section  class="uboxitSection" [ngClass]="{'uboxitMenuInMakeComboSelect':uboxitMenu, 'slidenavOpen':uistyleservice.slideNavMsg}">
 
     <div class="container grid-lg">
       <div class="container">
@@ -73,7 +73,7 @@
             <div class="column col-xs-4 relative">
                 <button class="btn btn-primary" [ngClass]="{'disabled':!comboHasMinimumContent}" style="width:100%" (click)="clearSelection()">{{clearOrAddNewText}}</button>
             </div>
-            <div class="column col-xs-4 relative" [ngClass]="{'disabledCounterButton' :!comboComplete}">
+            <div class="column col-xs-4 relative" [ngClass]="{'disabledCounterButton' :!comboComplete}" style="text-align:center">
               <app-add-to-cart-counter [showEnlarged]="true" [counterValue]="comboCount" (updatedCount)="addToCart('test', $event)"></app-add-to-cart-counter>
             </div>
             <div class="column col-xs-4 relative">

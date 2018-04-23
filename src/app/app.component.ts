@@ -124,10 +124,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   showMenu(url: string) {
+    this.showMobile = false;
     if (url === 'home') {
-      this.showMobile = false;
+     
     } else {
       this.router.navigateByUrl('/' + url);
+      
     }
   }
 

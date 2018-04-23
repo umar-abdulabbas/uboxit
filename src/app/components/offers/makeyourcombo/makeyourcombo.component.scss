@@ -98,3 +98,7 @@
         font-size: 15px;
     }
 }
+
+ .uboxitMenuInMakeCombo.slidenavOpen, .uboxitMenuInMakeComboSelect.slidenavOpen{
+   width:calc(100% - 375px);
+ }

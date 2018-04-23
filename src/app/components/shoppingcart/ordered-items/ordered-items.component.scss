@@ -8,9 +8,9 @@
 .card-txt-item { height:25px; padding:5px 10px; overflow: hidden; text-overflow: ellipsis;  white-space: nowrap}
 .card-priceDetails { padding:0 24px 16px; font-weight: bold; }
 .card-flex { display: flex; }
-.card-flex .img { background: #ccc; width: 40%; height: 100px; overflow: hidden; }
+.card-flex .img { background: #ccc; width: 40%; height: 100px; xoverflow: hidden; }
 .img img{ object-fit:cover; max-height:100%;  border-radius: 10px;}
-.card-flex .txt{ width: 60%;}
+.card-flex .txt{ width: 60%; padding-left:10px;}
 .cart-divider { xmargin:5px 0px; // border-top:1px solid #ccc; 
 }
 .card-flex-rowDir { display: flex; flex-direction: row-reverse; padding: 0 40px 10px; }

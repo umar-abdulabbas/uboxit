@@ -23,6 +23,7 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
 
   @Output() madeEditable = new EventEmitter(false);
 
+  deliveryChargeZero = false;
   promoCode: string;
   finishPage: boolean; // if finish page, dont do anything for (total count = 0) redirection
 
@@ -38,6 +39,7 @@ export class OrderedItemsComponent implements OnInit, OnDestroy {
     const cartSubscription = this.cartService.cartObservable.subscribe(cart => {
       if (cart.id) {
         this.cart = cart;
+        this.deliveryChargeZero = this.cart.deliveryCharge.amount === 0;
       }
     });
 

@@ -186,6 +186,10 @@ export class CartService {
     return productType;
   }
 
+  isDeliveryChargesApplicable() {
+    return this.cart.totalPrice.amount < 10;
+  }
+
   private isProductAlreadyPresent(productList: any[], id: string) {
     return !!productList && !!productList.find(p => p.id === id);
   }

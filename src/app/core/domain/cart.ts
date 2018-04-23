@@ -46,6 +46,8 @@ export interface Cart {
   offerId?: string;
   normalPrice?: Price;
 
+  pickupAtStore?: boolean;
+
   // from response
   price?: Price;
   totalPrice?: Price;

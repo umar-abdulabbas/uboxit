@@ -69,7 +69,7 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   comboCount = 0;
 
   constructor(private makeyourowncomboservice: MakeYourOwnComboService, private offerService: OfferService,
-              private cartService: CartService, private uistyleservice: UserExpStyleService,
+              private cartService: CartService, public uistyleservice: UserExpStyleService,
               private router: Router, private alertInvoker: AlertInvoker, private titleService: Title) {
   }
 

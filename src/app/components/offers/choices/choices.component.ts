@@ -35,7 +35,7 @@ export class ChoicesComponent implements OnInit {
 
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker,
-              private titleService: Title, private uistyleservice: UserExpStyleService) {
+              private titleService: Title, public uistyleservice: UserExpStyleService) {
 
   }
 

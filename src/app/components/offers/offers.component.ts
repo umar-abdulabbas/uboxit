@@ -37,10 +37,10 @@ export class OffersComponent implements OnInit {
 
   constructor(private offerService: OfferService, private cartService: CartService,
               private errorsAggregator: ErrorsAggregator, private alertInvoker: AlertInvoker,
-              private router: Router, private uistyleservice: UserExpStyleService) {
+              private router: Router, public uistyleservice: UserExpStyleService) {
 
   }
-
+  
   ngOnInit() {
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.offer = this.offerService.offer;

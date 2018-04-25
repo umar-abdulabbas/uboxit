@@ -2,23 +2,34 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { Address } from '../../../core/domain/address';
 import { PaymentService } from '../../payment/services/payment-service';
 import { StorageService } from '../../../shared/services/storage-service';
-import { } from '@types/googlemaps';
+import {} from '@types/googlemaps';
 import Animation = google.maps.Animation;
+import { CartService } from '../services/cart.service';
 
 export class AddressList {
-    id: string;
-    name: string;
-    address: string;
-    housenumber: string;
-    city: string;
-    postalcode: string;
-    email: string;
-    phone: string;
-    checked: string;
+  id: string;
+  name: string;
+  address: string;
+  housenumber: string;
+  city: string;
+  postalcode: string;
+  email: string;
+  phone: string;
+  checked: string;
 }
 
 const ADDRESSLIST: AddressList[] = [
-  { id: '004', name: 'Pickup at Store', address: 'Augustinuspark ', housenumber: '14', city: 'Amstelveen', postalcode: '1185CN', email: 'connect@uboxit.com', phone: '0645433592', checked: '' }
+  {
+    id: '004',
+    name: 'Pickup at Store',
+    address: 'Augustinuspark ',
+    housenumber: '14',
+    city: 'Amstelveen',
+    postalcode: '1185CN',
+    email: 'connect@uboxit.com',
+    phone: '0645433592',
+    checked: ''
+  }
 ];
 
 @Component({
@@ -38,13 +49,17 @@ export class AddressComponent implements OnInit {
   map: google.maps.Map;
   displayMap: boolean;
 
+  private pickupAtStoreUpdatedToCart = false;
+
   @Output() addressUpdated = new EventEmitter<boolean>();
   @Output() newAddressSelected = new EventEmitter<boolean>();
   @Output() existingAddressSelected = new EventEmitter<boolean>();
   @Output() previousStepRequested = new EventEmitter<boolean>();
 
   constructor(private paymentService: PaymentService,
-              private storageService: StorageService) { }
+              private storageService: StorageService,
+              private cartService: CartService) {
+  }
 
   ngOnInit() {
     this.addressModel = this.storageService.getDeliveryAddress();
@@ -64,7 +79,7 @@ export class AddressComponent implements OnInit {
 
   radioSelect(id: string) {
     this.addressList.filter(i => i.id !== id).forEach(i => i.checked = '');
-    const addressCheck = this.addressList.find(i => i.id === id );
+    const addressCheck = this.addressList.find(i => i.id === id);
     addressCheck.checked = 'checked';
 
     this.existingAddressSelected.emit(true);
@@ -88,12 +103,47 @@ export class AddressComponent implements OnInit {
     });
   }
 
-  addAddress() {
-    // validation to be done
-    console.log('added address');
-    console.log(this.addressModel);
-    console.log(this.userModel);
+  selectDeliveryMode(data) {
+    console.log(data);
+    if (this.cartService.isDeliveryChargesApplicable()) {
+      if (data === '1') {
+        this.cartService.updateCart(this.cartService.cartId, {pickupAtStore: true}).subscribe(() => {
+            console.log('no delivery charges');
+            this.pickupAtStoreUpdatedToCart = true;
+          },
+          () => {
+            console.log('error');
+          });
+      } else if (data === '2') {
+        this.cartService.updateCart(this.cartService.cartId, {pickupAtStore: false}).subscribe(() => {
+            console.log('delivery charges');
+          },
+          () => {
+            console.log('error');
+          });
+      }
+    }
+  }
 
+  addAddress() {
+    if (this.valueSelcted === '1' && !this.pickupAtStoreUpdatedToCart) {
+      this.cartService.updateCart(this.cartService.cartId, {pickupAtStore: true}).subscribe(() => {
+          this.pickupAtStoreUpdatedToCart = true;
+        },
+        () => {
+        }, () => {
+          this.navigateToPayment();
+        });
+    } else {
+      this.navigateToPayment();
+    }
+  }
+
+  showPreviousStep() {
+    this.previousStepRequested.next(true);
+  }
+
+  private navigateToPayment() {
     this.storageService.storeDeliveryAddress(this.addressModel, this.valueSelcted);
     this.storageService.storeDeliveryContact(this.userModel);
 
@@ -103,7 +153,5 @@ export class AddressComponent implements OnInit {
     this.addressUpdated.emit(true);
   }
 
-  showPreviousStep() {
-    this.previousStepRequested.next(true);
-  }
+
 }

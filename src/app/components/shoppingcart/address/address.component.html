@@ -4,7 +4,7 @@
     <div>
         <mat-radio-group [(ngModel)]="valueSelcted">
 
-            <div class="radioDiv"><mat-radio-button value="2">Add your Delivery Address</mat-radio-button></div>
+            <div class="radioDiv"><mat-radio-button value="2"(change)="selectDeliveryMode($event.value)">Add your Delivery Address</mat-radio-button></div>
             <div *ngIf="valueSelcted == 2" class="">
                 <div class="addressNewForm">
                     <form>
@@ -114,7 +114,7 @@
 
                   </div>
             </div>
-               <div class="radioDiv"><mat-radio-button value="1">Pick up at store</mat-radio-button></div>
+               <div class="radioDiv"><mat-radio-button value="1" (change)="selectDeliveryMode($event.value)">Pick up at store</mat-radio-button></div>
             <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
               <address (click)="loadMap()">
                 Augustinuspark , 14. 1185CN, Amstelveen

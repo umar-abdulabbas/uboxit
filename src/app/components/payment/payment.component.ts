@@ -28,6 +28,9 @@ export class PaymentComponent implements OnInit {
 
   private adyenSdk = window['chckt'];
 
+  payOnDeliveryRadioText: string;
+  payOnDeliveryText: string;
+
   constructor(private paymentService: PaymentService,
               private cartService: CartService,
               private router: Router,
@@ -64,6 +67,14 @@ export class PaymentComponent implements OnInit {
         });
         return true;
       };
+    }
+
+    if (this.paymentService.isPickUpAtStore()) {
+      this.payOnDeliveryRadioText = 'Pay at store';
+      this.payOnDeliveryText = 'You can pay by cash or card at our shop !!';
+    } else {
+      this.payOnDeliveryRadioText = 'Pay on delivery';
+      this.payOnDeliveryText = 'You can pay by cash or card to our delivery person !!';
     }
   }
 

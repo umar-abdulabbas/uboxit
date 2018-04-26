@@ -8,9 +8,9 @@
                <div class="clearfix"></div>
                <div class="m-1"></div>
              </div>
-             <div class="radioDiv"><mat-radio-button value="1" (change)="paymentOnDelivery()">Pay on delivery</mat-radio-button></div>
+             <div class="radioDiv"><mat-radio-button value="1" (change)="paymentOnDelivery()">{{payOnDeliveryRadioText}}</mat-radio-button></div>
              <div *ngIf="valueSelcted == 1" class="showSelectedRadio">
-                You can pay by cash or card to our delivery person!!
+                {{payOnDeliveryText}}
                <br>
                <b>Amount Payable : &euro; {{amount}}</b>
              </div>

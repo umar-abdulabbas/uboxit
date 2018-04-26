@@ -56,6 +56,10 @@ export class PaymentService {
     return !!this.address && !!this.userDetails;
   }
 
+  isPickUpAtStore() {
+    return this.pickupAtStore;
+  }
+
   private createOrder(cartId: string) {
     const request = {
       'shopId': cartId,

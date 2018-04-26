@@ -222,6 +222,8 @@ export class CartService {
         combo.itemNames = combo.items.map(i => i.name).join(' + ');
       });
       this.cart = cartRes;
+    } else if (cartRes.items) {
+      this.cart = cartRes;
     } else {
       this.cart = {};
     }

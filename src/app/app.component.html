@@ -31,6 +31,13 @@
       <div class="uboxit-m-advert-ban1">
             <div class="uboxit-m-ban-inner">
                   <ngx-carousel [inputs]="carouselTileTwo" (carouselLoad)="myfunc($event)">
+                    <ngx-tile NgxCarouselItem >
+                      <div class="uboxit-scroll" style="background-image:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/mobilehomebannerchoices);">
+                        <div (click)="showMenu('choices')">
+                          <i class="material-icons">restaurant</i><br/>Choices
+                        </div>
+                      </div>
+                    </ngx-tile>
                    <ngx-tile NgxCarouselItem >
                       <div class="uboxit-scroll" style="background-image:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/mobilehomebannercombo);">
                             <div (click)="showMenu('home')">
@@ -43,13 +50,6 @@
                       <div class="uboxit-scroll" style="background-image:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/mobilehomebannercustomcombo);">
                             <div (click)="showMenu('makeyourcombo')">
                                   <i class="material-icons">room_service</i><br/>Make Your Combo
-                            </div>
-                      </div>
-                  </ngx-tile>
-                  <ngx-tile NgxCarouselItem >
-                      <div class="uboxit-scroll" style="background-image:url(https://res.cloudinary.com/your-delicacy-bv/image/upload/mobilehomebannerchoices);">
-                            <div (click)="showMenu('choices')">
-                                  <i class="material-icons">restaurant</i><br/>Choices
                             </div>
                       </div>
                   </ngx-tile>

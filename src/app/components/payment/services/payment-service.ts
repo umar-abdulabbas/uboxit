@@ -63,7 +63,7 @@ export class PaymentService {
       'returnurl': `${this.origin}/finish?cartId=${cartId}`,
       'origin': this.origin,
       'emailId': this.userDetails.email,
-      'mobileNumber': this.userDetails.phone
+      'mobileNumber': this.makePhoneNumberProper(this.userDetails.phone.toString())
     };
     if (FeatureSwitch.isLoginFeatureEnabled()) {
       request['individualId'] = this.loginService.individual.customerId;
@@ -74,5 +74,12 @@ export class PaymentService {
       request['deliveryAddress'] = this.address;
     }
     return this.http.post('/order-api/order', request);
+  }
+
+  private makePhoneNumberProper(phoneNumber: string) {
+    if (phoneNumber.charAt(0) === '0') {
+      phoneNumber = phoneNumber.substring(1);
+    }
+    return '+31' + phoneNumber;
   }
 }

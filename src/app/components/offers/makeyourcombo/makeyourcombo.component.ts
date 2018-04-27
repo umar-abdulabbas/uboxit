@@ -200,10 +200,10 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
   stickyHeaderValue(scrolValue) {
     if (scrolValue > 50) {
       this.uboxitMenu = true;
-     
+
     } else if (this.uboxitMenu && scrolValue < 5) {
       this.uboxitMenu = false;
-    
+
     }
   }
 
@@ -232,7 +232,9 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     if (this.subFromMakeYourOwnCombo) {
       this.subFromMakeYourOwnCombo.unsubscribe();
     }
+    if (this.totalCountSubscription) {
       this.totalCountSubscription.unsubscribe();
+    }
   }
 
   private getAvailableTypes(offer) {

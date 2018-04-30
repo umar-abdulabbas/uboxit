@@ -17,6 +17,9 @@ export class AppComponent implements OnInit, OnDestroy {
   public carouselTileTwo: NgxCarousel;
   public carouselOne: NgxCarousel;
   public greet;
+
+  showPromo = false;
+
   constructor(private storageService: StorageService, private loginService: LoginService,
               private uistyleservice: UserExpStyleService, private router: Router) {
     router.events
@@ -126,10 +129,10 @@ export class AppComponent implements OnInit, OnDestroy {
   showMenu(url: string) {
     this.showMobile = false;
     if (url === 'home') {
-     
+
     } else {
       this.router.navigateByUrl('/' + url);
-      
+
     }
   }
 

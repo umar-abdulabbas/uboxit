@@ -5,7 +5,7 @@ import { StorageService } from '../../../shared/services/storage-service';
 import {} from '@types/googlemaps';
 import Animation = google.maps.Animation;
 import { CartService } from '../services/cart.service';
-
+import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
 export class AddressList {
   id: string;
   name: string;
@@ -44,7 +44,11 @@ export class AddressComponent implements OnInit {
   public valueSelcted;
   addressModel: Address = <Address>{};
   userModel: any = {};
-
+  active = false;
+  body;
+  public showMobile: boolean;
+  public showTerms: boolean;
+  public showPrivacy:boolean;
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
   displayMap: boolean;
@@ -58,13 +62,15 @@ export class AddressComponent implements OnInit {
 
   constructor(private paymentService: PaymentService,
               private storageService: StorageService,
-              private cartService: CartService) {
+              private cartService: CartService, public uistyleservice: UserExpStyleService) {
   }
 
   ngOnInit() {
     this.addressModel = this.storageService.getDeliveryAddress();
     this.userModel = this.storageService.getDeliveryContact();
     this.valueSelcted = this.storageService.getDeliveryAddressType();
+    this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
+    this.showMobile = this.uistyleservice.getDeviceInformation();
   }
 
   showNewForm(checked: string) {
@@ -153,5 +159,27 @@ export class AddressComponent implements OnInit {
     this.addressUpdated.emit(true);
   }
 
-
+    onSelect(comp:string): void {
+      this.active = true;
+      this.body.classList.add('body-overflow');
+      if(comp === 'terms') {
+        this.showTerms = true; 
+      } else{
+        this.showTerms = false;
+      }
+      if(comp === 'privacy') {
+        this.showPrivacy = true; 
+      } else{
+       this.showPrivacy = false;
+      }
+  }
+    close(): void {
+    this.active = false;
+    this.body.classList.remove('body-overflow');
+  }
+   modelclose(event): void {
+    // This Function is used to close the Model Window on clicking outstide of the screen.
+    this.active = event;
+    this.body.classList.remove('body-overflow');
+  }
 }

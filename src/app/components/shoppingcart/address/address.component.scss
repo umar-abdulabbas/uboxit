@@ -54,6 +54,10 @@ input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
 /deep/.mat-radio-label-content{
     font-family: $uboxit-font;
 }
+
+/deep/.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color:$uboxit-primary-color;
+}
 .radioDiv{
     padding:10px;
     @include breakpoint(smart-phone){
@@ -80,13 +84,22 @@ input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
     background: #fff;
 }
 .actionRow{
-    border-top-style: solid;
-    border-top-width: 1px;
+   
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     padding: 16px 8px 16px 24px;
-    border-top-color:rgba(0,0,0,.12);
+   
+}
+
+.actionRowChkBox{
+    border-top-style: solid;
+    border-top-width: 1px;
+     border-top-color:rgba(0,0,0,.12);
+     padding: 10px;
+}
+.actionRowChkBox a:hover {
+    text-decoration: underline
 }
 .uboxit-mobile-prefix{
     position: relative;
@@ -101,4 +114,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+:host /deep/ .gen-layout.terms {
+    display: none;
+}
+:host /deep/ .gen-layout.privacy{
+    display: none;
+}
+:host /deep/ h2 {
+    font-size:1.1em; font-weight: bold;
 }

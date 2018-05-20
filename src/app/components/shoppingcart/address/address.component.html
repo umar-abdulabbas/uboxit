@@ -7,7 +7,7 @@
             <div class="radioDiv"><mat-radio-button value="2"(change)="selectDeliveryMode($event.value)">Add your Delivery Address</mat-radio-button></div>
             <div *ngIf="valueSelcted == 2" class="">
                 <div class="addressNewForm">
-                    <form>
+                    <form autocomplete="off">
                     <div class="addressNewFormInner">
                       <div class="group">
                         <input type="text"id="fname" required name="fname" [(ngModel)]="userModel.name" #fname="ngModel"  pattern=".*[^ ].*">
@@ -157,13 +157,48 @@
             </div>
             </div>
           </mat-radio-group>
+          <div class="actionRowChkBox">
+            <!-- CheckBox -->
+            <mat-checkbox [(ngModel)]="userModel.checked" ></mat-checkbox>
+           
+            I agree 
+            <span *ngIf="!showMobile"routerLinkActive="active"><a href="/terms" [routerLink]="['/terms']" >Terms &amp; Conditions </a></span>
+            <span *ngIf="showMobile"><a (click)="onSelect('terms'); active = true">Terms &amp; Conditions </a></span>
+            and 
+            <span *ngIf="!showMobile" routerLinkActive="active"><a href="/Privacy" [routerLink]="['/privacy']">Privacy Policies.</a></span>
+            <span *ngIf="showMobile"><a (click)="onSelect('privacy'); active = true">Privacy Policies.</a></span>
+            We have updated our 
+            <span *ngIf="!showMobile"routerLinkActive="active"><a href="/terms" [routerLink]="['/terms']" >Terms</a></span>
+            <span *ngIf="showMobile"><a (click)="onSelect('terms'); active = true">Terms</a></span>
+            and 
+            <span *ngIf="!showMobile" routerLinkActive="active"><a href="/Privacy" [routerLink]="['/privacy']">Privacy </a></span>
+            <span *ngIf="showMobile"><a (click)="onSelect('privacy'); active = true">Privacy</a></span>
+            Policies to comply with General Data Protection Regulation.
+          </div>
           <div class="actionRow">
           <div class="float-right">
-                <button *ngIf="valueSelcted == 2" class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone && userModel.name && addressModel.area && addressModel.houseNumber && addressModel.street && addressModel.postalCode)}" (click)="addAddress()">Go to Payment</button>
-                <button *ngIf="valueSelcted == 1" class="btn btn-primary" [ngClass]="{'disabled':!(userModel.email && userModel.phone && userModel.name)}" (click)="addAddress()">Go to Payment</button>
+                <button *ngIf="valueSelcted == 2" class="btn btn-primary" [ngClass]="{'disabled':!(userModel.checked && userModel.email && userModel.phone && userModel.name && addressModel.area && addressModel.houseNumber && addressModel.street && addressModel.postalCode)}" (click)="addAddress()">Go to Payment</button>
+                <button *ngIf="valueSelcted == 1" class="btn btn-primary" [ngClass]="{'disabled':!(userModel.checked && userModel.email && userModel.phone && userModel.name)}" (click)="addAddress()">Go to Payment</button>
           </div>
           <div class="clearfix"></div>
         </div>
     </div>
 </section>
+<!-- Model Window Start -->
+<div [ngClass]="{'modal':true, 'active':active}"  >
+  <div class="modal-overlay" appModelCloseOnOverlay (modelClose)="modelclose($event)"></div>
+  <div class="modal-container">
+        <div class="uboxit-m-close-btn c-hand" (click)="close();"><i class="material-icons">close</i></div>
+        <div class="uboxit-m-body">
+              <div class="uboxit-m-desc">
+                  <div class="content" style="height:450px; overflow-y:scroll" >
+                        <app-terms *ngIf="showTerms"></app-terms>
+                        <app-privacy *ngIf="showPrivacy"></app-privacy>
+                  </div>
+              </div>
+        </div> <!-- Section Content End -->
+
+  </div>
+</div>
+
 

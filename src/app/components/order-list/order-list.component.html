@@ -1,0 +1,40 @@
+{{orders}}
+
+
+<table *ngIf="orders">
+  <tr>
+    <td>{{'id'}}</td>
+    <td>{{'shop-id'}}</td>
+    <td>{{'price'}}</td>
+    <td>{{'reference number'}}</td>
+    <td>{{'psp ref number'}}</td>
+    <td>{{'payment status'}}</td>
+    <td>{{'order confirmation'}}</td>
+    <td>{{'area'}}</td>
+    <td>{{'house number'}}</td>
+    <td>{{'land mark'}}</td>
+    <td>{{'postal code'}}</td>
+    <td>{{'street'}}</td>
+    <td>{{'customer name'}}</td>
+    <td>{{'email id'}}</td>
+    <td>{{'mobile number'}}</td>
+    <td>{{'pickup at date'}}</td>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td>{{order.id}}</td>
+    <td (click)="loadShop(order.shopId)">{{order.shopId}}</td>
+    <td>{{order.price}}</td>
+    <td>{{order.id}}</td>
+    <td>{{order.id}}</td>
+    <td>{{order.id}}</td>
+    <td>{{order.id}}</td>
+    <td>{{order.deliveryAddress.area}}</td>
+    <td>{{order.deliveryAddress.houseNumber}}</td>
+    <td>{{order.deliveryAddress.landMark}}</td>
+    <td>{{order.deliveryAddress.postalCode}}</td>
+    <td>{{order.deliveryAddress.street}}</td>
+    <td>{{order.customerName}}</td>
+    <td>{{order.emailId}}</td>
+    <td>{{order.mobileNumber}}</td>
+  </tr>
+</table>

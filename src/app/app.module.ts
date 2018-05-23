@@ -72,6 +72,7 @@ import { GenericErrorHandler } from './core/errors/generic-error-handler';
 import { ErrorsAggregator } from './core/errors/errors-aggregator';
 import { PrivacyComponent } from './components/shared/privacy/privacy.component';
 import { TermsComponent } from './components/shared/terms/terms.component';
+import {OrderListComponent} from "./components/order-list/order-list.component";
 
 // Payment
 
@@ -110,7 +111,8 @@ import { TermsComponent } from './components/shared/terms/terms.component';
     ToastsComponent,
     ErrorComponent,
     PrivacyComponent,
-    TermsComponent ],
+    TermsComponent,
+    OrderListComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

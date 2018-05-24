@@ -66,8 +66,8 @@ export class AddressComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addressModel = this.storageService.getDeliveryAddress();
-    this.userModel = this.storageService.getDeliveryContact();
+    // this.addressModel = this.storageService.getDeliveryAddress();
+    // this.userModel = this.storageService.getDeliveryContact();
     this.valueSelcted = this.storageService.getDeliveryAddressType();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.showMobile = this.uistyleservice.getDeviceInformation();
@@ -150,8 +150,8 @@ export class AddressComponent implements OnInit {
   }
 
   private navigateToPayment() {
-    this.storageService.storeDeliveryAddress(this.addressModel, this.valueSelcted);
-    this.storageService.storeDeliveryContact(this.userModel);
+    // this.storageService.storeDeliveryAddress(this.addressModel, this.valueSelcted);
+    // this.storageService.storeDeliveryContact(this.userModel);
 
     this.paymentService.enrichAddress(this.addressModel, this.valueSelcted === '1');
     this.paymentService.enrichUserDetails(this.userModel);
@@ -163,12 +163,12 @@ export class AddressComponent implements OnInit {
       this.active = true;
       this.body.classList.add('body-overflow');
       if(comp === 'terms') {
-        this.showTerms = true; 
+        this.showTerms = true;
       } else{
         this.showTerms = false;
       }
       if(comp === 'privacy') {
-        this.showPrivacy = true; 
+        this.showPrivacy = true;
       } else{
        this.showPrivacy = false;
       }

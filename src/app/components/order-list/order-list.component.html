@@ -60,17 +60,17 @@
 
     <ng-container matColumnDef="street">
       <mat-header-cell *matHeaderCellDef> House Number, Street </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.deliveryAddress.houseNumber}}, {{element.deliveryAddress.street}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.houseNumber}}, {{element.deliveryAddress?.street}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="area">
       <mat-header-cell *matHeaderCellDef> Area, Landmark </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.deliveryAddress.area}}, {{element.deliveryAddress.landMark}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.area}}, {{element.deliveryAddress?.landMark}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="postalCode">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Postal code </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.deliveryAddress.postalCode}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.postalCode}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedOrderColumns"></mat-header-row>

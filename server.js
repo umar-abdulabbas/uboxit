@@ -30,7 +30,7 @@ app.all('/:resource/*', (req, res) => {
   console.log(req.url);
   apiRequest.sendRequest(req, req.url)
     .then(apiResponse => {
-    res.json(Object.assign({}, apiResponse.body));
+    res.json(apiResponse.body);
   });
 });
 

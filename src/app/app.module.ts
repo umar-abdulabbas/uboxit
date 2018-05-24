@@ -30,6 +30,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material';
+import {MatSortModule} from '@angular/material';
 
 import { MakeyourcomboOfferComponent } from './components/offers/makeyourcombo-offer/makeyourcombo-offer.component';
 import { AddToCartCounterComponent } from './components/shared/add-to-cart-counter/add-to-cart-counter.component';
@@ -72,7 +77,8 @@ import { GenericErrorHandler } from './core/errors/generic-error-handler';
 import { ErrorsAggregator } from './core/errors/errors-aggregator';
 import { PrivacyComponent } from './components/shared/privacy/privacy.component';
 import { TermsComponent } from './components/shared/terms/terms.component';
-import {OrderListComponent} from "./components/order-list/order-list.component";
+import {OrderListComponent} from './components/order-list/order-list.component';
+import { AdminGuard } from './guards/AdminGuard';
 
 // Payment
 
@@ -126,6 +132,11 @@ import {OrderListComponent} from "./components/order-list/order-list.component";
     MatRadioModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSortModule,
     // Material Import
     LocalStorageModule.withConfig({
       prefix: 'uboxit',
@@ -135,6 +146,7 @@ import {OrderListComponent} from "./components/order-list/order-list.component";
   providers: [
     Title,
     AuthGuard,
+    AdminGuard,
     AppInitializerService,
     OfferService,
     CartService,

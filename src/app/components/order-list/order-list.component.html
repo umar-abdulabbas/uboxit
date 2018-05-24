@@ -1,40 +1,113 @@
-{{orders}}
+
+<div class="uboxit-title">
+  <h3>Orders for today</h3>
+</div>
+
+<div class="example-container mat-elevation-z8">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+      <mat-cell class="clickable" *matCellDef="let element" (click)="loadShop(element.shopId, element.orderConfirmation)"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="order">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Order# </mat-header-cell>
+      <mat-cell class="clickable" *matCellDef="let element"(click)="loadShop(element.shopId, element.orderConfirmation)" > {{element.orderConfirmation}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="customerName">
+      <mat-header-cell *matHeaderCellDef> Customer Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.customerName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="mobileNumber">
+      <mat-header-cell *matHeaderCellDef> Mobile Number </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.mobileNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="emailId">
+      <mat-header-cell *matHeaderCellDef> Email Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.emailId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Total Price </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentStatus">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Payment Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.paymentStatus}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Payment Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.paymentType}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="deliveryType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pickupAtStore ? 'Pickup at store' : 'Delivery'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="street">
+      <mat-header-cell *matHeaderCellDef> House Number, Street </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress.houseNumber}}, {{element.deliveryAddress.street}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="area">
+      <mat-header-cell *matHeaderCellDef> Area, Landmark </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress.area}}, {{element.deliveryAddress.landMark}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="postalCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Postal code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress.postalCode}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedOrderColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedOrderColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>
 
 
-<table *ngIf="orders">
-  <tr>
-    <td>{{'id'}}</td>
-    <td>{{'shop-id'}}</td>
-    <td>{{'price'}}</td>
-    <td>{{'reference number'}}</td>
-    <td>{{'psp ref number'}}</td>
-    <td>{{'payment status'}}</td>
-    <td>{{'order confirmation'}}</td>
-    <td>{{'area'}}</td>
-    <td>{{'house number'}}</td>
-    <td>{{'land mark'}}</td>
-    <td>{{'postal code'}}</td>
-    <td>{{'street'}}</td>
-    <td>{{'customer name'}}</td>
-    <td>{{'email id'}}</td>
-    <td>{{'mobile number'}}</td>
-    <td>{{'pickup at date'}}</td>
-  </tr>
-  <tr *ngFor="let order of orders">
-    <td>{{order.id}}</td>
-    <td (click)="loadShop(order.shopId)">{{order.shopId}}</td>
-    <td>{{order.price}}</td>
-    <td>{{order.id}}</td>
-    <td>{{order.id}}</td>
-    <td>{{order.id}}</td>
-    <td>{{order.id}}</td>
-    <td>{{order.deliveryAddress.area}}</td>
-    <td>{{order.deliveryAddress.houseNumber}}</td>
-    <td>{{order.deliveryAddress.landMark}}</td>
-    <td>{{order.deliveryAddress.postalCode}}</td>
-    <td>{{order.deliveryAddress.street}}</td>
-    <td>{{order.customerName}}</td>
-    <td>{{order.emailId}}</td>
-    <td>{{order.mobileNumber}}</td>
-  </tr>
-</table>
+<div class="uboxit-title" *ngIf="selectedOrder">
+  <h3>Order Details for {{selectedOrder}}</h3>
+</div>
+
+<div *ngIf="selectedOrder">
+  <mat-table #table [dataSource]="itemDataSource">
+
+    <ng-container matColumnDef="no">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="count">
+      <mat-header-cell *matHeaderCellDef> Count# </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.count}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedItemColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedItemColumns;"></mat-row>
+  </mat-table>
+</div>

@@ -14,6 +14,7 @@ import { PrivacyComponent } from './components/shared/privacy/privacy.component'
 import { TermsComponent } from './components/shared/terms/terms.component';
 import { AuthGuard } from './guards/auth.guard';
 import {OrderListComponent} from './components/order-list/order-list.component';
+import { AdminGuard } from './guards/AdminGuard';
 
 const routes: Routes = [
 
@@ -30,7 +31,7 @@ const routes: Routes = [
   {path: 'error', component: ErrorComponent},
   {path: 'privacy', component: PrivacyComponent},
   {path: 'terms', component: TermsComponent},
-  {path: 'order-list', component: OrderListComponent},
+  {path: 'order-list', component: OrderListComponent, canActivate: [AdminGuard]},
 ];
 
 @NgModule({

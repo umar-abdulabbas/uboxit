@@ -20,7 +20,12 @@
 
     <ng-container matColumnDef="order">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Order# </mat-header-cell>
-      <mat-cell class="clickable" *matCellDef="let element"(click)="loadShop(element.shopId, element.orderConfirmation)" > {{element.orderConfirmation}} </mat-cell>
+      <mat-cell class="clickable" *matCellDef="let element" (click)="loadShop(element.shopId, element.orderConfirmation)" > {{element.orderConfirmation}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="orderTime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Order Time </mat-header-cell>
+      <mat-cell class="clickable" *matCellDef="let element"> 17:30 </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="customerName">
@@ -58,14 +63,9 @@
       <mat-cell *matCellDef="let element"> {{element.pickupAtStore ? 'Pickup at store' : 'Delivery'}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="street">
-      <mat-header-cell *matHeaderCellDef> House Number, Street </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.houseNumber}}, {{element.deliveryAddress?.street}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="area">
-      <mat-header-cell *matHeaderCellDef> Area, Landmark </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.area}}, {{element.deliveryAddress?.landMark}} </mat-cell>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.houseNumber}}, {{element.deliveryAddress?.street}}, {{element.deliveryAddress?.area}}, {{element.deliveryAddress?.landMark}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="postalCode">

@@ -87,6 +87,7 @@
 
 <div class="uboxit-title" *ngIf="selectedOrder">
   <h3>Order Details for {{selectedOrder}}</h3>
+  <h4 *ngIf="remark" [ngClass]="{'blink': !!remark}">Remarks: </h4><h4>{{remark}}</h4>
 </div>
 
 <div *ngIf="selectedOrder">

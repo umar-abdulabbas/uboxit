@@ -14,6 +14,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   orders = [];
   items = [];
   selectedOrder: string;
+  remark: string;
 
   dataSource = new MatTableDataSource<any>(undefined);
   itemDataSource = new MatTableDataSource<any>(undefined);
@@ -55,6 +56,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
     this.selectedOrder = orderId;
     this.http.get(`shop-api/shop/${shopId}`).subscribe((s: any) => {
       console.log(s);
+      // this.remark = 'Please give a call, dont knock the door. We might have children sleeping';
       this.itemDataSource = new MatTableDataSource<any>(s.items);
     });
   }

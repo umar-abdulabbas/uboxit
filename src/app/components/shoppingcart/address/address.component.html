@@ -158,19 +158,33 @@
             </div>
           </mat-radio-group>
           <div class="actionRowChkBox">
+            <div class="group remarks-area">
+              <input type="text" name="remarks" class="input-color" [(ngModel)]="remarks" #fname="ngModel" pattern=".*[^ ].*"
+                     placeholder="extra sambar / child will be sleeping.. don't ring the bell, call instead / feedback">
+              <span class="highlight"></span>
+              <span class="bar"></span><label>Remarks if any</label>
+            </div>
+            <div class="group remarks-area">
+              <input type="text" name="remarks" class="input-color" [(ngModel)]="deliveryPickUpTime" #fname="ngModel" pattern=".*[^ ].*"
+                     placeholder="no specific format ;)">
+              <span class="highlight"></span>
+              <span class="bar"></span><label>Delivery or Pickup time</label>
+            </div>
+          </div>
+          <div class="actionRowChkBox">
             <!-- CheckBox -->
             <mat-checkbox [(ngModel)]="userModel.checked" ></mat-checkbox>
-           
-            I agree 
+
+            I agree
             <span *ngIf="!showMobile"routerLinkActive="active"><a href="/terms" [routerLink]="['/terms']" >Terms &amp; Conditions </a></span>
             <span *ngIf="showMobile"><a (click)="onSelect('terms'); active = true">Terms &amp; Conditions </a></span>
-            and 
+            and
             <span *ngIf="!showMobile" routerLinkActive="active"><a href="/Privacy" [routerLink]="['/privacy']">Privacy Policies.</a></span>
             <span *ngIf="showMobile"><a (click)="onSelect('privacy'); active = true">Privacy Policies.</a></span>
-            We have updated our 
+            We have updated our
             <span *ngIf="!showMobile"routerLinkActive="active"><a href="/terms" [routerLink]="['/terms']" >Terms</a></span>
             <span *ngIf="showMobile"><a (click)="onSelect('terms'); active = true">Terms</a></span>
-            and 
+            and
             <span *ngIf="!showMobile" routerLinkActive="active"><a href="/Privacy" [routerLink]="['/privacy']">Privacy </a></span>
             <span *ngIf="showMobile"><a (click)="onSelect('privacy'); active = true">Privacy</a></span>
             Policies to comply with General Data Protection Regulation.

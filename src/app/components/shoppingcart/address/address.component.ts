@@ -44,6 +44,8 @@ export class AddressComponent implements OnInit {
   public valueSelcted;
   addressModel: Address = <Address>{};
   userModel: any = {};
+  remarks: string;
+  deliveryPickUpTime: string;
   active = false;
   body;
   public showMobile: boolean;

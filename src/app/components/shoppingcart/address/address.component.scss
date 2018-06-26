@@ -13,12 +13,12 @@ input{
 .bar{
     width: 100%;
 }
-.group label{ 
+.group label{
 font-size: 13px !important;  font-family: $uboxit-font;
 }
 input:focus ~ label{
     top:-10px;
-    
+
 }
 input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
     top:-10px;
@@ -84,12 +84,12 @@ input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
     background: #fff;
 }
 .actionRow{
-   
+
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     padding: 16px 8px 16px 24px;
-   
+
 }
 
 .actionRowChkBox{
@@ -110,10 +110,15 @@ input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
 .uboxit-mobile-prefix-elem-tel{
     padding-left: 30px;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.remarks-area {
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 :host /deep/ .gen-layout.terms {
     display: none;

@@ -79,6 +79,7 @@ import { PrivacyComponent } from './components/shared/privacy/privacy.component'
 import { TermsComponent } from './components/shared/terms/terms.component';
 import {OrderListComponent} from './components/order-list/order-list.component';
 import { AdminGuard } from './guards/AdminGuard';
+import { GenericService } from './core/services/generic-service';
 
 // Payment
 
@@ -154,6 +155,7 @@ import { AdminGuard } from './guards/AdminGuard';
     CounterService,
     LoginService,
     PaymentService,
+    GenericService,
     MakeYourOwnComboService,
     UserExpStyleService,
     OfferErrorMessageService,

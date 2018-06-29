@@ -5,6 +5,7 @@ import { PlatformLocation } from '@angular/common';
 import { Address } from '../../../core/domain/address';
 import { FeatureSwitch } from '../../../core/feature-switch/feature-switch';
 import { StorageService } from '../../../shared/services/storage-service';
+import { GenericService } from '../../../core/services/generic-service';
 
 @Injectable()
 export class PaymentService {
@@ -17,7 +18,8 @@ export class PaymentService {
   constructor(private http: HttpClient,
               private loginService: LoginService, // LOGIN FEATURE
               private platformLocation: PlatformLocation,
-              private storageService: StorageService) {
+              private storageService: StorageService,
+              private genericService: GenericService) {
     this.origin = (this.platformLocation as any).location.origin;
   }
 
@@ -67,7 +69,8 @@ export class PaymentService {
       'returnurl': `${this.origin}/finish?cartId=${cartId}`,
       'origin': this.origin,
       'emailId': this.userDetails.email,
-      'mobileNumber': this.makePhoneNumberProper(this.userDetails.phone.toString())
+      'mobileNumber': this.makePhoneNumberProper(this.userDetails.phone.toString()),
+      'channel': this.genericService.getMobileChannel()
     };
     if (FeatureSwitch.isLoginFeatureEnabled()) {
       request['individualId'] = this.loginService.individual.customerId;

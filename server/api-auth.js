@@ -1,9 +1,12 @@
 const memoryCache = require('memory-cache');
 const reqPromise = require('request-promise');
+const config = require('config');
+
+const urlBase = config.get('api-url-base');
 
 function authToken() {
   return reqPromise({
-    uri: 'http://188.166.82.127:8085/authserver/oauth/token',
+    uri: urlBase + '/authserver/oauth/token',
     method: 'POST',
     form: {
       'grant_type': 'client_credentials'
@@ -18,7 +21,7 @@ function authToken() {
 
 function authUser(userName, password) {
   return reqPromise({
-    uri: 'http://188.166.82.127:8085/authserver/oauth/token',
+    uri: urlBase + '/authserver/oauth/token',
     method: 'POST',
     form: {
       'grant_type': 'password',
@@ -62,4 +65,4 @@ module.exports.authToken = function (userName, password) {
     });
 
     return requestTokenPromise;
-}
+};

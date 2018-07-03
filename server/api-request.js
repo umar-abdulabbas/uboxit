@@ -1,5 +1,8 @@
 const reqPromise = require('request-promise');
 const apiAuth = require('./api-auth');
+const config = require('config');
+
+const urlBase = config.get('api-url-base');
 
 function getHeaders(reqHeaders, token) {
   if (token) {
@@ -11,11 +14,12 @@ function getHeaders(reqHeaders, token) {
 }
 
 function sendRequest(req) {
+  console.log(urlBase);
   return apiAuth.authToken(req.header('x-uboxit-username'))
     .then((token) => {
     console.log(token);
       return reqPromise({
-        uri: 'http://188.166.82.127:8085' + req.url,
+        uri: urlBase + req.url,
         method: req.method,
         body: req.body,
         headers: getHeaders(req.headers, token),
@@ -40,7 +44,7 @@ function createOrUpdateCustomer(req) {
     .then((token) => {
     console.log(token);
     return reqPromise({
-      uri: 'http://188.166.82.127:8085' + req.url,
+      uri: urlBase + req.url,
       method: req.method,
       body: req.body,
       // fresh header are required to access customer api
@@ -68,7 +72,7 @@ function login(req) {
     .then((token) => {
     console.log(token);
     return reqPromise({
-        uri: 'http://188.166.82.127:8085' + req.url + '?emailId=' + req.body.username,
+        uri: urlBase + req.url + '?emailId=' + req.body.username,
         method: 'GET',
         form: req.body,
         headers: getHeaders(req.headers, token),

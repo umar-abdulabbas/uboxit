@@ -25,7 +25,12 @@
 
     <ng-container matColumnDef="orderTime">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Order Time </mat-header-cell>
-      <mat-cell class="clickable" *matCellDef="let element"> 17:30 </mat-cell>
+      <mat-cell class="clickable" *matCellDef="let element"> {{element.createdDateTime}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="deliveryTime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Requested Delivery/Pickup Time </mat-header-cell>
+      <mat-cell class="clickable" *matCellDef="let element"> {{element.requestedDeliveryTime}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="customerName">
@@ -65,7 +70,10 @@
 
     <ng-container matColumnDef="address">
       <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.deliveryAddress?.houseNumber}}, {{element.deliveryAddress?.street}}, {{element.deliveryAddress?.area}}, {{element.deliveryAddress?.landMark}} </mat-cell>
+      <mat-cell *matCellDef="let element">
+        <span *ngIf="element.deliveryAddress">{{element.deliveryAddress?.houseNumber}}, {{element.deliveryAddress?.street}}, {{element.deliveryAddress?.area}}, {{element.deliveryAddress?.landMark}}
+        </span>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="postalCode">
@@ -87,7 +95,7 @@
 
 <div class="uboxit-title" *ngIf="selectedOrder">
   <h3>Order Details for {{selectedOrder}}</h3>
-  <h4 *ngIf="remark" [ngClass]="{'blink': !!remark}">Remarks: </h4><h4>{{remark}}</h4>
+  <h4 *ngIf="remarks" [ngClass]="{'blink': !!remarks}">Remarks: {{remarks}}</h4>\
 </div>
 
 <div *ngIf="selectedOrder">

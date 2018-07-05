@@ -40,6 +40,10 @@ mat-cell.clickable:hover {
   -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
 
+h4 {
+  margin-left: 20px;
+}
+
 @keyframes blink-animation {
   to {
     visibility: hidden;

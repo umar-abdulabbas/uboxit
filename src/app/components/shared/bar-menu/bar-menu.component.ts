@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { OfferService } from '../../offers/services/offer.service';
-import { Observable } from 'rxjs/Observable';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
+
 /* Menu Start */
 export class MenuList {
   id: string;
@@ -26,13 +26,10 @@ const MENULIST: MenuList[] = [
   styleUrls: ['./bar-menu.component.scss']
 })
 export class BarMenuComponent implements OnInit {
-  // public barFixed = false;
   public isBtnActive = true;
-  public pathFinder: string;
   public isActiveDropDown = false;
   public menuActive: boolean;
   menuList: MenuList[] = [];
-  totalCount: Observable<any>;
   public showMobile: boolean;
   public celloneFooter = false;
   public celltwoFooter = false;
@@ -68,14 +65,12 @@ export class BarMenuComponent implements OnInit {
 
       }
     }
-    if(this.menuList.length === 1) {
-        this.celloneFooter = true;
-    }
-    else if(this.menuList.length === 2) {
+    if (this.menuList.length === 1) {
+      this.celloneFooter = true;
+    } else if (this.menuList.length === 2) {
       this.celltwoFooter = true;
-    }
-    else{
-      this.celloneFooter && this.celltwoFooter == false;
+    } else {
+      this.celloneFooter && this.celltwoFooter === false;
     }
   }
 
@@ -85,7 +80,7 @@ export class BarMenuComponent implements OnInit {
   }
 
   openMenu(link: string): void {
-    console.log("ssss")
+    console.log('ssss');
     this.router.navigate([link]);
   }
 
@@ -104,8 +99,6 @@ export class BarMenuComponent implements OnInit {
     menuItem.menuActive = menuActive;
     this.menuList.filter(item => item.id !== id).forEach(i => i.menuActive = false);
   }
-
-
 
 
 }

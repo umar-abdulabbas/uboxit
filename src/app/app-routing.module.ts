@@ -12,7 +12,6 @@ import { ChoicesComponent } from './components/offers/choices/choices.component'
 import { ErrorComponent } from './components/shared/error/error.component';
 import { PrivacyComponent } from './components/shared/privacy/privacy.component';
 import { TermsComponent } from './components/shared/terms/terms.component';
-import { AuthGuard } from './guards/auth.guard';
 import {OrderListComponent} from './components/order-list/order-list.component';
 import { AdminGuard } from './guards/AdminGuard';
 

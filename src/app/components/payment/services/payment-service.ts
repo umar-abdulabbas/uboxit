@@ -14,6 +14,8 @@ export class PaymentService {
   private address: Address;
   private pickupAtStore: boolean;
   private userDetails: any;
+  remarks: string;
+  deliveryPickUpTime: string;
 
   constructor(private http: HttpClient,
               private loginService: LoginService, // LOGIN FEATURE
@@ -54,6 +56,11 @@ export class PaymentService {
     this.userDetails = userDetails;
   }
 
+  enrichMiscData(remarks: string, deliveryPickUpTime: string) {
+    this.remarks = remarks;
+    this.deliveryPickUpTime = deliveryPickUpTime;
+  }
+
   isValidForPayment() {
     return !!this.address && !!this.userDetails;
   }
@@ -79,6 +86,13 @@ export class PaymentService {
       request['pickupAtStore'] = this.pickupAtStore;
     } else {
       request['deliveryAddress'] = this.address;
+    }
+    // misc data
+    if (this.remarks) {
+      request['remarks'] = this.remarks;
+    }
+    if (this.deliveryPickUpTime) {
+      request['requestedDeliveryTime'] = this.deliveryPickUpTime;
     }
     return this.http.post('/order-api/order', request);
   }

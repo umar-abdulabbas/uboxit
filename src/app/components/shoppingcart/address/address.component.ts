@@ -157,6 +157,7 @@ export class AddressComponent implements OnInit {
 
     this.paymentService.enrichAddress(this.addressModel, this.valueSelcted === '1');
     this.paymentService.enrichUserDetails(this.userModel);
+    this.paymentService.enrichMiscData(this.remarks, this.deliveryPickUpTime);
 
     this.addressUpdated.emit(true);
   }

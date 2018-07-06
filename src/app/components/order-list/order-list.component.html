@@ -95,7 +95,7 @@
 
 <div class="uboxit-title" *ngIf="selectedOrder">
   <h3>Order Details for {{selectedOrder}}</h3>
-  <h4 *ngIf="remarks" [ngClass]="{'blink': !!remarks}">Remarks: {{remarks}}</h4>\
+  <h4 *ngIf="remarks" [ngClass]="{'blink': !!remarks}">Remarks: {{remarks}}</h4>
 </div>
 
 <div *ngIf="selectedOrder">
@@ -109,6 +109,14 @@
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="items">
+      <mat-header-cell *matHeaderCellDef> Items </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span *ngIf="element.items; else notCombo" [innerHTML]="getItemNamesInCombo(element.items)"></span>
+        <ng-template #notCombo>-</ng-template>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="count">

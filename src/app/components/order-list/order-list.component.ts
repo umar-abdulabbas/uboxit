@@ -10,7 +10,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatSortable } from '@angular
 export class OrderListComponent implements OnInit, AfterViewInit {
 
   displayedOrderColumns = ['id', 'order', 'orderTime', 'deliveryTime', 'customerName', 'mobileNumber', 'price', 'paymentStatus', 'paymentType', 'deliveryType', 'address', 'postalCode', 'emailId'];
-  displayedItemColumns = ['no', 'name', 'count'];
+  displayedItemColumns = ['no', 'name', 'items', 'count'];
   orders = [];
   items = [];
   selectedOrder: string;
@@ -58,7 +58,12 @@ export class OrderListComponent implements OnInit, AfterViewInit {
       console.log(s);
       const matchingOrder = this.orders.find(o => o.shopId === shopId);
       this.remarks = matchingOrder.remarks;
-      this.itemDataSource = new MatTableDataSource<any>(s.items);
+      const orderedItems = [...s.items, ...s.combos];
+      this.itemDataSource = new MatTableDataSource<any>(orderedItems);
     });
+  }
+
+  getItemNamesInCombo(itemsInCombo: any[]) {
+    return itemsInCombo.map(i => i.name);
   }
 }

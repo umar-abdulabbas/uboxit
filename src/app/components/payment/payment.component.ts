@@ -23,7 +23,7 @@ export class PaymentComponent implements OnInit {
   amount: number;
 
   sdkConfigObj = {
-    context: 'test' // change it to `live` when going live.
+    context: 'live' // change it to `live` when going live.
   };
 
   private adyenSdk = window['chckt'];

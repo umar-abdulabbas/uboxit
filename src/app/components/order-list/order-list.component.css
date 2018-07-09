@@ -3,6 +3,7 @@
 }
 
 .example-container {
+  clear: both;
   display: flex;
   flex-direction: column;
   min-width: 300px;
@@ -25,6 +26,11 @@
 
 .mat-header-row .mat-header-cell {
   color: #FF655A;
+}
+
+.refresh-rate {
+  width: 30%;
+  float: right;
 }
 
 mat-cell.clickable {

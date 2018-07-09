@@ -1,6 +1,14 @@
 
 <div class="uboxit-title">
   <h3>Orders for today</h3>
+
+  <mat-form-field class="refresh-rate">
+    <mat-select placeholder="Auto refresh every" [(ngModel)]="refreshRate" name="rate">
+      <mat-option *ngFor="let refresh of refreshes" [value]="refresh.value">
+        {{refresh.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 
 <div class="example-container mat-elevation-z8">

@@ -33,7 +33,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatInputModule} from '@angular/material';
+import { MatInputModule, MatSelectModule } from '@angular/material';
 import {MatSortModule} from '@angular/material';
 
 import { MakeyourcomboOfferComponent } from './components/offers/makeyourcombo-offer/makeyourcombo-offer.component';
@@ -138,6 +138,7 @@ import { GenericService } from './core/services/generic-service';
     MatPaginatorModule,
     MatInputModule,
     MatSortModule,
+    MatSelectModule,
     // Material Import
     LocalStorageModule.withConfig({
       prefix: 'uboxit',

@@ -69,7 +69,7 @@ export class OrderListComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log(s);
       const matchingOrder = this.orders.find(o => o.shopId === shopId);
       this.remarks = matchingOrder.remarks;
-      const orderedItems = [...s.items, ...s.combos];
+      const orderedItems = [...s.items, ...s.combos].filter(e => e); // filter to remove undefined items/combos
       this.itemDataSource = new MatTableDataSource<any>(orderedItems);
     });
   }

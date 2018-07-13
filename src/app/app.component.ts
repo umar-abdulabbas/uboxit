@@ -4,6 +4,7 @@ import { LoginService } from './components/personal/services/login-service';
 import { UserExpStyleService } from './shared/UI/globalUI.service';
 import { NgxCarousel } from 'ngx-carousel';
 import { Router, NavigationStart } from '@angular/router';
+import { ReferenceDataService } from './shared/services/reference-data.service';
 
 @Component({
   selector: 'app-root',
@@ -21,13 +22,13 @@ export class AppComponent implements OnInit, OnDestroy {
   showPromo = false;
 
   constructor(private storageService: StorageService, private loginService: LoginService,
-              private uistyleservice: UserExpStyleService, private router: Router) {
+              private uistyleservice: UserExpStyleService, private router: Router,
+              private referenceDataService: ReferenceDataService) {
     router.events
       .filter(event => event instanceof NavigationStart)
       .subscribe((val) => {
         this.checkNavigationStart = val;
-        //if (['/terms', '/privacy', '/about', '/contact', '/makeyourcombo', '/choices', '/shoppingcart', '/error', '/finish'].includes(this.checkNavigationStart.url)) {
-          if (['/home', '/choices', '/makeyourcombo'].includes(this.checkNavigationStart.url) && this.showMobile){
+          if (['/home', '/choices', '/makeyourcombo'].includes(this.checkNavigationStart.url) && this.showMobile) {
           this.showMobile = true;
           console.log(this.checkNavigationStart.url);
         }  else {
@@ -36,16 +37,18 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.referenceDataService.getReferenceData();
     this.showMobile = this.uistyleservice.getDeviceInformation();
-    var myDate = new Date();
-    var hrs = myDate.getHours();
-    if (hrs < 12)
-        this.greet = 'Good Morning';
-    else if (hrs >= 12 && hrs <= 17)
-        this.greet = 'Good Afternoon';
-    else if (hrs >= 17 && hrs <= 24)
-        this.greet = 'Good Evening';
+    const myDate = new Date();
+    const hrs = myDate.getHours();
+    if (hrs < 12) {
+      this.greet = 'Good Morning';
+    } else if (hrs >= 12 && hrs <= 17) {
+      this.greet = 'Good Afternoon';
+    } else if (hrs >= 17 && hrs <= 24) {
+      this.greet = 'Good Evening';
+    }
     this.loginService.getUser(this.storageService.getUser());
     this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},

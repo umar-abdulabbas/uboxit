@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
+import { ReferenceDataService } from '../../../shared/services/reference-data.service';
 
 @Component({
   selector: 'app-advertisement',
@@ -12,9 +13,12 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
   public carouselOne: NgxCarousel;
   public showMobile = true;
   public showOnlyForDesktopPath: boolean;
+
+  banners = [];
+
   @Output() directlink = new EventEmitter<string>();
 
-  constructor(private uistyleservice: UserExpStyleService) {
+  constructor(private uistyleservice: UserExpStyleService, private referenceDataService: ReferenceDataService) {
   }
 
   ngOnInit() {
@@ -74,6 +78,10 @@ export class AdvertisementComponent implements OnInit, OnDestroy {
       load: 2,
       touch: true
     };
+
+    this.referenceDataService.referenceData.subscribe(d => {
+      this.banners = d.banner;
+    });
 
   }
 

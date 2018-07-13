@@ -82,13 +82,12 @@
                                 </td>
                                 <td>
                                     <div class="group">
-                                        <input type="text" required name="landMark" [(ngModel)]="addressModel.landMark" #landMark="ngModel" pattern="[A-Za-z\d\- ]*$">
+                                        <input type="text" name="landMark" [(ngModel)]="addressModel.landMark" #landMark="ngModel" pattern="[A-Za-z\d\- ]*$">
                                         <span class="highlight"></span>
                                         <span class="bar"></span><label>Location/LandMark</label>
                                     </div>
                                   <!-- Validation landmark-->
                                   <div *ngIf="landMark.invalid && (landMark.dirty || landMark.touched)" class="toast toast-error space1">
-                                    <div *ngIf="landMark.errors.required">Landmark is required. </div>
                                     <div *ngIf="landMark.errors.pattern">Landmark is invalid. </div>
                                   </div>
                                   <!-- Validation End landmar -->
@@ -116,7 +115,7 @@
                       </div>
                        <!-- Validation Email-->
                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
-                          <div *ngIf="email.errors.required">Email Name is required. </div>
+                          <div *ngIf="email.errors.required">Email is required. </div>
                           <div *ngIf="email.errors.pattern">Email is Invalid</div>
                         </div>
                         <!-- Validation End Email -->
@@ -152,7 +151,7 @@
               </div>
                <!-- Validation Email-->
                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
-                  <div *ngIf="email.errors.required">Email Name is required. </div>
+                  <div *ngIf="email.errors.required">Email is required. </div>
                   <div *ngIf="email.errors.pattern">Email is Invalid</div>
 
                 </div>

@@ -16,7 +16,8 @@
                       </div>
                         <!-- Validation Name-->
                         <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
-                            <div *ngIf="fname.errors.required || fname.errors.pattern">Name is required.</div>
+                            <div *ngIf="fname.errors.required">Name is required.</div>
+                            <div *ngIf="fname.errors.pattern">Name is invalid.</div>
                         </div>
                           <!-- Validation End Name -->
                       <div class="group">
@@ -42,7 +43,8 @@
                                 </div>
                                   <!-- Validation House Number-->
                                   <div *ngIf="housenumber.invalid && (housenumber.dirty || housenumber.touched)" class="toast toast-error space1">
-                                  <div *ngIf="housenumber.errors.required || housenumber.errors.pattern">House Number is required. </div>
+                                  <div *ngIf="housenumber.errors.required">House Number is required. </div>
+                                  <div *ngIf="housenumber.errors.pattern">House Number is invalid. </div>
                                    </div>
                                   <!-- Validation End House Number-->
                               </td>
@@ -54,7 +56,8 @@
                                 </div>
                                 <!-- Validation Street Name-->
                                 <div *ngIf="streetname.invalid && (streetname.dirty || streetname.touched)" class="toast toast-error space1">
-                                    <div *ngIf="streetname.errors.required || streetname.errors.pattern">Street Name is required. </div>
+                                    <div *ngIf="streetname.errors.required">Street Name is required. </div>
+                                    <div *ngIf="streetname.errors.pattern">Street Name is invalid. </div>
                                 </div>
                                 <!-- Validation End Street Name -->
                               </td>
@@ -72,7 +75,8 @@
                                     </div>
                                      <!-- Validation Street Name-->
                                       <div *ngIf="cityname.invalid && (cityname.dirty || cityname.touched)" class="toast toast-error space1">
-                                        <div *ngIf="cityname.errors.required || cityname.errors.pattern">City/Area is required. </div>
+                                        <div *ngIf="cityname.errors.required">City/Area is required. </div>
+                                        <div *ngIf="cityname.errors.pattern">City/Area is invalid. </div>
                                       </div>
                                 <!-- Validation End Street Name -->
                                 </td>
@@ -84,7 +88,8 @@
                                     </div>
                                   <!-- Validation landmark-->
                                   <div *ngIf="landMark.invalid && (landMark.dirty || landMark.touched)" class="toast toast-error space1">
-                                    <div *ngIf="landMark.errors.required || landMark.errors.pattern">Landmark is required. </div>
+                                    <div *ngIf="landMark.errors.required">Landmark is required. </div>
+                                    <div *ngIf="landMark.errors.pattern">Landmark is invalid. </div>
                                   </div>
                                   <!-- Validation End landmar -->
                                   </td>
@@ -100,6 +105,7 @@
                       <!-- Validation Phone Number-->
                       <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1">
                           <div *ngIf="phonenumber.errors.required">Mobile Number is required.</div>
+                          <div *ngIf="phonenumber.errors.pattern">Mobile Number is invalid.</div>
                       </div>
                       <!-- Validation End Phone Number -->
 
@@ -135,7 +141,8 @@
               </div>
                    <!-- Validation Name-->
                    <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
-                      <div *ngIf="fname.errors.required || fname.errors.pattern">Name is required.</div>
+                      <div *ngIf="fname.errors.required ">Name is required.</div>
+                      <div *ngIf="fname.errors.pattern">Name is invalid.</div>
                   </div>
                     <!-- Validation End Name -->
               <div class="group">
@@ -159,6 +166,7 @@
               <!-- Validation Phone Number-->
               <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1" >
                   <div *ngIf="phonenumber.errors.required">Mobile Number is required.</div>
+                  <div *ngIf="phonenumber.errors.pattern">Mobile Number is invalid.</div>
               </div>
               <!-- Validation End Phone Number -->
             </div>
@@ -173,11 +181,10 @@
             <!-- Validation Email-->
             <div *ngIf="rem.invalid && (rem.dirty || rem.touched)" class="toast toast-error space1">
               <div *ngIf="rem.errors.pattern">Invalid remarks</div>
-
             </div>
             <div class="group remarks-area">
-              <input type="time"  name="remarks" class="input-color" [(ngModel)]="deliveryPickUpTime" #fname="ngModel" pattern=".*[^ ].*"
-                     placeholder="no specific format ;)">
+              <input type="time"  name="remarks" class="input-color" atp-time-picker arrowStyle="{'background': '#FF655A'}" [(ngModel)]="deliveryPickUpTime" #deliveryTime="ngModel"
+                     placeholder="HH:MM AM/PM">
               <span class="highlight"></span>
               <span class="bar"></span><label>Delivery or Pickup time</label>
             </div>

@@ -80,6 +80,7 @@ import { TermsComponent } from './components/shared/terms/terms.component';
 import {OrderListComponent} from './components/order-list/order-list.component';
 import { AdminGuard } from './guards/AdminGuard';
 import { GenericService } from './core/services/generic-service';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 // Payment
 
@@ -127,6 +128,7 @@ import { GenericService } from './core/services/generic-service';
     NgxCarouselModule,
     // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false } ),
     BrowserAnimationsModule,
+    AmazingTimePickerModule,
     AppRoutingModule,
     MatExpansionModule,
     MatStepperModule,

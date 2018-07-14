@@ -182,10 +182,13 @@
               <div *ngIf="rem.errors.pattern">Invalid remarks</div>
             </div>
             <div class="group remarks-area">
-              <input type="time"  name="remarks" class="input-color" atp-time-picker arrowStyle="{'background': '#FF655A'}" [(ngModel)]="deliveryPickUpTime" #deliveryTime="ngModel"
+              <input type="text" name="remarks" class="input-color" [(ngModel)]="deliveryPickUpTime" #deliveryTime="ngModel" pattern="((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))"
                      placeholder="HH:MM AM/PM">
               <span class="highlight"></span>
-              <span class="bar"></span><label>Delivery or Pickup time</label>
+              <span class="bar"></span><label>Delivery or Pickup time (hh:mm am/pm)</label>
+            </div>
+            <div *ngIf="deliveryTime.invalid && (deliveryTime.dirty || deliveryTime.touched)" class="toast toast-error space1" >
+              <div *ngIf="deliveryTime.errors.pattern">Time is invalid.</div>
             </div>
           </div>
           <div class="actionRowChkBox">

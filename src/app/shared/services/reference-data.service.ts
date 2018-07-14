@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs/Subject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class ReferenceDataService {
 
-  private referenceDataSubject: Subject<any> = new Subject<any>();
+  private referenceDataSubject = new ReplaySubject<any>();
 
   get referenceData() {
     return this.referenceDataSubject.asObservable();

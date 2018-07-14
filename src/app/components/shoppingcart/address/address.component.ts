@@ -68,8 +68,8 @@ export class AddressComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.addressModel = this.storageService.getDeliveryAddress();
-    // this.userModel = this.storageService.getDeliveryContact();
+    this.addressModel = this.storageService.getDeliveryAddress();
+    this.userModel = this.storageService.getDeliveryContact();
     this.valueSelcted = this.storageService.getDeliveryAddressType();
     this.body = document.getElementsByTagName('body')[0]; // top stop the scroll window
     this.showMobile = this.uistyleservice.getDeviceInformation();
@@ -152,8 +152,8 @@ export class AddressComponent implements OnInit {
   }
 
   private navigateToPayment() {
-    // this.storageService.storeDeliveryAddress(this.addressModel, this.valueSelcted);
-    // this.storageService.storeDeliveryContact(this.userModel);
+    this.storageService.storeDeliveryAddress(this.addressModel, this.valueSelcted);
+    this.avoidPrivacySelectionForStorage();
 
     this.paymentService.enrichAddress(this.addressModel, this.valueSelcted === '1');
     this.paymentService.enrichUserDetails(this.userModel);
@@ -184,5 +184,11 @@ export class AddressComponent implements OnInit {
     // This Function is used to close the Model Window on clicking outstide of the screen.
     this.active = event;
     this.body.classList.remove('body-overflow');
+  }
+
+  private avoidPrivacySelectionForStorage() {
+    const user = Object.assign({}, this.userModel);
+    user.checked = false;
+    this.storageService.storeDeliveryContact(user);
   }
 }

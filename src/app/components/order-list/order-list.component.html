@@ -90,7 +90,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedOrderColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedOrderColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedOrderColumns;" [ngClass]="{'new-entry': row.newEntry}" (click)="handleNewEntry(row)"></mat-row>
   </mat-table>
 
   <mat-paginator #paginator

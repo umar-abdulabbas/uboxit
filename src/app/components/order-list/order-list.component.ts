@@ -84,19 +84,29 @@ export class OrderListComponent implements OnInit, AfterViewInit, OnDestroy {
     return itemsInCombo.map(i => i.name);
   }
 
+  handleNewEntry(entry: any) {
+    entry.newEntry = false;
+  }
+
   private getOrders() {
     this.http.get('order-api/order').subscribe((o: any[]) => {
       if (this.orders.length > 0) {
         if (o.length > this.orders.length) {
           this.notificationAudio.loop = true;
           this.notificationAudio.play();
+          this.indicateNewEntries(this.orders, o);
+          this.initializeSource(o);
         }
+      } else {
+        this.initializeSource(o);
       }
-      this.orders = o;
-      this.dataSource = new MatTableDataSource<any>(this.orders);
-
       this.initializePaginator();
     });
+  }
+
+  private initializeSource(orders: any[]) {
+    this.orders = orders;
+    this.dataSource = new MatTableDataSource<any>(this.orders);
   }
 
   private initializePaginator() {
@@ -110,5 +120,10 @@ export class OrderListComponent implements OnInit, AfterViewInit, OnDestroy {
         start: 'desc'
       }
     );
+  }
+
+  private indicateNewEntries(oldList: any[], newList: any[]) {
+    const newAdditions = newList.filter(n => !oldList.map(o => o.id).includes(n.id));
+    newAdditions.forEach(n => n['newEntry'] = true);
   }
 }

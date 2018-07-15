@@ -28,6 +28,10 @@
   color: #FF655A;
 }
 
+.mat-row.new-entry {
+  background-color: #ffb8b3;
+}
+
 .refresh-rate {
   width: 30%;
   float: right;

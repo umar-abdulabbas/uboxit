@@ -77,8 +77,8 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     this.titleService.setTitle('Want to make your own combo from a different category? Then choose custom combo.');
     this.uistyleservice.scrollToTop();
     this.headerColor = document.getElementById('uboxitTopHeader'); // top stop the scroll window
-   // this.headerColor.classList.add('headerFixedShoppingCard');
-   console.log("iicic",this.uistyleservice.slideNavMsg);
+    // this.headerColor.classList.add('headerFixedShoppingCard');
+    console.log('slideNavMsg', this.uistyleservice.slideNavMsg);
     let offer = this.offerService.offer;
 
     if (offer) {
@@ -86,74 +86,75 @@ export class MakeyourcomboComponent implements OnInit, OnDestroy {
     } else {
       this.offerService.getOffers().subscribe(res => {
         offer = this.offerService.offer;
-        if (offer.availableItemsForCustomCombo) {
-          this.initialize(offer);
-          this.cartService.initializeCart(offer.offerId);
-        } else {
-          this.router.navigate(['/home']);
-        }
+        this.initialize(offer);
       });
     }
   }
 
   initialize(offer: Offer) {
-    this.loadMenu.next(true);
+    if (offer.availableItemsForCustomCombo) {
+      this.loadMenu.next(true);
 
-    this.getAvailableTypes(offer);
+      this.getAvailableTypes(offer);
 
-    this.starters = this.startersToDisplay = this.offerService.getStarters();
-    this.mainCourses = this.mainCoursesToDisplay =  this.offerService.getMainDishes();
-    this.deserts = this.desertsToDisplay = this.offerService.getDessertsAndOthers();
+      this.starters = this.startersToDisplay = this.offerService.getStarters();
+      this.mainCourses = this.mainCoursesToDisplay = this.offerService.getMainDishes();
+      this.deserts = this.desertsToDisplay = this.offerService.getDessertsAndOthers();
 
-    this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
-      this.alertInvoker.invokeNotification('');
-      this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
-      const selectedItemId = this.msgFromMakeYourOwnCombo.itemId;
-      const selectedItemType = this.msgFromMakeYourOwnCombo.itemType;
-      let duplicateSelection = false;
-      if (!!selectedItemId) {
-        const selectedItem = this.offerService.getItemById(selectedItemId);
-        if (selectedItemType === ItemType.Starters) {
-          this.selectedStarter = selectedItem;
-          this.currentVisibleType = ItemType.MainDish;
-        } else if (selectedItemType === ItemType.MainDish) {
-          this.selectedMainDish = selectedItem;
-          this.currentVisibleType = ItemType.Dessert;
-        } else if (selectedItemType === ItemType.Dessert) {
-          this.selectedDessert = selectedItem;
-          this.currentVisibleType = ItemType.Dessert;
+      this.subFromMakeYourOwnCombo = this.makeyourowncomboservice.getUpdateFields().subscribe(msgFromMakeYourOwnCombo => {
+        this.alertInvoker.invokeNotification('');
+        this.msgFromMakeYourOwnCombo = msgFromMakeYourOwnCombo;
+        const selectedItemId = this.msgFromMakeYourOwnCombo.itemId;
+        const selectedItemType = this.msgFromMakeYourOwnCombo.itemType;
+        let duplicateSelection = false;
+        if (!!selectedItemId) {
+          const selectedItem = this.offerService.getItemById(selectedItemId);
+          if (selectedItemType === ItemType.Starters) {
+            this.selectedStarter = selectedItem;
+            this.currentVisibleType = ItemType.MainDish;
+          } else if (selectedItemType === ItemType.MainDish) {
+            this.selectedMainDish = selectedItem;
+            this.currentVisibleType = ItemType.Dessert;
+          } else if (selectedItemType === ItemType.Dessert) {
+            this.selectedDessert = selectedItem;
+            this.currentVisibleType = ItemType.Dessert;
+          }
+          console.log(selectedItem.id);
         }
-        console.log(selectedItem.id);
-      }
 
-      if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
-        this.comboComplete = true;
-        const selectedCombination = [this.selectedStarter.id, this.selectedMainDish.id, this.selectedDessert.id];
-        // if selected items are already in the cart, show the add to cart with existing value
-        duplicateSelection = this.cartService.isCustomComboAlreadySelected(selectedCombination);
-        if (duplicateSelection) {
-          this.comboCount = this.cartService.getCustomeComboCountIfAlreadySelected(selectedCombination);
-          this.alertInvoker.invokeNotification(DUPLICATE_BOX_NOTIFICATION);
-          console.log(this.comboCount);
-        } else {
-          this.comboCount = 0;
+        if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
+          this.comboComplete = true;
+          const selectedCombination = [this.selectedStarter.id, this.selectedMainDish.id, this.selectedDessert.id];
+          // if selected items are already in the cart, show the add to cart with existing value
+          duplicateSelection = this.cartService.isCustomComboAlreadySelected(selectedCombination);
+          if (duplicateSelection) {
+            this.comboCount = this.cartService.getCustomeComboCountIfAlreadySelected(selectedCombination);
+            this.alertInvoker.invokeNotification(DUPLICATE_BOX_NOTIFICATION);
+            console.log(this.comboCount);
+          } else {
+            this.comboCount = 0;
+          }
         }
-      }
-      if ((!!this.selectedStarter || !!this.selectedMainDish || !!this.selectedDessert) && !duplicateSelection) {
-        this.comboHasMinimumContent = true;
-        this.clearOrAddNewText = CLEAR_COMBO_TEXT;
-      }
-    });
+        if ((!!this.selectedStarter || !!this.selectedMainDish || !!this.selectedDessert) && !duplicateSelection) {
+          this.comboHasMinimumContent = true;
+          this.clearOrAddNewText = CLEAR_COMBO_TEXT;
+        }
+      });
 
-    // if + or - done at left slide nave, then that needs to be updated
-    // but only if that combo is selected
-    // & also change the text
-    this.totalCountSubscription = this.cartService.totalCountObservable.subscribe(() => {
-      if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
-        this.comboCount = this.cartService.getCustomeComboCountIfAlreadySelected([this.selectedStarter.id, this.selectedMainDish.id, this.selectedDessert.id]);
-        this.clearOrAddNewText = START_NEW_COMBO_TEXT;
-      }
-    });
+      // if + or - done at left slide nave, then that needs to be updated
+      // but only if that combo is selected
+      // & also change the text
+      this.totalCountSubscription = this.cartService.totalCountObservable.subscribe(() => {
+        if (!!this.selectedStarter && !!this.selectedMainDish && !!this.selectedDessert) {
+          this.comboCount = this.cartService.getCustomeComboCountIfAlreadySelected([this.selectedStarter.id, this.selectedMainDish.id, this.selectedDessert.id]);
+          this.clearOrAddNewText = START_NEW_COMBO_TEXT;
+        }
+      });
+
+      this.cartService.initializeCart(offer.offerId);
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 
   starterPress(): void {

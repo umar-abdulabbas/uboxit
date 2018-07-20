@@ -1,12 +1,14 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 
 const app = express();
 const apiRequest = require('./server/api-request');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })) ;
+app.use(compression());
 
 // Run the app by serving the static files in the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));

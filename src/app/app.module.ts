@@ -81,6 +81,7 @@ import {OrderListComponent} from './components/order-list/order-list.component';
 import { AdminGuard } from './guards/AdminGuard';
 import { GenericService } from './core/services/generic-service';
 import { ReferenceDataService } from './shared/services/reference-data.service';
+import { AddressFetcherService } from './components/shoppingcart/services/address-fetcher.service';
 
 // Payment
 
@@ -164,6 +165,7 @@ import { ReferenceDataService } from './shared/services/reference-data.service';
     AlertInvoker,
     ErrorsAggregator,
     ReferenceDataService,
+    AddressFetcherService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     { provide: ErrorHandler, useClass: GenericErrorHandler }

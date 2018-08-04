@@ -28,6 +28,14 @@ app.all('/customer-api/*', (req, res) => {
   }
 });
 
+app.all('/address-api/*', (req, res) => {
+  apiRequest.fetchAddress(req)
+    .then(apiResponse => {
+      console.log(apiResponse.body);
+      res.json(apiResponse.body);
+    });
+});
+
 app.all('/:resource/*', (req, res) => {
   console.log(req.url);
   apiRequest.sendRequest(req, req.url)

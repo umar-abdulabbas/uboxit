@@ -50,7 +50,7 @@
                               </td>
                               <td>
                                 <div class="group">
-                                  <input type="text" required name="streetname" [(ngModel)]="addressModel.street" #streetname="ngModel" pattern="[A-Za-z\d_\- ,]*$">
+                                  <input type="text" required name="streetname" [(ngModel)]="addressModel.street" #streetname="ngModel" pattern="[A-Za-z\d_\- ,]*$" (focus)="searchAddress(addressModel.postalCode, addressModel.houseNumber)">
                                   <span class="highlight"></span>
                                   <span class="bar"></span><label>Street Name</label>
                                 </div>

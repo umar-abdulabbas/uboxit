@@ -90,9 +90,25 @@ function login(req) {
   });
 }
 
+function fetchAddress(req) {
+  return reqPromise({
+    uri: `https://api.postcodeapi.nu/v2/addresses/?postcode=${req.body.postalCode}&number=${req.body.houseNumber}`,
+    method: 'GET',
+    headers: {'X-Api-Key': '8wkAmLJjZq3fPwN7wpszj1wsdoZ5VaHs19tzGhF5', 'Content-Type': 'application/json'},
+    json: true,
+    simple: false,
+    resolveWithFullResponse: true
+  })
+    .then((res) => res)
+    .catch((err) => {
+      console.log(`Error in Processing Request for address error log - ${err}`);
+      return Promise.reject(err);
+    });
+}
 
 module.exports = {
   sendRequest,
   login,
-  createOrUpdateCustomer
+  createOrUpdateCustomer,
+  fetchAddress
 };

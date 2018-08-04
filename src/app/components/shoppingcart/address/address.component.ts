@@ -6,6 +6,7 @@ import {} from '@types/googlemaps';
 import Animation = google.maps.Animation;
 import { CartService } from '../services/cart.service';
 import { UserExpStyleService } from '../../../shared/UI/globalUI.service';
+import { AddressFetcherService } from '../services/address-fetcher.service';
 export class AddressList {
   id: string;
   name: string;
@@ -50,7 +51,7 @@ export class AddressComponent implements OnInit {
   body;
   public showMobile: boolean;
   public showTerms: boolean;
-  public showPrivacy:boolean;
+  public showPrivacy: boolean;
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
   displayMap: boolean;
@@ -64,7 +65,8 @@ export class AddressComponent implements OnInit {
 
   constructor(private paymentService: PaymentService,
               private storageService: StorageService,
-              private cartService: CartService, public uistyleservice: UserExpStyleService) {
+              private cartService: CartService, public uistyleservice: UserExpStyleService,
+              private addressFetcherService: AddressFetcherService) {
   }
 
   ngOnInit() {
@@ -109,6 +111,15 @@ export class AddressComponent implements OnInit {
       animation: Animation.DROP,
       map: this.map
     });
+  }
+
+  searchAddress(postalCode: string, houseNumber: string) {
+    if (!!postalCode && !!houseNumber && !this.addressModel.street && !this.addressModel.area) {
+      this.addressFetcherService.fetchAddress(postalCode, houseNumber).subscribe(data => {
+        this.addressModel.street = data.street;
+        this.addressModel.area = data.city;
+      });
+    }
   }
 
   selectDeliveryMode(data) {

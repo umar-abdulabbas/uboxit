@@ -15,8 +15,8 @@ export class MenuList {
 
 const MENULIST: MenuList[] = [
   {id: '001', name: 'Choices', link: '/choices', icon: 'restaurant', filter: false, menuActive: false},
-  {id: '002', name: 'Combo', link: '/combo', icon: 'restaurant_menu', filter: true, menuActive: false},
-  {id: '003', name: 'Make Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false},
+  {id: '002', name: 'Lunch Combo', link: '/combo', icon: 'restaurant_menu', filter: true, menuActive: false},
+  {id: '003', name: 'Lunch own Combo', link: '/makeyourcombo', icon: 'room_service', filter: false, menuActive: false},
 ];
 
 /* Menu End */

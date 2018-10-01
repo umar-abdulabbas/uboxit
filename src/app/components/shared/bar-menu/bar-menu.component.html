@@ -27,7 +27,7 @@
 <section *ngIf="showMobile">
     <div class="uboxit-footer">
         <div *ngFor="let menu of menuList" [ngClass]="{'uboxit-footer-cell-1':celloneFooter, 'uboxit-footer-cell-2':celltwoFooter}">
-        <a mat-button color="accent">
+        <a mat-button color="accent" class="uboxit-footer-button">
         <div class="uboxit-footer-cell" [ngClass]="{'uboxit-footer-btn-active':menu.menuActive}"
          (click)="openMenu(menu.link);" >
             <div class="uboxit-footer-icon"><i class="material-icons">{{menu.icon}}</i></div>

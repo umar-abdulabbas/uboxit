@@ -173,19 +173,11 @@ export class AddressComponent implements OnInit {
     this.addressUpdated.emit(true);
   }
 
-    onSelect(comp:string): void {
+    onSelect(comp: string): void {
       this.active = true;
       this.body.classList.add('body-overflow');
-      if(comp === 'terms') {
-        this.showTerms = true;
-      } else{
-        this.showTerms = false;
-      }
-      if(comp === 'privacy') {
-        this.showPrivacy = true;
-      } else{
-       this.showPrivacy = false;
-      }
+      this.showTerms = comp === 'terms';
+      this.showPrivacy = comp === 'privacy';
   }
     close(): void {
     this.active = false;

@@ -76,7 +76,7 @@ export class PaymentService {
       'returnurl': `${this.origin}/finish?cartId=${cartId}`,
       'origin': this.origin,
       'emailId': this.userDetails.email,
-      'mobileNumber': this.makePhoneNumberProper(this.userDetails.phone.toString()),
+      'mobileNumber': this.userDetails.phone.toString(),
       'channel': this.genericService.getMobileChannel()
     };
     if (FeatureSwitch.isLoginFeatureEnabled()) {
@@ -95,12 +95,5 @@ export class PaymentService {
       request['requestedDeliveryTime'] = this.deliveryPickUpTime;
     }
     return this.http.post('/order-api/order', request);
-  }
-
-  private makePhoneNumberProper(phoneNumber: string) {
-    if (phoneNumber.charAt(0) === '0') {
-      phoneNumber = phoneNumber.substring(1);
-    }
-    return '+31' + phoneNumber;
   }
 }

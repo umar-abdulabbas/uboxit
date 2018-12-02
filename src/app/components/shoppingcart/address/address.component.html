@@ -96,8 +96,8 @@
                               </table>
                       </div>
                       <div class="group">
-                        <span class="uboxit-mobile-prefix"><span class="uboxit-mobile-prefix-elem">+31</span></span>
-                        <input  type="number" required name="phone" [(ngModel)]="userModel.phone" #phonenumber="ngModel" class="input-color uboxit-mobile-prefix-elem-tel" pattern=".*[^ ].*">
+                        <input type="tel" required name="phone" [(ngModel)]="userModel.phone" #phonenumber="ngModel" class="input-color" pattern="^[+]{1}[0-9]*[-]*[0-9]*$"
+                                placeholder="+31612345678">
                         <span class="highlight"></span>
                         <span class="bar"></span ><label class="uboxit-mobile-prefix-label">Mobile Number</label>
                       </div>
@@ -157,8 +157,8 @@
                 </div>
                 <!-- Validation End Email -->
               <div class="group">
-                  <span class="uboxit-mobile-prefix"><span class="uboxit-mobile-prefix-elem">+31</span></span>
-                  <input  type="number" required name="phone" class="input-color uboxit-mobile-prefix-elem-tel" [(ngModel)]="userModel.phone" #phonenumber="ngModel" pattern=".*[^ ].*">
+                  <input  type="tel" required name="phone" class="input-color" [(ngModel)]="userModel.phone" #phonenumber="ngModel" pattern="^[+]{1}[0-9]*[-]*[0-9]*$"
+                          placeholder="+31612345678">
                   <span class="highlight"></span>
                   <span class="bar"></span><label class="uboxit-mobile-prefix-label">Enter your Mobile Number</label>
               </div>

@@ -20,9 +20,6 @@ input:focus ~ label{
     top:-10px;
 
 }
-input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
-    top:-10px;
-}
 .group{
     margin-bottom: 20px;
 }
@@ -106,9 +103,6 @@ input.input-color.uboxit-mobile-prefix-elem-tel:focus ~label {
 }
 .uboxit-mobile-prefix-elem{
     position: absolute; top: 10px; left:5px;
-}
-.uboxit-mobile-prefix-elem-tel{
-    padding-left: 30px;
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

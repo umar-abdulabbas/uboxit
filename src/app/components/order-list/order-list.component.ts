@@ -89,20 +89,16 @@ export class OrderListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private getOrders() {
-    this.http.get('order-api/order')
-      .map((o: any[]) => {
-        return o.filter( order => !!order && !!order.orderConfirmation);
-      })
-      .subscribe((completedOrders: any[]) => {
+    this.http.get('order-api/order').subscribe((o: any[]) => {
       if (this.orders.length > 0) {
-        if (completedOrders.length > this.orders.length) {
+        if (o.length > this.orders.length) {
           this.notificationAudio.loop = true;
           this.notificationAudio.play();
-          this.indicateNewEntries(this.orders, completedOrders);
-          this.initializeSource(completedOrders);
+          this.indicateNewEntries(this.orders, o);
+          this.initializeSource(o);
         }
       } else {
-        this.initializeSource(completedOrders);
+        this.initializeSource(o);
       }
       this.initializePaginator();
     });

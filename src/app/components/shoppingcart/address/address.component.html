@@ -96,7 +96,7 @@
                               </table>
                       </div>
                       <div class="group">
-                        <input type="tel" required name="phone" [(ngModel)]="userModel.phone" #phonenumber="ngModel" class="input-color" pattern="^[+]{1}[0-9]*[-]*[0-9]*$"
+                        <input type="tel" required name="phone" [(ngModel)]="userModel.phone" #phonenumber="ngModel" class="input-color" pattern="{{mobileNumberRegex}}"
                                 placeholder="+31612345678">
                         <span class="highlight"></span>
                         <span class="bar"></span ><label class="uboxit-mobile-prefix-label">Mobile Number</label>
@@ -136,7 +136,7 @@
               <div class="group">
                   <input type="text" required name="name" class="input-color" [(ngModel)]="userModel.name" #fname="ngModel" pattern="^[A-Za-z ]*$">
                   <span class="highlight"></span>
-                  <span class="bar"></span><label>Enter your Name</label>
+                  <span class="bar"></span><label>Name</label>
               </div>
                    <!-- Validation Name-->
                    <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
@@ -147,7 +147,7 @@
               <div class="group">
                   <input type="email" id="email" required name="email" [(ngModel)]="userModel.email" #email="ngModel" class="input-color" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                   <span class="highlight"></span>
-                  <span class="bar"></span><label>Enter your Email Address</label>
+                  <span class="bar"></span><label>Email Address</label>
               </div>
                <!-- Validation Email-->
                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
@@ -157,10 +157,10 @@
                 </div>
                 <!-- Validation End Email -->
               <div class="group">
-                  <input  type="tel" required name="phone" class="input-color" [(ngModel)]="userModel.phone" #phonenumber="ngModel" pattern="^[+]{1}[0-9]*[-]*[0-9]*$"
+                  <input  type="tel" required name="phone" class="input-color" [(ngModel)]="userModel.phone" #phonenumber="ngModel" pattern="{{mobileNumberRegex}}"
                           placeholder="+31612345678">
                   <span class="highlight"></span>
-                  <span class="bar"></span><label class="uboxit-mobile-prefix-label">Enter your Mobile Number</label>
+                  <span class="bar"></span><label class="uboxit-mobile-prefix-label">Mobile Number</label>
               </div>
               <!-- Validation Phone Number-->
               <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1" >

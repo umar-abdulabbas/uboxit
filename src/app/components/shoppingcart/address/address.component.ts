@@ -33,6 +33,21 @@ const ADDRESSLIST: AddressList[] = [
   }
 ];
 
+/**
+ * Valid formats
+ *
+ * 984645212
+ * 919842645212
+ * +919842645212
+ * +91-9842645212
+ * 657920330
+ * 0657920330
+ * 31657920330
+ * +31657920330
+ * +31-657920330
+ */
+const MOBILE_NUMBER_REGEX = '^[+]{0,1}[0-9]{0,2}[-]{0,1}[0-9]{8,12}$';
+
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
@@ -55,6 +70,8 @@ export class AddressComponent implements OnInit {
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
   displayMap: boolean;
+
+  mobileNumberRegex = MOBILE_NUMBER_REGEX;
 
   private pickupAtStoreUpdatedToCart = false;
 

@@ -1,5 +1,17 @@
+@import "../../../assets/css/_variables";
+
 .uboxit-title {
   padding: 20px 0;
+}
+
+.uboxit-title span {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.uboxit-title span button {
+  width: 150px;
 }
 
 .example-container {
@@ -35,6 +47,27 @@
 .refresh-rate {
   width: 30%;
   float: right;
+}
+
+.box {
+  display:inline-block;
+  width: 49.5%;
+}
+
+.header-color{
+  background: $uboxit-primary-color;
+  height: 70px;
+}
+
+.modal.active {
+  .modal-container {
+    max-width: 100%!important;
+    width: 90%;
+    height: 90%;
+    .modal-body {
+      max-height: 100% !important;
+    }
+  }
 }
 
 mat-cell.clickable {

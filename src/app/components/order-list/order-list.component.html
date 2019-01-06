@@ -23,12 +23,12 @@
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
-      <mat-cell class="clickable" *matCellDef="let element" (click)="loadShop(element.shopId, element.orderConfirmation)"> {{element.id}} </mat-cell>
+      <mat-cell class="clickable" *matCellDef="let element" (click)="loadOrder(element.shopId, element.id)"> {{element.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="order">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Order# </mat-header-cell>
-      <mat-cell class="clickable" *matCellDef="let element" (click)="loadShop(element.shopId, element.orderConfirmation)" > {{element.orderConfirmation}} </mat-cell>
+      <mat-cell class="clickable" *matCellDef="let element" (click)="loadOrder(element.shopId, element.id)" > {{element.orderConfirmation}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="orderTime">
@@ -103,6 +103,9 @@
 
 <div class="uboxit-title" *ngIf="selectedOrder">
   <h3>Order Details for {{selectedOrder}}</h3>
+  <span>
+    <button class="btn btn-primary" (click)="print()">Print</button>
+  </span>
   <h4 *ngIf="remarks" [ngClass]="{'blink': !!remarks}">Remarks: {{remarks}}</h4>
 </div>
 
@@ -135,4 +138,25 @@
     <mat-header-row *matHeaderRowDef="displayedItemColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedItemColumns;"></mat-row>
   </mat-table>
+</div>
+
+<!-- copied from location html-->
+<div class="modal modal-lg active" id="modal-id" *ngIf="isModelActive">
+  <a href="#close" class="modal-overlay" aria-label="Close"></a>
+  <div class="modal-container">
+    <div class="modal-header header-color">
+      <button href="#close" class="btn btn-clear uboxitLogo float-right" (click)="closeModel()" ></button>
+      <div class="modal-title h5"><img src="assets/images/Uboxitlogo.png" alt="UBoxIT" width="80px" style="border-radius:0"/></div>
+    </div>
+    <div class="modal-body location">
+      <div class="content">
+        <div class="box">
+          <iframe [src]="kitchenReceiptFrame" frameborder="0" scrolling="no" height="800" align="left" width="100%" ></iframe>
+        </div>
+        <div class="box">
+          <iframe [src]="invoiceReceiptFrame" frameborder="0" scrolling="no" height="800" align="left" width="100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

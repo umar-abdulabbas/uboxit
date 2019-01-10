@@ -24,7 +24,7 @@ export class OrderListComponent implements OnInit, AfterViewInit, OnDestroy {
   notificationAudio = new Audio('../../../assets/audio/slow-spring-board.mp3');
 
   refreshes = [{name: '1 min', value: 60000}, {name: '2 mins', value: 120000}, {name: '5 mins', value: 300000}];
-  refreshRate = 6000000;
+  refreshRate = 60000;
 
   dataSource = new MatTableDataSource<any>(undefined);
   itemDataSource = new MatTableDataSource<any>(undefined);

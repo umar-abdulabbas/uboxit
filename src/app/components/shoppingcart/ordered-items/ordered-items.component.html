@@ -54,7 +54,7 @@
                 <span>{{cart.discountedTotalPrice.amount | number:'1.2-2'}}</span>
               </div>
               <div *ngIf="!cart.discountedTotalPrice" class="card-price">&euro; {{cart.totalPrice.amount | number:'1.2-2'}}</div>
-              <div>Total (6% VAT inclusive):</div>
+              <div>Total (VAT inclusive):</div>
             </div>
             <div class="card-flex-rowDir" *ngIf="cart.deliveryCharge">
                     <div class="card-price">&euro; {{cart.deliveryCharge.amount | number:'1.2-2'}}</div>

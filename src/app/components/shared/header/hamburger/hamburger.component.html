@@ -6,7 +6,7 @@
       <nav class="overlay-menu">
           <ul>
               <li *ngFor="let header of headers">
-                <a href="{{header.menuLink}}" title="{{header.menuTitle}}">{{header.menuItem | uppercase}}</a>
+                <a href="{{header.menuLink}}" [routerLink]="header.menuLink" title="{{header.menuTitle}}" (click)="onClick()">{{header.menuItem | uppercase}}</a>
               </li>
           </ul>
       </nav>

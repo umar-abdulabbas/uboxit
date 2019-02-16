@@ -16,6 +16,7 @@ export class HamburgerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getHeaders();
   }
 
   onClick() {
@@ -25,11 +26,15 @@ export class HamburgerComponent implements OnInit {
     } else {
       this.mnuName = 'menu';
     }
-    this.getHeaders();
 
   }
 
   getHeaders(): void {
     this.headerservice.getHeaders().then(headers => this.headers = headers);
+  }
+
+  onSelection() {
+    this.wasClicked = false;
+    this.mnuName = 'close';
   }
 }

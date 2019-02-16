@@ -39,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     await this.referenceDataService.getReferenceData();
-    this.showMobile = this.uistyleservice.getDeviceInformation();
+    this.showMobile = false; // not required anymore this.uistyleservice.getDeviceInformation();
     const myDate = new Date();
     const hrs = myDate.getHours();
     if (hrs < 12) {

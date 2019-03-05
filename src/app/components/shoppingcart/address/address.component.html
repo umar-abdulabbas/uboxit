@@ -12,7 +12,7 @@
                       <div class="group">
                         <input type="text"id="fname" required name="fname" [(ngModel)]="userModel.name" #fname="ngModel"  pattern="^[A-Za-z ]*$">
                         <span class="highlight"></span>
-                        <span class="bar"></span><label>Name</label>
+                        <span class="bar"></span><label>Name *</label>
                       </div>
                         <!-- Validation Name-->
                         <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
@@ -23,7 +23,7 @@
                       <div class="group">
                         <input type="text" id="postcode" required name="postcode" [(ngModel)]="addressModel.postalCode"  minlength="6" #postcode="ngModel" pattern="[A-Za-z\d\- ]*$">
                         <span class="highlight"></span>
-                        <span class="bar"></span><label>Postcode</label>
+                        <span class="bar"></span><label>Postcode *</label>
                       </div>
                          <!-- Validation PostCode-->
                          <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="toast toast-error space1">
@@ -39,7 +39,7 @@
                                 <div class="group">
                                   <input type="text" required name="housenumber" [(ngModel)]="addressModel.houseNumber" #housenumber="ngModel" pattern="[A-Za-z\d\- ]*$">
                                   <span class="highlight"></span>
-                                  <span class="bar"></span><label>House Number</label>
+                                  <span class="bar"></span><label>House Number *</label>
                                 </div>
                                   <!-- Validation House Number-->
                                   <div *ngIf="housenumber.invalid && (housenumber.dirty || housenumber.touched)" class="toast toast-error space1">
@@ -52,7 +52,7 @@
                                 <div class="group">
                                   <input type="text" required name="streetname" [(ngModel)]="addressModel.street" #streetname="ngModel" pattern="[A-Za-z\d_\- ,]*$" (focus)="searchAddress(addressModel.postalCode, addressModel.houseNumber)">
                                   <span class="highlight"></span>
-                                  <span class="bar"></span><label>Street Name</label>
+                                  <span class="bar"></span><label>Street Name *</label>
                                 </div>
                                 <!-- Validation Street Name-->
                                 <div *ngIf="streetname.invalid && (streetname.dirty || streetname.touched)" class="toast toast-error space1">
@@ -71,7 +71,7 @@
                                     <div class="group">
                                     <input type="text" required name="cityarea" [(ngModel)]="addressModel.area" #cityname="ngModel" pattern="[A-Za-z\d_\- ,]*$">
                                     <span class="highlight"></span>
-                                    <span class="bar"></span><label>City/Area</label>
+                                    <span class="bar"></span><label>City/Area *</label>
                                     </div>
                                      <!-- Validation Street Name-->
                                       <div *ngIf="cityname.invalid && (cityname.dirty || cityname.touched)" class="toast toast-error space1">
@@ -99,7 +99,7 @@
                         <input type="tel" required name="phone" [(ngModel)]="userModel.phone" #phonenumber="ngModel" class="input-color" pattern="{{mobileNumberRegex}}"
                                 placeholder="+31612345678">
                         <span class="highlight"></span>
-                        <span class="bar"></span ><label class="uboxit-mobile-prefix-label">Mobile Number</label>
+                        <span class="bar"></span ><label class="uboxit-mobile-prefix-label">Mobile Number *</label>
                       </div>
                       <!-- Validation Phone Number-->
                       <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1">
@@ -111,7 +111,7 @@
                       <div class="group">
                         <input type="email" id="email" required name="email" [(ngModel)]="userModel.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                         <span class="highlight"></span>
-                        <span class="bar"></span><label>Email Address</label>
+                        <span class="bar"></span><label>Email Address *</label>
                       </div>
                        <!-- Validation Email-->
                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
@@ -136,7 +136,7 @@
               <div class="group">
                   <input type="text" required name="name" class="input-color" [(ngModel)]="userModel.name" #fname="ngModel" pattern="^[A-Za-z ]*$">
                   <span class="highlight"></span>
-                  <span class="bar"></span><label>Name</label>
+                  <span class="bar"></span><label>Name *</label>
               </div>
                    <!-- Validation Name-->
                    <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="toast toast-error space">
@@ -147,7 +147,7 @@
               <div class="group">
                   <input type="email" id="email" required name="email" [(ngModel)]="userModel.email" #email="ngModel" class="input-color" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                   <span class="highlight"></span>
-                  <span class="bar"></span><label>Email Address</label>
+                  <span class="bar"></span><label>Email Address *</label>
               </div>
                <!-- Validation Email-->
                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="toast toast-error space1">
@@ -160,7 +160,7 @@
                   <input  type="tel" required name="phone" class="input-color" [(ngModel)]="userModel.phone" #phonenumber="ngModel" pattern="{{mobileNumberRegex}}"
                           placeholder="+31612345678">
                   <span class="highlight"></span>
-                  <span class="bar"></span><label class="uboxit-mobile-prefix-label">Mobile Number</label>
+                  <span class="bar"></span><label class="uboxit-mobile-prefix-label">Mobile Number *</label>
               </div>
               <!-- Validation Phone Number-->
               <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="toast toast-error space1" >

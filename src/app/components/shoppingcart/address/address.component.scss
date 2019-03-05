@@ -10,6 +10,11 @@ input{
     border-color: #e7e9ed;
     font-family: $uboxit-font;
 }
+
+input ~ label {
+  color: #5264AE;
+}
+
 .bar{
     width: 100%;
 }

@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { NgZone } from '@angular/core';
 import { FeatureSwitch } from '../../core/feature-switch/feature-switch';
 import { CartService } from '../shoppingcart/services/cart.service';
-import { MatRadioChange } from '@angular/material';
 
 @Component({
   selector: 'app-payment',
@@ -21,6 +20,9 @@ export class PaymentComponent implements OnInit {
   adyenPaymentSupported: boolean;
 
   amount: number;
+
+  showOrderError: boolean;
+  orderErrorMessage: string;
 
   sdkConfigObj = {
     context: 'live' // change it to `live` when going live.
@@ -79,16 +81,28 @@ export class PaymentComponent implements OnInit {
   }
 
   loadPaymentWidget() {
-    // console.log(matRadioChange);
     this.paymentService.initiatePayment(this.cartService.cartId)
-      .subscribe(res => {
-        this.adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
-        this.payOnDelivery.emit(false);
+      .subscribe((res: any) => {
+        const inputForAdyen = res.paymentSession;
+        if (inputForAdyen) {
+          this.adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
+          this.payOnDelivery.emit(false);
+        } else {
+          const orderError = res.error;
+          if (orderError) {
+            this.orderErrorMessage = orderError.description;
+            this.showOrderError = true;
+          }
+        }
       });
   }
 
   paymentOnDelivery() {
     this.payOnDelivery.emit(true);
+  }
+
+  closeModel() {
+    this.showOrderError = false;
   }
 
 }

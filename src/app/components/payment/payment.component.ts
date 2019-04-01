@@ -17,6 +17,8 @@ export class PaymentComponent implements OnInit {
   @Input() cart: Observable<Cart>;
   @Input() checked: boolean;
   @Output() payOnDelivery = new EventEmitter<boolean>();
+
+  paymentNotPossible: boolean;
   adyenPaymentSupported: boolean;
 
   amount: number;
@@ -88,11 +90,12 @@ export class PaymentComponent implements OnInit {
           this.adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
           this.payOnDelivery.emit(false);
         } else {
-          const orderError = res.error;
-          if (orderError) {
-            this.orderErrorMessage = orderError.description;
-            this.showOrderError = true;
-          }
+          this.paymentNotPossible = true;
+        }
+        const orderError = res.error;
+        if (orderError) {
+          this.orderErrorMessage = orderError.description;
+          this.showOrderError = true;
         }
       });
   }
@@ -103,6 +106,9 @@ export class PaymentComponent implements OnInit {
 
   closeModel() {
     this.showOrderError = false;
+    if (this.paymentNotPossible) {
+      this.router.navigate(['home']);
+    }
   }
 
 }

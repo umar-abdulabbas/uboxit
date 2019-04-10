@@ -87,7 +87,7 @@ export class PaymentComponent implements OnInit {
       .subscribe((res: any) => {
         const inputForAdyen = res.paymentSession;
         if (inputForAdyen) {
-          this.adyenSdk['checkout'](res, '#checkout-div', this.sdkConfigObj);
+          this.adyenSdk['checkout'](inputForAdyen, '#checkout-div', this.sdkConfigObj);
           this.payOnDelivery.emit(false);
         } else {
           this.paymentNotPossible = true;

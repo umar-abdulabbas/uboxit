@@ -15,6 +15,8 @@ import { TermsComponent } from './components/shared/terms/terms.component';
 import {OrderListComponent} from './components/order-list/order-list.component';
 import { AdminGuard } from './guards/AdminGuard';
 
+console.log('test push');
+
 const routes: Routes = [
 
   {path: '', redirectTo: '/choices', pathMatch: 'full'},
